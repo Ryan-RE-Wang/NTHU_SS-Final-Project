@@ -16,6 +16,8 @@ import {
 
 import './Main.css';
 
+import Homepage from 'components/Homepage.jsx';
+
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -24,7 +26,7 @@ export default class Main extends React.Component {
 
     render() {
         return (
-            <h1>Hello Final</h1>
+            <Homepage/>
         );
     }
 }
