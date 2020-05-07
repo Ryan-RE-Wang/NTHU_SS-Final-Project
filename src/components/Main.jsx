@@ -31,7 +31,7 @@ export default class Main extends React.Component {
                     <div className='container'>
                         <Navbar color='faded' light expand='md'>
                             <NavbarToggler/>
-                            <NavbarBrand className='text-info' href="/">WeatherMood</NavbarBrand>
+                            <NavbarBrand className='text-info' href="/">NewsSharing</NavbarBrand>
                                 <Nav navbar>
                                     <NavItem>
                                         <NavLink tag={Link} to='/'>Home</NavLink>
