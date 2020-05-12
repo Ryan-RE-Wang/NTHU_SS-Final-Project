@@ -1,0 +1,15 @@
+.Post{
+    margin:2rem;
+    
+}
+.Post img {
+    display: block;
+    
+    width: 16rem;
+    height: 20rem;
+    
+    margin: 0 auto;
+}
+.Post introduction{
+    text-align: center;
+}
