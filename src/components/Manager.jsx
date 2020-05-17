@@ -178,7 +178,7 @@ export default class Manager extends React.Component {
         <div className= "form">
         <Form>
             <Form.Field>
-                <label>Old Password</label>
+                <label>OOOld Password</label>
                 <input />
             </Form.Field>
             <Form.Field>
