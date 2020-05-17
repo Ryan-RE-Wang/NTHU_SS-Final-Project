@@ -1,0 +1,28 @@
+.container {
+    padding: 1rem;
+    position: relative;
+    margin: 0 4rem;
+    
+}
+.title {
+    text-align: center;
+}
+.article-form {
+    
+}
+.article-form .form {
+    width: 100%;
+    max-width: 45rem;
+    margin: 1.2rem auto;
+}
+
+.buttons {
+    position: relative;
+    width: 7rem;
+    margin: auto;
+}
+/* .btn-post .btn-cancel {
+    margin: auto;
+    padding: 1rem;
+    text-align: center;
+} */

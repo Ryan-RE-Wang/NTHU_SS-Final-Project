@@ -1,7 +1,10 @@
 .search {
     position: relative;
-    width: 50%;
-    margin: auto;
-    margin-top: 10rem;
-    margin-bottom: auto;
+    
+}
+
+.calendar{
+    color: black;
+    position: relative;
+    padding-top: 1em;
 }
