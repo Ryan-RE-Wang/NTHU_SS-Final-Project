@@ -18,6 +18,7 @@ import './Main.css';
 
 import ArticleForm from 'components/ArticleForm.jsx';
 import Homepage from 'components/Homepage.jsx';
+import Manager from 'components/Manager.jsx';
 
 
 export default class Main extends React.Component {
@@ -32,7 +33,7 @@ export default class Main extends React.Component {
                     <div className='container'>
                         <Navbar color='faded' light expand='md'>
                             <NavbarToggler/>
-                            <NavbarBrand className='text-info' href="/">WeatherMood</NavbarBrand>
+                            <NavbarBrand className='text-info' href="/">NewsSharing</NavbarBrand>
                                 <Nav navbar>
                                     <NavItem>
                                         <NavLink tag={Link} to='/'>Home</NavLink>
@@ -42,6 +43,9 @@ export default class Main extends React.Component {
                                     </NavItem>
                                     <NavItem>
                                         <NavLink tag={Link} to='/ArticleForm'>Make a Post(temporary)</NavLink> {/* testing only */}
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink tag={Link} to='/Manager'>Manager</NavLink> 
                                     </NavItem>
                                 </Nav>
                         </Navbar>
@@ -56,6 +60,9 @@ export default class Main extends React.Component {
                     )}/>
                     <Route exact path="/ArticleForm" render={() => (
                         <ArticleForm/>  
+                    )}/>
+                    <Route exact path="/Manager" render={() => (
+                        <Manager/>  
                     )}/>
                 </div>
             </Router>
