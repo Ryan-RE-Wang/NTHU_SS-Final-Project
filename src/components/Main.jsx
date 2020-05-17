@@ -16,6 +16,7 @@ import {
 
 import './Main.css';
 
+import ArticleForm from 'components/ArticleForm.jsx';
 import Homepage from 'components/Homepage.jsx';
 
 
@@ -39,15 +40,22 @@ export default class Main extends React.Component {
                                     <NavItem>
                                         <NavLink tag={Link} to='/food'>Food</NavLink>
                                     </NavItem>
+                                    <NavItem>
+                                        <NavLink tag={Link} to='/ArticleForm'>Make a Post(temporary)</NavLink> {/* testing only */}
+                                    </NavItem>
                                 </Nav>
                         </Navbar>
+                        
                     </div>
 
                     <Route exact path="/" render={() => (
-                        <Homepage/>
+                        <Homepage />
                     )}/>
                     <Route exact path="/food" render={() => (
-                        <h1>Article</h1>
+                        <h1>Food</h1>
+                    )}/>
+                    <Route exact path="/ArticleForm" render={() => (
+                        <ArticleForm/>  
                     )}/>
                 </div>
             </Router>
