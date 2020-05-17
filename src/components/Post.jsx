@@ -5,7 +5,9 @@ import './Post.css'
 
 export default class Post extends React.Component{
     static propTypes = {
-
+        // intro: PropTypes.string,
+        // dates: PropTypes.bool,
+        // place: propTypes.string
     };
 
     constructor(props){
@@ -14,14 +16,14 @@ export default class Post extends React.Component{
     }
     render(){
         return(       
-            <div>
-                <Container className='Post col'>
-                    <img src='./images/w-clear-bg.jpg' className='row'/>
-                    <div className='container row'>
-                        <h5 className='introduction col-4 '> 4/10 </h5>
-                        <h5 className='introduction col-8 '> nthu </h5>
+            <div className='Post'>
+                <Container className=' col'>
+                    <img src='./images/w-clear-bg.jpg' className='row-12'/>
+                    <div className='introduction'>
+                        <h5 className=''> Apr 10 / nthu  </h5>
+                        <h5 className='row-12 justify-content-center'> the activity </h5>
                     </div>
-                    <h5 className='introduction row justify-content-center'> the activity </h5>
+                    <Button> MORE INFO</Button>
                 </Container>
             </div>
         )
