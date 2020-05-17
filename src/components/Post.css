@@ -1,0 +1,17 @@
+.Post{
+    margin: 1rem;
+    padding: 1rem;
+    border: gray;
+    background-color: lightsalmon;
+}
+.Post img {
+    display: block;
+    
+    width: 16rem;
+    height: 20rem;
+    margin: 0 auto;
+}
+.Post .introduction{
+    margin-top: 1rem;
+    text-align: center;
+}
