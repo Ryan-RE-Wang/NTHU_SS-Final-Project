@@ -5,8 +5,6 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-import Article from './Article.jsx';
-
 import './Homepage.css'
 
 export default class Homepage extends React.Component {
@@ -50,7 +48,6 @@ export default class Homepage extends React.Component {
                         </Col>
                         <Col md={3}></Col>
                     </Row>
-                    <Article />
                 </Container>
             </div>
         )
