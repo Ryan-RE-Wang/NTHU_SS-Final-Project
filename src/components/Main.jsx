@@ -13,6 +13,8 @@ import {
     NavItem,
     NavLink
 } from 'reactstrap';
+import CreateIcon from '@material-ui/icons/Create';
+import IconButton from '@material-ui/core/IconButton';
 
 import './Main.css';
 
@@ -43,13 +45,17 @@ export default class Main extends React.Component {
                                         <NavLink tag={Link} to='/food'>Food</NavLink>
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink tag={Link} to='/ArticleForm'>Make a Post(temporary)</NavLink> {/* testing only */}
-                                    </NavItem>
-                                    <NavItem>
                                         <NavLink tag={Link} to='/Manager'>Manager</NavLink> 
                                     </NavItem>
                                     <NavItem>
                                         <NavLink tag={Link} to='/catagory'>Catalog</NavLink> 
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink tag={Link} to='/ArticleForm'> 
+                                            <IconButton  color="default" aria-label="add an article" size="small">
+                                                <CreateIcon />
+                                            </IconButton>
+                                        </NavLink>
                                     </NavItem>
                                 </Nav>
                         </Navbar>
@@ -63,7 +69,7 @@ export default class Main extends React.Component {
                         <h1>Food</h1>
                     )}/>
                     <Route exact path="/ArticleForm" render={() => (
-                        <ArticleForm/>  
+                        <ArticleForm />  
                     )}/>
                     <Route exact path="/Manager" render={() => (
                         <Manager/>  
