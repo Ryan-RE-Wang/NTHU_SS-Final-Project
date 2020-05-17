@@ -17,7 +17,10 @@ import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
 import AmpStoriesIcon from '@material-ui/icons/AmpStories';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 import { Popup, Card, Image, Rating } from 'semantic-ui-react';
+import { Button, Checkbox, Form } from 'semantic-ui-react';
+
 import './Manager.css'
 
 export default class Manager extends React.Component {
@@ -27,6 +30,8 @@ export default class Manager extends React.Component {
         super(props);
         this.state={
             nowpage:'1'
+
+
         }
         this.list_Selected = this.list_Selected.bind(this);
         this.render_Selected = this.render_Selected.bind(this);
@@ -58,6 +63,12 @@ export default class Manager extends React.Component {
                         </ListItemIcon>
                         <ListItemText primary="Analysis" />
                         </ListItem>
+                        <ListItem button onClick={() => this.list_Selected('4')}>
+                        <ListItemIcon>
+                            <BorderColorIcon />
+                        </ListItemIcon>
+                        <ListItemText primary="Setting" />
+                        </ListItem>
                 </Col>
                 <Col xs={12} md={9}>         
                            {content}
@@ -70,8 +81,9 @@ export default class Manager extends React.Component {
    
         )
     }
+
     list_Selected(page) {
-        if(page == '1'||page== '2'||page=='3')
+        if(page == '1'||page== '2'||page=='3'||page=='4')
             this.setState({nowpage: page});
         else
             console.log(`${page} error`);
@@ -160,7 +172,30 @@ export default class Manager extends React.Component {
             <Rating icon='star' defaultRating={3} maxRating={4} />
             </Popup.Content>
         </Popup>
-</div>)
+        </div>)
+    }else if(page == '4'){
+        return (
+        <div className= "form">
+        <Form>
+            <Form.Field>
+                <label>Old Password</label>
+                <input />
+            </Form.Field>
+            <Form.Field>
+                <label>New Password</label>
+                <input/>
+            </Form.Field>
+            <Form.Field>
+                <label>Confirm Password</label>
+                <input/>
+            </Form.Field>
+            <Form.Field>
+                <Checkbox label='I agree changing password' />
+            </Form.Field>
+            <Button type='submit'>Change Password</Button>
+        </Form>
+        </div>
+        ) 
     }else{
 
         return (<div>error</div>)
