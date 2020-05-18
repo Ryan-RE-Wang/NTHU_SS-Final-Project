@@ -1,28 +1,10 @@
 .picture_d{
     text-align: center;
 }
-.App {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex: 1 0 auto;
-    text-align: center;
-  }
-  
-  .form {
-    text-align: center;
-    
-  }
-  
-  .form--wrapper {
-    margin: 32px 0;
-  }
-  
-  .form--error {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    width: 100%;
-  }
+.password_reset{
+  padding: 30px 50px;
+  background-image: url(images/PasswordReset.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%  100%;
+}
   
