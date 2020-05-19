@@ -30,7 +30,7 @@ export default class Homepage extends React.Component {
                                 <InputGroup >
                                     <Input />
                                     <InputGroupAddon addonType="prepend">
-                                        <Button color='info'>Search</Button>
+                                        <Button color='info' id='btn'>Search</Button>
                                     </InputGroupAddon>
                                 </InputGroup>
                             </div>
