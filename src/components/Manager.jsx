@@ -16,6 +16,10 @@ import Form from 'react-bootstrap/Form';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import SimpleExpansionPanel from './Manager_used/expansion_panels.js';
+import Image_information from './Manager_used/card.js'
+import User_information from './Manager_used/user_information'
+
 
 import './Manager.css'
 
@@ -248,8 +252,8 @@ export default class Manager extends React.Component {
             </Card>
             </div>
             </Tab>
-            <Tab eventKey="contact" title="Contact" disabled>
-            Hello3
+            <Tab eventKey="contact" title="Contact" >
+                    <User_information/>
             </Tab>
 </Tabs>
 </div>
