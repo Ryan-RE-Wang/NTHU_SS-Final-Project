@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
-
+import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome'
+import { faAngleDown, faAngleUp} from '../../node_modules/@fortawesome/free-solid-svg-icons'
 
 import './Footer_Content.css'
 
@@ -14,11 +15,15 @@ export default class Footer_Content extends React.Component{
     static About = ['information','contact','developer','email','Art','Competition'];
     static catagory = ['Food','PE','Music','Association','Art','Competition'];
     render(){
-        console.log("foot");
         return(       
 
-            <div>
-            <div className='divide-bar'></div>
+        <div>
+            <div className='divide-bar'>
+                <button id='backToTopBtn'>
+                    <FontAwesomeIcon icon={faAngleUp} size='lg'/>
+                    <span>&nbsp;&nbsp;BACK TO TOP</span>
+                </button>
+            </div>
             <div className='footer'>
                 <Container className='footer-content pl-2 pr-2 pl-sm-5 pr-sm-5'>
                     
@@ -58,7 +63,7 @@ export default class Footer_Content extends React.Component{
 
                 </Container>                
             </div>
-            </div>
+        </div>
         )
     }
 }
