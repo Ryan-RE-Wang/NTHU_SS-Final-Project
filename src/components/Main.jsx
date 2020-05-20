@@ -37,7 +37,7 @@ export default class Main extends React.Component {
                             <NavbarBrand className='text-info' href="/">NewsSharing</NavbarBrand>
                                 <Nav navbar>
                                     <NavItem>
-                                        <NavLink tag={Link} to='/'>Home</NavLink>
+                                        <NavLink tag={Link} to='/a'>Home</NavLink>
                                     </NavItem>
                                     <NavItem>
                                         <NavLink tag={Link} to='/food'>Food</NavLink>
@@ -49,14 +49,14 @@ export default class Main extends React.Component {
                                         <NavLink tag={Link} to='/Manager'>Manager</NavLink> 
                                     </NavItem>
                                     <NavItem>
-                                        <NavLink tag={Link} to='/catagory'>Catalog</NavLink> 
+                                        <NavLink tag={Link} to='/'>Catalog</NavLink> 
                                     </NavItem>
                                 </Nav>
                         </Navbar>
                         
                     </div>
 
-                    <Route exact path="/" render={() => (
+                    <Route exact path="/a" render={() => (
                         <Homepage />
                     )}/>
                     <Route exact path="/food" render={() => (
@@ -68,7 +68,7 @@ export default class Main extends React.Component {
                     <Route exact path="/Manager" render={() => (
                         <Manager/>  
                     )}/>
-                    <Route exact path="/catagory" render={() => (
+                    <Route exact path="/" render={() => (
                         <CatalogPage topicName='food' description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
                     )}/>
                 </div>

@@ -1,17 +1,46 @@
 .Post{
-    margin: 1rem;
-    padding: 1rem;
-    border: gray;
-    background-color: lightsalmon;
+    margin-top: 1.5rem;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding:1.5rem;
+    background-color:white;
+    box-shadow: 1px 1px 4px  gray;
 }
-.Post img {
-    display: block;
-    
-    width: 16rem;
-    height: 20rem;
-    margin: 0 auto;
+.Post img {    
+    /* width: 8.5rem; */
+    height: 13rem;
+    width: 10rem;
+    padding-top: 0.5rem;
+    /* box-shadow: 1px 1px 4px  gray; */
 }
-.Post .introduction{
-    margin-top: 1rem;
-    text-align: center;
+
+.moreInfoBtn{
+    height:3rem;
+    width: 8rem;
+    color:white;
+    border-radius: 5%;
+    border: 1px solid;
+    border-color: lightskyblue;
+    background-color: lightskyblue;
+    margin-top:1rem;
+    font-size: 1.2rem;
+}
+.post-title{
+    font-size: 2rem;
+}
+.post-body{
+    font-size: 1.2rem;
+}
+@media(max-width:768px){
+    .Post img {    
+        width: auto ;
+        height: auto;
+        /* box-shadow: 1px 1px 4px  gray; */
+    }
+    .post-title{
+        font-size: 1.6rem;
+    }
+    .post-body{
+        font-size: 0.8rem;
+    }
 }
