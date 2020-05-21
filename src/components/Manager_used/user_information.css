@@ -4,3 +4,7 @@
 .user_name{
     margin: 0 auto;
 }
+.user_information{
+    text-align: justify;
+    text-justify:inter-ideograph;
+}

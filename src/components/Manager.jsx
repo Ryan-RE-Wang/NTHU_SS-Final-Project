@@ -17,8 +17,8 @@ import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import SimpleExpansionPanel from './Manager_used/expansion_panels.js';
-import Image_information from './Manager_used/card.js'
-import User_information from './Manager_used/user_information'
+import Image_information from './Manager_used/card.js';
+import User_information from './Manager_used/user_information.js';
 
 
 import './Manager.css'
@@ -44,54 +44,44 @@ export default class Manager extends React.Component {
         console.log(content);
         return (
             <Row >
-                 <Col xs={12} md={2} >
-                     <div className="user">
-                        <Card>
-                            <Image src='images/User.jpg' wrapped ui={false} width="160px" />
-                            <Card.Content>
-                            <Card.Header>NTHU</Card.Header>
-                            <Card.Meta>
-                                <span className='date'>Joined in 2015</span>
-                            </Card.Meta>
-                            <Card.Description>
-                                Matthew is a musician living in Nashville.
-                            </Card.Description>
-                            </Card.Content>
-                            <Card.Content extra>
-                            <a href="#">
-                                <Icon name='user' />
-                                <AssignmentTurnedInIcon/>
-                                22 article release
-                            </a>
-                            </Card.Content>
-                        </Card>
-                     </div>
-                     <div>
-                        <ListItem button onClick={() => this.list_Selected('1')} >
+                 <Col xs={12} md={2} className="left">
+                     <Row>
+                         <Col xs={12} md={10}>
+                        <User_information/>
+                        </Col>
+                        <Col>
+                        <ListItem  button onClick={() => this.list_Selected('1')} >
                         <ListItemIcon>
                             <AssignmentIndIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Manager" />
+                         <div className="options">Manager</div>
                         </ListItem>
+                        </Col>
+                        <Col>
                         <ListItem button onClick={() => this.list_Selected('2')}>
                         <ListItemIcon>
                             <AmpStoriesIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Articles" />
+                        <div className="options">Articles</div>
                         </ListItem>
+                        </Col>
+                        <Col>
                         <ListItem button onClick={() => this.list_Selected('3')}>
                         <ListItemIcon>
                             <BarChartIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Analysis" />
+                        <div className="options">Analysis</div>
                         </ListItem>
+                        </Col>
+                        <Col>
                         <ListItem button onClick={() => this.list_Selected('4')}>
                         <ListItemIcon>
                             <BorderColorIcon />
                         </ListItemIcon>
-                        <ListItemText primary="Setting" />
+                        <div className="options">Setting</div>
                         </ListItem>
-                        </div>
+                        </Col>
+                        </Row>
                 </Col>
                 <Col xs={12} md={9}>         
                            {content}
@@ -115,8 +105,9 @@ export default class Manager extends React.Component {
         console.log("enter");
         if(page == '1'){
             return (
-        <div>
-            <div>
+        <Container>
+            <Row>
+            <div className="manager_text">
             1
             我們向神的信心，當徧傳遠近，
             宣告已離棄偶像，事奉真活神；
@@ -128,47 +119,54 @@ export default class Manager extends React.Component {
             蒙祂聖別保守，徧及全人裏外；
             以盼望的忍耐，儆醒等候祂來。
             </div>
-            <div>
+            </Row>
+            <Row>
+            <div className="manager_text">
             2
             我們以神聖的愛，彼此來關懷，
             這愛在末後日子，更洋溢佈開；
             主引導我們的心，進入神的愛，
             豫備我們全人，盼望那日主來。
             </div>
-            <div>
+            </Row>
+            <Row>
+            <div className="manager_text">
             3
             信實的主必保守我們的各部─
             靈、魂、身子全聖別，構成祂新婦；
             今日凡事願聽從主大小吩咐，
             不久就要聽見祂的再臨招呼。
             </div>
-            <div>
+            </Row>
+            <Row>
+            <div className="manager_text">
             4
             我們等候主回來─祂甜美同在；
             哦，何等榮耀盼望！“主，願你快來！”
             作光明、白晝之子，儆醒勿懈怠，
             惟盼主顯榮身，婚娶之日，樂哉！
             </div>
-        </div>)
+            </Row>
+            </Container>)
         }else if(page == '2'){
         return (<div>
         <Container>
             <Row>
-                <Col xs={12} md={4}>
+                <Col xs={12}  md={6} lg={4}>
                     <div>
-                        <a href="#"><img src="images/風景1.jpg" alt="tree" width="300" height="200px" /></a>
+                        <a href="#"><img src="images/風景1.jpg" alt="tree" width="224" height="280px" /></a>
                         <p className="picture_d">picture1</p>
                     </div>
                 </Col>
-                <Col xs={12} md={4}>
+                <Col xs={12}  md={6} lg={4}>
                     <div>
-                        <a href="#"><img src="images/w-thunderstorm-bg.jpg" alt="thunderstorm" width="300" height="200px" /></a>
+                        <a href="#"><img src="images/w-thunderstorm-bg.jpg" alt="thunderstorm" width="224" height="280px" /></a>
                         <p className="picture_d">picture2</p>
                     </div>
                 </Col>
-                <Col xs={12} md={4}>
+                <Col xs={12} md={6} lg={4}>
                     <div>
-                        <a href="#"><img src="images/w-na-bg.jpg" alt="na" width="300" height="200px" /></a>
+                        <a href="#"><img src="images/w-na-bg.jpg" alt="na" width="224" height="280px" /></a>
                         <p className="picture_d">picture3</p>
                     </div>
                 </Col>

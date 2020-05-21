@@ -1,5 +1,5 @@
 .picture_d{
-    text-align: center;
+    text-align: match-parent ;
 }
 .password_reset{
   padding: 30px 50px;
@@ -7,4 +7,26 @@
   background-repeat: no-repeat;
   background-size: 100%  100%;
 }
-  
+.manager_text{
+  text-align: justify;
+  text-justify:inter-ideograph;
+}
+.list{
+  margin-right: 5px;
+}
+.MuiListItemIcon-root{
+  min-width: auto !important;
+}
+.left{
+  padding-right: 0px !important;
+}
+.MuiTypography-body1{
+  margin: 0 auto !important;
+  font-size: 0.75rem !important;
+}
+.options{
+  text-align: center;
+}
+.MuiListItem-root{
+  justify-content: start !important;
+}
