@@ -13,10 +13,11 @@ import {
     NavItem,
     NavLink,
     Container,
-    Button,
     Row
 } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 
 import './Main.css';
 
@@ -30,27 +31,48 @@ export default class Main extends React.Component {
         super(props);
 
         this.state = {
-            dropdownOpen: false
+            nthuOpen: false,
+            nctuOpen: false
         }
+        
+        this.handleClick = this.handleClick.bind(this);
+    }
 
+    
+
+    handleClick(school) {
+        if (school == 'nthu') {
+            this.setState((prevState) => ({
+                nthuOpen: !prevState.nthuOpen
+            }));
+        }
+        if (school == 'nctu') {
+            this.setState((prevState) => ({
+                nctuOpen: !prevState.nctuOpen
+            }))
+        }
     }
     
 
     render() {
+        const style = {
+        
+        }
+
         return (
             <Router>
-                <div className='main bg-faded'>
-                    <Container className='d-flex justify-content-around'>
-                        <NavbarBrand className='text-info' href="/">NewsSharing</NavbarBrand>
-                        <Link to='/'>Home</Link>
-                        <Link to='/food'>Food</Link>
-                        <Link to='/ArticleForm'>Post</Link>
-                        <Link to='/Manager'>Manager</Link> 
-                        <Link to='/catagory'>Catalog</Link>
+                <div className='main'>
+                    <Container className='d-flex justify-content-around' id='navbar'>
+                        <NavbarBrand className='logo' href="/">NewsSharing</NavbarBrand>
+                        <Link to='/' className='tag' id='home'>Home</Link>
+                        <Link to='/food' className='tag' id='food'>Food</Link>
+                        <Link to='/ArticleForm' className='tag' id='post'>Post</Link>
+                        <Link to='/Manager' className='tag' id='manager'>Manager</Link> 
+                        <Link to='/catagory' className='tag' id='catalog'>Catalog</Link>
                         <div className='dropDown' id='NTHU'>
-                            <span className='dropBtn'>NTHU-Club</span>
-                            <div className='contentNTHU'>
-                                <span>NTHU</span>
+                            <button className='tag' id='nthu' onClick={e => this.handleClick('nthu')}>NTHU-Club<ArrowDropDownIcon style={{display: (this.state.nthuOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.nthuOpen) ? 'inline' : 'none'}}/></button>
+                            <br/><br/><br/>
+                            <div className='contentNTHU' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>
                                 <div className='row'>
                                     <Container className='d-flex justify-content-around'>
                                         <Link className='insideCol' to='/catagory'>雄友會</Link>
@@ -78,9 +100,9 @@ export default class Main extends React.Component {
                             </div>
                         </div>   
                         <div className='dropDown' id='NCTU'>
-                            <span className='dropBtn'>NCTU-Club</span>
-                            <div className='contentNCTU'>
-                                <span>NCTU</span>
+                            <button className='tag' id="nctu" onClick={e => this.handleClick('nctu')}>NCTU-Club<ArrowDropDownIcon style={{display: (this.state.nctuOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.nctuOpen) ? 'inline' : 'none'}}/></button>
+                            <br/><br/><br/>
+                            <div className='contentNCTU' style={{display: (this.state.nctuOpen) ? 'block' : 'none'}}>
                                 <div className='row'>
                                     <Container className='d-flex justify-content-around'>
                                         <Link className='insideCol' to='/catagory'>雄友會</Link>

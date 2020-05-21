@@ -1,8 +1,24 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet'); */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 .main {
     height: 100%;
 }
 
+#navbar {
+    display: block;
+    width: 100%;
+}
+
+.logo {
+    color: orange;
+}
+
+.logo:hover {
+    color: orange;
+}
+
 .dropDown {
+    font-family: 'Raleway', sans-serif;
     float: left;
     overflow: hidden;
   }
@@ -20,6 +36,7 @@
 
 
 .contentNTHU {
+    font-family: 'Raleway', sans-serif;
     z-index: 1;
     display: none;
     position: absolute;
@@ -41,14 +58,97 @@
     z-index: 1;
   }
 
-
-
-#NTHU:hover .contentNTHU {
+.tag {
     display: block;
+    color: black;
+    text-decoration: none;
+    position: relative;
+    font-family: 'Raleway', sans-serif;
+    float: left;
+    overflow: hidden;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    padding: 14px 16px;
+    background-color: inherit;
+    margin: 0; /* Important for vertical align on mobile phones */
+  }
+
+
+.tag::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+.tag:hover {
+    text-decoration: none;
+  }
+  
+.tag:hover::after{
+    transform: scaleX(1);  
+  }
+
+#home::after {
+    background-color: blue;
 }
 
-#NCTU:hover .contentNCTU {
-    display: block;
+#food::after {
+    background-color: rgb(68, 177, 168);
+}
+
+#post::after {
+    background-color: rgba(175, 187, 9, 0.514);
+}
+
+#manager::after {
+    background-color: crimson;
+}
+
+#catalog::after {
+    background-color: burlywood;
+}
+
+#home:hover {
+    color: blue;
+}
+
+#food:hover {
+    color: rgb(68, 177, 168);
+}
+
+#post:hover {
+    color: rgb(175, 187, 9, 0.514);
+}
+
+#manager:hover {
+    color: crimson;
+}
+
+#catalog:hover {
+    color: burlywood;
+}
+
+#nthu:hover {
+    color: blueviolet
+}
+
+#nthu::after {
+    background-color: blueviolet;
+}
+
+#nctu:hover {
+    color: coral;
+}
+
+#nctu::after {
+    background-color: coral;
 }
 
   .row:after {
@@ -65,5 +165,33 @@
     display: block;
     text-align: left;
   }
+
+
+  .insideCol::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    transform: scaleX(0);
+    transition: transform 0.3s;
+  }
+
+.insideCol:hover {
+    text-decoration: none;
+    color: blueviolet;
+  }
+
+.insideCol::after {
+    background-color: blueviolet;
+}
+  
+.insideCol:hover::after{
+    transform: scaleX(1);  
+  }
+
+
 
 
