@@ -17,7 +17,7 @@ import {
 } from 'react-router-dom'
 import DatePicker from 'react-date-picker';
 
-import Post from 'components/SearchPost.jsx';
+import SearchPost from 'components/SearchPost.jsx';
 import './SearchPage.css'
 
 export default class DateSelectedPage extends React.Component {
@@ -43,27 +43,34 @@ export default class DateSelectedPage extends React.Component {
     render() {
         return (
             <div>
-                <div className='search'>
-                    <InputGroup>
-                        <Input />
-                        <InputGroupAddon addonType='prepend'>
-                            <DatePicker
-                                onChange={this.onChange}
-                                value={this.state.date}
-                            />
-                        </InputGroupAddon>
-                        <InputGroupAddon addonType='prepend'>
-                            <Button color='info' id='btn'>Search</Button>
-                        </InputGroupAddon>
-                    </InputGroup>
-                </div>
-                <Container className='SearchPage w-75'>
-                    <h3 className="display-3">Searching result</h3>
+                <Container>
+                    <Row className='d-flex justify-content-md-center'>
+                        <Col md={2}/>
+                        <Col md={8}>
+                            <div className='search'>
+                                <InputGroup>
+                                    <Input />
+                                    <InputGroupAddon addonType='prepend'>
+                                        <DatePicker
+                                        onChange={this.onChange}
+                                        value={this.state.date}
+                                        />
+                                    </InputGroupAddon>
+                                    <InputGroupAddon addonType='prepend'>
+                                        <Link to='/search' className='btn btn-info'>Search</Link>
+                                    </InputGroupAddon>
+                                </InputGroup>
+                            </div>
+                        </Col>
+                        <Col md={2}/>
+                    </Row> 
+                </Container>
+                <Container className='search-page w-75'>
                     <div className='d-flex flex-column justify-content-center'>
-                        <Post className='d-flex'></Post>
-                        <Post className='d-flex'></Post>
-                        <Post className='d-flex'></Post>
-                        <Post className='d-flex'></Post>
+                        <SearchPost className='d-flex'></SearchPost>
+                        <SearchPost className='d-flex'></SearchPost>
+                        <SearchPost className='d-flex'></SearchPost>
+                        <SearchPost className='d-flex'></SearchPost>
                     </div>
 
                 </Container>

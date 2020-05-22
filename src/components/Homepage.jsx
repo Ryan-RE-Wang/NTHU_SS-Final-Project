@@ -87,7 +87,7 @@ export default class Homepage extends React.Component {
                                         />
                                     </InputGroupAddon>
                                     <InputGroupAddon addonType='prepend'>
-                                        <Button color='info' id='btn'>Search</Button>
+                                        <Link to='/search' className='btn btn-info'>Search</Link>
                                     </InputGroupAddon>
                                 </InputGroup>
                             </div>

@@ -1,4 +1,4 @@
-.search-post{
+.search-post {
     margin: 1rem;
     padding: 1rem;
     border: gray;
@@ -12,16 +12,31 @@
 .search-post .info {
     min-height: 320px;
     margin-left: 0rem;
-    
 }
-
+.search-post .image {
+    margin: 0rem auto;
+}
 .search-post .title {
     margin-left: 0rem;
-    
+    font-size: 2rem;
+    padding: 5px;
+    font-weight: 700;
 }
-.search-post .introduction{
-    align-self: start;
-    padding: 16px;
+.search-post .date{
+    padding: 0 5px;
+    font-weight: 500;
+}
+
+.search-post .time {
+    padding: 0 5px;
+    font-weight: 500;
+}
+.search-post .location {
+    padding: 0 5px;
+    font-weight: 500;
+}
+.search-post .introduction {
+    padding: 5px;
 }
 .search-post .link {
     
