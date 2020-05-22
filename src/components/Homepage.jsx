@@ -4,17 +4,14 @@ import DatePicker from 'react-date-picker';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-<<<<<<< HEAD
 import {
     BrowserRouter as Router,
     Route,
     Link
 } from 'react-router-dom'
-=======
 import Carousel from 'react-bootstrap/Carousel'
 
 
->>>>>>> dev
 import './Homepage.css'
 
 export default class Homepage extends React.Component {
@@ -83,14 +80,6 @@ export default class Homepage extends React.Component {
                             <div className='search'>
                                 <InputGroup>
                                     <Input />
-<<<<<<< HEAD
-                                    <InputGroupAddon addonType="prepend">
-                                        <div className='search-btn'>
-                                            <Link to="/search" className="btn btn-info">
-                                                Search
-                                            </Link>
-                                        </div>       
-=======
                                     <InputGroupAddon addonType='prepend'>
                                         <DatePicker
                                         onChange={this.onChange}
@@ -99,7 +88,6 @@ export default class Homepage extends React.Component {
                                     </InputGroupAddon>
                                     <InputGroupAddon addonType='prepend'>
                                         <Button color='info' id='btn'>Search</Button>
->>>>>>> dev
                                     </InputGroupAddon>
                                 </InputGroup>
                             </div>

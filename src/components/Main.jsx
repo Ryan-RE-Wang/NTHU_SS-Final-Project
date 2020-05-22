@@ -15,16 +15,13 @@ import {
     Container,
     Row
 } from 'reactstrap';
-<<<<<<< HEAD
 import CreateIcon from '@material-ui/icons/Create';
 import IconButton from '@material-ui/core/IconButton';
-=======
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import { Animate } from "react-simple-animate";
 
->>>>>>> dev
 
 import './Main.css';
 
@@ -33,11 +30,8 @@ import ArticleForm from 'components/ArticleForm.jsx';
 import Homepage from 'components/Homepage.jsx';
 import Manager from 'components/Manager.jsx';
 import CatalogPage from 'components/CatalogPage.jsx';
-<<<<<<< HEAD
 import SearchPage from 'components/SearchPage.jsx'
-=======
 import { colors } from '@material-ui/core';
->>>>>>> dev
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -108,36 +102,6 @@ export default class Main extends React.Component {
     render() {
         return (
             <Router>
-<<<<<<< HEAD
-                <div className='main bg-faded'>
-                    <div className='container'>
-                        <Navbar color='faded' light expand='md'>
-                            <NavbarToggler/>
-                            <NavbarBrand className='text-info' href="/">NewsSharing</NavbarBrand>
-                                <Nav navbar>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/'>Home</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/food'>Food</NavLink>
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/Manager'>Manager</NavLink> 
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/catagory'>Catalog</NavLink> 
-                                    </NavItem>
-                                    <NavItem>
-                                        <NavLink tag={Link} to='/ArticleForm'> 
-                                            <IconButton  color="default" aria-label="add an article" size="small">
-                                                <CreateIcon />
-                                            </IconButton>
-                                        </NavLink>
-                                    </NavItem>
-                                </Nav>
-                        </Navbar>
-                        
-=======
                 <div className='main'>
                     <div className='animation' style={{display: (this.state.animateComplete) ? 'none' : 'block'}}>
                         <Animate
@@ -153,7 +117,6 @@ export default class Main extends React.Component {
                             >
                             <h1 className='logo'>NewsSharing</h1>
                         </Animate>
->>>>>>> dev
                     </div>
                     <Animate
                             play={this.state.animateComplete} // Toggle when animation should start
@@ -276,32 +239,8 @@ export default class Main extends React.Component {
                                 <CatalogPage topicName={this.state.tagClick} description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
                             )}/>
 
-<<<<<<< HEAD
-                    <Route exact path="/" render={() => (
-                        <Homepage />
-                    )}/>
-                    <Route exact path="/food" render={() => (
-                        <h1>Food</h1>
-                    )}/>
-                    <Route exact path="/ArticleForm" render={() => (
-                        <ArticleForm />  
-                    )}/>
-                    <Route exact path="/Manager" render={() => (
-                        <Manager/>  
-                    )}/>
-                    <Route exact path="/catagory" render={() => (
-                        <CatalogPage topicName='food' description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
-                    )}/>
-                    <Route exact path="/article" render={() => (
-                        <Article />
-                    )}/>
-                    <Route exact path="/search" render={() => (
-                        <SearchPage />
-                    )}/>
-=======
                         </div>
                     </Animate>
->>>>>>> dev
                 </div>
                 
             </Router>
