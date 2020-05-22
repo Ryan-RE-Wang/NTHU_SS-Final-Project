@@ -1,0 +1,28 @@
+.search-post{
+    margin: 1rem;
+    padding: 1rem;
+    border: gray;
+}
+.search-post img {
+    display: block;
+    width: 16rem;
+    height: 20rem;
+    margin: 0 auto;
+}
+.search-post .info {
+    min-height: 320px;
+    margin-left: 0rem;
+    
+}
+
+.search-post .title {
+    margin-left: 0rem;
+    
+}
+.search-post .introduction{
+    align-self: start;
+    padding: 16px;
+}
+.search-post .link {
+    
+}

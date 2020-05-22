@@ -28,7 +28,6 @@ export default class Post extends React.Component{
     render() {
         return(       
             <div className='Post'>
-
                 <Container className=' col'>
                         <img src='./images/w-clear-bg.jpg' className='row-12'/>
                         <div className='introduction'>

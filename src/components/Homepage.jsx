@@ -4,7 +4,11 @@ import DatePicker from 'react-date-picker';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 import './Homepage.css'
 
 export default class Homepage extends React.Component {
@@ -29,7 +33,11 @@ export default class Homepage extends React.Component {
                                 <InputGroup >
                                     <Input />
                                     <InputGroupAddon addonType="prepend">
-                                        <Button color='info'>Search</Button>
+                                        <div className='search-btn'>
+                                            <Link to="/search" className="btn btn-info">
+                                                Search
+                                            </Link>
+                                        </div>       
                                     </InputGroupAddon>
                                 </InputGroup>
                             </div>

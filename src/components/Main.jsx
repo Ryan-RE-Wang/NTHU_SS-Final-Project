@@ -24,6 +24,7 @@ import Homepage from 'components/Homepage.jsx';
 import Manager from 'components/Manager.jsx';
 
 import CatalogPage from 'components/CatalogPage.jsx';
+import SearchPage from 'components/SearchPage.jsx'
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -80,6 +81,9 @@ export default class Main extends React.Component {
                     )}/>
                     <Route exact path="/article" render={() => (
                         <Article />
+                    )}/>
+                    <Route exact path="/search" render={() => (
+                        <SearchPage />
                     )}/>
                 </div>
             </Router>
