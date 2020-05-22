@@ -71,7 +71,6 @@ export default class Homepage extends React.Component {
                     <Row className='d-flex justify-content-md-center'>
                         <Col md={2}/>
                         <Col md={8}>
-                            <div className="image"><img src="images/homepagelogo.jpg" alt="logo" /></div>
                             <div className='search'>
                                 <InputGroup>
                                     <Input />
