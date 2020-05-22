@@ -43,7 +43,20 @@ export default class DateSelectedPage extends React.Component {
     render() {
         return (
             <div>
-                
+                <div className='search'>
+                    <InputGroup>
+                        <Input />
+                        <InputGroupAddon addonType='prepend'>
+                            <DatePicker
+                                onChange={this.onChange}
+                                value={this.state.date}
+                            />
+                        </InputGroupAddon>
+                        <InputGroupAddon addonType='prepend'>
+                            <Button color='info' id='btn'>Search</Button>
+                        </InputGroupAddon>
+                    </InputGroup>
+                </div>
                 <Container className='SearchPage w-75'>
                     <h3 className="display-3">Searching result</h3>
                     <div className='d-flex flex-column justify-content-center'>

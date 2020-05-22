@@ -20,7 +20,7 @@ export default class CatalogPage extends React.Component{
         return(       
             <div>
                 <Container className='CatalogPage w-75'>
-                    <h2 className="display-3">food</h2>
+                    <h2 className="display-3">{this.props.topicName}</h2>
                     <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
                     <hr className="my-2" />
 
