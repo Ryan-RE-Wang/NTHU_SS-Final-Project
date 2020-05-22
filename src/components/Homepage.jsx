@@ -27,7 +27,7 @@ export default class Homepage extends React.Component {
                     <Row className='d-flex justify-content-center'>
                         <Col md={1}/>
                         <Col md={10}>
-                            <Carousel interval='5000'>
+                            <Carousel interval='5000' controls={false}>
                                 <Carousel.Item>
                                     <img width={500} height={700}
                                     className='d-block w-100'
@@ -68,7 +68,7 @@ export default class Homepage extends React.Component {
                 </Container>
                 
                 <Container>
-                    <Row className='justify-content-md-center'>
+                    <Row className='d-flex justify-content-md-center'>
                         <Col md={2}/>
                         <Col md={8}>
                             <div className='search'>
@@ -89,6 +89,12 @@ export default class Homepage extends React.Component {
                         <Col md={2}/>
                     </Row> 
                 </Container>
+                    <Row className='d-flex'>
+                        <Col md={3}></Col>
+                        <Col md={2}><h1>Most Popular</h1></Col>
+                        <Col md={7}></Col>
+                    </Row>
+
             </div>
         )
     }

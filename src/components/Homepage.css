@@ -4,8 +4,12 @@
 }
 
 .calendar{
-    color: black;
+    color: white;
     position: relative;
     padding-top: 1em;
+}
+
+.bg {
+    background-color: blanchedalmond;
 }
 
