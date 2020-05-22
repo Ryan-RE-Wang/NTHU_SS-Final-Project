@@ -3,23 +3,23 @@ import { ListGroup, ListGroupItem, } from 'reactstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Tabs from 'react-bootstrap/Tabs';
-import Tab from 'react-bootstrap/Tab';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
-import LayersIcon from '@material-ui/icons/Layers';
-import AssignmentIcon from '@material-ui/icons/Assignment';
 import AmpStoriesIcon from '@material-ui/icons/AmpStories';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
-import { Popup, Card, Image, Rating } from 'semantic-ui-react';
-import { Button, Checkbox, Form } from 'semantic-ui-react';
+import { Popup, Card, Image, Rating, Icon } from 'semantic-ui-react';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Tabs from 'react-bootstrap/Tabs';
+import Tab from 'react-bootstrap/Tab';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import SimpleExpansionPanel from './Manager_used/expansion_panels.js';
+import Image_information from './Manager_used/card.js'
+import User_information from './Manager_used/user_information'
+
 
 import './Manager.css'
 
@@ -31,8 +31,8 @@ export default class Manager extends React.Component {
         this.state={
             nowpage:'1'
 
-
         }
+
         this.list_Selected = this.list_Selected.bind(this);
         this.render_Selected = this.render_Selected.bind(this);
     }
@@ -45,6 +45,28 @@ export default class Manager extends React.Component {
         return (
             <Row >
                  <Col xs={12} md={2} >
+                     <div className="user">
+                        <Card>
+                            <Image src='images/User.jpg' wrapped ui={false} width="160px" />
+                            <Card.Content>
+                            <Card.Header>NTHU</Card.Header>
+                            <Card.Meta>
+                                <span className='date'>Joined in 2015</span>
+                            </Card.Meta>
+                            <Card.Description>
+                                Matthew is a musician living in Nashville.
+                            </Card.Description>
+                            </Card.Content>
+                            <Card.Content extra>
+                            <a href="#">
+                                <Icon name='user' />
+                                <AssignmentTurnedInIcon/>
+                                22 article release
+                            </a>
+                            </Card.Content>
+                        </Card>
+                     </div>
+                     <div>
                         <ListItem button onClick={() => this.list_Selected('1')} >
                         <ListItemIcon>
                             <AssignmentIndIcon />
@@ -69,6 +91,7 @@ export default class Manager extends React.Component {
                         </ListItemIcon>
                         <ListItemText primary="Setting" />
                         </ListItem>
+                        </div>
                 </Col>
                 <Col xs={12} md={9}>         
                            {content}
@@ -81,7 +104,7 @@ export default class Manager extends React.Component {
    
         )
     }
-
+    
     list_Selected(page) {
         if(page == '1'||page== '2'||page=='3'||page=='4')
             this.setState({nowpage: page});
@@ -175,26 +198,65 @@ export default class Manager extends React.Component {
         </div>)
     }else if(page == '4'){
         return (
-        <div className= "form">
-        <Form>
-            <Form.Field>
-                <label>OOOld Password</label>
-                <input />
-            </Form.Field>
-            <Form.Field>
-                <label>New Password</label>
-                <input/>
-            </Form.Field>
-            <Form.Field>
-                <label>Confirm Password</label>
-                <input/>
-            </Form.Field>
-            <Form.Field>
-                <Checkbox label='I agree changing password' />
-            </Form.Field>
-            <Button type='submit'>Change Password</Button>
-        </Form>
-        </div>
+        <div className= "setting">
+
+        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+            <Tab eventKey="Reset Password" title="Reset Password">
+            <div className="password_reset">
+            <Form>
+                <Form.Group controlId="ormBasicPassword">
+                    <Form.Label>Old Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Text className="text-muted">
+                    Hope you know your password. If don't <a href="#"> click me</a>
+                    </Form.Text>
+                </Form.Group>
+
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>New Password</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Label>Confirm</Form.Label>
+                    <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+                <Form.Group controlId="formBasicCheckbox">
+                    <Form.Check type="checkbox" label="I am not a robot" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    CHANGE
+                </Button>
+            </Form>
+            </div>
+            </Tab>
+            <Tab eventKey="Personal Information" title="Ppersonal Information">
+            <div>
+            <Card>
+                <Image src='images/User.jpg' wrapped ui={false} />
+                <Card.Content>
+                <Card.Header>NTHU</Card.Header>
+                <Card.Meta>
+                    <span className='date'>Joined in 2015</span>
+                </Card.Meta>
+                <Card.Description>
+                    Matthew is a musician living in Nashville.
+                </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                <a href="#">
+                    <Icon name='user' />
+                    <AssignmentTurnedInIcon/>
+                    22 article release
+                </a>
+                </Card.Content>
+            </Card>
+            </div>
+            </Tab>
+            <Tab eventKey="contact" title="Contact" >
+                    <User_information/>
+            </Tab>
+</Tabs>
+</div>
         ) 
     }else{
 

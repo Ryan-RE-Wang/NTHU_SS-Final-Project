@@ -3,7 +3,18 @@
     display: inline;
 }
 
+<<<<<<< HEAD
 .bg {
     background: linear-gradient(to top, rgb(243, 224, 245), antiquewhite);
     background-color: rgb(243, 224, 245);
+=======
+.calendar{
+    color: black;
+    position: relative;
+    padding-top: 1em;
+}
+
+.image{
+    text-align: center;
+>>>>>>> f295823c15a1f5fcd3483817355b111edd551585
 }
