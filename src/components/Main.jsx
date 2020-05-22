@@ -48,27 +48,34 @@ export default class Main extends React.Component {
 
     
 
-    handleClick(school) {
+    handleClick(type) {
         console.log(this.state.animateComplete);
-        if (school == 'nthu') {
+        if (type == 'nthu') {
             this.setState((prevState) => ({
                 nthuOpen: !prevState.nthuOpen,
                 nctuOpen: false,
                 categoryOpen: false
             }));
         }
-        else if (school == 'nctu') {
+        else if (type == 'nctu') {
             this.setState((prevState) => ({
                 nctuOpen: !prevState.nctuOpen,
                 nthuOpen: false,
                 categoryOpen: false
             }))
         }
-        else {
+        else if (type == 'category') {
             this.setState((prevState) => ({
                 nctuOpen: false,
                 nthuOpen: false,
                 categoryOpen: !prevState.categoryOpen
+            }))
+        }
+        else {
+            this.setState((prevState) => ({
+                nctuOpen: false,
+                nthuOpen: false,
+                categoryOpen: false
             }))
         }
     }
@@ -118,12 +125,11 @@ export default class Main extends React.Component {
                             duration='2'
                             >
                         <div className='main-page'>
-                        
                             <Container className='d-flex justify-content-around' id='navbar'>
-                                <NavbarBrand className='logo' href="/">NewsSharing</NavbarBrand>
-                                <Link to='/'><button className='tag' id='home'>Home</button></Link>
-                                <Link to='/ArticleForm'><button className='tag' id='post'>Post</button></Link>
-                                <Link to='/Manager'><button className='tag' id='manager'>Manager</button></Link> 
+                                <NavbarBrand className='logo' href="/" onClick={e => this.handleClick('none')}>NewsSharing</NavbarBrand>
+                                <Link to='/'><button className='tag' id='home' onClick={e => this.handleClick('none')}>Home</button></Link>
+                                <Link to='/ArticleForm'><button className='tag' id='post' onClick={e => this.handleClick('none')}>Post</button></Link>
+                                <Link to='/Manager'><button className='tag' id='manager' onClick={e => this.handleClick('none')}>Manager</button></Link> 
                                 <div className='dropDown' id='category'>
                                     <button className='tag' id='catalog' onClick={e => this.handleClick('category')}>Catalog<ArrowDropDownIcon style={{display: (this.state.categoryOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.categoryOpen) ? 'inline' : 'none'}}/></button>
                                     <br/><br/><br/>
