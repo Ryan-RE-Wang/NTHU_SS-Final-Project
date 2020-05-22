@@ -232,6 +232,9 @@ export default class Main extends React.Component {
                             <Route exact path="/ArticleForm" render={() => (
                                 <ArticleForm/>  
                             )}/>
+                            <Route exact path='/article' render={() => (
+                                <Article/>
+                            )}/>
                             <Route exact path="/Manager" render={() => (
                                 <Manager/>  
                             )}/>
