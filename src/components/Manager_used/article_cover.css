@@ -1,0 +1,14 @@
+.picture_i:hover{
+    opacity: 0.5; 
+  }
+.picture_i{
+    box-shadow:6px 6px 20px rgb(0, 8, 14);
+    max-width: 224px;
+}
+.picture_d{
+    font-family: 'Ruslan Display', cursive;
+    font-size: 24px;
+}
+.article{
+    background-color: rgba(5, 0, 7, 0.2);
+}

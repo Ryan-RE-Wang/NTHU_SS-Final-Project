@@ -19,6 +19,11 @@ import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import SimpleExpansionPanel from './Manager_used/expansion_panels.js';
 import Image_information from './Manager_used/card.js';
 import User_information from './Manager_used/user_information.jsx';
+import Contact_Us_information from './Manager_used/contact_us_information.jsx';
+import Article_Cover from './Manager_used/article_cover.jsx';
+import Password_Reset from './Manager_used/password_reset.jsx';
+import Memorandum from './Manager_used/memorandum.jsx';
+
 
 
 import './Manager.css'
@@ -105,76 +110,15 @@ export default class Manager extends React.Component {
         console.log("enter");
         if(page == '1'){
             return (
-        <Container>
-            <Row>
-            <div className="manager_text">
-            1
-            我們向神的信心，當徧傳遠近，
-            宣告已離棄偶像，事奉真活神；
-            用信調和主聖言，高聲說“阿們！
-            ”藉主話轉向主，時刻經歷救恩。
-
-                信心的工作要不斷增長，
-            愛心的勞苦要漫溢四方，
-            蒙祂聖別保守，徧及全人裏外；
-            以盼望的忍耐，儆醒等候祂來。
-            </div>
-            </Row>
-            <Row>
-            <div className="manager_text">
-            2
-            我們以神聖的愛，彼此來關懷，
-            這愛在末後日子，更洋溢佈開；
-            主引導我們的心，進入神的愛，
-            豫備我們全人，盼望那日主來。
-            </div>
-            </Row>
-            <Row>
-            <div className="manager_text">
-            3
-            信實的主必保守我們的各部─
-            靈、魂、身子全聖別，構成祂新婦；
-            今日凡事願聽從主大小吩咐，
-            不久就要聽見祂的再臨招呼。
-            </div>
-            </Row>
-            <Row>
-            <div className="manager_text">
-            4
-            我們等候主回來─祂甜美同在；
-            哦，何等榮耀盼望！“主，願你快來！”
-            作光明、白晝之子，儆醒勿懈怠，
-            惟盼主顯榮身，婚娶之日，樂哉！
-            </div>
-            </Row>
-            </Container>)
+                <Memorandum/>
+            )
         }else if(page == '2'){
-        return (<div className="article">
-        <Container>
-            <Row>
-                <Col xs={12}  md={6} lg={4}>
-                    <div >
-                    <div className="picture_i"><a href="#"><img src="images/海報1.jpg" alt="tree" width="224" height="280px" /></a></div>
-                        <p className="picture_d">JOKER</p>
-                    </div>
-                </Col>
-                <Col xs={12}  md={6} lg={4}>
-                    <div>
-                        <div className="picture_i"><a href="#"><img src="images/海報2.jpg" alt="thunderstorm" width="224" height="280px" /></a></div>
-                        <p className="picture_d">doctor strange</p>
-                    </div>
-                </Col>
-                <Col xs={12} md={6} lg={4}>
-                    <div>
-                    <div className="picture_i"><a href="#"><img src="images/海報3.jpg" alt="na" width="224" height="280px" /></a></div>
-                        <p className="picture_d">Avatar</p>
-                    </div>
-                </Col>
-            </Row>
-        </Container>
-    </div>)
-    }else if(page == '3'){
-        return (<div>
+            return (
+                <Article_Cover/>
+            )
+        }else if(page == '3'){
+            return (
+        <div>
         <Popup trigger={
             <Card>
                 <Image src='https://react.semantic-ui.com/images/movies/totoro-horizontal.jpg' />
@@ -194,87 +138,25 @@ export default class Manager extends React.Component {
             </Popup.Content>
         </Popup>
         </div>)
-    }else if(page == '4'){
-        return (
-        <div className= "setting">
+        }else if(page == '4'){
+            return (
+                <div className= "setting">
+                    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
+                        <Tab eventKey="Reset Password" title="Reset Password">
+                            <Password_Reset/>
+                        </Tab>
+                        <Tab eventKey="Personal Information" title="Ppersonal Information">
+                            no DATA
+                        </Tab>
+                        <Tab eventKey="contact" title="Contact Us" >
+                            <Contact_Us_information/>
+                        </Tab>
+                    </Tabs>
+                </div>
+            )    
+        }else{
 
-        <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-            <Tab eventKey="Reset Password" title="Reset Password">
-            <div className="password_reset">
-            <Form>
-                <Form.Group controlId="ormBasicPassword">
-                    <Form.Label>Old Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                    <Form.Text className="text-muted">
-                    Hope you know your password. If don't <a href="#"> click me</a>
-                    </Form.Text>
-                </Form.Group>
-
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>New Password</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group controlId="formBasicPassword">
-                    <Form.Label>Confirm</Form.Label>
-                    <Form.Control type="password" placeholder="Password" />
-                </Form.Group>
-                <Form.Group controlId="formBasicCheckbox">
-                    <Form.Check type="checkbox" label="I am not a robot" />
-                </Form.Group>
-                <Button variant="primary" type="submit">
-                    CHANGE
-                </Button>
-            </Form>
-            </div>
-            </Tab>
-            <Tab eventKey="Personal Information" title="Ppersonal Information">
-            <div>
-            <Card>
-                <Image src='images/User.jpg' wrapped ui={false} />
-                <Card.Content>
-                <Card.Header>NTHU</Card.Header>
-                <Card.Meta>
-                    <span className='date'>Joined in 2015</span>
-                </Card.Meta>
-                <Card.Description>
-                    Matthew is a musician living in Nashville.
-                </Card.Description>
-                </Card.Content>
-                <Card.Content extra>
-                <a href="#">
-                    <Icon name='user' />
-                    <AssignmentTurnedInIcon/>
-                    22 article release
-                </a>
-                </Card.Content>
-            </Card>
-            </div>
-            </Tab>
-            <Tab eventKey="contact" title="Contact" >
-            <section>
-  <div className="container">
-    <div className="background-img">
-      <div className="box">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-        <div className="content">
-          <h2>My animated Border </h2>
-          <p><a href="http://www.cakecounter.com/" className="temp" target="_blank">All our modules are designed to play nicely with responsive of course. At the end of the day it comes down to the theme you use - our code doesn't get in your way.</a></p>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-</section>
-            </Tab>
-</Tabs>
-</div>
-        ) 
-    }else{
-
-        return (<div>error</div>)
+            return (<div>error</div>)
     }
     }
 }
