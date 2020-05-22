@@ -8,3 +8,16 @@
     text-align: justify;
     text-justify:inter-ideograph;
 }
+.expandOpen {
+    transform: 'rotate(180deg)';
+}
+.expand{
+    transform: 'rotate(0deg)';
+    transition: transform 1s;
+    
+}
+.media{
+    height: 0;
+    padding-top: 56.25% !important;
+    
+}

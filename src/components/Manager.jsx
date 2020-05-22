@@ -18,7 +18,7 @@ import Tab from 'react-bootstrap/Tab';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
 import SimpleExpansionPanel from './Manager_used/expansion_panels.js';
 import Image_information from './Manager_used/card.js';
-import User_information from './Manager_used/user_information.js';
+import User_information from './Manager_used/user_information.jsx';
 
 
 import './Manager.css'
@@ -41,7 +41,7 @@ export default class Manager extends React.Component {
 
     render() {
         let content = this.render_Selected(this.state.nowpage);
-        console.log(content);
+        //console.log(content);
         return (
             <Row >
                  <Col xs={12} md={2} className="left">
@@ -149,25 +149,25 @@ export default class Manager extends React.Component {
             </Row>
             </Container>)
         }else if(page == '2'){
-        return (<div>
+        return (<div className="article">
         <Container>
             <Row>
                 <Col xs={12}  md={6} lg={4}>
-                    <div>
-                        <a href="#"><img src="images/風景1.jpg" alt="tree" width="224" height="280px" /></a>
-                        <p className="picture_d">picture1</p>
+                    <div >
+                    <div className="picture_i"><a href="#"><img src="images/海報1.jpg" alt="tree" width="224" height="280px" /></a></div>
+                        <p className="picture_d">JOKER</p>
                     </div>
                 </Col>
                 <Col xs={12}  md={6} lg={4}>
                     <div>
-                        <a href="#"><img src="images/w-thunderstorm-bg.jpg" alt="thunderstorm" width="224" height="280px" /></a>
-                        <p className="picture_d">picture2</p>
+                        <div className="picture_i"><a href="#"><img src="images/海報2.jpg" alt="thunderstorm" width="224" height="280px" /></a></div>
+                        <p className="picture_d">doctor strange</p>
                     </div>
                 </Col>
                 <Col xs={12} md={6} lg={4}>
                     <div>
-                        <a href="#"><img src="images/w-na-bg.jpg" alt="na" width="224" height="280px" /></a>
-                        <p className="picture_d">picture3</p>
+                    <div className="picture_i"><a href="#"><img src="images/海報3.jpg" alt="na" width="224" height="280px" /></a></div>
+                        <p className="picture_d">Avatar</p>
                     </div>
                 </Col>
             </Row>
@@ -251,7 +251,23 @@ export default class Manager extends React.Component {
             </div>
             </Tab>
             <Tab eventKey="contact" title="Contact" >
-                    <User_information/>
+            <section>
+  <div className="container">
+    <div className="background-img">
+      <div className="box">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        <div className="content">
+          <h2>My animated Border </h2>
+          <p><a href="http://www.cakecounter.com/" className="temp" target="_blank">All our modules are designed to play nicely with responsive of course. At the end of the day it comes down to the theme you use - our code doesn't get in your way.</a></p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
             </Tab>
 </Tabs>
 </div>
