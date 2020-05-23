@@ -10,9 +10,6 @@ import BarChartIcon from '@material-ui/icons/BarChart';
 import AmpStoriesIcon from '@material-ui/icons/AmpStories';
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import BorderColorIcon from '@material-ui/icons/BorderColor';
-import { Popup, Card, Image, Rating, Icon } from 'semantic-ui-react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Tabs from 'react-bootstrap/Tabs';
 import Tab from 'react-bootstrap/Tab';
 import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
@@ -93,10 +90,6 @@ export default class Manager extends React.Component {
                              
                 </Col>     
             </Row>
-            
-
-         
-   
         )
     }
     
@@ -118,26 +111,8 @@ export default class Manager extends React.Component {
             )
         }else if(page == '3'){
             return (
-        <div>
-        <Popup trigger={
-            <Card>
-                <Image src='https://react.semantic-ui.com/images/movies/totoro-horizontal.jpg' />
-                <Card.Content>
-                <Card.Header>My Neighbor Totoro</Card.Header>
-                <Card.Description>
-                    Two sisters move to the country with their father in order to be
-                    closer to their hospitalized mother, and discover the surrounding
-                    trees are inhabited by magical spirits.
-                </Card.Description>
-                </Card.Content>
-            </Card>
-            }
-        >
-            <Popup.Content>
-            <Rating icon='star' defaultRating={3} maxRating={4} />
-            </Popup.Content>
-        </Popup>
-        </div>)
+                <Image_information/>
+            )
         }else if(page == '4'){
             return (
                 <div className= "setting">
