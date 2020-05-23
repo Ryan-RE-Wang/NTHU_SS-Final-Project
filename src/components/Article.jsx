@@ -4,6 +4,7 @@ import { Container, Row, Col, Label, Button } from 'reactstrap';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
+import EventIcon from '@material-ui/icons/Event';
 import './Article.css';
 
 export default class Article extends React.Component {
@@ -21,10 +22,18 @@ export default class Article extends React.Component {
 
                 <Row xs="2" align="center"> 
                     <Col xs="auto"> 
+                        <EventIcon/>
+                    </Col>
+                    <Col xs="auto"> 
+                        <p>Date</p>
+                    </Col>
+                </Row>
+                <Row xs="2" align="center"> 
+                    <Col xs="auto"> 
                         <AccessTimeIcon/>
                     </Col>
                     <Col xs="auto"> 
-                        <p>Date and Time</p>
+                        <p>Time</p>
                     </Col>
                 </Row>
                 <Row xs="2" align="center"> 

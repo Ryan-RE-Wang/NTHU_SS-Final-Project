@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import PlaceIcon from '@material-ui/icons/Place';
+import PaymentIcon from '@material-ui/icons/Payment';
+import EventIcon from '@material-ui/icons/Event';
 import './ArticleForm.css'
 
 export default class ArticleForm extends React.Component {
@@ -32,36 +36,59 @@ export default class ArticleForm extends React.Component {
 
     render() {
         return (
-            <div className='container'>
+            <div className='articleform-container'>
                 <h2 className='title'>Make a Post</h2>
                 <Form className='article-form'> 
                     <FormGroup row className='form'>
-                        <Label for="Title" sm={2}>Title</Label>
+                        <Label for="title" sm={2}>Title</Label>
                         <Col sm={10}>
-                            <Input type="textarea" name="text" id="Title" />
+                            <Input type="textarea" name="text" id="title" />
                         </Col>
                     </FormGroup>
                     <FormGroup row className='form'>
-                        <Label for="eventDate" sm={2}>Date</Label>
-                        <Col sm={10}>
-                            <Input
-                                type="date"
-                                name="date"
-                                id="eventDate"
-                                placeholder="date placeholder"
-                            />
-                        </Col>
+                        <Row> 
+                            <Col>
+                                <EventIcon/>
+                            </Col>
+                            <Label for="eventDate" sm={2}>Date</Label>
+                            <Col sm={10}>
+                                <Input
+                                    type="date"
+                                    name="date"
+                                    id="eventDate"
+                                    placeholder="date placeholder"
+                                />
+                            </Col>
+                        </Row>
                     </FormGroup>
                     <FormGroup row className='form'>
-                        <Label for="eventTime" sm={2}>Time</Label>
-                        <Col sm={10}>
-                            <Input
-                                type="time"
-                                name="time"
-                                id="eventTime"
-                                placeholder="time placeholder"
-                            />
-                        </Col>
+                        <Row align='center'>
+                            <Col>
+                                <AccessTimeIcon/>
+                            </Col>
+                            <Col> 
+                                <Label for="eventTime" sm={2}>Time</Label> 
+                            </Col>
+                            <Col>
+                                <Input
+                                    type="time"
+                                    name="time"
+                                    id="eventTime"
+                                    placeholder="time placeholder"
+                                />
+                            </Col>
+                        </Row>
+                    </FormGroup>
+                    <FormGroup row className='form'>
+                        <Row> 
+                            <Col>
+                                <PlaceIcon/>
+                            </Col>
+                            <Label for="location" sm={2}>Location</Label>
+                            <Col sm={10}>
+                                <Input type="textarea" name="text" id="location" />
+                            </Col>
+                        </Row>
                     </FormGroup>
                     <FormGroup row className='form'>
                         <Label for="contentText" sm={2}>Content</Label>

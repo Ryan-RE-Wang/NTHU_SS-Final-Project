@@ -1,7 +1,8 @@
-.container {
+.articleform-container {
     padding: 1rem;
     position: relative;
     margin: 0 4rem;  
+    background-color: rgba(5, 0, 7, 0.2);
 }
 .title {
     text-align: center;

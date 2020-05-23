@@ -2,6 +2,8 @@
     margin: 1rem;
     padding: 1rem;
     border: gray;
+    background-color: rosybrown;
+    box-shadow: 1px 1px 4px  gray;
 }
 .search-post img {
     display: block;
