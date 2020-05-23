@@ -4,6 +4,11 @@ import DatePicker from 'react-date-picker';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 import Carousel from 'react-bootstrap/Carousel'
 
 
@@ -81,7 +86,7 @@ export default class Homepage extends React.Component {
                                         />
                                     </InputGroupAddon>
                                     <InputGroupAddon addonType='prepend'>
-                                        <Button color='info' id='btn'>Search</Button>
+                                        <Link to='/search' className='btn btn-info'>Search</Link>
                                     </InputGroupAddon>
                                 </InputGroup>
                             </div>

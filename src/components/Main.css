@@ -6,6 +6,7 @@
 }
 
 
+
 .animation, .animation-after {
     position: absolute;
     font-size: 30px;
@@ -256,4 +257,9 @@
     transform: scaleX(1);
     background-color: rgb(6, 88, 6);  
   }
+
+
+html {
+    scroll-behavior: smooth;
+  } 
 

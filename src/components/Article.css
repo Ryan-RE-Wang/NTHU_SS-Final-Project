@@ -1,0 +1,22 @@
+
+.article {
+    padding: 1rem;
+    position: relative;
+    margin: 0 auto;  
+}
+.title {
+    padding: 1rem;
+    position: relative;
+    margin: 0 auto;
+}
+.poster-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.poster {
+    padding: 1rem;
+    min-width: 4rem;
+    position: relative;
+}
