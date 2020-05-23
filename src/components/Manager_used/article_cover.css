@@ -1,0 +1,45 @@
+.picture_i:hover{
+    opacity: 0.5; 
+  }
+.picture_i{
+    box-shadow:6px 6px 20px rgb(0, 8, 14);
+    max-width: 224px;
+}
+.picture_d{
+    font-family: 'Ruslan Display','DFKai-SB', cursive;
+    font-weight:650;
+    font-size: 24px;
+}
+.article{
+    background-color: rgba(5, 0, 7, 0.2);
+}
+.card:hover .btn{
+	visibility: visible;
+}
+.card .btn:hover {
+    background-color: black;
+    color: white;
+}
+.card .btn {
+    position:absolute;
+    top:-1%;
+    left:-1%;
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 8px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    visibility: hidden;
+}
+.card {
+    position: relative;
+    background-color:transparent !important;
+    border:0 !important;
+
+}
+.card img {
+    width: 224px;
+    height: 280px;
+  }
