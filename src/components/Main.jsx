@@ -15,6 +15,8 @@ import {
     Container,
     Row
 } from 'reactstrap';
+import CreateIcon from '@material-ui/icons/Create';
+import IconButton from '@material-ui/core/IconButton';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
@@ -23,10 +25,12 @@ import { Animate } from "react-simple-animate";
 
 import './Main.css';
 
+import Article from 'components/Article.jsx';
 import ArticleForm from 'components/ArticleForm.jsx';
 import Homepage from 'components/Homepage.jsx';
 import Manager from 'components/Manager.jsx';
 import CatalogPage from 'components/CatalogPage.jsx';
+import SearchPage from 'components/SearchPage.jsx'
 import { colors } from '@material-ui/core';
 
 export default class Main extends React.Component {
@@ -228,11 +232,17 @@ export default class Main extends React.Component {
                             <Route exact path="/ArticleForm" render={() => (
                                 <ArticleForm/>  
                             )}/>
+                            <Route exact path='/article' render={() => (
+                                <Article/>
+                            )}/>
                             <Route exact path="/Manager" render={() => (
                                 <Manager/>  
                             )}/>
                             <Route exact path="/catagory" render={() => (
                                 <CatalogPage topicName={this.state.tagClick} description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
+                            )}/>
+                            <Route exact path='/search' render={() => (
+                                <SearchPage/>
                             )}/>
 
                         </div>
