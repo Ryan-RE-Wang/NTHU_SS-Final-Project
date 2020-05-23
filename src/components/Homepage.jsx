@@ -90,9 +90,12 @@ export default class Homepage extends React.Component {
                     </Row> 
                 </Container>
                     <Row className='d-flex'>
-                        <Col md={3}></Col>
-                        <Col md={2}><h1>Most Popular</h1></Col>
+                        <Col md={2}></Col>
+                        <Col md={3}><h1>Most Popular</h1></Col>
                         <Col md={7}></Col>
+                    </Row>
+                    <Row>
+                        
                     </Row>
 
             </div>
