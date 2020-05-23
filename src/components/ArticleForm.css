@@ -1,14 +1,15 @@
 .articleform-container {
     padding: 1rem;
     position: relative;
-    margin: 0 4rem;  
+    margin: 0 auto;  
     background-color: rgba(5, 0, 7, 0.2);
+    max-width: 800px;
 }
 .title {
     text-align: center;
 }
 .article-form {
-    
+    font-weight: bold;
 }
 .article-form .form {
     width: 100%;

@@ -1,11 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import PlaceIcon from '@material-ui/icons/Place';
-import PaymentIcon from '@material-ui/icons/Payment';
-import EventIcon from '@material-ui/icons/Event';
 import './ArticleForm.css'
+import TagsInput from 'react-tagsinput'
+ 
+import 'react-tagsinput/react-tagsinput.css'
 
 export default class ArticleForm extends React.Component {
     static propTypes = {
@@ -22,7 +21,7 @@ export default class ArticleForm extends React.Component {
             dateDanger: false,
             timeValue: NaN,
             timeDanger: false,
-            dispatch: PropTypes.func
+            tags: []
         }
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -32,83 +31,104 @@ export default class ArticleForm extends React.Component {
         
         this.handlePost = this.handlePost.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
+
+        this.handleChange = this.handleChange.bind(this);
     }
 
     render() {
         return (
             <div className='articleform-container'>
                 <h2 className='title'>Make a Post</h2>
-                <Form className='article-form'> 
-                    <FormGroup row className='form'>
-                        <Label for="title" sm={2}>Title</Label>
-                        <Col sm={10}>
-                            <Input type="textarea" name="text" id="title" />
-                        </Col>
+                <Form className='form'> 
+                    <FormGroup className='form'>
+                        <div className='row d-flex'>
+                            <div className='col '>
+                                <Label for="title" sm={2}>Title</Label>
+                            </div>
+                            <div className='col-10'>
+                                <Input type="textarea" name="text" id="title" />
+                            </div>
+                        </div>
                     </FormGroup>
-                    <FormGroup row className='form'>
-                        <Row> 
-                            <Col>
-                                <EventIcon/>
-                            </Col>
-                            <Label for="eventDate" sm={2}>Date</Label>
-                            <Col sm={10}>
+                    <FormGroup className='form'>
+                        <div className='row d-flex'>
+                            <div className='col'>
+                                <Label for="eventDate" sm={2}>Date</Label>
+                            </div>
+                            <div className='col-10'>
                                 <Input
                                     type="date"
                                     name="date"
                                     id="eventDate"
                                     placeholder="date placeholder"
                                 />
-                            </Col>
-                        </Row>
+                            </div>
+                        </div>
                     </FormGroup>
-                    <FormGroup row className='form'>
-                        <Row align='center'>
-                            <Col>
-                                <AccessTimeIcon/>
-                            </Col>
-                            <Col> 
+                    <FormGroup className='form'>
+                        <div className='row d-flex'>
+                            <div className='col'>
                                 <Label for="eventTime" sm={2}>Time</Label> 
-                            </Col>
-                            <Col>
+                            </div>
+                            <div className='col-10'> 
                                 <Input
                                     type="time"
                                     name="time"
                                     id="eventTime"
                                     placeholder="time placeholder"
                                 />
-                            </Col>
-                        </Row>
+                            </div>
+
+                        </div>
                     </FormGroup>
-                    <FormGroup row className='form'>
-                        <Row> 
-                            <Col>
-                                <PlaceIcon/>
-                            </Col>
-                            <Label for="location" sm={2}>Location</Label>
-                            <Col sm={10}>
+                    <FormGroup className='form'>
+                        <div className='row d-flex'>
+                            <div className='col'>
+                                <Label for="location" sm={2}>Location</Label>
+                            </div>
+                            <div className='col-10'>
                                 <Input type="textarea" name="text" id="location" />
-                            </Col>
-                        </Row>
+                            </div> 
+                        </div>
                     </FormGroup>
-                    <FormGroup row className='form'>
-                        <Label for="contentText" sm={2}>Content</Label>
-                        <Col sm={10}>
-                            <Input type="textarea" name="text" id="contentText" />
-                        </Col>
+                    <FormGroup className='form'>
+                        <div className='row d-flex'>
+                            <div className='col'>
+                                <Label for="contentText" sm={2}>Content</Label>
+                            </div>
+                            <div className='col-10'>
+                                <Input type="textarea" name="text" id="contentText" />
+                            </div>
+                        </div>
                     </FormGroup>
-                    <FormGroup row className='form'>
-                        <Label for="imgFile" sm={2}>Poster</Label>
-                        <Col sm={10}>
-                            <Input type="file" name="file" id="imgFile" />
-                            <FormText color="muted">
-                                Upload your event poster.
-                            </FormText>
-                        </Col>
+                    <div className='row'> 
+                        <div className='col'>
+                            <TagsInput value={this.state.tags} onChange={this.handleChange} />
+                        </div>
+                    </div>
+                    <FormGroup className='form'>
+                        <div className='row d-flex'>
+                            <div className='col'>
+                                <Label for="imgFile" sm={2}>Poster</Label>
+                            </div>
+                            <div className='col-10'>
+                                <Input type="file" name="file" id="imgFile" />
+                                <FormText color="muted">
+                                    Upload your event poster.
+                                </FormText>
+                            </div>
+                        </div>
                     </FormGroup>
                 </Form>
                 <div className="buttons" className={`d-flex justify-content-around`}>
-                    <Button className='btn-post' color="success">Post</Button>{' '}
-                    <Button className='btn-cancel' color="secondary">Cancel</Button>{' '} 
+                    <div className='row d-flex'>
+                        <div className='col'>
+                            <Button className='btn-post' color="success">Post</Button>{' '}
+                        </div>
+                        <div className='col'>
+                            <Button className='btn-cancel' color="secondary">Cancel</Button>{' '} 
+                        </div>
+                    </div>
                 </div>
             </div>
         );
@@ -147,5 +167,9 @@ export default class ArticleForm extends React.Component {
     handleCancel() {
 
     }
+
+    handleChange(tags) {
+        this.setState({tags})
+      }
 }
 
