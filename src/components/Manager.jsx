@@ -52,7 +52,7 @@ export default class Manager extends React.Component {
                         <User_information/>
                         </Col>
                         <Col>
-                        <ListItem  button onClick={() => this.list_Selected('1')} >
+                        <ListItem className="list" button onClick={() => this.list_Selected('1')} >
                         <ListItemIcon>
                             <AssignmentIndIcon />
                         </ListItemIcon>
@@ -60,7 +60,7 @@ export default class Manager extends React.Component {
                         </ListItem>
                         </Col>
                         <Col>
-                        <ListItem button onClick={() => this.list_Selected('2')}>
+                        <ListItem className="list" button onClick={() => this.list_Selected('2')}>
                         <ListItemIcon>
                             <AmpStoriesIcon />
                         </ListItemIcon>
@@ -68,7 +68,7 @@ export default class Manager extends React.Component {
                         </ListItem>
                         </Col>
                         <Col>
-                        <ListItem button onClick={() => this.list_Selected('3')}>
+                        <ListItem className="list" button onClick={() => this.list_Selected('3')}>
                         <ListItemIcon>
                             <BarChartIcon />
                         </ListItemIcon>
@@ -76,7 +76,7 @@ export default class Manager extends React.Component {
                         </ListItem>
                         </Col>
                         <Col>
-                        <ListItem button onClick={() => this.list_Selected('4')}>
+                        <ListItem className="list" button onClick={() => this.list_Selected('4')}>
                         <ListItemIcon>
                             <BorderColorIcon />
                         </ListItemIcon>

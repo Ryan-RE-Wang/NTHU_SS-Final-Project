@@ -3,7 +3,7 @@
 }
 
 .list{
-  margin-right: 5px;
+  padding-bottom: 16px !important;
 }
 .MuiListItemIcon-root{
   min-width: auto !important;
@@ -17,6 +17,7 @@
 }
 .options{
   text-align: center;
+  font-family: 'Lobster', cursive;
 }
 .MuiListItem-root{
   justify-content: start !important;
