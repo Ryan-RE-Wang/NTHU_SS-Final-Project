@@ -10,6 +10,8 @@ export default class Footer_Content extends React.Component{
 
     constructor(props){
         super(props);
+        this.backToTop = this.backToTop.bind(this); 
+
     }
     
     static About = ['information','contact','developer','email','Art','Competition'];
@@ -19,7 +21,7 @@ export default class Footer_Content extends React.Component{
 
         <div>
             <div className='divide-bar'>
-                <button id='backToTopBtn'>
+                <button id='backToTopBtn' onClick={this.backToTop}>
                     <FontAwesomeIcon icon={faAngleUp} size='lg'/>
                     <span>&nbsp;&nbsp;BACK TO TOP</span>
                 </button>
@@ -65,6 +67,10 @@ export default class Footer_Content extends React.Component{
             </div>
         </div>
         )
+    }
+    backToTop(){
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
     }
 }
 

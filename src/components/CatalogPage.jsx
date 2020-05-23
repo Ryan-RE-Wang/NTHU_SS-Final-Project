@@ -96,7 +96,7 @@ export default class CatalogPage extends React.Component{
                 </Container>
                 
             </div>
-            <Footer_Content/>
+            <Footer_Content />
             </div>
         )
     }
