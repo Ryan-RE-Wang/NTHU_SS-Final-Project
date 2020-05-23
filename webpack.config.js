@@ -45,7 +45,8 @@ module.exports = {
                         }
                     }
                 ]
-            }, {
+            }, 
+            {
                 test: /\.css$/,
                 use: [
                     'style-loader',
@@ -54,7 +55,21 @@ module.exports = {
                         options : {
                             url: false
                         }
-                    }
+                    } 
+                ]
+            },
+            {
+                test: /\.(scss|sass)$/,
+                use: [
+                  {
+                    loader: 'style-loader'
+                  },
+                  {
+                    loader: 'css-loader'
+                  },
+                  {
+                    loader: 'sass-loader'
+                  }
                 ]
             }
         ]
