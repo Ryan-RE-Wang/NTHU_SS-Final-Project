@@ -8,13 +8,5 @@
     background: linear-gradient(to top, rgb(243, 224, 245), antiquewhite);
     background-color: rgb(243, 224, 245);
 }
-.calendar{
-    color: black;
-    position: relative;
-    padding-top: 1em;
-}
 
-.image{
-    text-align: center;
-}
 
