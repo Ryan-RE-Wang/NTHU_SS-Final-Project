@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
 .main {
     height: 100%;
-    background: linear-gradient(to bottom, antiquewhite, white);
-    background-color: antiquewhite;
+    background: linear-gradient(to bottom, white, white);
+    background-color: white;
 }
 
 

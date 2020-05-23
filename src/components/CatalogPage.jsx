@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,UncontrolledDropdown } from 'reactstrap';
-import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome'
-import { faAngleDown, faAngleUp} from '../../node_modules/@fortawesome/free-solid-svg-icons'
-import '../../node_modules/pretty-checkbox/src/pretty-checkbox.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown, faAngleUp, faCheck } from '@fortawesome/free-solid-svg-icons'
+import 'pretty-checkbox/src/pretty-checkbox.scss';
 
 import Post from 'components/Post.jsx';
 import './CatalogPage.css'
@@ -26,6 +26,9 @@ export default class CatalogPage extends React.Component{
         this.handleOrder = this.handleOrder.bind(this); 
     }
 
+    static catagory = ['All','Food','PE','Music','Association','Art','Competition'];
+    static order = ['A to Z','Popularity','Date'];
+
     render(){
         
 
@@ -35,7 +38,7 @@ export default class CatalogPage extends React.Component{
             {/* d-block d-lg-none */}
                 <div className='left-wrapper '></div>
                 <div className='right-wrapper'></div>
-                <Container className='CatalogPage pl-2 pr-2 pl-lg-3 pr-lg-3 pl-xl-5 pr-xl-5 pt-0 pb-0' >
+                <Container className=' pl-2 pr-2 pl-lg-3 pr-lg-3 pl-xl-5 pr-xl-5 pt-0 pb-0' >
                     <div className='d-flex row '>
 
                         <div className='col-11 col-sm-12 col-lg-3 classes-table ' >
@@ -49,7 +52,21 @@ export default class CatalogPage extends React.Component{
                                         <FontAwesomeIcon icon={faAngleUp} size='lg'className={`d-lg-none topic-symbol ${this.state.exploreClick ? 'd-none' : ''}`}/>
                                         <FontAwesomeIcon icon={faAngleDown} size='lg'className={`d-lg-none topic-symbol ${this.state.exploreClick ? '' : 'd-none'}`}/>
                                     </div>
-                                    <div className='col-12 option'>A to Z</div>
+                                    {/* left menu */}
+
+                                    {
+                                        CatalogPage.catagory.map((e,i) =>(
+                                            <div className="pretty p-icon p-plain col-12"key={i}>
+                                                <input type="checkbox" />
+                                                <div className="state">
+                                                    <FontAwesomeIcon icon={faCheck} size='xs'className='icon checkIcon'/>
+                                                    <label className='option'>{e}</label>
+                                                </div>
+                                            </div>  
+                                        ))
+                                    }
+                                    
+                                    {/* drop down menu */}
                                     <div className={`d-lg-none dropdown-content ${this.state.exploreClick ? 'dropdown-hide' : 'dropdown-display'}`}>
                                         <a href="#">Link 1</a>
                                         <a href="#">Link 2</a>
@@ -68,9 +85,21 @@ export default class CatalogPage extends React.Component{
                                         <FontAwesomeIcon icon={faAngleUp} size='lg'className={`d-lg-none topic-symbol ${this.state.orderClick ? 'd-none' : ''}`}/>
                                         <FontAwesomeIcon icon={faAngleDown} size='lg'className={`d-lg-none topic-symbol ${this.state.orderClick ? '' : 'd-none'}`}/>
                                     </div>        
-                                    <div className='col-12 option'>A to Z</div>
-                                    <div className='col-12 option'>Popularity</div>
-                                    <div className='col-12 option'>Date</div>           
+                                    {/* left menu */}
+                                    {/* <i class="FasFaCheck"></i> */}
+                                    {
+                                        CatalogPage.order.map((e,i) =>( 
+                                            <div className="pretty p-icon p-plain col-12"key={i}>
+                                                <input type="checkbox" />
+                                                <div className="state">
+                                                    <FontAwesomeIcon icon={faCheck} size='xs'className='icon checkIcon'/>
+                                                    <label className='option'>{e}</label>
+                                                </div>
+                                            </div>
+                                        ))
+                                    }  
+
+                                    {/* drop down menu */}
                                     <div className={`d-lg-none dropdown-content ${this.state.orderClick ? 'dropdown-hide' : 'dropdown-display'}`}>
                                         <a href="#">Link 4</a>
                                         <a href="#">Link 5</a>

@@ -40,7 +40,9 @@ export default class Footer_Content extends React.Component{
                                 <div className='d-flex col-12 info-topic'>MORE catagory</div>                                
                                 {
                                     Footer_Content.About.map((e,i) =>(
-                                        <div className='d-flex col-6 info-element' key={i}>{e}</div>
+                                        <div className='d-flex col-6 info-element' key={i}>
+                                            <span>{e}</span>
+                                        </div>
                                     ))
                                 }
 
@@ -51,7 +53,9 @@ export default class Footer_Content extends React.Component{
                                 <div className='d-flex col-12 info-topic'>MORE catagory</div>   
                                 {
                                     Footer_Content.catagory.map((e,i) =>(
-                                        <div className='d-flex col-6 col-md-3 col-xs-6 info-element' key={i}>{e}</div>
+                                        <div className='d-flex col-6 col-md-3 col-xs-6 info-element' key={i}>
+                                            <span>{e}</span>
+                                        </div>
                                     ))
                                 }
                             </div>
