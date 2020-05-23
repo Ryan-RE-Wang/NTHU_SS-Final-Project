@@ -27,24 +27,7 @@ export default class Post extends React.Component{
     
     render() {
         return(       
-<<<<<<< HEAD
-            <div className='Post'>
-                <Container className=' col'>
-                        <img src='./images/w-clear-bg.jpg' className='row-12'/>
-                        <div className='introduction'>
-                            <h5 className=''> Apr 10 / nthu  </h5>
-                            <h5 className='row-12 justify-content-center'> the activity </h5>
-                        </div>
-                            <Link to="/article" className="btn btn-secondary">
-                                More Info
-                            </Link>
-                </Container>
-            </div>
-        )
-    }
-    
-}
-=======
+
             <div className='Post '>
                 <div className=' d-flex row'>
                     <div className='col-3 col-md-3 pr-2 pr-md-3 post-left'>
@@ -66,4 +49,3 @@ export default class Post extends React.Component{
         )
     }
 }
->>>>>>> wei-yu

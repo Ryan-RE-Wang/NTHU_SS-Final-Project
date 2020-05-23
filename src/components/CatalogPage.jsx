@@ -28,7 +28,6 @@ export default class CatalogPage extends React.Component{
 
     render(){
         
-<<<<<<< HEAD
 
         return(  
             <div>     

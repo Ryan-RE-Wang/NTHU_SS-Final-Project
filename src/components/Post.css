@@ -8,13 +8,7 @@
     background-color:white;
     box-shadow: 1px 1px 4px  gray;
 }
-<<<<<<< HEAD
-.Post img {
-    display: block;
-    width: 16rem;
-    height: 20rem;
-    margin: 0 auto;
-=======
+
 .Post img {    
     /* width: 8.5rem; */
     height: 13rem;
@@ -22,7 +16,6 @@
     margin-top: 0.5rem;
     
     box-shadow: 1px 1px 4px  gray;
->>>>>>> wei-yu
 }
 
 .moreInfoBtn{
