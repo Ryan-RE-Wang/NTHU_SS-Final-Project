@@ -1,6 +1,5 @@
 import React from 'react';
 import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
-import DatePicker from 'react-date-picker';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -70,29 +69,6 @@ export default class Homepage extends React.Component {
                         </Col>
                         <Col md={1}/>
                     </Row>
-                </Container>
-                
-                <Container>
-                    <Row className='d-flex justify-content-md-center'>
-                        <Col md={2}/>
-                        <Col md={8}>
-                            <div className='search'>
-                                <InputGroup>
-                                    <Input />
-                                    <InputGroupAddon addonType='prepend'>
-                                        <DatePicker
-                                        onChange={this.onChange}
-                                        value={this.state.date}
-                                        />
-                                    </InputGroupAddon>
-                                    <InputGroupAddon addonType='prepend'>
-                                        <Link to='/search' className='btn btn-info'>Search</Link>
-                                    </InputGroupAddon>
-                                </InputGroup>
-                            </div>
-                        </Col>
-                        <Col md={2}/>
-                    </Row> 
                 </Container>
                     <Row className='d-flex'>
                         <Col md={2}></Col>

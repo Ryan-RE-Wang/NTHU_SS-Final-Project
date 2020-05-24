@@ -13,7 +13,12 @@ import {
     NavItem,
     NavLink,
     Container,
-    Row
+    Row,
+    InputGroup,
+    InputGroupAddon,
+    InputGroupButtonDropdown,
+    Input,
+    Button,
 } from 'reactstrap';
 import CreateIcon from '@material-ui/icons/Create';
 import IconButton from '@material-ui/core/IconButton';
@@ -21,6 +26,8 @@ import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 import { Animate } from "react-simple-animate";
+import DatePicker from 'react-date-picker';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 
 import './Main.css';
@@ -32,7 +39,7 @@ import Manager from 'components/Manager.jsx';
 import CatalogPage from 'components/CatalogPage.jsx';
 import SearchPage from 'components/SearchPage.jsx'
 import { colors } from '@material-ui/core';
-import LoginForm from 'components/LoginForm.jsx';
+import SearchIcon from '@material-ui/icons/Search';
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -43,15 +50,17 @@ export default class Main extends React.Component {
             nctuOpen: false,
             tagClick: '',
             categoryOpen: false,
-            animateComplete: false
+            animateComplete: false,
+            navbarToggle: false
         }
         
         this.handleClick = this.handleClick.bind(this);
         this.handleLinkSelect = this.handleLinkSelect.bind(this);
         this.animateComplete = this.animateComplete.bind(this);
+        this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
     }
 
-    
+    onChange = date => this.setState({ date })
 
     handleClick(type) {
         if (type == 'nthu') {
@@ -128,103 +137,77 @@ export default class Main extends React.Component {
                             }}
                             duration='0'
                             >
-                        <div className='main-page'>
-                            <Container className='d-flex justify-content-around' id='navbar'>
-                                <NavbarBrand className='logo' href="/" onClick={e => this.handleClick('none')}>NewsSharing</NavbarBrand>
-                                <Link to='/'><button className='tag' id='home' onClick={e => this.handleClick('none')}>Home</button></Link>
-                                <Link to='/ArticleForm'><button className='tag' id='post' onClick={e => this.handleClick('none')}>Post</button></Link>
-                                <Link to='/Manager'><button className='tag' id='manager' onClick={e => this.handleClick('none')}>Manager</button></Link> 
-                                <div className='dropDown' id='category'>
-                                    <button className='tag' id='catalog' onClick={e => this.handleClick('category')}>Catalog<ArrowDropDownIcon style={{display: (this.state.categoryOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.categoryOpen) ? 'inline' : 'none'}}/></button>
-                                    <br/><br/><br/>
-                                    <div className='contentCategory' style={{display: (this.state.categoryOpen) ? 'block' : 'none'}}>
-                                        <div className='row'>
+                        <div className='container'>
+                        <Navbar color='faded' light expand='md'>
+                            <NavbarToggler onClick={this.handleNavbarToggle}/>
+                            <NavbarBrand className='logo' href="/" onClick={e => this.handleClick('none')}>NewsSharing</NavbarBrand>
+                            <Collapse isOpen={this.state.navbarToggle} navbar>
+                                <Nav navbar>
+                                <NavItem>
+                                    <div className='dropDown'>
+                                        <button className='tag' onClick={e => this.handleClick('category')}>Catalog<ArrowDropDownIcon style={{display: (this.state.categoryOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.categoryOpen) ? 'inline' : 'none'}}/></button>
+                                        <br/><br/><br/>
+                                        <div className='contentCategory' style={{display: (this.state.categoryOpen) ? 'block' : 'none'}}>
                                             <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('Food')}>Food</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('Music')}>Music</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('Drama')}>Drama</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('Service')}>Service</Link>
-                                            </Container>
-                                        </div>
-                                        <div className='row'>
-                                            <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('熱舞社')}>Sport</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('迴聲社')}>Dance</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('吉他社')}>Volunteer</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('烹飪社')}>Show</Link>
-                                            </Container>
-                                        </div>
-                                        <div className='row'>
-                                            <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('光舞社')}>光舞社</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('攝影社')}>攝影社</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('梅籌會')}>梅籌會</Link>
-                                                <Link className='insideColCategory' to='/catagory' onClick={e => this.handleLinkSelect('畢聯會')}>畢聯會</Link>
+                                                <Link to='/catagory'><button className='insideColCategory' onClick={e => this.handleLinkSelect('Food')}><span>Food</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColCategory' onClick={e => this.handleLinkSelect('Music')}><span>Music</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColCategory' onClick={e => this.handleLinkSelect('Drama')}><span>Drama</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColCategory' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
                                             </Container>
                                         </div>
                                     </div>
+                                </NavItem>
+                                <NavItem>
+                                    <div className='dropDown'>
+                                        <button className='tag' onClick={e => this.handleClick('nthu')}>NTHU-Club<ArrowDropDownIcon style={{display: (this.state.nthuOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.nthuOpen) ? 'inline' : 'none'}}/></button>
+                                        <br/><br/><br/>
+                                        <div className='contentNTHU' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>
+                                            <Container className='d-flex justify-content-around'>
+                                                <Link to='/catagory'><button className='insideColNthu' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColNthu' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColNthu' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColNthu' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                            </Container>
+                                        </div>
+                                    </div>
+                                </NavItem> 
+                                <NavItem>
+                                    <div className='dropDown'>
+                                        <button className='tag' onClick={e => this.handleClick('nctu')}>NCTU-Club<ArrowDropDownIcon style={{display: (this.state.nctuOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.nctuOpen) ? 'inline' : 'none'}}/></button>
+                                        <br/><br/><br/>
+                                        <div className='contentNCTU' style={{display: (this.state.nctuOpen) ? 'block' : 'none'}}>
+                                            <Container className='d-flex justify-content-around'>
+                                                <Link to='/catagory'><button className='insideColNctu' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColNctu' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColNctu' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                                <Link to='/catagory'><button className='insideColNctu' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                            </Container>
+                                        </div>
+                                    </div> 
+                                </NavItem>   
+                                <NavItem>
+                                    <Link to='/ArticleForm'><button className='tag' id='post' onClick={e => this.handleClick('none')}>Post</button></Link>
+                                </NavItem>
+                                </Nav> 
+                                <div className='ml-auto'>
+                                    <InputGroup>
+                                        <Input placeholder='search'/>
+                                        <InputGroupAddon addonType="append">
+                                            <DatePicker
+                                                onChange={this.onChange}
+                                                value={this.state.date}
+                                                /> 
+                                        </InputGroupAddon>
+                                        <InputGroupAddon addonType="append">
+                                            <Link to='/search' className='button'>
+                                            <div className="s-circle"></div>
+                                            <span className='span'></span>
+                                            </Link>
+                                        </InputGroupAddon>
+                                    </InputGroup>
                                 </div>
-                                <div className='dropDown' id='NTHU'>
-                                    <button className='tag' id='nthu' onClick={e => this.handleClick('nthu')}>NTHU-Club<ArrowDropDownIcon style={{display: (this.state.nthuOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.nthuOpen) ? 'inline' : 'none'}}/></button>
-                                    <br/><br/><br/>
-                                    <div className='contentNTHU' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>
-                                        <div className='row'>
-                                            <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('雄友會')}>雄友會</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('南友會')}>南友會</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('中友會')}>中友會</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('桃友會')}>桃友會</Link>
-                                            </Container>
-                                        </div>
-                                        <div className='row'>
-                                            <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('熱舞社')}>熱舞社</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('迴聲社')}>迴聲社</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('吉他社')}>吉他社</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('烹飪社')}>烹飪社</Link>
-                                            </Container>
-                                        </div>
-                                        <div className='row'>
-                                            <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('光舞社')}>光舞社</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('攝影社')}>攝影社</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('梅籌會')}>梅籌會</Link>
-                                                <Link className='insideColNthu' to='/catagory' onClick={e => this.handleLinkSelect('畢聯會')}>畢聯會</Link>
-                                            </Container>
-                                        </div>
-                                    </div>
-                                </div>   
-                                <div className='dropDown' id='NCTU'>
-                                    <button className='tag' id="nctu" onClick={e => this.handleClick('nctu')}>NCTU-Club<ArrowDropDownIcon style={{display: (this.state.nctuOpen) ? 'none' : 'inline'}}/><ArrowDropUpIcon style={{display: (this.state.nctuOpen) ? 'inline' : 'none'}}/></button>
-                                    <br/><br/><br/>
-                                    <div className='contentNCTU' style={{display: (this.state.nctuOpen) ? 'block' : 'none'}}>
-                                        <div className='row'>
-                                            <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('雄友會')}>雄友會</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('南友會')}>南友會</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('中友會')}>中友會</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('桃友會')}>桃友會</Link>
-                                            </Container>
-                                        </div>
-                                        <div className='row'>
-                                            <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('熱舞社')}>熱舞社</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('迴聲社')}>迴聲社</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('吉他社')}>吉他社</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('合唱社')}>合唱社</Link>
-                                            </Container>
-                                        </div>
-                                        <div className='row'>
-                                            <Container className='d-flex justify-content-around'>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('光舞社')}>光舞社</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('攝影社')}>攝影社</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('梅籌會')}>梅籌會</Link>
-                                                <Link className='insideColNctu' to='/catagory' onClick={e => this.handleLinkSelect('畢聯會')}>畢聯會</Link>
-                                            </Container>
-                                        </div>
-                                    </div>
-                                </div>                 
-                            </Container>
+                                </Collapse>
+                        </Navbar>
 
                             <Route exact path="/" render={() => (
                                 <Homepage />
@@ -257,5 +240,11 @@ export default class Main extends React.Component {
             </Router>
             // <LoginForm/>
         );
+    }
+
+    handleNavbarToggle() {
+        this.setState((prevState, props) => ({
+            navbarToggle: !prevState.navbarToggle
+        }));
     }
 }
