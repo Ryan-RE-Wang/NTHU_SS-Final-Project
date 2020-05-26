@@ -227,7 +227,7 @@ export default class Main extends React.Component {
                                 </div>                 
                             </Container>
 
-                            <Route exact path="/a" render={() => (
+                            <Route exact path="/" render={() => (
                                 <Homepage />
                             )}/>
                             <Route exact path="/ArticleForm" render={() => (
@@ -239,13 +239,13 @@ export default class Main extends React.Component {
                             <Route exact path="/Manager" render={() => (
                                 <Manager/>  
                             )}/>
-                            <Route exact path="/CatalogPage" render={() => (
+                            <Route exact path="/catagory" render={() => (
                                 <CatalogPage topicName={this.state.tagClick} description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
                             )}/>
                             <Route exact path='/search' render={() => (
                                 <SearchPage/>
                             )}/>
-                            <Route exact path="/" render={() => (
+                            <Route exact path="/login" render={() => (
                                 <LoginForm/>
                             )}/>
 

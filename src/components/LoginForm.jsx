@@ -13,7 +13,7 @@ export default class LoginForm extends React.Component{
     }
     render (){
         return(
-        	<div className="box ">
+        	<div className="login_box">
 				<p className='title'>News Sharing</p>
 				<p className='login'>Login Form</p>
 
