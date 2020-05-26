@@ -1,11 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://use.fontawesome.com/releases/latest/js/all.js');
 .main {
     height: 100%;
-    background: linear-gradient(to bottom, white, white);
     background-color: white;
 }
-
-
 
 .animation, .animation-after {
     position: absolute;
@@ -15,18 +12,8 @@
     z-index: 1;
 }
 
-#navbar {
-    display: block;
-    width: 100%;
-}
-
-.logo {
-    color: orange;
-    font-family: 'Lobster', cursive;
-}
-
-.logo:hover {
-    color: orange;
+.container {
+  display: grid;
 }
 
 .dropDown {
@@ -49,7 +36,6 @@
 
 .contentNTHU {
     font-family: 'Lobster', cursive;
-    z-index: 1;
     display: none;
     position: absolute;
     background-color: #f9f9f9;
@@ -79,187 +65,213 @@
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
+
 .tag {
-    display: block;
-    color: black;
-    text-decoration: none;
-    position: relative;
-    font-family: 'Lobster', cursive;
-    float: left;
-    overflow: hidden;
-    font-size: 16px;
-    border: none;
-    outline: none;
-    padding: 14px 16px;
     background-color: inherit;
-    margin: 0; /* Important for vertical align on mobile phones */
+    margin: 0; 
     border: none;
     outline: none;
   }
 
-
-.tag::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 3px;
-    transform: scaleX(0);
-    transition: transform 0.3s;
+  .tag:focus {
+    outline: none;
   }
 
-.tag:hover {
-    text-decoration: none;
-  }
-  
-.tag:hover::after{
-    transform: scaleX(1);  
-  }
-
-#home::after {
-    background-color: blue;
-}
-
-#food::after {
-    background-color: rgb(68, 177, 168);
-}
-
-#post::after {
-    background-color: rgba(175, 187, 9, 0.514);
-}
-
-#manager::after {
-    background-color: crimson;
-}
-
-#catalog::after {
-    background-color: rgb(6, 88, 6);
-}
-
-#home:hover {
-    color: blue;
-}
-
-#food:hover {
-    color: rgb(68, 177, 168);
-}
-
-#post:hover {
-    color: rgb(175, 187, 9, 0.514);
-}
-
-#manager:hover {
-    color: crimson;
-}
-
-#catalog:hover {
-    color: rgb(6, 88, 6);
-}
-
-#nthu:hover {
-    color: blueviolet
-}
-
-#nthu::after {
-    background-color: blueviolet;
-}
-
-#nctu:hover {
-    color: coral;
-}
-
-#nctu::after {
-    background-color: coral;
-}
-
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
+.insideColNthu, .insideColNctu, .insideColCategory {
+  border-radius: 4px;
+  background-color: inherit;
+  border: none;
+  color: black;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
   }
 
-  .insideColNthu, .insideColNctu, .insideColCategory {
-    float: none;
-    color: black;
-    padding: 16px;
-    text-decoration: none;
-    display: block;
-    text-align: left;
-  }
+.insideColNthu span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
+.insideColNthu span::after {
+  font-family: 'Font Awesome 5 Free'; 
+  font-weight: 900; 
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 
-  .insideColNthu::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 3px;
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
+.insideColNthu:hover span {
+  padding-right: 25px;
+} 
 
-  .insideColNctu::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 3px;
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
+.insideColNthu:hover span::after{
+  opacity: 1;
+  right: 0;
+}
 
-  .insideColCategory::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 3px;
-    transform: scaleX(0);
-    transition: transform 0.3s;
-  }
+.insideColCategory span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
-.insideColNthu:hover {
-    text-decoration: none;
-    color: blueviolet;
-  }
-  
-.insideColNthu:hover::after{
-    transform: scaleX(1);
-    background-color: black;  
-  }
+.insideColCategory span::after {
+  font-family: 'Font Awesome 5 Free'; 
+  font-weight: 900; 
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
 
-.insideColNctu:hover {
-    text-decoration: none;
-    color: coral;
-  }
+.insideColCategory:hover span {
+  padding-right: 25px;
+} 
 
-  
-.insideColNctu:hover::after{
-    transform: scaleX(1);
-    background-color: coral;  
-  }
+.insideColCategory:hover span::after{
+  opacity: 1;
+  right: 0;
+}
 
+.insideColNctu span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
-.insideColCategory:hover {
-    text-decoration: none;
-    color: rgb(6, 88, 6);
-  }
-  
-.insideColCategory:hover::after{
-    transform: scaleX(1);
-    background-color: rgb(6, 88, 6);  
-  }
+.insideColNctu span::after {
+  font-family: 'Font Awesome 5 Free'; 
+  font-weight: 900; 
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.insideColNctu:hover span {
+  padding-right: 25px;
+} 
+
+.insideColNctu:hover span::after{
+  opacity: 1;
+  right: 0;
+}
 
 
 html {
     scroll-behavior: smooth;
   } 
 
+  #id {
+    outline: none;
+  }
+
+  .button {
+    color: black;
+    font-family: Nunito;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    background-color: transparent;
+    position: absolute;
+    display: block;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .s-circle {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    margin-top: 0;
+    border-width: 2px;
+    border: 4px solid black;
+    background-color: transparent;
+    border-radius: 50%;
+    transition: 0.5s ease all;
+  }
+
+  .span {
+    position: absolute;
+    top: 27px;
+    left: 27px;
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: transparent;
+    border-radius: 5px;
+    transform: rotateZ(47deg) scale(0.4);
+    transition: 0.5s ease all;
+  }
+
+  .span::before, .span::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 45px;
+    height: 15px;
+    background-color: black;
+    border-radius: 10px;
+    transform: rotateZ();
+    transition: 0.5s ease all;
+  }
+
+
+  .button:hover .s-circle
+{
+    top: 47%;
+    width: 35px;
+    height: 15px;
+    left: -5px;
+    border-width: 0;
+    background-color: black;
+    border-radius: 20px;
+    transform: scale(0.6);
+}
+
+.button:hover .span
+{
+    top: 32px;
+    left: 10px;
+    width: 25px;
+    margin-top: -15px;
+    transform: rotateZ(0) scale(0.5);
+}
+
+.button:hover .span:before
+{
+    bottom: 11px;
+    transform: rotateZ(52deg);
+}
+
+.button:hover .span:after
+{
+    bottom: -11px;
+    transform: rotateZ(-52deg);
+}
+
+.button:hover .span:before, .button:hover .span:after
+{
+    right: -6px;
+    width: 40px;
+    background-color: black;
+}
