@@ -2,8 +2,10 @@
     height:1.5rem;
     background-color:black !important;
 } */
+.catalogPage{
+}
 .catalogPage-wrapper{    
-    position: relative;
+    /* position: relative; */
 }
 .left-wrapper{
     display: block;

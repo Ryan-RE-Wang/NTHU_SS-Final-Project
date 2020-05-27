@@ -25,6 +25,7 @@ import IconButton from '@material-ui/core/IconButton';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import SearchIcon from '@material-ui/icons/Search';
 import { Animate } from "react-simple-animate";
 import DatePicker from 'react-date-picker';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -39,7 +40,7 @@ import Manager from 'components/Manager.jsx';
 import CatalogPage from 'components/CatalogPage.jsx';
 import SearchPage from 'components/SearchPage.jsx'
 import { colors } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
+// import SearchIcon from '@material-ui/icons/Search';
 
 export default class Main extends React.Component {
     constructor(props) {
@@ -48,18 +49,196 @@ export default class Main extends React.Component {
         this.state = {
             nthuOpen: false,
             nctuOpen: false,
-            tagClick: '',
             categoryOpen: false,
+            tagClick: '',
             animateComplete: false,
-            navbarToggle: false
+            startSearch: false
         }
         
         this.handleClick = this.handleClick.bind(this);
         this.handleLinkSelect = this.handleLinkSelect.bind(this);
         this.animateComplete = this.animateComplete.bind(this);
         this.handleNavbarToggle = this.handleNavbarToggle.bind(this);
+
+        this.handleSearch = this.handleSearch.bind(this);
     }
 
+    render() {
+        return (
+            <Router>
+                <div className='main'>
+                    <div id='navbar-section'>
+                    
+                    <Navbar color='faded' light expand='md' id='newsSharing-navbar' className='py-0'>
+                                
+                        <Container className='py-0'>
+                        
+                            <NavbarToggler className='d-block d-md-none' onClick={this.handleNavbarToggle} outline='none'/>
+                            <NavbarBrand className=' px-2 py-2'id='navbar-logo' href="/" onClick={e => this.handleClick('none')}>NewsSharing</NavbarBrand>
+                            <div className='py-2 search-btn d-block d-md-none dropDownBtn ' onClick={this.handleSearch}>
+                                <SearchIcon className='search-icon'/>
+                                {/* drop down menu */}
+                                <div className={`dropdown-content ${!this.state.startSearch? 'dropdown-hide' : 'dropdown-display'}`}>
+                                    <a href="#">Link 1</a>
+                                    <a href="#">Link 2</a>
+                                    <a href="#">Link 3</a>
+                                </div>
+                            </div>
+                            <div className='login-btn d-block d-md-none '>Login</div>
+
+
+
+                            <Collapse className='py-0' isOpen={this.state.navbarToggle} navbar>
+                                <Nav navbar className='navbar-fixed-top'>
+
+                                {/* big window items  */}
+                                <NavItem className="px-1 navbar-items" id='outside-catagory-item'>
+                                    <div className="navbar-dropDown">
+                                        <button className='navbar-tag' onClick={e => this.handleClick('category') }>Catalog
+                                            <ArrowDropDownIcon style={{display: (this.state.categoryOpen) ? 'none' : 'inline'}}/>
+                                            <ArrowDropUpIcon style={{display: (this.state.categoryOpen) ? 'inline' : 'none'}}/>
+                                        </button>
+                                        <div className='navbar-dropDown-content' style={{display: (this.state.categoryOpen) ? 'block' : 'none'}}>                                            
+                                            <div className='d-flex row pl-3 pr-3 my-4 '>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Food')}><span>Food</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Music')}><span>Music</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Drama')}><span>Drama</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </NavItem >
+                                <NavItem className="px-1 navbar-items">
+                                    <div className="navbar-dropDown">
+                                        <button className='navbar-tag' onClick={e => this.handleClick('nthu')}>NTHU CLUB
+                                            <ArrowDropDownIcon style={{display: (this.state.nthuOpen) ? 'none' : 'inline'}}/>
+                                            <ArrowDropUpIcon style={{display: (this.state.nthuOpen) ? 'inline' : 'none'}}/>
+                                        </button>
+                                        <div className='navbar-dropDown-content' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>                                            
+                                            <div className='d-flex row pl-3 pr-3 my-4 '>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </NavItem >
+                                <NavItem className="px-1 navbar-items">
+                                    <div className="navbar-dropDown">
+                                        <button className='navbar-tag' onClick={e => this.handleClick('nctu')}>NCTU CLUB
+                                            <ArrowDropDownIcon style={{display: (this.state.nctuOpen) ? 'none' : 'inline'}}/>
+                                            <ArrowDropUpIcon style={{display: (this.state.nctuOpen) ? 'inline' : 'none'}}/>
+                                        </button>
+                                        <div className='navbar-dropDown-content' style={{display: (this.state.nctuOpen) ? 'block' : 'none'}}>                                            
+                                            <div className='d-flex row pl-3 pr-3 my-4 '>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </NavItem >
+
+                                {/* small window items  */}
+                                <NavItem >
+                                    <div className='d-md-none d-block'> 
+                                        <div className='inside-toggle-element navbar-tag' >
+                                            <button className='' onClick={e => this.handleClick('category')}>Catalog
+                                                    <ArrowDropDownIcon style={{display: (this.state.categoryOpen) ? 'none' : 'inline'}}/>
+                                                    <ArrowDropUpIcon style={{display: (this.state.categoryOpen) ? 'inline' : 'none'}}/>
+                                            </button>
+                                        </div>
+                                        <div className='inside-toggle-element' style={{display: (this.state.categoryOpen) ? 'block' : 'none'}}>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Food')}><span>Food</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Music')}><span>Music</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Drama')}><span>Drama</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                        </div>  
+                                    </div>
+                                </NavItem >
+                                <NavItem >
+                                    <div className='d-md-none d-block'> 
+                                        <div className='inside-toggle-element navbar-tag' >
+                                            <button className='' onClick={e => this.handleClick('nthu')}>NTHU CLUB
+                                                    <ArrowDropDownIcon style={{display: (this.state.nthuOpen) ? 'none' : 'inline'}}/>
+                                                    <ArrowDropUpIcon style={{display: (this.state.nthuOpen) ? 'inline' : 'none'}}/>
+                                            </button>
+                                        </div>
+                                        <div className='inside-toggle-element' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                        </div>  
+                                    </div>
+                                </NavItem >
+                                </Nav>
+
+                                
+                            </Collapse>
+
+                            <div className='search-btn d-none d-md-block'>
+                                <InputGroup>
+                                    <Input placeholder={`Search...`}/>
+                                </InputGroup>
+                            </div>
+
+                            <div className='login-btn d-none d-md-block'>Login</div>
+                        
+                        </Container>
+                        
+                    </Navbar>
+                    </div>
+                    <div className={`${this.state.categoryOpen || this.state.nthuOpen || this.state.nctuOpen   ? 'navbar-wrapper':'' }`}></div>
+
+                    
+
+                    <div id='content-section' >
+
+                    {/* for router */}
+                    <Route exact path="/" render={() => (
+                        <Homepage />
+                    )}/>
+                    <Route exact path="/ArticleForm" render={() => (
+                        <ArticleForm/>  
+                    )}/>
+                    <Route exact path='/article' render={() => (
+                        <Article/>
+                    )}/>
+                    <Route exact path="/Manager" render={() => (
+                        <Manager/>  
+                    )}/>
+                    <Route exact path="/catagory" render={() => (
+                        <CatalogPage topicName={this.state.tagClick} description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
+                    )}/>
+                    <Route exact path='/search' render={() => (
+                        <SearchPage/>
+                    )}/>
+                    <Route exact path="/login" render={() => (
+                        <LoginForm/>
+                    )}/>
+
+                    
+                    </div>
+                </div> 
+            </Router>
+        );
+    }
+
+    handleNavbarToggle() {
+        this.setState((prevState, props) => ({
+            navbarToggle: !prevState.navbarToggle
+        }));
+    }
     onChange = date => this.setState({ date })
 
     handleClick(type) {
@@ -91,6 +270,7 @@ export default class Main extends React.Component {
                 categoryOpen: false
             }))
         }
+        // console.log(this.state.categoryOpen);
     }
 
     handleLinkSelect(tag) {
@@ -107,12 +287,14 @@ export default class Main extends React.Component {
             animateComplete: true
         }))
     } 
+    handleSearch(){
+        this.setState((prevState) => ({
+            startSearch: !prevState.startSearch
+        }))
+    }
+}
 
-    render() {
-        return (
-            <Router>
-                <div className='main'>
-                    <div className='animation' style={{display: (this.state.animateComplete) ? 'none' : 'block'}}>
+{/* <div className='animation' style={{display: (this.state.animateComplete) ? 'none' : 'block'}}>
                         <Animate
                             play={true} // Toggle when animation should start
                             start={{
@@ -235,16 +417,4 @@ export default class Main extends React.Component {
                     </Animate>
 
 
-                </div>
-                
-            </Router>
-            // <LoginForm/>
-        );
-    }
-
-    handleNavbarToggle() {
-        this.setState((prevState, props) => ({
-            navbarToggle: !prevState.navbarToggle
-        }));
-    }
-}
+                </div> */}

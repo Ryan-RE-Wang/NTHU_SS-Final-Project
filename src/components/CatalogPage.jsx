@@ -36,8 +36,8 @@ export default class CatalogPage extends React.Component{
             <div>     
             <div className='catalogPage-wrapper'>
             {/* d-block d-lg-none */}
-                <div className='left-wrapper '></div>
-                <div className='right-wrapper'></div>
+                {/* <div className='left-wrapper '></div>
+                <div className='right-wrapper'></div> */}
                 <Container className=' pl-2 pr-2 pl-lg-3 pr-lg-3 pl-xl-5 pr-xl-5 pt-0 pb-0' >
                     <div className='d-flex row '>
 
