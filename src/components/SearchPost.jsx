@@ -34,51 +34,49 @@ export default class SearchPost extends React.Component {
     
     render() {
         return(       
-            <div className='search-post container'>
-                <div className='d-flex row'> 
-                    <div className='col d-flex justify-content-start'>
-                        <div className='image'> 
-                                <img src='./images/烤魷魚.jpg'/>
-                        </div> 
+            <div className='container'>
+                <div className='search-post d-flex row'> 
+                    <div className='poster col-4 '>
+                        <img src='./images/烤魷魚.jpg' className='img-fluid'/>
                     </div>
-                    <div className='col'>
-                        <div className='row title d-flex justify-content-start'>
+                    <div className='content col-6 '>
+                        <div className=' title'>
                             Welcome
                         </div>
-                        <div className='row date d-flex justify-content-start'>
+                        <div className='row'>
                             <div className='col'>
-                                <EventIcon/>
+                                <div className='row'>
+                                    <EventIcon className='icon' fontSize='default' />
+                                    <div className='date'>
+                                        Date: 2020/05/22
+                                    </div>
+                                </div>
+                                <div className='row'>
+                                    <AccessTimeIcon className='icon' fontSize='default' />
+                                    <div className='time'>
+                                        Time: 17:00
+                                    </div>
+                                </div>
+                                <div className='row'>
+                                    <PlaceIcon className='icon' fontSize='default' />
+                                    <div className='location'>
+                                        Location: 野台
+                                    </div>
+                                </div>
                             </div>
-                            <div className='col'>
-                                Date: 2020/05/22
+                            <div className='row'>
+                                <div className='introduction'>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labinim veniam, quis nostrud e...       
+                                </div>
                             </div>
                         </div>
-                        <div className='row time d-flex align-item-start'>
-                            <div className='col'>
-                                <AccessTimeIcon/>
-                            </div>
-                            <div className='col'>
-                                Time: 17:00
-                            </div>
-                        </div>
-                        <div className='row location d-flex align-content-start'>
-                            <div className='col'>
-                                <PlaceIcon/>
-                            </div>
-                            <div className='col'>
-                                Location: 野台
-                            </div>
-                        </div>
-                        <div className='row introduction d-flex align-content-lg-start'>
-                            <div className='col introduction d-flex align-content-start'> 
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labinim veniam, quis nostrud e...       
-                            </div>
-                        </div>
-                        <div className='row link d-flex flex-row-reverse'> 
+                        
+                        <div className='row link d-flex'> 
                             <Link to="/article" className="btn btn-secondary">
                                 More Info
                             </Link>
                         </div>
+                    
                     </div>
                 </div>
             </div>

@@ -10,12 +10,16 @@
     width: 16rem;
     height: 20rem;
     margin: 0 auto;
+    box-shadow: 1px 1px 4px gray;
 }
 .search-post .info {
     min-height: 320px;
     margin-left: 0rem;
 }
-.search-post .image {
+.search-post img {
+    margin: 0rem auto;
+}
+.search-post .content {
     margin: 0rem auto;
 }
 .search-post .title {
@@ -42,4 +46,42 @@
 }
 .search-post .link {
     
+}
+
+@media (max-width: 768px) {
+    .search-post img {
+        width: 100% ;
+        height: auto;
+        margin: 0rem auto;
+    }
+    .search-post {
+        flex-direction: column;
+        align-items: center;
+    }
+    .search-post .poster {
+
+    }
+    .search-post .content {
+
+
+    }
+    .search-post .title {
+        font-size: 1.6rem;
+    }
+    .search-post .date{
+        font-size: 0.8rem;
+    }
+    
+    .search-post .time {
+        font-size: 0.8rem;
+    }
+    .search-post .location {
+        font-size: 0.8rem;
+    }
+    .search-post .introduction {
+        font-size: 0.8rem;
+    }
+    .search-post .icon {
+        font-size: 0.8rem;
+    }
 }
