@@ -48,6 +48,7 @@
   font-family: 'Lobster', cursive;
   color:black;
   padding-left: 5rem;
+  border-right: black 0.2px solid;
 }
 
 .navbar-wrapper{
@@ -69,7 +70,7 @@
     position: absolute;
     width: 100%;
     left: 0;
-    margin-top: 0.7rem;
+    margin-top: 1rem;
     background-color: rosybrown;
     /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
 }
@@ -92,13 +93,7 @@
   color:darkolivegreen; */
   color:white;
 }
-.search-btn{
-  margin-left:1rem;
-  margin-right:1rem;
-}
-.search-icon:hover{
-  color:red;
-}
+
 
 
 
@@ -119,6 +114,9 @@
     padding-top: 0.5rem; 
     padding-bottom: 0.5rem;
     /* border-bottom: grey 0.5px solid; */
+  }
+  #navbar-logo{
+    border: 0px !important;
   }
 }
 /* toggle element */
@@ -198,12 +196,11 @@
 
 
 .navbar-items{
-  padding-top: auto;
-  padding-bottom: auto;
+  padding-left:1rem;
 }
-#outside-picked-item{
-  border-bottom:black 0.5px solid;
-  /* background-color: blue; */
+.outside-picked-item{
+  /* border-bottom:black 0.5px solid; */
+  background-color:rosybrown;
 }
 
 
@@ -397,3 +394,57 @@
     width: 40px;
     background-color: black;
 }  */
+
+
+
+
+/* for serch bar */
+
+.search-btn{
+	margin-left:1rem;
+	margin-right:1rem;
+	background-color:rgb(218, 211, 211) !important;
+}
+.search-icon:hover{
+	color:red;
+}
+
+
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+.mainLoginInput{
+	/* height: 40px; */
+	width:20rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+	border-radius: 8px;
+	border :1px solid lightgray;
+	/* margin: px 0; */
+}
+
+.mainLoginInput::-webkit-input-placeholder { 
+	font-family: FontAwesome;
+	font-weight: normal;
+	overflow: visible;
+	vertical-align: top;
+	display: inline-block !important;
+	color:lightgray;
+}
+
+.mainLoginInput::-moz-placeholder  { 
+	font-family: FontAwesome;
+	font-weight: normal;
+	overflow: visible;
+	vertical-align: top;
+	display: inline-block !important;
+	color:lightgray;
+}
+
+.mainLoginInput:-ms-input-placeholder  { 
+	font-family: FontAwesome;
+	font-weight: normal;
+	overflow: visible;
+	vertical-align: top;
+	display: inline-block !important;
+	color:lightgray;
+} 

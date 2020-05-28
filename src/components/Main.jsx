@@ -42,6 +42,7 @@ import SearchPage from 'components/SearchPage.jsx'
 import { colors } from '@material-ui/core';
 // import SearchIcon from '@material-ui/icons/Search';
 
+
 export default class Main extends React.Component {
     constructor(props) {
         super(props);
@@ -75,7 +76,7 @@ export default class Main extends React.Component {
                         
                             <NavbarToggler className='d-block d-md-none' onClick={this.handleNavbarToggle} outline='none'/>
                             <NavbarBrand className=' px-2 py-2'id='navbar-logo' href="/" onClick={e => this.handleClick('none')}>NewsSharing</NavbarBrand>
-                            <div className='py-2 search-btn d-block d-md-none dropDownBtn ' onClick={this.handleSearch}>
+                            <div className='py-2 search-btn d-block d-lg-none dropDownBtn ' onClick={this.handleSearch}>
                                 <SearchIcon className='search-icon'/>
                                 {/* drop down menu */}
                                 <div className={`dropdown-content ${!this.state.startSearch? 'dropdown-hide' : 'dropdown-display'}`}>
@@ -84,15 +85,13 @@ export default class Main extends React.Component {
                                     <a href="#">Link 3</a>
                                 </div>
                             </div>
-                            <div className='login-btn d-block d-md-none '>Login</div>
+                            {/* <div className='login-btn d-block d-md-none '>Login</div> */}
 
-
-
-                            <Collapse className='py-0' isOpen={this.state.navbarToggle} navbar>
-                                <Nav navbar className='navbar-fixed-top'>
+                            <Collapse className='py-0 my-0' isOpen={this.state.navbarToggle} navbar>
+                                <Nav navbar className=' py-0 my-0 navbar-fixed-top'>
 
                                 {/* big window items  */}
-                                <NavItem className="px-1 navbar-items" id='outside-catagory-item'>
+                                <NavItem className={`pl-2 pr-1 py-3 navbar-items ${this.state.categoryOpen ? 'outside-picked-item':''}`}>
                                     <div className="navbar-dropDown">
                                         <button className='navbar-tag' onClick={e => this.handleClick('category') }>Catalog
                                             <ArrowDropDownIcon style={{display: (this.state.categoryOpen) ? 'none' : 'inline'}}/>
@@ -111,7 +110,7 @@ export default class Main extends React.Component {
                                         </div>
                                     </div>
                                 </NavItem >
-                                <NavItem className="px-1 navbar-items">
+                                <NavItem className={`pl-2 pr-1 py-3 navbar-items ${this.state.nthuOpen ? 'outside-picked-item':''}`}>
                                     <div className="navbar-dropDown">
                                         <button className='navbar-tag' onClick={e => this.handleClick('nthu')}>NTHU CLUB
                                             <ArrowDropDownIcon style={{display: (this.state.nthuOpen) ? 'none' : 'inline'}}/>
@@ -128,7 +127,7 @@ export default class Main extends React.Component {
                                         </div>
                                     </div>
                                 </NavItem >
-                                <NavItem className="px-1 navbar-items">
+                                <NavItem className={`pl-2 pr-1 py-3 navbar-items ${this.state.nctuOpen ? 'outside-picked-item':''}`}>
                                     <div className="navbar-dropDown">
                                         <button className='navbar-tag' onClick={e => this.handleClick('nctu')}>NCTU CLUB
                                             <ArrowDropDownIcon style={{display: (this.state.nctuOpen) ? 'none' : 'inline'}}/>
@@ -186,10 +185,13 @@ export default class Main extends React.Component {
                                 
                             </Collapse>
 
-                            <div className='search-btn d-none d-md-block'>
-                                <InputGroup>
-                                    <Input placeholder={`Search...`}/>
-                                </InputGroup>
+                            <div className='search-btn d-none d-lg-block'>
+                                {/* <InputGroup> */}
+
+                                {/* <input type="text" placeholder="&#xF002; Search" style="font-family:Arial, FontAwesome" /> */}
+                                {/* <input type="text" placeholder="&#xF002;" style="font-family:Arial, FontAwesome" /> */}
+                                {/* </InputGroup> */}
+                                <input className="mainLoginInput" type="text" placeholder="&#61442; Search..."/> <br/>
                             </div>
 
                             <div className='login-btn d-none d-md-block'>Login</div>
@@ -205,7 +207,7 @@ export default class Main extends React.Component {
                     <div id='content-section' >
 
                     {/* for router */}
-                    <Route exact path="/" render={() => (
+                    <Route exact path="/a" render={() => (
                         <Homepage />
                     )}/>
                     <Route exact path="/ArticleForm" render={() => (
@@ -217,7 +219,7 @@ export default class Main extends React.Component {
                     <Route exact path="/Manager" render={() => (
                         <Manager/>  
                     )}/>
-                    <Route exact path="/catagory" render={() => (
+                    <Route exact path="/" render={() => (
                         <CatalogPage topicName={this.state.tagClick} description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
                     )}/>
                     <Route exact path='/search' render={() => (
