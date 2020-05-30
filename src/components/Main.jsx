@@ -114,7 +114,7 @@ export default class Main extends React.Component {
                                 opacity: "1"
                             }}
                             onComplete={this.animateComplete}
-                            duration='2'
+                            duration='0'
                             >
                             <h1 className='logo'>NewsSharing</h1>
                         </Animate>
@@ -127,7 +127,7 @@ export default class Main extends React.Component {
                             end={{ 
                                 opacity: "1"
                             }}
-                            duration='2'
+                            duration='0'
                             >
                         <div className='main-page'>
                             <Container className='d-flex justify-content-around' id='navbar'>

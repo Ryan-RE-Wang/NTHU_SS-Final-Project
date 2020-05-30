@@ -20,7 +20,7 @@ import Contact_Us_information from './Manager_used/contact_us_information.jsx';
 import Article_Cover from './Manager_used/article_cover.jsx';
 import Password_Reset from './Manager_used/password_reset.jsx';
 import Memorandum from './Manager_used/memorandum.jsx';
-
+import Footer_Content from 'components/Footer_Content.jsx';
 
 
 import './Manager.css'
@@ -46,7 +46,7 @@ export default class Manager extends React.Component {
         //console.log(content);
         return (
             <Row >
-                 <Col xs={12} md={2} className="left">
+                 <Col xs={12} md={{ span: 3, offset: 1 }} className="left">
                      <Row>
                          <Col xs={12} md={10}>
                         <User_information/>
@@ -85,9 +85,12 @@ export default class Manager extends React.Component {
                         </Col>
                         </Row>
                 </Col>
-                <Col xs={12} md={9}>         
+                <Col xs={12} md={8}>         
                            {content}
                              
+                </Col>
+                <Col xs={12} md={12}>
+                    <Footer_Content />
                 </Col>     
             </Row>
         )
@@ -100,7 +103,6 @@ export default class Manager extends React.Component {
             console.log(`${page} error`);
     }
     render_Selected(page) {
-        console.log("enter");
         if(page == '1'){
             return (
                 <Memorandum/>
