@@ -41,6 +41,7 @@ import CatalogPage from 'components/CatalogPage.jsx';
 import SearchPage from 'components/SearchPage.jsx'
 import LoginForm from 'components/LoginForm.jsx'
 import { colors } from '@material-ui/core';
+import Footer from "components/Footer_Content.jsx"
 // import SearchIcon from '@material-ui/icons/Search';
 
 
@@ -249,7 +250,7 @@ export default class Main extends React.Component {
                         <LoginForm/>
                     )}/>
 
-                    
+                    <Footer/>
                     </div>
                 </div> 
             </Router>
