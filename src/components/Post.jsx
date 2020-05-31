@@ -1,6 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container } from 'reactstrap';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 import './Post.css'
 
 export default class Post extends React.Component{
@@ -26,12 +31,11 @@ export default class Post extends React.Component{
                         <span className='post-body'> April 27</span><br/>
                         <span className='post-body'> National Tsin Hua University</span><br/>
                         <span className='post-body'> Hold by badminton club</span><br/>
-                        <button className=' d-none d-md-block moreInfoBtn'> More Info</button>
+                        <Link to="/article" className="">
+                            <button className=' d-none d-md-block moreInfoBtn'> More Info</button>
+                        </Link>
+                        
                     </div>
-                    <div className='col-12'> 
-                        <button className=' d-block d-md-none moreInfoBtn'> More Info</button>
-                    </div>
-                    
                 </div>
             </div>
         )
