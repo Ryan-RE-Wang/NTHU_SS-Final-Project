@@ -27,7 +27,7 @@ export default class Footer_Content extends React.Component{
                 </button>
             </div>
             <div className='footer'>
-                <Container className='footer-content pl-2 pr-2 pl-sm-5 pr-sm-5'>
+                <Container className='footer-content pl-2 pr-2 pl-sm-2 pr-sm-2 pl-lg-5 pr-lg-5'>
                     
                     <div className='d-flex row info-table'>
                         <div className='col-12'>
@@ -62,7 +62,7 @@ export default class Footer_Content extends React.Component{
                         </div>
                         <div id='section-3' className='col-12 '>
                             <div className='d-flex row '>
-                                <div id='footer-intro' className='d-flex col-12  info-element'>Team 15 final project news sharing</div>
+                                <div id='footer-intro' className=' col-12  info-element'>Team 15 final project news sharing</div>
                             </div>
                         </div>
                     </div>

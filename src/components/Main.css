@@ -1,8 +1,17 @@
 /* @import url('https://use.fontawesome.com/releases/latest/js/all.js'); */
 .main {
     height: 100%;
-
     background-color: white;
+}
+#navbar-section{
+
+}
+#content-section{
+  background-color:rgb(255, 242, 204);
+}
+.content-section-dim{
+  /* -webkit-filter: */
+  opacity:1;
 }
 
 .animation, .animation-after {
@@ -13,15 +22,12 @@
     z-index: 1;
 }
 
-.container {
-  display: grid;
-}
 
-.dropDown {
-    font-family: 'Lobster', cursive;
+.navbar-dropDown {
+    /* font-family: 'Lobster', cursive; */
     float: left;
     overflow: hidden;
-  }
+}
 
 .dropBtn .dropDown {
     font-size: 16px;
@@ -33,65 +39,176 @@
     font: inherit; /* Important for vertical align on mobile phones */
     margin: 0; /* Important for vertical align on mobile phones */
   }
+#newsSharing-navbar{
+  background-color:rgb(218, 211, 211) !important;
+  border-bottom:0.5px grey;
+  box-shadow:1px 0px 1px lightgrey;
+  z-index: 10000;
+  top: 0px;
+}
+#navbar-logo{
+  font-family: 'Lobster', cursive;
+  color:black;
+  padding-left: 5rem;
+  border-right: black 0.2px solid;
+}
 
-
-.contentNTHU {
-    font-family: 'Lobster', cursive;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 100%;
-    left: 0;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-  }
-
-.contentNCTU {
-    z-index: 1;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 100%;
-    left: 0;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  }
-
-.contentCategory {
-    z-index: 1;
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    width: 100%;
-    left: 0;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+.navbar-wrapper{
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4.5rem;
+  left:0;
+  background-color: rosybrown;
+  opacity: 1;
 }
 
 
-.tag {
+
+
+.navbar-dropDown-content {
+    z-index: 1;
+    display: none;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    margin-top: 1rem;
+    background-color: rosybrown;
+    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
+}
+.navbar-content-link{
+  text-align: center;
+}
+
+.navbar-tag {
     background-color: inherit;
     margin: 0; 
     border: none;
     outline: none;
-  }
+}
 
-  .tag:focus {
-    outline: none;
-  }
+.navbar-tag:focus {
+  outline: none;
+}
+.login-btn{
+  /* background-color:white;
+  color:darkolivegreen; */
+  color:white;
+}
 
-.insideColNthu, .insideColNctu, .insideColCategory {
+
+
+
+
+
+@media(max-width:768px){
+  .navbar-wrapper{
+    display: none;
+  }
+  .contentCategory{
+    display: none;
+  }
+  .navbar-items{
+    display: none;
+  }
+  .navbar-tag {
+    background-color: inherit;
+    padding-top: 0.5rem; 
+    padding-bottom: 0.5rem;
+    /* border-bottom: grey 0.5px solid; */
+  }
+  #navbar-logo{
+    border: 0px !important;
+  }
+}
+/* toggle element */
+
+/* outside toggle */
+.outside-toggle-linkBtn {
   border-radius: 4px;
   background-color: inherit;
   border: none;
   color: black;
   text-align: center;
   font-size: 15px;
-  padding: 20px;
-  width: 200px;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
-  }
+  text-align: center;
+}
+.outside-toggle-linkBtn span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
 
+.outside-toggle-linkBtn span::after {
+  font-weight: 900; 
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.outside-toggle-linkBtn:hover span {
+  padding-right: 25px;
+} 
+
+.outside-toggle-linkBtn:hover span::after{
+  opacity: 1;
+  right: 0;
+}
+/* inside toggle element */
+.inside-toggle-element{
+  text-align: center;
+}
+.inside-toggle-linkBtn{
+  padding-top:0.3rem;
+  padding-bottom:0.3rem;
+}
+
+/* for dropdown-content */
+.dropdown-content {
+  display: none;
+  
+  position: absolute;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  border-radius: 5%;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-hide{
+  display: hide;
+}
+.dropdown-display{
+  display: block;
+}
+
+
+
+
+.navbar-items{
+  padding-left:1rem;
+}
+.outside-picked-item{
+  /* border-bottom:black 0.5px solid; */
+  background-color:rosybrown;
+}
+
+
+
+
+/* 
 .insideColNthu span {
   cursor: pointer;
   display: inline-block;
@@ -100,8 +217,8 @@
 }
 
 .insideColNthu span::after {
-  font-family: 'Font Awesome 5 Free'; 
-  font-weight: 900; 
+  /* font-family: 'Font Awesome 5 Free';  */
+  /* font-weight: 900; 
   content: "\00bb";
   position: absolute;
   opacity: 0;
@@ -127,7 +244,6 @@
 }
 
 .insideColCategory span::after {
-  font-family: 'Font Awesome 5 Free'; 
   font-weight: 900; 
   content: "\00bb";
   position: absolute;
@@ -154,7 +270,6 @@
 }
 
 .insideColNctu span::after {
-  font-family: 'Font Awesome 5 Free'; 
   font-weight: 900; 
   content: "\00bb";
   position: absolute;
@@ -171,10 +286,16 @@
 .insideColNctu:hover span::after{
   opacity: 1;
   right: 0;
+} */
+
+
+.main{
+  font-family: 'Roboto', sans-serif;
 }
 
 
-html {
+/* html */
+/* html {
     scroll-behavior: smooth;
   } 
 
@@ -184,7 +305,6 @@ html {
 
   .button {
     color: black;
-    font-family: Nunito;
     padding: 0;
     margin: 0;
     border: 0;
@@ -194,9 +314,9 @@ html {
     width: 30px;
     height: 30px;
     cursor: pointer;
-  }
+  } */
 
-  .s-circle {
+  /* .s-circle {
     position: absolute;
     top: 5px;
     left: 5px;
@@ -275,4 +395,58 @@ html {
     right: -6px;
     width: 40px;
     background-color: black;
+}  */
+
+
+
+
+/* for serch bar */
+
+.search-btn{
+	margin-left:1rem;
+	margin-right:1rem;
+	background-color:rgb(218, 211, 211) !important;
 }
+.search-icon:hover{
+	color:red;
+}
+
+
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+
+.mainLoginInput{
+	/* height: 40px; */
+	width:20rem;
+	padding: 0.5rem;
+	font-size: 1rem;
+	border-radius: 8px;
+	border :1px solid lightgray;
+	/* margin: px 0; */
+}
+
+.mainLoginInput::-webkit-input-placeholder { 
+	font-family: FontAwesome;
+	font-weight: normal;
+	overflow: visible;
+	vertical-align: top;
+	display: inline-block !important;
+	color:lightgray;
+}
+
+.mainLoginInput::-moz-placeholder  { 
+	font-family: FontAwesome;
+	font-weight: normal;
+	overflow: visible;
+	vertical-align: top;
+	display: inline-block !important;
+	color:lightgray;
+}
+
+.mainLoginInput:-ms-input-placeholder  { 
+	font-family: FontAwesome;
+	font-weight: normal;
+	overflow: visible;
+	vertical-align: top;
+	display: inline-block !important;
+	color:lightgray;
+} 
