@@ -20,7 +20,7 @@ export default class Article extends React.Component {
     render() {
         return (
             <div className='article'>
-                <div className='title'>This is an article</div>
+                <div className='title' font-weight='bold'>This is an article</div>
                 <div className='d-flex row content justify-content-center'>
                     <div className='poster'>
                         <a href="#"><img className='img-fluid' src="images/烤魷魚.jpg" alt="grilled squid" width="400rem" margin="0 auto"/></a>

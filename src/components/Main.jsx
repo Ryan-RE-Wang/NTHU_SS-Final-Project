@@ -180,6 +180,22 @@ export default class Main extends React.Component {
                                         </div>  
                                     </div>
                                 </NavItem >
+                                <NavItem >
+                                    <div className='d-md-none d-block'> 
+                                        <div className='inside-toggle-element navbar-tag' >
+                                            <button className='' onClick={e => this.handleClick('nthu')}>NCTU CLUB
+                                                    <ArrowDropDownIcon style={{display: (this.state.nthuOpen) ? 'none' : 'inline'}}/>
+                                                    <ArrowDropUpIcon style={{display: (this.state.nthuOpen) ? 'inline' : 'none'}}/>
+                                            </button>
+                                        </div>
+                                        <div className='inside-toggle-element' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                        </div>  
+                                    </div>
+                                </NavItem >
                                 </Nav>
 
                                 
