@@ -1,8 +1,13 @@
-.SearchPage {
-    margin: 1.5rem;
+.search-page {
+    position: absolute;
+    margin: 0rem auto;
     background-color: peachpuff;
 }
-
+.search-page .post-list {
+    margin: 0rem auto;
+    display: block;
+    position: absolute;
+}
 .calendar{
     color: black;
     position: relative;
