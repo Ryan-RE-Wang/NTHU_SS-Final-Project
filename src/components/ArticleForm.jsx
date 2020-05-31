@@ -34,7 +34,7 @@ export default class ArticleForm extends React.Component {
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleTimeChange = this.handleTimeChange.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
-        // this.handlePreview = this.handlePreview.bind(this);
+        this.handlePreview = this.handlePreview.bind(this);
         
 
 
@@ -200,6 +200,7 @@ export default class ArticleForm extends React.Component {
         this.setState({
           file: URL.createObjectURL(event.target.files[0])
         })
+        console.log(this.state.file);
     }
 
     // handlePreview() {
@@ -207,7 +208,7 @@ export default class ArticleForm extends React.Component {
     // }
 
     handlePost() {
-
+        
     }
 
     handleTagChange(tags) {

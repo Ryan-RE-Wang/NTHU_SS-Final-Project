@@ -5,7 +5,7 @@ import '@babel/polyfill';
 
 const postKey = 'posts';
 
-export function listPosts(searchText = '' ,catagory='all' date='') {
+export function listPosts(searchText = '' ,catagory='all', date='') {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(_listPosts(searchText));
@@ -32,7 +32,7 @@ export function createPost(club, title, content, date, time) {
 }
 
 // Simulated server-side code
-function _createPost(club, title, content,picture='', date, time, alreadyPost=false hashtag=[]) {
+function _createPost(club, title, content,picture='', date, time, alreadyPost=false, hashtag=[]) {
     const newPost = {
         id: uuid(),
         club: club,
@@ -41,7 +41,7 @@ function _createPost(club, title, content,picture='', date, time, alreadyPost=fa
         picture: picture,
         date: date,
         time: time,
-        ts: moment().unix()
+        ts: moment().unix(),
         alreadyPost:alreadyPost,
         hashtag:hashtag,
         likes:0
