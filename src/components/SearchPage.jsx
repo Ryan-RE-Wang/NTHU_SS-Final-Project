@@ -42,39 +42,36 @@ export default class DateSelectedPage extends React.Component {
     }
     render() {
         return (
-            <div>
-                <Container>
-                    <Row className='d-flex justify-content-md-center'>
-                        <Col md={2}/>
-                        <Col md={8}>
-                            <div className='search'>
-                                <InputGroup>
-                                    <Input />
-                                    <InputGroupAddon addonType='prepend'>
-                                        <DatePicker
+            <Container className='search-page'>
+                <Row className='d-flex justify-content-md-center'>
+                    <Col md={2}/>
+                    <Col md={8}>
+                        <div className='search'>
+                            <InputGroup>
+                                <Input />
+                                <InputGroupAddon addonType='prepend'>
+                                    <DatePicker
                                         onChange={this.onChange}
                                         value={this.state.date}
-                                        />
-                                    </InputGroupAddon>
-                                    <InputGroupAddon addonType='prepend'>
-                                        <Link to='/search' className='btn btn-info'>Search</Link>
-                                    </InputGroupAddon>
-                                </InputGroup>
-                            </div>
-                        </Col>
-                        <Col md={2}/>
-                    </Row> 
-                </Container>
-                <Container className='search-page w-75'>
-                    <div className='d-flex flex-column justify-content-center'>
-                        <SearchPost className='d-flex'></SearchPost>
-                        <SearchPost className='d-flex'></SearchPost>
-                        <SearchPost className='d-flex'></SearchPost>
-                        <SearchPost className='d-flex'></SearchPost>
-                    </div>
-
-                </Container>
-            </div>
+                                    />
+                                 </InputGroupAddon>
+                                <InputGroupAddon addonType='prepend'>
+                                    <Link to='/search' className='btn btn-info'>Search</Link>
+                                </InputGroupAddon>
+                            </InputGroup>
+                        </div>
+                    </Col>
+                    <Col md={2}/>
+                </Row>
+                <Row className='post-list justify-content-center'>
+                    <SearchPost></SearchPost>
+                    <SearchPost></SearchPost>
+                    <SearchPost></SearchPost>
+                    <SearchPost></SearchPost>
+                </Row>
+            </Container>
+                
+            
         )
     }
     

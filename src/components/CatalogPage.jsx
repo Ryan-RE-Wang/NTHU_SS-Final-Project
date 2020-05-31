@@ -203,7 +203,7 @@ export default class CatalogPage extends React.Component{
                 </Container>
                 
             </div>
-            <Footer_Content />
+            
             </div>
         )
     }

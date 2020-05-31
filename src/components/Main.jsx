@@ -39,7 +39,9 @@ import Homepage from 'components/Homepage.jsx';
 import Manager from 'components/Manager.jsx';
 import CatalogPage from 'components/CatalogPage.jsx';
 import SearchPage from 'components/SearchPage.jsx'
+import LoginForm from 'components/LoginForm.jsx'
 import { colors } from '@material-ui/core';
+import Footer from "components/Footer_Content.jsx"
 // import SearchIcon from '@material-ui/icons/Search';
 
 
@@ -135,7 +137,7 @@ export default class Main extends React.Component {
                                         </button>
                                         <div className='navbar-dropDown-content' style={{display: (this.state.nctuOpen) ? 'block' : 'none'}}>                                            
                                             <div className='d-flex row pl-3 pr-3 my-4 '>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/Manager'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
@@ -180,6 +182,22 @@ export default class Main extends React.Component {
                                         </div>  
                                     </div>
                                 </NavItem >
+                                <NavItem >
+                                    <div className='d-md-none d-block'> 
+                                        <div className='inside-toggle-element navbar-tag' >
+                                            <button className='' onClick={e => this.handleClick('nthu')}>NCTU CLUB
+                                                    <ArrowDropDownIcon style={{display: (this.state.nthuOpen) ? 'none' : 'inline'}}/>
+                                                    <ArrowDropUpIcon style={{display: (this.state.nthuOpen) ? 'inline' : 'none'}}/>
+                                            </button>
+                                        </div>
+                                        <div className='inside-toggle-element' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                        </div>  
+                                    </div>
+                                </NavItem >
                                 </Nav>
 
                                 
@@ -194,7 +212,10 @@ export default class Main extends React.Component {
                                 <input className="mainLoginInput" type="text" placeholder="&#61442; Search..."/> <br/>
                             </div>
 
-                            <div className='login-btn d-none d-md-block'>Login</div>
+                            <div className='login-btn d-none d-md-block'>
+                                
+                                <Link className="d-block navbar-content-link" to='/login'>Login</Link>
+                            </div>
                         
                         </Container>
                         
@@ -203,7 +224,7 @@ export default class Main extends React.Component {
                     <div className={`${this.state.categoryOpen || this.state.nthuOpen || this.state.nctuOpen   ? 'navbar-wrapper':'' }`}></div>
 
                     
-
+                    <div id='blankSpace'></div>
                     <div id='content-section' >
 
                     {/* for router */}
@@ -229,7 +250,7 @@ export default class Main extends React.Component {
                         <LoginForm/>
                     )}/>
 
-                    
+                    <Footer/>
                     </div>
                 </div> 
             </Router>
