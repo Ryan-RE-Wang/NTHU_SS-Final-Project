@@ -86,10 +86,14 @@ export default class Manager extends React.Component {
                         </Col>
                         </Row>
                 </Col>
-                <Col xs={12} md={8}>         
+                <Col xs={12} md={7}>         
                            {content}
                              
+<<<<<<< HEAD
                 </Col>    
+=======
+                </Col>   
+>>>>>>> bo-hong
             </Row>
         )
     }

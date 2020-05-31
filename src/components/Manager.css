@@ -37,3 +37,6 @@
 .MuiListItem-root{
   justify-content: start !important;
 }
+.row{
+  margin-right: 0px !important;
+}
