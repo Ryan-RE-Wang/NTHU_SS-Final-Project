@@ -22,7 +22,7 @@
     position: relative;
 }
 .article .content {
-    margin: 2rem 8rem;
+    margin: 2rem auto;
 }
 .article .info {
     padding: 1rem;

@@ -203,6 +203,10 @@ export default class Main extends React.Component {
                                 
                             </Collapse>
 
+                            <Link to='/search'>
+                                search
+                            </Link>
+
                             <div className='search-btn d-none d-lg-block'>
                                 {/* <InputGroup> */}
 
