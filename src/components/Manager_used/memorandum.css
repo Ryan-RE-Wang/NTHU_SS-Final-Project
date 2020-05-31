@@ -1,4 +1,5 @@
 .manager_text{
     text-align: justify;
     text-justify:inter-ideograph;
+    max-width: 80%;
   }

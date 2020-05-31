@@ -6,6 +6,7 @@ import TagsInput from 'react-tagsinput'
  
 import 'react-tagsinput/react-tagsinput.css'
 
+var Preview = false;
 export default class ArticleForm extends React.Component {
     static propTypes = {
         onPost: PropTypes.func,
@@ -23,8 +24,8 @@ export default class ArticleForm extends React.Component {
             timeDanger: false,
             locationValue: '',
             locationDanger: false,
-            imageValue: '',
-            imageDanger: false,
+            file: null,
+            fileDanger: false,
             tags: []
         }
 
@@ -32,7 +33,8 @@ export default class ArticleForm extends React.Component {
         this.handleContentChange = this.handleContentChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleTimeChange = this.handleTimeChange.bind(this);
-        this.handleImageChange = this.handleImageChange.bind(this);
+        this.handleFileChange = this.handleFileChange.bind(this);
+        // this.handlePreview = this.handlePreview.bind(this);
         
 
 
@@ -126,22 +128,18 @@ export default class ArticleForm extends React.Component {
                                 onChange={this.handleTagChange} />
                         </div>
                     </div>
-                    <FormGroup className='form'>
-                        <div className='row d-flex'>
-                            <div className='col'>
-                                <Label for="imgFile" sm={2}>Poster</Label>
-                            </div>
-                            <div className='col-10'>
-                                <Input 
-                                    type="file" 
-                                    name="file" 
-                                    id="imgFile" 
-                                    onChange={this.handleImageChange} />
-                                <FormText color="muted">
-                                    Upload your event poster.
-                                </FormText>
-                            </div>
-                        </div>
+                    
+                    <FormGroup row className='form'>
+                        <Label for="imgFile" sm={2}>Poster</Label>
+                        <Col sm={10}>
+                            <Input type="file" name="file" id="imgFile" onChange={this.handleFileChange}/>
+                            <FormText color="muted">
+                                Upload your event poster.
+                            </FormText>
+                            {/* <div>{(this.state.file == null) ? '' : <button className= 'preview' onClick={this.handlePreview}><span>Preview</span></button>}</div> */}
+                            {/* <div>{(Preview) ? <img src={this.state.file}/> : ''}</div> */}
+        <div>{(this.state.file == null) ? '' : <img src={this.state.file}/>}</div>
+                        </Col>
                     </FormGroup>
                 </Form>
                 <div className="buttons" className={`d-flex justify-content-around`}>
@@ -157,6 +155,7 @@ export default class ArticleForm extends React.Component {
             </div>
         );
     }
+
     handleTitleChange(e) {
         const text = e.target.value;
         this.setState({titleValue: text});
@@ -164,6 +163,7 @@ export default class ArticleForm extends React.Component {
             this.setState({titleDanger: false});
         }
     }
+
     handleDateChange(e) {
         const date = e.target.value;
         this.setState({dateValue: date});
@@ -171,6 +171,7 @@ export default class ArticleForm extends React.Component {
             this.setState({dateDanger: false});
         }
     }
+
     handleTimeChange(e) {
         const time = e.target.value;
         this.setState({timeValue: time});
@@ -185,19 +186,27 @@ export default class ArticleForm extends React.Component {
             this.setState({locationDanger: false});
         }
     }
-    handleContentChange(e) {
+    
+
+    handleContentChange() {
         const text = e.target.value;
         this.setState({contentValue: text});
         if (text) {
             this.setState({contentDanger: false});
         }
     }
-    handleImageChange(e) {
-        const file = e.target.value;
-        this.setState({imageValue: file});
-        if (file) {
-            this.setState({imageDanger: false});
-        }
+
+    handleFileChange(event) {
+        this.setState({
+          file: URL.createObjectURL(event.target.files[0])
+        })
+    }
+
+    // handlePreview() {
+    //     Preview = !Preview;
+    // }
+
+    handlePost() {
 
     }
 
@@ -262,8 +271,8 @@ export default class ArticleForm extends React.Component {
             timeDanger: false,
             locationValue: '',
             locationDanger: false,
-            imageValue: '',
-            imageDanger: false,
+            file: null,
+            fileDanger: false,
             tags: []
         })
     }
@@ -279,8 +288,8 @@ export default class ArticleForm extends React.Component {
             timeDanger: false,
             locationValue: '',
             locationDanger: false,
-            imageValue: '',
-            imageDanger: false,
+            file: null,
+            fileDanger: false,
             tags: []
         })
     }

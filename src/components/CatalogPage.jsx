@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputGroup, InputGroupAddon, Button, Jumbotron, Container } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,UncontrolledDropdown } from 'reactstrap';
-import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome'
-import { faAngleDown, faAngleUp} from '../../node_modules/@fortawesome/free-solid-svg-icons'
-import '../../node_modules/pretty-checkbox/src/pretty-checkbox.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faAngleDown, faAngleUp, faCheck } from '@fortawesome/free-solid-svg-icons'
+import 'pretty-checkbox/src/pretty-checkbox.scss';
+import Carousel from 'react-bootstrap/Carousel'
+
 
 import Post from 'components/Post.jsx';
+import Pop_Post from 'components/Pop_Post.jsx';
 import './CatalogPage.css'
 import Footer_Content from 'components/Footer_Content.jsx';
 
@@ -20,11 +23,16 @@ export default class CatalogPage extends React.Component{
         super(props);
         this.state = {
             exploreClick: true,
-            orderClick: true
+            orderClick: true,
+            
         };
         this.handleExplore = this.handleExplore.bind(this); 
         this.handleOrder = this.handleOrder.bind(this); 
+        
     }
+
+    static catagory = ['All','Food','PE','Music','Association','Art','Competition'];
+    static order = ['A to Z','Popularity','Date'];
 
     render(){
         
@@ -33,56 +41,153 @@ export default class CatalogPage extends React.Component{
             <div>     
             <div className='catalogPage-wrapper'>
             {/* d-block d-lg-none */}
-                <div className='left-wrapper '></div>
-                <div className='right-wrapper'></div>
-                <Container className='CatalogPage pl-2 pr-2 pl-lg-3 pr-lg-3 pl-xl-5 pr-xl-5 pt-0 pb-0' >
-                    <div className='d-flex row '>
+                {/* <div className='left-wrapper '></div>
+                <div className='right-wrapper'></div> */}
+                <Container className=' pl-2 pr-2 pl-sm-2 pr-sm-2 pl-lg-5 pr-lg-5 pt-0 pb-0' >
+                    <div className='row '>
 
-                        <div className='col-11 col-sm-12 col-lg-3 classes-table ' >
-                            <div className=' row dropdown'>
-                                <div id='exploreBy' className='col-12 col-sm-6 col-lg-12 ' onClick={this.handleExplore}>
+                        <div className='col-12 col-sm-12 col-lg-3 classes-table ' >
+                            <div className='row dropdown'>
+                                <div id='exploreBy' className=' col-12 col-sm-6 col-lg-12' onClick={this.handleExplore}>
                                     
                     
-                                    {/* drop down menu */}
-                                    <div className='col-12 classes-topic dropDownBtn'>
-                                        <span>EXPLORE BY</span>
-                                        <FontAwesomeIcon icon={faAngleUp} size='lg'className={`d-lg-none topic-symbol ${this.state.exploreClick ? 'd-none' : ''}`}/>
-                                        <FontAwesomeIcon icon={faAngleDown} size='lg'className={`d-lg-none topic-symbol ${this.state.exploreClick ? '' : 'd-none'}`}/>
-                                    </div>
-                                    <div className='col-12 option'>A to Z</div>
-                                    <div className={`d-lg-none dropdown-content ${this.state.exploreClick ? 'dropdown-hide' : 'dropdown-display'}`}>
-                                        <a href="#">Link 1</a>
-                                        <a href="#">Link 2</a>
-                                        <a href="#">Link 3</a>
-                                        <div>ORDER BY</div>
-                                        <a href="#">Link 4</a>
-                                        <a href="#">Link 5</a>
-                                        <a href="#">Link 6</a>
-                                    </div>
-                                </div>
-                                <div id='orderBy'className='col-6 col-lg-12 ' onClick={this.handleOrder}>
+                                    {/* drop down menu explore*/}
+                                    <div className='d-block d-lg-none classes-section'>
+                                        <div className='classes-topic dropDownBtn '>
+                                            <span >EXPLORE BY</span>
+                                            <FontAwesomeIcon icon={faAngleUp} size='lg'className={`d-lg-none topic-symbol ${this.state.exploreClick ? 'd-none' : ''}`}/>
+                                            <FontAwesomeIcon icon={faAngleDown} size='lg'className={`d-lg-none topic-symbol ${this.state.exploreClick ? '' : 'd-none'}`}/>
+                                        </div>
 
-                                    {/* drop down menu */}
-                                    <div className='col-12 classes-topic dropDownBtn'>
-                                        <span>ORDER BY</span>
-                                        <FontAwesomeIcon icon={faAngleUp} size='lg'className={`d-lg-none topic-symbol ${this.state.orderClick ? 'd-none' : ''}`}/>
-                                        <FontAwesomeIcon icon={faAngleDown} size='lg'className={`d-lg-none topic-symbol ${this.state.orderClick ? '' : 'd-none'}`}/>
-                                    </div>        
-                                    <div className='col-12 option'>A to Z</div>
-                                    <div className='col-12 option'>Popularity</div>
-                                    <div className='col-12 option'>Date</div>           
-                                    <div className={`d-lg-none dropdown-content ${this.state.orderClick ? 'dropdown-hide' : 'dropdown-display'}`}>
-                                        <a href="#">Link 4</a>
-                                        <a href="#">Link 5</a>
-                                        <a href="#">Link 6</a>
+                                        <div className={`classes-body ${this.state.exploreClick ? 'd-block' : 'd-none'}`}>
+
+                                        {
+                                            CatalogPage.catagory.map((e,i) =>(
+                                                <div className='checkbox-element'key={i}>
+                                                    <div className="pretty p-icon p-plain  ">
+                                                        <input type="checkbox" />
+                                                        <div className="state">
+                                                            <FontAwesomeIcon icon={faCheck} size='xs'className='icon checkIcon'/>
+                                                            <label className='option'>{e}</label>
+                                                        </div>
+                                                    </div>  
+                                                </div>
+                                            ))
+                                        }
+                                        </div>
+
+
+                                        
+
+                                        <div className={`classes-topic dropDownBtn d-sm-none ${this.state.exploreClick ? 'd-block' : 'd-none'}`}>
+                                            <span >ORDER BY</span>
+                                        </div>
+                                        
+                                        <div className=" d-sm-none">
+                                        <div className={ `classes-body ${this.state.exploreClick ? 'd-block' : 'd-none'}`}>
+                                           
+                                            {
+                                                CatalogPage.order.map((e,i) =>( 
+                                                    <div className='checkbox-element'key={i}>
+                                                    <div className="pretty p-icon p-plain ">
+                                                        <input type="checkbox" />
+                                                        <div className="state">
+                                                            <FontAwesomeIcon icon={faCheck} size='xs'className='icon checkIcon'/>
+                                                            <label className='option'>{e}</label>
+                                                        </div>
+                                                    </div></div>
+                                                ))
+                                            }  
+                                        </div>
+                                        </div>
+                                     </div>
+
+                                    {/* left menu explore */}
+                                    <div className='d-none d-lg-block classes-section'>
+                                        <div className='classes-topic'>
+                                            <span>EXPLORE BY</span>
+                                        </div>
+                                        <div className='classes-body'>
+                                        {
+                                            CatalogPage.catagory.map((e,i) =>(
+                                                <div className='checkbox-element'key={i}>
+                                                <div className="pretty p-icon p-plain ">
+                                                    <input type="checkbox" />
+                                                    <div className="state">
+                                                        <FontAwesomeIcon icon={faCheck} size='xs'className='icon checkIcon'/>
+                                                        <label className='option'>{e}</label>
+                                                    </div>
+                                                </div></div>
+                                            ))
+                                        }
+                                        </div>
                                     </div>
+                        
+                                </div>
+
+                                
+                                <div id='orderBy'className='col-0 col-sm-6 col-lg-12 d-none d-sm-block ' onClick={this.handleOrder}>
+                                    {/* drop down menu order*/}
+                                    <div className='classes-section d-block d-lg-none '>
+                                        
+                                        <div className='classes-topic dropDownBtn  '>
+                                            <span>ORDER BY</span>
+                                            <FontAwesomeIcon icon={faAngleUp} size='lg'className={`topic-symbol ${this.state.orderClick ? 'd-none' : ''}`}/>
+                                            <FontAwesomeIcon icon={faAngleDown} size='lg'className={`topic-symbol ${this.state.orderClick ? '' : 'd-none'}`}/>
+                                        </div>
+
+                                        <div className={`classes-body ${this.state.orderClick ? 'd-block' : 'd-none'}`}>
+                                        {
+                                            CatalogPage.order.map((e,i) =>( 
+                                                <div className='checkbox-element'key={i}>
+                                                <div className="pretty p-icon p-plain ">
+                                                    <input type="checkbox" />
+                                                    <div className="state">
+                                                        <FontAwesomeIcon icon={faCheck} size='xs'className='icon checkIcon'/>
+                                                        <label className='option'>{e}</label>
+                                                    </div>
+                                                </div></div>
+                                            ))
+                                        }                 
+                                        </div>     
+                                    </div>
+
+                                    {/* left menu order */}
+                                    <div className='classes-section d-none d-lg-block'>
+                                        <div className='classes-topic '>
+                                            <span>ORDER BY</span>
+                                        </div>
+                                        <div className='classes-body'>
+                                        {
+                                            CatalogPage.order.map((e,i) =>( 
+                                                <div className='checkbox-element'key={i}>
+                                                <div className="pretty p-icon p-plain "key={i}>
+                                                    <input type="checkbox" />
+                                                    <div className="state">
+                                                        <FontAwesomeIcon icon={faCheck} size='xs'className='icon checkIcon'/>
+                                                        <label className='option'>{e}</label>
+                                                    </div>
+                                                </div></div>
+                                            ))
+                                        }  
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>
                        
-                        <div className='col-12 col-lg-9 posts-table'>
+                        <div className=' col-12 col-lg-9 posts-table'>
+                            <div className='posts-table-heading'> Popular Activities</div>
+                            <div className=''>
+                                <Carousel interval='5000' controls={true}>
+                                    <Carousel.Item><Pop_Post/></Carousel.Item>
+                                    <Carousel.Item><Pop_Post/></Carousel.Item>
+                                </Carousel>
+                                
+                            </div>
+                            <div className='posts-table-heading'> ALL</div>
                             <div className='d-flex row justify-content-center'>
-                                <div className='col-12 posts-topic'>&nbsp;ALL</div>
                                 <div className='col-12'><Post/></div>
                                 <div className='col-12'><Post/></div>
                                 <div className='col-12'><Post/></div>
@@ -92,6 +197,7 @@ export default class CatalogPage extends React.Component{
                                 
                             </div>
                         </div>
+
                     </div>
                     
                 </Container>
@@ -119,32 +225,3 @@ export default class CatalogPage extends React.Component{
 }
 
 
-
-
-
-{/* <div className='col-12'>
-    <div className="pretty p-default p-curve">
-        <input type="checkbox" />
-        <div className="state">
-            <label className='option'>Default</label>
-        </div>
-    </div>
-</div>
-<div className='col-12 '>
-    <div className="pretty p-icon p-round">
-        <input type="checkbox" />
-        <div className="state">
-            <i className="icon mdi mdi-check"></i>
-            <label> Pay Bills</label>
-        </div>
-    </div>
-</div>
-<div className='col-12 option'>
-    <div className="pretty p-icon p-curve p-smooth">
-        <input type="radio" name="radio66"/>
-        <div className="state">
-            <i className="icon mdi mdi-check"></i>
-            <label>Swift</label>
-        </div>
-    </div>
-</div> */}

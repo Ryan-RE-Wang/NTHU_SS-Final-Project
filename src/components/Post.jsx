@@ -1,19 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { 
-    InputGroup,
-    InputGroupAddon, 
-    Button, 
-    Jumbotron, 
-    Container, 
-    NavLink } from 'reactstrap';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
+import { InputGroup, InputGroupAddon, Button, Jumbotron, Container } from 'reactstrap';
 import './Post.css'
-import Article from './Article.jsx';
+
 export default class Post extends React.Component{
     static propTypes = {
         // intro: PropTypes.string,
@@ -23,11 +12,10 @@ export default class Post extends React.Component{
 
     constructor(props){
         super(props);
-    }
-    
-    render() {
-        return(       
 
+    }
+    render(){
+        return(       
             <div className='Post '>
                 <div className=' d-flex row'>
                     <div className='col-3 col-md-3 pr-2 pr-md-3 post-left'>
@@ -38,10 +26,12 @@ export default class Post extends React.Component{
                         <span className='post-body'> April 27</span><br/>
                         <span className='post-body'> National Tsin Hua University</span><br/>
                         <span className='post-body'> Hold by badminton club</span><br/>
-                        <Link to="/article" className="btn btn-secondary">
-                            More Info
-                        </Link>
+                        <button className=' d-none d-md-block moreInfoBtn'> More Info</button>
                     </div>
+                    <div className='col-12'> 
+                        <button className=' d-block d-md-none moreInfoBtn'> More Info</button>
+                    </div>
+                    
                 </div>
             </div>
         )

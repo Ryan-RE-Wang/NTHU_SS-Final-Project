@@ -1,4 +1,4 @@
-.box {
+.login_box {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -24,10 +24,10 @@
 
 }
 
-.box .inputBox {
+.login_box .inputBox {
   position: relative;
 }
-.box .inputBox input {
+.login_box .inputBox input {
   width: 100%;
   padding: 10px;
   font-size: 1rem;
@@ -38,7 +38,7 @@
   outline: none;
   background: transparent; 
 }
-.box .inputBox label {
+.login_box .inputBox label {
   position: absolute;
   top: 0;
   left: 0;
@@ -50,14 +50,14 @@
   transition: 0.2s;
 }
 
-.box .inputBox input:focus ~ label,
-.box .inputBox input:valid ~ label {
+.login_box .inputBox input:focus ~ label,
+.login_box .inputBox input:valid ~ label {
   top: -18px;
   left: 0;
   color: darkolivegreen;
   font-size: 0.9rem;
 }
-.box input[type="submit"] {
+.login_box input[type="submit"] {
 
   outline: none;
   cursor: pointer;
@@ -92,7 +92,7 @@
 
 }
 @media(max-width:462px){
-    .box {
+    .login_box {
         top:0 !important; 
         left:0 !important;
         transform: translate(0%, 0%);

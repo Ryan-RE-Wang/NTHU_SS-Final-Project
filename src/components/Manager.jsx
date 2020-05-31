@@ -20,8 +20,9 @@ import Contact_Us_information from './Manager_used/contact_us_information.jsx';
 import Article_Cover from './Manager_used/article_cover.jsx';
 import Password_Reset from './Manager_used/password_reset.jsx';
 import Memorandum from './Manager_used/memorandum.jsx';
-
-
+import Footer_Content from 'components/Footer_Content.jsx';
+import EditableText from './Manager_used/editable_text.jsx';
+import AlertDismissible from './Manager_used/addArticle.jsx';
 
 import './Manager.css'
 
@@ -46,37 +47,37 @@ export default class Manager extends React.Component {
         //console.log(content);
         return (
             <Row >
-                 <Col xs={12} md={2} className="left">
+                 <Col xs={12} md={{ span: 3, offset: 1 }} className="left">
                      <Row>
-                         <Col xs={12} md={10}>
+                         <Col xs={12} md={12}>
                         <User_information/>
                         </Col>
-                        <Col>
-                        <ListItem  button onClick={() => this.list_Selected('1')} >
+                        <Col xs={3} md={12}>
+                        <ListItem className="list" button onClick={() => this.list_Selected('1')} >
                         <ListItemIcon>
                             <AssignmentIndIcon />
                         </ListItemIcon>
                          <div className="options">Manager</div>
                         </ListItem>
                         </Col>
-                        <Col>
-                        <ListItem button onClick={() => this.list_Selected('2')}>
+                        <Col xs={3} md={12}>
+                        <ListItem className="list" button onClick={() => this.list_Selected('2')}>
                         <ListItemIcon>
                             <AmpStoriesIcon />
                         </ListItemIcon>
                         <div className="options">Articles</div>
                         </ListItem>
                         </Col>
-                        <Col>
-                        <ListItem button onClick={() => this.list_Selected('3')}>
+                        <Col xs={3} md={12}>
+                        <ListItem className="list" button onClick={() => this.list_Selected('3')}>
                         <ListItemIcon>
                             <BarChartIcon />
                         </ListItemIcon>
                         <div className="options">Analysis</div>
                         </ListItem>
                         </Col>
-                        <Col>
-                        <ListItem button onClick={() => this.list_Selected('4')}>
+                        <Col xs={3} md={12}>
+                        <ListItem className="list" button onClick={() => this.list_Selected('4')}>
                         <ListItemIcon>
                             <BorderColorIcon />
                         </ListItemIcon>
@@ -85,9 +86,12 @@ export default class Manager extends React.Component {
                         </Col>
                         </Row>
                 </Col>
-                <Col xs={12} md={9}>         
+                <Col xs={12} md={8}>         
                            {content}
                              
+                </Col>
+                <Col xs={12} md={12}>
+                    <Footer_Content />
                 </Col>     
             </Row>
         )
@@ -100,7 +104,6 @@ export default class Manager extends React.Component {
             console.log(`${page} error`);
     }
     render_Selected(page) {
-        console.log("enter");
         if(page == '1'){
             return (
                 <Memorandum/>
@@ -121,7 +124,7 @@ export default class Manager extends React.Component {
                             <Password_Reset/>
                         </Tab>
                         <Tab eventKey="Personal Information" title="Ppersonal Information">
-                            no DATA
+                            <AlertDismissible/>
                         </Tab>
                         <Tab eventKey="contact" title="Contact Us" >
                             <Contact_Us_information/>

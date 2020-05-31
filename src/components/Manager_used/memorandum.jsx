@@ -1,6 +1,7 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import './memorandum.css'
 export default class Memorandum extends React.Component {
     constructor(props) {
@@ -11,6 +12,7 @@ export default class Memorandum extends React.Component {
         return (
             <Container>
                 <Row>
+                    <Col>
                     <div className="manager_text">
                         1
                         我們向神的信心，當徧傳遠近，
@@ -23,8 +25,10 @@ export default class Memorandum extends React.Component {
                         蒙祂聖別保守，徧及全人裏外；
                         以盼望的忍耐，儆醒等候祂來。
                         </div>
+                        </Col>
                 </Row>
                 <Row>
+                <Col>
                     <div className="manager_text">
                         2
                         我們以神聖的愛，彼此來關懷，
@@ -32,8 +36,10 @@ export default class Memorandum extends React.Component {
                         主引導我們的心，進入神的愛，
                         豫備我們全人，盼望那日主來。
                     </div>
+                    </Col>
                 </Row>
                 <Row>
+                    <Col>
                     <div className="manager_text">
                         3
                         信實的主必保守我們的各部─
@@ -41,8 +47,10 @@ export default class Memorandum extends React.Component {
                         今日凡事願聽從主大小吩咐，
                         不久就要聽見祂的再臨招呼。
                     </div>
+                    </Col>
                 </Row>
                 <Row>
+                    <Col>
                     <div className="manager_text">
                         4
                         我們等候主回來─祂甜美同在；
@@ -50,6 +58,7 @@ export default class Memorandum extends React.Component {
                         作光明、白晝之子，儆醒勿懈怠，
                         惟盼主顯榮身，婚娶之日，樂哉！
                     </div>
+                    </Col>
                 </Row>
             </Container>
         )

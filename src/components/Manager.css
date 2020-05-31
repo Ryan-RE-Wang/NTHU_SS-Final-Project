@@ -3,7 +3,8 @@
 }
 
 .list{
-  margin-right: 5px;
+  padding-bottom: 16px !important;
+  background-color: snow !important;
 }
 .MuiListItemIcon-root{
   min-width: auto !important;
@@ -17,6 +18,21 @@
 }
 .options{
   text-align: center;
+  font-family: 'Lobster', cursive;
+}
+.list:hover{
+ color:rgb(243, 199, 6);
+}
+
+.list:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 3px;
+  background-color: rgb(243, 199, 6);
 }
 .MuiListItem-root{
   justify-content: start !important;
