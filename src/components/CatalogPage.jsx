@@ -82,7 +82,7 @@ export default class CatalogPage extends React.Component{
                        
                         <div className='col-12 col-lg-9 posts-table'>
                             <div className='d-flex row justify-content-center'>
-                                <div className='col-12 posts-topic'>&nbsp;ALL</div>
+                                <div className='col-12 posts-topic'>&nbsp;{this.props.topicName}</div>
                                 <div className='col-12'><Post/></div>
                                 <div className='col-12'><Post/></div>
                                 <div className='col-12'><Post/></div>
