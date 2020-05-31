@@ -137,7 +137,7 @@ export default class Main extends React.Component {
                                         </button>
                                         <div className='navbar-dropDown-content' style={{display: (this.state.nctuOpen) ? 'block' : 'none'}}>                                            
                                             <div className='d-flex row pl-3 pr-3 my-4 '>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/Manager'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>

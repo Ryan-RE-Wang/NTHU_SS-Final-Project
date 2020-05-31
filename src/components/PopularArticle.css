@@ -15,14 +15,14 @@
 .upLeftHeader {
     position: absolute;
     border-radius: 1rem;
-    left: -1rem;
+    left: 0rem;
 }
 
 #content0 {
     position: absolute;
-    width: 15rem;
+    width: 16rem;
     top: 3rem;
-    left: -1rem;
+    left: 0rem;
 }
 
 #upRightText {
