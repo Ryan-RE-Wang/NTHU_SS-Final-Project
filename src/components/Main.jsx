@@ -135,7 +135,7 @@ export default class Main extends React.Component {
                                         </button>
                                         <div className='navbar-dropDown-content' style={{display: (this.state.nctuOpen) ? 'block' : 'none'}}>                                            
                                             <div className='d-flex row pl-3 pr-3 my-4 '>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/Manager'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
@@ -219,7 +219,7 @@ export default class Main extends React.Component {
                     <Route exact path="/Manager" render={() => (
                         <Manager/>  
                     )}/>
-                    <Route exact path="/catalog" render={() => (
+                    <Route exact path="/catagory" render={() => (
                         <CatalogPage topicName={this.state.tagClick} description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
                     )}/>
                     <Route exact path='/search' render={() => (
