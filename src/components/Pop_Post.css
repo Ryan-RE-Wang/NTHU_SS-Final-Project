@@ -1,0 +1,35 @@
+.Pop_Post{
+    align-items: center;
+}
+
+
+.each_post{
+    
+    margin-left: 0.5rem;
+    margin-right:0.5rem;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 2%;
+    box-shadow: 1px 1px 4px  grey;
+}
+.pop-post-img{
+    height:8rem;
+    width:11rem;
+}
+.pop-post-title{
+    font-size: 1rem;
+    font-weight:border !important;
+    
+    display: block;
+    padding-bottom: 1rem;
+}
+.pop-post-info{
+    
+    font-size: 1rem;
+    font-weight:bolder;
+    text-align: left;
+    padding-left:0.8rem;
+    padding-right:0.8rem;
+    padding-top:0.8rem;
+    padding-bottom:2.4rem;
+}
