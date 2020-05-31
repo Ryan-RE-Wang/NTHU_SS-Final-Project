@@ -8,7 +8,8 @@ import {
     Route,
     Link
 } from 'react-router-dom'
-import Carousel from 'react-bootstrap/Carousel'
+import Carousel from 'react-bootstrap/Carousel';
+import PopularArticle from 'components/PopularArticle.jsx'
 
 
 import './Homepage.css'
@@ -33,7 +34,7 @@ export default class Homepage extends React.Component {
                         <Col md={10}>
                             <Carousel interval='5000' controls={false}>
                                 <Carousel.Item>
-                                    <img width={500} height={700}
+                                    <img width={450} height={400}
                                     className='d-block w-100'
                                     src='./images/w-clear-bg.jpg'
                                     alt='First slide'
@@ -44,7 +45,7 @@ export default class Homepage extends React.Component {
                                     </Carousel.Caption>
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <img width={500} height={700}
+                                    <img width={450} height={400}
                                     className='d-block w-100'
                                     src='./images/w-snow-bg.jpg'
                                     alt='Third slide'
@@ -55,7 +56,7 @@ export default class Homepage extends React.Component {
                                     </Carousel.Caption>
                                 </Carousel.Item>
                                 <Carousel.Item>
-                                    <img width={500} height={700}
+                                    <img width={450} height={400}
                                     className='d-block w-100'
                                     src='./images/w-rain-bg.jpg'
                                     alt='Third slide'
@@ -70,14 +71,7 @@ export default class Homepage extends React.Component {
                         <Col md={1}/>
                     </Row>
                 </Container>
-                    <Row className='d-flex'>
-                        <Col md={2}></Col>
-                        <Col md={3}><h1>Most Popular</h1></Col>
-                        <Col md={7}></Col>
-                    </Row>
-                    <Row>
-                        
-                    </Row>
+                <PopularArticle/>
 
             </div>
         )

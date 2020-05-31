@@ -141,6 +141,7 @@ export default class Main extends React.Component {
                         <Navbar color='faded' light expand='md'>
                             <NavbarToggler onClick={this.handleNavbarToggle}/>
                             <NavbarBrand className='logo' href="/" onClick={e => this.handleClick('none')}>NewsSharing</NavbarBrand>
+                            <Link to='/ArticleForm'>post</Link>
                             <Collapse isOpen={this.state.navbarToggle} navbar>
                                 <Nav navbar>
                                 <NavItem>

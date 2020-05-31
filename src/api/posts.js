@@ -50,15 +50,15 @@ function _createPost(club, title, content, date, time) {
     return newPost;
 }
 
-export function createVote(id, mood) {
+export function createTouch(id) {
     return new Promise((resolve, reject) => {
-        _createVote(id, mood);
+        _createTouch(id);
         resolve();
     });
 }
 
 // Simulated server-side code
-function _createVote(id, mood) {
+function _createTouch(id) {
     const posts = _listPosts().map(p => {
         if (p.id === id) {
             p[mood.toLowerCase() + 'Votes']++;
