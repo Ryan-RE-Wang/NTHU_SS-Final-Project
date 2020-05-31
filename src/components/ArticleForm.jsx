@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import './ArticleForm.css'
-
+var Preview = false;
 export default class ArticleForm extends React.Component {
     static propTypes = {
         onPost: PropTypes.func,
@@ -18,13 +18,15 @@ export default class ArticleForm extends React.Component {
             dateDanger: false,
             timeValue: NaN,
             timeDanger: false,
-            dispatch: PropTypes.func
+            file: null,
         }
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
         this.handleDateChange = this.handleDateChange.bind(this);
         this.handleTimeChange = this.handleTimeChange.bind(this);
+        this.handleFileChange = this.handleFileChange.bind(this);
+        // this.handlePreview = this.handlePreview.bind(this);
         
         this.handlePost = this.handlePost.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
@@ -72,10 +74,13 @@ export default class ArticleForm extends React.Component {
                     <FormGroup row className='form'>
                         <Label for="imgFile" sm={2}>Poster</Label>
                         <Col sm={10}>
-                            <Input type="file" name="file" id="imgFile" />
+                            <Input type="file" name="file" id="imgFile" onChange={this.handleFileChange}/>
                             <FormText color="muted">
                                 Upload your event poster.
                             </FormText>
+                            {/* <div>{(this.state.file == null) ? '' : <button className= 'preview' onClick={this.handlePreview}><span>Preview</span></button>}</div> */}
+                            {/* <div>{(Preview) ? <img src={this.state.file}/> : ''}</div> */}
+        <div>{(this.state.file == null) ? '' : <img src={this.state.file}/>}</div>
                         </Col>
                     </FormGroup>
                 </Form>
@@ -86,6 +91,7 @@ export default class ArticleForm extends React.Component {
             </div>
         );
     }
+
     handleTitleChange(e) {
         const text = e.target.value;
         this.setState({titleValue: text});
@@ -93,6 +99,7 @@ export default class ArticleForm extends React.Component {
             this.setState({titleDanger: false});
         }
     }
+
     handleDateChange(e) {
         const date = e.target.value;
         this.setState({dateValue: date});
@@ -100,6 +107,7 @@ export default class ArticleForm extends React.Component {
             this.setState({dateDanger: false});
         }
     }
+
     handleTimeChange(e) {
         const time = e.target.value;
         this.setState({timeValue: time});
@@ -107,6 +115,7 @@ export default class ArticleForm extends React.Component {
             this.setState({timeDanger: false});
         }
     }
+
     handleContentChange() {
         const text = e.target.value;
         this.setState({titleValue: text});
@@ -114,6 +123,17 @@ export default class ArticleForm extends React.Component {
             this.setState({titleDanger: false});
         }
     }
+
+    handleFileChange(event) {
+        this.setState({
+          file: URL.createObjectURL(event.target.files[0])
+        })
+    }
+
+    // handlePreview() {
+    //     Preview = !Preview;
+    // }
+
     handlePost() {
 
     }
