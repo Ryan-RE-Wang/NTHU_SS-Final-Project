@@ -86,13 +86,10 @@ export default class Manager extends React.Component {
                         </Col>
                         </Row>
                 </Col>
-                <Col xs={12} md={8}>         
+                <Col xs={12} md={7}>         
                            {content}
                              
-                </Col>
-                <Col xs={12} md={12}>
-                    <Footer_Content />
-                </Col>     
+                </Col>   
             </Row>
         )
     }
