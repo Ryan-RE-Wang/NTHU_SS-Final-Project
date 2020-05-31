@@ -62,7 +62,11 @@ export default class Footer_Content extends React.Component{
                         </div>
                         <div id='section-3' className='col-12 '>
                             <div className='d-flex row '>
+<<<<<<< HEAD
                                 <div id='footer-intro' className=' col-12  info-element'>Team 15 final project news sharing</div>
+=======
+                                <div id='footer-intro' className='d-flex col-12  info-element'>Team 11 final project news sharing</div>
+>>>>>>> bo-hong
                             </div>
                         </div>
                     </div>

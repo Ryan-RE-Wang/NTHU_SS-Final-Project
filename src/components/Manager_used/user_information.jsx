@@ -38,7 +38,7 @@ export default class User_information extends React.Component {
         return (
             <Card className="root">
             <CardMedia
-                className="media"
+                className="media fancy-border"
                 image="/images/user1.jpg"
                 title="Paella dish"
             />
@@ -57,7 +57,7 @@ export default class User_information extends React.Component {
                 <ExpandMoreIcon/>
                 </IconButton>
             </CardActions>
-            <Collapse in={this.state.expanded} timeout="auto" unmountOnExit>
+            <Collapse in={this.state.expanded} timeout="auto" unmountOnExit className = "paragraph">
                 <CardContent>
                 <Typography component={'span'} paragraph>
                     {this.state.join_time}
