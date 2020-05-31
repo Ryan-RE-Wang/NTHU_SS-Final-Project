@@ -21,7 +21,8 @@ import Article_Cover from './Manager_used/article_cover.jsx';
 import Password_Reset from './Manager_used/password_reset.jsx';
 import Memorandum from './Manager_used/memorandum.jsx';
 import Footer_Content from 'components/Footer_Content.jsx';
-
+import EditableText from './Manager_used/editable_text.jsx';
+import AlertDismissible from './Manager_used/addArticle.jsx';
 
 import './Manager.css'
 
@@ -48,10 +49,10 @@ export default class Manager extends React.Component {
             <Row >
                  <Col xs={12} md={{ span: 3, offset: 1 }} className="left">
                      <Row>
-                         <Col xs={12} md={10}>
+                         <Col xs={12} md={12}>
                         <User_information/>
                         </Col>
-                        <Col>
+                        <Col xs={3} md={12}>
                         <ListItem className="list" button onClick={() => this.list_Selected('1')} >
                         <ListItemIcon>
                             <AssignmentIndIcon />
@@ -59,7 +60,7 @@ export default class Manager extends React.Component {
                          <div className="options">Manager</div>
                         </ListItem>
                         </Col>
-                        <Col>
+                        <Col xs={3} md={12}>
                         <ListItem className="list" button onClick={() => this.list_Selected('2')}>
                         <ListItemIcon>
                             <AmpStoriesIcon />
@@ -67,7 +68,7 @@ export default class Manager extends React.Component {
                         <div className="options">Articles</div>
                         </ListItem>
                         </Col>
-                        <Col>
+                        <Col xs={3} md={12}>
                         <ListItem className="list" button onClick={() => this.list_Selected('3')}>
                         <ListItemIcon>
                             <BarChartIcon />
@@ -75,7 +76,7 @@ export default class Manager extends React.Component {
                         <div className="options">Analysis</div>
                         </ListItem>
                         </Col>
-                        <Col>
+                        <Col xs={3} md={12}>
                         <ListItem className="list" button onClick={() => this.list_Selected('4')}>
                         <ListItemIcon>
                             <BorderColorIcon />
@@ -123,7 +124,7 @@ export default class Manager extends React.Component {
                             <Password_Reset/>
                         </Tab>
                         <Tab eventKey="Personal Information" title="Ppersonal Information">
-                            no DATA
+                            <AlertDismissible/>
                         </Tab>
                         <Tab eventKey="contact" title="Contact Us" >
                             <Contact_Us_information/>
