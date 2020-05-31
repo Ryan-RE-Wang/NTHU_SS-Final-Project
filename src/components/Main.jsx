@@ -39,6 +39,7 @@ import Homepage from 'components/Homepage.jsx';
 import Manager from 'components/Manager.jsx';
 import CatalogPage from 'components/CatalogPage.jsx';
 import SearchPage from 'components/SearchPage.jsx'
+import LoginForm from 'components/LoginForm.jsx'
 import { colors } from '@material-ui/core';
 // import SearchIcon from '@material-ui/icons/Search';
 
@@ -194,7 +195,10 @@ export default class Main extends React.Component {
                                 <input className="mainLoginInput" type="text" placeholder="&#61442; Search..."/> <br/>
                             </div>
 
-                            <div className='login-btn d-none d-md-block'>Login</div>
+                            <div className='login-btn d-none d-md-block'>
+                                
+                                <Link className="d-block navbar-content-link" to='/login'>Login</Link>
+                            </div>
                         
                         </Container>
                         
@@ -203,7 +207,7 @@ export default class Main extends React.Component {
                     <div className={`${this.state.categoryOpen || this.state.nthuOpen || this.state.nctuOpen   ? 'navbar-wrapper':'' }`}></div>
 
                     
-
+                    <div id='blankSpace'></div>
                     <div id='content-section' >
 
                     {/* for router */}
@@ -219,7 +223,7 @@ export default class Main extends React.Component {
                     <Route exact path="/Manager" render={() => (
                         <Manager/>  
                     )}/>
-                    <Route exact path="/catalog" render={() => (
+                    <Route exact path="/catagory" render={() => (
                         <CatalogPage topicName={this.state.tagClick} description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
                     )}/>
                     <Route exact path='/search' render={() => (

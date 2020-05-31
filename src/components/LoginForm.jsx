@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
 import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp} from '../../node_modules/@fortawesome/free-solid-svg-icons'
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom'
 import './LoginForm.css'
 
 export default class LoginForm extends React.Component{
@@ -28,7 +32,10 @@ export default class LoginForm extends React.Component{
 					</div>
 					<div id='createAccount'>Create account</div>
 					<div id='createAccount'>Forget passward</div>
-					<input type="submit" name="login" value="Login"/>
+					<input type="submit" name="login" value="Login">
+						
+					</input>
+
 				</form>
           	</div>
 
