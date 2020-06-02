@@ -7,9 +7,9 @@ import {
     BrowserRouter as Router,
     Route,
     Link
-} from 'react-router-dom'
+} from 'react-router-dom';
+import TextField from '@material-ui/core/TextField';
 import Carousel from 'react-bootstrap/Carousel';
-import PopularArticle from 'components/PopularArticle.jsx'
 
 
 import './Homepage.css'
@@ -27,51 +27,13 @@ export default class Homepage extends React.Component {
 
     render() {
         return (
-            <div className='bg'>
-                <Container>
-                    <Row className='d-flex justify-content-center'>
-                        <Col md={1}/>
-                        <Col md={10}>
-                            <Carousel interval='5000' controls={false}>
-                                <Carousel.Item>
-                                    <img width={450} height={400}
-                                    className='d-block w-100'
-                                    src='./images/w-clear-bg.jpg'
-                                    alt='First slide'
-                                    />
-                                    <Carousel.Caption>
-                                    <h3>雄友熟食展</h3>
-                                    <p>野台打卡預購 趕快來喔!!!</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img width={450} height={400}
-                                    className='d-block w-100'
-                                    src='./images/w-snow-bg.jpg'
-                                    alt='Third slide'
-                                    />
-                                    <Carousel.Caption>
-                                    <h3>清大熱舞成發 第舞元素</h3>
-                                    <p>清大桌球館 一定要來喔</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                                <Carousel.Item>
-                                    <img width={450} height={400}
-                                    className='d-block w-100'
-                                    src='./images/w-rain-bg.jpg'
-                                    alt='Third slide'
-                                    />
-                                    <Carousel.Caption>
-                                    <h3>Third slide label</h3>
-                                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                                    </Carousel.Caption>
-                                </Carousel.Item>
-                            </Carousel>
-                        </Col>
-                        <Col md={1}/>
-                    </Row>
-                </Container>
-                <PopularArticle/>
+            <div>
+                <div className='bg'>
+                    <div className='wrap'>
+                        <TextField label="Search..." margin="normal" variant="outlined" />
+                    </div>
+                </div>
+   
 
             </div>
         )

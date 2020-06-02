@@ -250,7 +250,7 @@ export default class Main extends React.Component {
                         <LoginForm/>
                     )}/>
 
-                    <Footer/>
+                    <Footer className='footer'/>
                     </div>
                 </div> 
             </Router>
