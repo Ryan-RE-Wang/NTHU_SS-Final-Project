@@ -29,9 +29,7 @@ export default class Homepage extends React.Component {
         return (
             <div>
                 <div className='bg'>
-                    <div className='wrap'>
-                        <TextField label="Search..." margin="normal" variant="outlined" />
-                    </div>
+                    <TextField label="Search..." margin="normal" variant="outlined" />
                 </div>
    
 
