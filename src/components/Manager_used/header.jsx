@@ -3,45 +3,76 @@ import './header.css'
 export default class Header extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            list:[
+                {
+                    class: "fa-home",
+                    id:"1",
+                    text:"Home"
+                },
+                {
+                    class: "fa-user",
+                    id:"2",
+                    text:"About"
+                },
+                {
+                    class: "fa-briefcase",
+                    id:"3",
+                    text:"Portfolio"
+                },
+                {
+                    class: "fa-envelope-open",
+                    id:"4",
+                    text:"Contact"
+                },
+                {
+                    class: "fa-comments",
+                    id:"4",
+                    text:"Blog"
+                }
+            ],
+            active_text: "Home"
+        }
+        this.handleClick = this.handleClick.bind(this);
     }
 
     render() {
+        let content =this.state.list.map(p=>{
+             let class_i ="fa "+p.class;
+            if(this.state.active_text == p.text){
+                return(
+                    <li className="icon-box active" key = {p.text}>
+                        <i className={class_i}></i>
+                        <button className = "btn" onClick={()=>this.handleClick(p.id,p.text)}>
+                            <h2>{p.text}</h2>
+                        </button>
+                    </li>
+                )
+            }else {
+                return(
+                    <li className="icon-box" key = {p.text}>
+                        <i className={class_i}></i>
+                        <button className = "btn" onClick={()=>this.handleClick(p.id,p.text)}>
+                            <h2>{p.text}</h2>
+                        </button>
+                    </li>
+                )
+            }
+        })
         return (
         <header className="header" id="navbar-collapse-toggle">
             {/* -- Fixed Navigation Starts --> */}
             <ul className="icon-menu ">
-                <li className="icon-box active">
-                    <i className="fa fa-home"></i>
-                    <button className = "btn" onClick={() => this.props.list_Selected('1')}>
-                        <h2>Home</h2>
-                    </button>
-                </li>
-                <li className="icon-box">
-                    <i className="fa fa-user"></i>
-                    <button className = "btn" onClick={() => this.props.list_Selected('2')}>
-                        <h2>About</h2>
-                        </button>
-                </li>
-                <li className="icon-box">
-                    <i className="fa fa-briefcase"></i>
-                    <button className = "btn" onClick={() => this.props.list_Selected('3')}>
-                        <h2>Portfolio</h2>
-                        </button>
-                </li>
-                <li className="icon-box">
-                    <i className="fa fa-envelope-open"></i>
-                    <button className = "btn" onClick={() => this.props.list_Selected('4')}>
-                        <h2>Contact</h2>
-                    </button>
-                </li>
-                <li className="icon-box">
-                    <i className="fa fa-comments"></i>
-                    <button className = "btn" onClick={() => this.props.list_Selected('4')}>
-                        <h2>Blog</h2>
-                    </button>
-                </li>
+                {content}
             </ul>
         </header>
         )
+    }
+    handleClick (id,text){
+        this.props.list_Selected(id);
+        this.setState({
+            active_text:text
+        });
+
     }
 }

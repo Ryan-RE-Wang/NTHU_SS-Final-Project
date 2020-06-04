@@ -45,6 +45,7 @@
 .row{
   margin-right: 0px !important;
 }
-.content {
-  background-color: wheat;
+
+.M_footer .col-12,.col-md-12 {
+  padding-right: 0px !important;
 }

@@ -24,6 +24,7 @@ import Footer_Content from 'components/Footer_Content.jsx';
 import EditableText from './Manager_used/editable_text.jsx';
 import AlertDismissible from './Manager_used/addArticle.jsx';
 import Header from './Manager_used/header.jsx';
+import Home from './Manager_used/M_home.jsx';
 
 import './Manager.css'
 
@@ -48,51 +49,14 @@ export default class Manager extends React.Component {
         //console.log(content);
         return (
             <Row className = "Manager_row">
-                 <Col xs={12} md={{ span: 2, offset: 2 }} className="left">
-                     <Row>
-                         <Col xs={12} md={12}>
-                        <User_information/>
-                        </Col>
-                        <Col xs={3} md={12}>
-                        <ListItem className="list" button onClick={() => this.list_Selected('1')} >
-                        <ListItemIcon>
-                            <AssignmentIndIcon />
-                        </ListItemIcon>
-                         <div className="options">Manager</div>
-                        </ListItem>
-                        </Col>
-                        <Col xs={3} md={12}>
-                        <ListItem className="list" button onClick={() => this.list_Selected('2')}>
-                        <ListItemIcon>
-                            <AmpStoriesIcon />
-                        </ListItemIcon>
-                        <div className="options">Articles</div>
-                        </ListItem>
-                        </Col>
-                        <Col xs={3} md={12}>
-                        <ListItem className="list" button onClick={() => this.list_Selected('3')}>
-                        <ListItemIcon>
-                            <BarChartIcon />
-                        </ListItemIcon>
-                        <div className="options">Analysis</div>
-                        </ListItem>
-                        </Col>
-                        <Col xs={3} md={12}>
-                        <ListItem className="list" button onClick={() => this.list_Selected('4')}>
-                        <ListItemIcon>
-                            <BorderColorIcon />
-                        </ListItemIcon>
-                        <div className="options">Setting</div>
-                        </ListItem>
-                        </Col>
-                        <Col>
-                        <Header list_Selected = {this.list_Selected}/>
-                        </Col>
-                        </Row>
-                </Col>
-                <Col xs={12} md={6} className = "content">         
+                <Col xs={12} md={{ span: 8, offset: 2 }} >
+                        <Row>       
                            {content}
-                           <Footer_Content />
+                           <Header list_Selected = {this.list_Selected}/>
+                        </Row>  
+                </Col>
+                <Col xs={12} md={12} className = "M_footer">
+                    <Footer_Content/>
                 </Col>   
 
             </Row>
@@ -108,7 +72,7 @@ export default class Manager extends React.Component {
     render_Selected(page) {
         if(page == '1'){
             return (
-                <Memorandum/>
+                <Home/>
             )
         }else if(page == '2'){
             return (
