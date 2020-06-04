@@ -159,7 +159,8 @@ export default class ArticleForm extends React.Component {
                                     <Label for="eventTime" sm={2}>Time</Label> 
                                 </div>
                                 <div className='col-4'> 
-                                    Start <Input
+                                    Start 
+                                    <Input
                                         type="time"
                                         name="time"
                                         id="startTime"
@@ -167,7 +168,8 @@ export default class ArticleForm extends React.Component {
                                         onChange={this.handleTimeChange} />
                                 </div>
                                 <div className='col-4'>
-                                    End <Input
+                                    End 
+                                    <Input
                                         type="time"
                                         name="time"
                                         id="endTime"
