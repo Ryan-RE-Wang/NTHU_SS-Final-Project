@@ -103,8 +103,8 @@ export default class Main extends React.Component {
                                             <div className='d-flex row pl-3 pr-3 my-4 '>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Food')}><span>Food</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Music')}><span>Music</span></button></Link>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Drama')}><span>Drama</span></button></Link>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/Manager'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Drama')}><span>Drama</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/Manager'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Manager</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
                                                 <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
 
@@ -160,7 +160,7 @@ export default class Main extends React.Component {
                                             <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Food')}><span>Food</span></button></Link>
                                             <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Music')}><span>Music</span></button></Link>
                                             <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Drama')}><span>Drama</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/Manager'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Manager</span></button></Link>
                                             <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
                                             <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
                                         </div>  
@@ -229,7 +229,7 @@ export default class Main extends React.Component {
 
                     {/* for router */}
                     <Route exact path="/" render={() => (
-                        <Homepage />
+                        <Manager />
                     )}/>
                     <Route exact path="/ArticleForm" render={() => (
                         <ArticleForm/>  
@@ -250,7 +250,6 @@ export default class Main extends React.Component {
                         <LoginForm/>
                     )}/>
 
-                    <Footer/>
                     </div>
                 </div> 
             </Router>

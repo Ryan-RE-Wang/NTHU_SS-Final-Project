@@ -23,6 +23,7 @@ import Memorandum from './Manager_used/memorandum.jsx';
 import Footer_Content from 'components/Footer_Content.jsx';
 import EditableText from './Manager_used/editable_text.jsx';
 import AlertDismissible from './Manager_used/addArticle.jsx';
+import Header from './Manager_used/header.jsx';
 
 import './Manager.css'
 
@@ -46,8 +47,8 @@ export default class Manager extends React.Component {
         let content = this.render_Selected(this.state.nowpage);
         //console.log(content);
         return (
-            <Row >
-                 <Col xs={12} md={{ span: 3, offset: 1 }} className="left">
+            <Row className = "Manager_row">
+                 <Col xs={12} md={{ span: 2, offset: 2 }} className="left">
                      <Row>
                          <Col xs={12} md={12}>
                         <User_information/>
@@ -84,16 +85,16 @@ export default class Manager extends React.Component {
                         <div className="options">Setting</div>
                         </ListItem>
                         </Col>
+                        <Col>
+                        <Header list_Selected = {this.list_Selected}/>
+                        </Col>
                         </Row>
                 </Col>
-                <Col xs={12} md={7}>         
+                <Col xs={12} md={6} className = "content">         
                            {content}
-                             
-<<<<<<< HEAD
-                </Col>    
-=======
+                           <Footer_Content />
                 </Col>   
->>>>>>> bo-hong
+
             </Row>
         )
     }
