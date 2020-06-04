@@ -120,10 +120,10 @@ export default class Main extends React.Component {
                                         </button>
                                         <div className='navbar-dropDown-content' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>                                            
                                             <div className='d-flex row pl-3 pr-3 my-4 '>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/category'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/category'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/category'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/category'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
 
                                             </div>
                                         </div>
@@ -138,9 +138,9 @@ export default class Main extends React.Component {
                                         <div className='navbar-dropDown-content' style={{display: (this.state.nctuOpen) ? 'block' : 'none'}}>                                            
                                             <div className='d-flex row pl-3 pr-3 my-4 '>
                                                 <Link className="col-2 navbar-content-link" to='/Manager'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
-                                                <Link className="col-2 navbar-content-link" to='/catagory'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/category'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/category'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                                <Link className="col-2 navbar-content-link" to='/category'><button className='outside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
 
                                             </div>
                                         </div>
@@ -157,12 +157,12 @@ export default class Main extends React.Component {
                                             </button>
                                         </div>
                                         <div className='inside-toggle-element' style={{display: (this.state.categoryOpen) ? 'block' : 'none'}}>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Food')}><span>Food</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Music')}><span>Music</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Drama')}><span>Drama</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Food')}><span>Food</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Music')}><span>Music</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Drama')}><span>Drama</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('Service')}><span>Service</span></button></Link>
                                         </div>  
                                     </div>
                                 </NavItem >
@@ -175,10 +175,10 @@ export default class Main extends React.Component {
                                             </button>
                                         </div>
                                         <div className='inside-toggle-element' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
                                         </div>  
                                     </div>
                                 </NavItem >
@@ -191,10 +191,10 @@ export default class Main extends React.Component {
                                             </button>
                                         </div>
                                         <div className='inside-toggle-element' style={{display: (this.state.nthuOpen) ? 'block' : 'none'}}>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
-                                            <Link className="d-block navbar-content-link" to='/catagory'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('雄友會')}><span>雄友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('南友會')}><span>南友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('中友會')}><span>中友會</span></button></Link>
+                                            <Link className="d-block navbar-content-link" to='/category'><button className='inside-toggle-linkBtn' onClick={e => this.handleLinkSelect('桃友會')}><span>桃友會</span></button></Link>
                                         </div>  
                                     </div>
                                 </NavItem >
@@ -205,6 +205,10 @@ export default class Main extends React.Component {
 
                             <Link to='/search'>
                                 search
+                            </Link>
+
+                            <Link to='/article-form'>  
+                                make post
                             </Link>
 
                             <div className='search-btn d-none d-lg-block'>
@@ -235,7 +239,7 @@ export default class Main extends React.Component {
                     <Route exact path="/" render={() => (
                         <Homepage />
                     )}/>
-                    <Route exact path="/ArticleForm" render={() => (
+                    <Route exact path="/article-form" render={() => (
                         <ArticleForm/>  
                     )}/>
                     <Route exact path='/article' render={() => (
@@ -244,7 +248,7 @@ export default class Main extends React.Component {
                     <Route exact path="/Manager" render={() => (
                         <Manager/>  
                     )}/>
-                    <Route exact path="/catagory" render={() => (
+                    <Route exact path="/category" render={() => (
                         <CatalogPage topicName={this.state.tagClick} description='Rishi Sunak has extended the government’s wage subsidy scheme until the end of October in a move that could see costs rise to more than £80 billion. The Treasury has decided not to cut the overall level of the wage subsidy scheme, which stands at 80 per cent of people’s wages up to £2,500 a month. It has instead announced that from August furloughed workers will'/>
                     )}/>
                     <Route exact path='/search' render={() => (

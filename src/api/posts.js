@@ -5,7 +5,7 @@ import '@babel/polyfill';
 
 const postKey = 'posts';
 
-export function listPosts(searchText = '' ,catagory='all', date='') {
+export function listPosts(searchText = '' ,category='all', date='') {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(_listPosts(searchText));
