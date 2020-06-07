@@ -1,58 +1,13 @@
-#image0 {
-    position: absolute;
-    left: -1rem;
-    width: 40rem;
-    height: 15rem
+img {
+    width: 8rem;
+    height: 10rem;
 }
 
-#image1 {
-    position: relative;
-    left: 1rem;
-    height: 8rem;
-    width: 12rem;
+.title-r {
+    font-size: 1rem;
 }
 
-.upLeftHeader {
-    position: absolute;
-    border-radius: 1rem;
-    left: 0rem;
-}
-
-#content0 {
-    position: absolute;
-    width: 16rem;
-    top: 3rem;
-    left: 0rem;
-}
-
-#upRightText {
-    position: relative;
-    left: 1rem;
-}
-
-#smallScreen {
-    display: none;
-}
-
-@media screen and (max-width: 992px) {
-
-    #bigScreen {
-        display: none;
-    }
-
-    #smallScreen {
-        display: block;
-    }
-
-    #content0 {
-        display: none;
-    }
-
-    #upLeftHeader {
-        display: block;
-    }
-
-    #image0 {
-        display: block;
-    }
+.content-r {
+    width: 9rem;
+    height: 12rem;
 }
