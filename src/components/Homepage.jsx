@@ -37,7 +37,7 @@ export default class Homepage extends React.Component {
 
         return (
             <div>
-                <div className='bg'>
+                <div className='bg-r'>
                     <form className="form">
                         <div className="input-wrapper">
                             <input className="input" type="text" placeholder=" " data-placeholder="E-mail" required/>

@@ -1,11 +1,10 @@
-.bg {
+.bg-r {
     background-image: url("images/homeBg.jpg");
     background-size: 100%;
     background-repeat: no-repeat;
     display: block;
     height: 50rem;
 }
-
 
 
 #search {
@@ -76,15 +75,4 @@
 
   #seeMore {
     left: 50vw;
-  }
-
-  .row {
-    position: static;
-    left: 15vw;
-    width: 100vw;
-    height: 35vh;
-  }
-
-  #pop {
-    margin-right: 0rem;
   }
