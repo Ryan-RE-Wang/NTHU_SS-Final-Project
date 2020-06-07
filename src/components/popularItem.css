@@ -1,0 +1,22 @@
+.item {
+    width: 15vw;
+    height: 25vh;
+    margin-left: 0rem;
+    margin-bottom: 5rem;
+    background-color: white;
+}
+.content {
+    font-size: 1rem;
+    text-align: left;
+    width: 15vw;
+    height: 10vh;
+}
+
+img {
+    width: 15vw;
+    height: 20vh;
+}
+
+#id {
+    font-size: 2rem;
+}
