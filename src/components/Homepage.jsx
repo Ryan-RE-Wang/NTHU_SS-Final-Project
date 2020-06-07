@@ -28,9 +28,16 @@ export default class Homepage extends React.Component {
     render() {
         return (
             <div className='bg'>
-                <PopularArticle/>
+                    <form className="form">
+                        <div className="input-wrapper">
+                            <input className="input" type="text" placeholder=" " data-placeholder="E-mail" required/>
+                            <span className="placeholder">Search...</span>
+                        </div>
+                    </form>
+                    <PopularArticle/>
+                    <Button id='seeMore' onClick={this.handleHasMore}>See more</Button>
 
-            </div>
+                </div>                
         )
     }
 }
