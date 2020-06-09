@@ -1,4 +1,4 @@
-img {
+.component-img {
     width: 8rem;
     height: 10rem;
 }
@@ -9,5 +9,13 @@ img {
 
 .content-r {
     width: 9rem;
-    height: 12rem;
+    height: 15rem;
+    border: none;
+    outline: none;
+    color: black;
+}
+
+.content-r:focus {
+  outline: none;
+  border: none;
 }

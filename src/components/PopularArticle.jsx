@@ -22,8 +22,10 @@ export default class PopularArticle extends React.Component {
 
         return (
             <div className='content-r'>
-                <img src="images/homeBg.jpg" alt=""/>
+                <img className='component-img' src="images/poster.jpg" alt=""/>
                 <div className='title-r'>term project demo</div>
+                <div>delta 105</div>
+                <div>2020/6/30 10:00</div>
             </div>
         )
     }
