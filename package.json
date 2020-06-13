@@ -19,7 +19,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@fortawesome/vue-fontawesome": "^0.1.9",
-    "@material-ui/core": "^4.9.14",
+    "@material-ui/core": "^4.10.1",
     "@material-ui/icons": "^4.9.1",
     "@stardust-ui/docs-components": "^0.40.0",
     "@types/react-transition-group": "^4.2.4",
