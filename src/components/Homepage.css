@@ -1,7 +1,8 @@
 #images {
     width: 100%;
     display: block;
-    height: 30rem;
+    height: auto;
+    background-size: cover;
 }
 
 
@@ -21,10 +22,11 @@
 
 
 .form {
-    top: -1rem;
-    position: absolute;
+    top: -10rem;
+    position: relative;
     height: 100%;
-    width: 100%;
+    margin: auto;
+    width: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
