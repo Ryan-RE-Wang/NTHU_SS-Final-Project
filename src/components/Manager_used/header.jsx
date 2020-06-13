@@ -16,20 +16,11 @@ export default class Header extends React.Component {
                     text:"About"
                 },
                 {
-                    class: "fa-briefcase",
-                    id:"3",
-                    text:"Portfolio"
-                },
-                {
                     class: "fa-envelope-open",
-                    id:"4",
+                    id:"3",
                     text:"Contact"
                 },
-                {
-                    class: "fa-comments",
-                    id:"4",
-                    text:"C"
-                }
+                
             ],
             active_text: "Home",
             hide:false
@@ -92,15 +83,15 @@ export default class Header extends React.Component {
     getbutton (){
         if(this.state.hide){
             return(
-                <svg class="bi btn2 bi-three-dots-vertical" onClick={()=>this.handlehide()} viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                <svg className="bi btn2 bi-three-dots-vertical" onClick={()=>this.handlehide()} viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                 </svg>
             )
         }else{
             return(
-                <svg class="bi btn3 bi-chevron-double-up" onClick={()=>this.handlehide()}  viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"/>
-                    <path fill-rule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
+                <svg className="bi btn3 bi-chevron-double-up" onClick={()=>this.handlehide()}  viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <path fillRule="evenodd" d="M7.646 2.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 3.707 2.354 9.354a.5.5 0 1 1-.708-.708l6-6z"/>
+                    <path fillRule="evenodd" d="M7.646 6.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1-.708.708L8 7.707l-5.646 5.647a.5.5 0 0 1-.708-.708l6-6z"/>
                 </svg>
             )
         }

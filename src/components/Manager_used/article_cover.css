@@ -19,7 +19,31 @@
 .card1{
     box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
     max-width: 180px;
+    margin-bottom: 50px;
     align-items: center;
+}
+.card2{
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+    width: 180px;
+    margin-bottom: 50px;
+    height: 380px;
+    align-items: center;
+    background-image: url("images/tree.jpg");
+}
+.card2_button{
+    padding-top: 50px;
+    padding-left: 70px;
+}
+.card2_button1{
+    height: 40px;
+    width: 40px;
+    color: teal;
+}
+.card2_button1:hover{
+    height: 40px;
+    width: 40px;
+    color: tomato;
+    cursor: pointer;
 }
 .picture_d1{
 
@@ -29,10 +53,13 @@
 .article_describe{
     background-color: white;
     width: 180px;
+    height:140px;
 }
 .article{
-    background-color: rgba(5, 0, 7, 0.2);
+    background-color: #f2f4f1;
     width: 768px;
+    box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
 }
 .col-12 {
     padding: 0px !important;
@@ -41,6 +68,11 @@
     width: 180px;
     height: 240px;
     border: none;
+  }
+  .card2 .card2_picture {
+    width: 180px;
+    height: 240px;
+    background-image: url("images/add1_background.jpg");
   }
 
 .article h3{

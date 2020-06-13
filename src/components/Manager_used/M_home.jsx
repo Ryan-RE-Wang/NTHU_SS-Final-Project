@@ -21,16 +21,16 @@ export default class Home extends React.Component {
     
     render() {
         return (
-            <Row className = "home">
-                    <Col className = "home1">
-                        <img  className = "image" src='/images/user1.jpg' alt="logo"/>
+            <Row className = "home_M">
+                    <Col className = "home_M1">
+                        <img  className = "image_M" src='/images/user1.jpg' alt="logo"/>
                     </Col>
-                    <Col className = "home2">
+                    <Col className = "home_M2">
                         <div>
-                            <h1><font face="標楷體" className = "home2text">{this.state.club_name}</font></h1>
+                            <h1><font face="標楷體" className = "home_M2text">{this.state.club_name}</font></h1>
                             <p>{this.state.describe}</p>
-                            <div className = "tag"><img  src='/images/fb.jpg' className = "image1" alt="fb"/><div className="font">清華大學聖經研習社</div></div>
-                            <div className = "tag"><img   src='/images/ig.jpg' className = "image2" alt="ig"/><div className="font">nthu_churchlife</div></div>
+                            <div className = "tag_M"><img  src='/images/fb.jpg' className = "image_M1" alt="fb"/><div className="font">清華大學聖經研習社</div></div>
+                            <div className = "tag_M"><img   src='/images/ig.jpg' className = "image_M2" alt="ig"/><div className="font">nthu_churchlife</div></div>
                         </div>
                     </Col>
                 </Row>

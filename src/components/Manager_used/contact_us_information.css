@@ -1,16 +1,10 @@
-*{
-    margin:0;
-    padding:0;
-  }
-  
-  .container{  padding-top: 20px;
-    padding-bottom: 20px;}
-  body{
-    background-color: #111845;
-  }
-  
+
+.CS_box{
+  width: 768px;
+  padding-bottom: 50px;
+}
 .background-img{
-  background-image: url("https://3.bp.blogspot.com/-piZWCW2uUbg/W2fPXxkWZgI/AAAAAAAAOu0/eydmMjTIqcwLMHEEr2H7imqoRTxMw4o9QCLcBGAs/s1600/among_trees_night_dribbble.png");
+  background-image: url("https://cc.tvbs.com.tw/img/_data/i/upload/2017/12/10/20171210223528-b1d29157-me.jpg");
   height: 0;
   padding-top: 56.25% !important;
   max-width: 100%;
@@ -18,9 +12,9 @@
   background-size: cover;
   margin: 0% 2% !important;
   padding:20px;
-  border: 1px solid #2a3cad;
+  border: 1px solid #eccd43;
   border-radius: 4px;
-  box-shadow: 0px 0px 5px #2a3cad;
+  box-shadow: 0px 0px 5px #eccd43;
   position: relative;
 }
 
@@ -37,11 +31,21 @@
   box-sizing: border-box;
   overflow: hidden;
   box-shadow: 0 20px 50px rgb(23, 32, 90);
-  border: 2px solid #2a3cad;
+  border: 2px solid #dacd19;
   color: white;
   padding: 20px;
 }
-
+.CS_box h2{
+  color: #fce76f;
+}
+.CS_box a{
+  
+ color:#eceb95;
+}
+.CS_box a:hover{
+  
+  color:#f79e76;
+ }
 .box:before{
   content: '';
   position:absolute;
@@ -110,7 +114,7 @@
   position: absolute;
   width:100%;
   height: 2px;
-  background: #50dfdb;
+  background: #fce76f;
   animation: animate 4s linear infinite;
 }
 

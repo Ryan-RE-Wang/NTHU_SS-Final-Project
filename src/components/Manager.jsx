@@ -34,7 +34,7 @@ export default class Manager extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            nowpage:'2'
+            nowpage:'1'
 
         }
 
@@ -64,7 +64,7 @@ export default class Manager extends React.Component {
     }
     
     list_Selected(page) {
-        if(page == '1'||page== '2'||page=='3'||page=='4')
+        if(page == '1'||page== '2'||page=='3')
             this.setState({nowpage: page});
         else
             console.log(`${page} error`);
@@ -73,6 +73,7 @@ export default class Manager extends React.Component {
         if(page == '1'){
             return (
                 <Home/>
+
             )
         }else if(page == '2'){
             return (
@@ -80,23 +81,7 @@ export default class Manager extends React.Component {
             )
         }else if(page == '3'){
             return (
-                <Image_information/>
-            )
-        }else if(page == '4'){
-            return (
-                <div className= "setting">
-                    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                        <Tab eventKey="Reset Password" title="Reset Password">
-                            <Password_Reset/>
-                        </Tab>
-                        <Tab eventKey="Personal Information" title="Ppersonal Information">
-                            <AlertDismissible/>
-                        </Tab>
-                        <Tab eventKey="contact" title="Contact Us" >
-                            <Contact_Us_information/>
-                        </Tab>
-                    </Tabs>
-                </div>
+                <Contact_Us_information/>            
             )    
         }else{
 
