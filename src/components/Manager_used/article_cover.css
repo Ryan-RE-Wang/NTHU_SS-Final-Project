@@ -1,48 +1,48 @@
-.picture_i:hover{
-    opacity: 0.5; 
-  }
-.picture_i{
-    box-shadow:6px 6px 20px rgb(0, 8, 14);
-    max-width: 224px;
+.picture_d1::before{
+    width: 20px;
+    height: 2px;
+    display: block;
+    background-color:gray;
+    content: "";
+    margin: 5px auto 5px;
+    border-radius: 1px;
 }
-.picture_d{
-    font-family: 'Ruslan Display','DFKai-SB', cursive;
-    font-weight:650;
-    font-size: 24px;
+.picture_d2{
+    font-family: 'Open Sans',sans-serif;
+    font-size: 12px;
+    color: #525252;
+    line-height: 18px;
+    letter-spacing: .5px;
+    text-align: right;
+    padding-right: 3px;
+}
+.card1{
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+    max-width: 180px;
+    align-items: center;
+}
+.picture_d1{
+
+    font-family: 'Kalam', cursive;
+    text-align: center;
+}
+.article_describe{
+    background-color: white;
+    width: 180px;
 }
 .article{
     background-color: rgba(5, 0, 7, 0.2);
+    width: 768px;
 }
-.card:hover .btn{
-	visibility: visible;
+.col-12 {
+    padding: 0px !important;
 }
-.card .btn:hover {
-    background-color: black;
-    color: white;
-}
-.card .btn {
-    position:absolute;
-    top:-1%;
-    left:-1%;
-    background-color: #f1f1f1;
-    color: black;
-    font-size: 8px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    visibility: hidden;
-}
-.card {
-    position: relative;
-    background-color:transparent !important;
-    border:0 !important;
-
-}
-.card img {
+.card1 img {
     width: 180px;
     height: 240px;
+    border: none;
   }
+
 .article h3{
     font-size: 14px;
     line-height: 15px;
@@ -64,4 +64,25 @@
 }
 .article_title{
     align-items: center;
+}
+.bbtn {
+    position: relative;
+    bottom:-100%;
+    left: 88%;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border-radius: 5px;
+    color:#07a30f;
+    padding-left: auto !important;
+      
+}
+.bbtn:hover{
+    color: tomato;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+  }
+.bbtn_div{
+    margin-left: auto;
 }

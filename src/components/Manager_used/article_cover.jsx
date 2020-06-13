@@ -24,13 +24,19 @@ export default class Article_Cover extends React.Component {
                     <Row className='d-flex justify-content-center'><h3>latest articles</h3></Row>
                     <Row>
                         {this.state.article.map(p=>
-                            <Col xs={12} md={6} lg={4} key={p.title}>
-                            <div className="card">
+                            <Col xs={12} md={6} lg={4} key={p.title} className='d-flex justify-content-center'>
+                            <div className="card1">
                                 <div>
-                                    <div className="picture_i"><a href={p.link}><img src={p.image} alt={p.title} /></a></div>
-                                    <p className="picture_d">{p.title}</p>
+                                    <div className="picture_i"><img src={p.image} alt={p.title} /></div>
+                                    <div className = "article_describe">
+                                    <div className = "bbtn_div"><svg class="bi bbtn bi-three-dots" onClick={() =>this.deleteArticle(p.id)} viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path fill-rule="evenodd" d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z"/>
+                                                                </svg>
+                                    </div>
+                                    <p className="picture_d1">{p.title}</p>
+                                    <p className="picture_d2">April 26, 2016</p>
+                                    </div>
                                 </div>
-                                <button className="btn" onClick={() =>this.deleteArticle(p.id)}>Delete</button>
                             </div>
                             </Col>)
                         }
