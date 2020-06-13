@@ -23,6 +23,22 @@
     height: 70%;
     width: 80%;
   }
+  .image1{
+    position: relative;
+    top: 60%!important;
+    left: 0% !important;
+    height: 5%;
+    width: 5%;
+    border-radius: 5px;
+  }
+  .image2{
+    position: relative;
+    top: 70%!important;
+    left: 0% !important;
+    height: 5%;
+    width: 5%;
+    border-radius: 5px;
+  }
   
   .home2 {
       top:5vw;
@@ -35,7 +51,7 @@
     text-align: center;
   }
   .home2 p {
-    margin: 2vw 15px 23px;
+    margin: 2vw 15px 2vw;
     font-size: 1.15vw;
     line-height: 150%;
 
@@ -43,6 +59,12 @@
 .home2text{
     color:  #07a30f;
 }
-/* .home2_Join:after{ 
-    content:'JOIN TIME';
-} */
+
+.font{
+  font-size: 1vw;
+  display:inline;
+  padding-left: 5px;
+}
+.tag{
+  padding-left:20px;
+}

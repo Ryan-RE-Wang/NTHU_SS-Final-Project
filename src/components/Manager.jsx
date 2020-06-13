@@ -34,7 +34,7 @@ export default class Manager extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            nowpage:'1'
+            nowpage:'2'
 
         }
 
@@ -52,7 +52,7 @@ export default class Manager extends React.Component {
                 <Col xs={12} md={{ span: 8, offset: 2 }} >
                         <Row>       
                            {content}
-                           <Header list_Selected = {this.list_Selected}/>
+                           <Header className = "Manager_header" list_Selected = {this.list_Selected}/>
                         </Row>  
                 </Col>
                 <Col xs={12} md={12} className = "M_footer">

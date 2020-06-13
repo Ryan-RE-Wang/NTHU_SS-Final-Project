@@ -40,6 +40,28 @@
 
 }
 .card img {
-    width: 224px;
-    height: 280px;
+    width: 180px;
+    height: 240px;
   }
+.article h3{
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    display: inline-block;
+    padding: 16px;
+    text-transform: uppercase;
+    max-width: 100%;
+}
+.article h3::after{
+    width: 30px;
+    height: 2px;
+    display: block;
+    background-color:gray;
+    content: "";
+    margin: 10px auto 30px;
+    border-radius: 1px;
+}
+.article_title{
+    align-items: center;
+}
