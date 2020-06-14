@@ -122,9 +122,9 @@ class Main extends React.Component {
                         </div>
                         <div style={{display: (this.props.categoryOpen) ? 'block' : 'none'}}>
                                 {/* <div className='dropDown-content'> <Link to='/catagory'></Link></div> */}
-                                <Link to='/category' className='link'>  
-                                    <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
-                                </Link> 
+                            <Link to='/category' className='link'>  
+                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                            </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nthu')}>
@@ -134,9 +134,9 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.nthuOpen) ? 'block' : 'none'}}>
-                                <Link to='/category' className='link'>  
+                            <Link to='/category' className='link'>  
                                 <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
-                                </Link> 
+                            </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nctu')}>
