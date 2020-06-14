@@ -3,6 +3,7 @@ const express = require('express');
 
 const postRouter = require('./routers/posts.js');
 const todoRouter = require('./routers/todos.js');
+const infoRouter = require('./routers/infos.js');
 // const requestLogger = require('./middleware/request-logger.js');
 const errorHandler = require('./middleware/error-handler.js');
 const accessController = require('./middleware/access-Controller.js');
@@ -15,8 +16,10 @@ app.use(express.static('dist', {
         res.set('Cache-Control', 'public, s-maxage=86400');
     }
 }));
-app.use('/api/posts', postRouter);
-app.use('/api/todos', todoRouter);
+// app.use('/api/posts', postRouter);
+// app.use('/api/todos', todoRouter);
+app.use('/api/infos', infoRouter);
+
 app.get('/*', (req, res) => res.redirect('/'));
 app.use(errorHandler);
 
