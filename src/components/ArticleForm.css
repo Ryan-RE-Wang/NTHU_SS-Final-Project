@@ -1,20 +1,30 @@
 .articleform-container {
     padding: 1rem;
     position: relative;
-    margin: 0 auto;  
-    background-color: rgba(5, 0, 7, 0.2);
+    margin: 0 10rem;  
     max-width: 800px;
+    background-color: rgba(5, 0, 7, 0.2);
+}
+#blankSpace{
+  width:100%;
+  height: 2rem;
 }
 .title {
     text-align: center;
 }
+.articleform-container .hint {
+  padding-left: 4.8rem;
+}
+.articleform-container .tag {
+  margin: 0 4rem;
+}
 .article-form {
     font-weight: bold;
 }
-.article-form .form {
+.articleform-container .form {
     width: 100%;
-    max-width: 45rem;
-    margin: 1.2rem auto;
+    max-width: 60rem;
+    margin: 0rem auto;
 }
 
 .buttons {
