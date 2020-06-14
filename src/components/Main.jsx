@@ -229,7 +229,7 @@ export default class Main extends React.Component {
 
                     {/* for router */}
                     <Route exact path="/" render={() => (
-                        <Manager />
+                        <Homepage/>
                     )}/>
                     <Route exact path="/ArticleForm" render={() => (
                         <ArticleForm/>  

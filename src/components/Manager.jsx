@@ -55,9 +55,9 @@ export default class Manager extends React.Component {
                            <Header className = "Manager_header" list_Selected = {this.list_Selected}/>
                         </Row>  
                 </Col>
-                <Col xs={12} md={12} className = "M_footer">
+                {/* <Col xs={12} md={12} className = "M_footer">
                     <Footer_Content/>
-                </Col>   
+                </Col>    */}
 
             </Row>
         )
