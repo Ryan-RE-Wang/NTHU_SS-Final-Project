@@ -58,13 +58,8 @@ export default class AlertDismissible extends React.Component {
             location, 
             file, 
             tags=[]).then(() => {
-            // this.setShow(true);
-            console.log('Successfully create post'
-            
-            
-            
-            
-            
+                // this.setShow(true);
+                console.log('Successfully create post'            
             );
         }).catch(err => {
             console.error('Error creating posts', err);

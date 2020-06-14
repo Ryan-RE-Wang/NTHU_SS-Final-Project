@@ -67,9 +67,9 @@ export default class ArticleForm extends React.Component {
     render() {
 
         return (
-            <Container className='article-container'>
+            <div>
+            <Container className='articleform-container'>
                 <Form>
-                
                 <div className='title' font-weight='bold'>
                         <FormGroup className='form'>
                             <div className='row d-flex align-items-center'>
@@ -227,7 +227,7 @@ export default class ArticleForm extends React.Component {
                         <div className='col-2'>
                             Content
                         </div>
-                        <div className='col-8'>
+                        <div className='p-2 tag col-8'>
                             <Input 
                                 type="textarea" 
                                 name="text" 
@@ -239,9 +239,11 @@ export default class ArticleForm extends React.Component {
                 
                 <div className='row'> 
                     <div className='col'>
+                        <div className='hint'>Hint: type and press enter </div>
                         <TagsInput 
                             value={this.state.tags} 
                             onChange={this.handleTagChange} />
+                        
                     </div>
                 </div>
                 </Form>
@@ -256,6 +258,8 @@ export default class ArticleForm extends React.Component {
                     </div>
                 </div>
             </Container>
+            <div id='blankSpace'></div>
+            </div>
         );
        
     }

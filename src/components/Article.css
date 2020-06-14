@@ -2,7 +2,8 @@
 .article {
     padding: 1rem;
     position: relative;
-    margin: 0 auto;  
+    margin: 0 auto; 
+    background-color: white;
 }
 .article .title {
     padding: 1rem;
@@ -15,6 +16,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.article .content .paragraph {
+    border-left: 1px grey solid;
+    background-color: rgba(5, 0, 7, 0);
+}
+.article .content .contact .contact-title {
+    padding: 1.2rem;
 }
 .poster {
     padding: 1rem;
