@@ -1,5 +1,23 @@
-.bg {
-    background-color: white;
+#images {
+    width: 100%;
+    display: block;
+    height: auto;
+    background-size: cover;
+}
+
+
+#search {
+    left: auto;
+    right: auto;
+}
+
+.pop {
+    border: none;
+    outline: none;
+}
+
+.pop:focus {
+  outline: none;
 }
 
 

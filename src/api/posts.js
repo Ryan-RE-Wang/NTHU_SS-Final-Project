@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { v4 as uuid } from 'uuid';
 import moment from 'moment';
-import '@babel/polyfill';
+import 'babel-polyfill';
 
 const postKey = 'posts';
 
-export function listPosts(searchText = '' ,catagory='all', date='') {
+export function listPosts(searchText = '' ,category='all', date='') {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
             resolve(_listPosts(searchText));
@@ -25,26 +25,60 @@ function _listPosts(searchText = '') {
     return posts;
 };
 
-export function createPost(club, title, content, date, time) {
+export function createPost(lub, 
+    title, 
+    content, 
+    startTime,
+    endTime,
+    startDate,
+    endDate,
+    ticket, 
+    location, 
+    file, 
+    tags=[]) {
     return new Promise((resolve, reject) => {
-        resolve(_createPost(club, title, content, date, time));
+        resolve(_createPost(lub, 
+            title, 
+            content, 
+            startTime,
+            endTime,
+            startDate,
+            endDate,
+            ticket, 
+            location, 
+            file, 
+            tags=[]));
     });
 }
 
 // Simulated server-side code
-function _createPost(club, title, content,picture='', date, time, alreadyPost=false, hashtag=[]) {
+function _createPost(   club, 
+                        title, 
+                        content, 
+                        startTime,
+                        endTime,
+                        startDate,
+                        endDate,
+                        ticket, 
+                        location, 
+                        file, 
+                        tags=[]) {
     const newPost = {
         id: uuid(),
-        club: club,
-        title: title,
-        content: content,
-        picture: picture,
-        date: date,
-        time: time,
+        club: club, 
+        title: title, 
+        content: content, 
+        startTime: startTime,
+        endTime: endTime,
+        startDate: startDate,
+        endDate: endDate,
+        ticket: ticket, 
+        location: location, 
+        file: file, 
         ts: moment().unix(),
-        alreadyPost:alreadyPost,
-        hashtag:hashtag,
-        likes:0
+        alreadyPost: alreadyPost,
+        hashtag: tags,
+        likes: 0
     };
     const posts = [
         newPost,

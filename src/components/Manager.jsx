@@ -23,6 +23,8 @@ import Memorandum from './Manager_used/memorandum.jsx';
 import Footer_Content from 'components/Footer_Content.jsx';
 import EditableText from './Manager_used/editable_text.jsx';
 import AlertDismissible from './Manager_used/addArticle.jsx';
+import Header from './Manager_used/header.jsx';
+import Home from './Manager_used/M_home.jsx';
 
 import './Manager.css'
 
@@ -46,56 +48,23 @@ export default class Manager extends React.Component {
         let content = this.render_Selected(this.state.nowpage);
         //console.log(content);
         return (
-            <Row >
-                 <Col xs={12} md={{ span: 3, offset: 1 }} className="left">
-                     <Row>
-                         <Col xs={12} md={12}>
-                        <User_information/>
-                        </Col>
-                        <Col xs={3} md={12}>
-                        <ListItem className="list" button onClick={() => this.list_Selected('1')} >
-                        <ListItemIcon>
-                            <AssignmentIndIcon />
-                        </ListItemIcon>
-                         <div className="options">Manager</div>
-                        </ListItem>
-                        </Col>
-                        <Col xs={3} md={12}>
-                        <ListItem className="list" button onClick={() => this.list_Selected('2')}>
-                        <ListItemIcon>
-                            <AmpStoriesIcon />
-                        </ListItemIcon>
-                        <div className="options">Articles</div>
-                        </ListItem>
-                        </Col>
-                        <Col xs={3} md={12}>
-                        <ListItem className="list" button onClick={() => this.list_Selected('3')}>
-                        <ListItemIcon>
-                            <BarChartIcon />
-                        </ListItemIcon>
-                        <div className="options">Analysis</div>
-                        </ListItem>
-                        </Col>
-                        <Col xs={3} md={12}>
-                        <ListItem className="list" button onClick={() => this.list_Selected('4')}>
-                        <ListItemIcon>
-                            <BorderColorIcon />
-                        </ListItemIcon>
-                        <div className="options">Setting</div>
-                        </ListItem>
-                        </Col>
-                        </Row>
-                </Col>
-                <Col xs={12} md={8}>         
+            <Row className = "Manager_row">
+                <Col xs={12} md={{ span: 8, offset: 2 }} >
+                        <Row>       
                            {content}
-                             
-                </Col>    
+                           <Header className = "Manager_header" list_Selected = {this.list_Selected}/>
+                        </Row>  
+                </Col>
+                {/* <Col xs={12} md={12} className = "M_footer">
+                    <Footer_Content/>
+                </Col>    */}
+
             </Row>
         )
     }
     
     list_Selected(page) {
-        if(page == '1'||page== '2'||page=='3'||page=='4')
+        if(page == '1'||page== '2'||page=='3')
             this.setState({nowpage: page});
         else
             console.log(`${page} error`);
@@ -103,7 +72,8 @@ export default class Manager extends React.Component {
     render_Selected(page) {
         if(page == '1'){
             return (
-                <Memorandum/>
+                <Home/>
+
             )
         }else if(page == '2'){
             return (
@@ -111,23 +81,7 @@ export default class Manager extends React.Component {
             )
         }else if(page == '3'){
             return (
-                <Image_information/>
-            )
-        }else if(page == '4'){
-            return (
-                <div className= "setting">
-                    <Tabs defaultActiveKey="profile" id="uncontrolled-tab-example">
-                        <Tab eventKey="Reset Password" title="Reset Password">
-                            <Password_Reset/>
-                        </Tab>
-                        <Tab eventKey="Personal Information" title="Ppersonal Information">
-                            <AlertDismissible/>
-                        </Tab>
-                        <Tab eventKey="contact" title="Contact Us" >
-                            <Contact_Us_information/>
-                        </Tab>
-                    </Tabs>
-                </div>
+                <Contact_Us_information/>            
             )    
         }else{
 

@@ -1,17 +1,198 @@
 /* @import url('https://use.fontawesome.com/releases/latest/js/all.js'); */
-.main {
-    height: 100%;
-    background-color: white;
-}
-#navbar-section{
+
+/* 
+main-wrapper -> navbar-slide
+             -> main        -> navbar-section
+                            -> content-section
+                            -> footer-section
+*/
+#main-wrapper{
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  font-family: 'Abel', sans-serif;
 
 }
+<<<<<<< HEAD
 #content-section{
   background-color:rgb(255, 242, 204);
+=======
+
+
+/* side bar */
+
+#newsSharing-sidebar{
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #042331;
+  transition-duration: .5s;
+  transition-property: left;
 }
-.content-section-dim{
-  /* -webkit-filter: */
-  opacity:1;
+.sidebar-active{
+  left:0rem !important;
+  z-index: 1111;
+>>>>>>> 99b811bffb0ec9c85efe754bb770e5136c6e11bd
+}
+.sidebar-closed{
+  left:-250px !important;
+}
+.sidebar-element{
+  color: white;
+  padding-top: 1.3rem;
+  padding-bottom: 1.3rem;
+  padding-left:1.5rem;
+  padding-right:1.5rem;
+  border-bottom: 0.01px black solid;
+  font-size: 1.3rem;
+  cursor: pointer;
+
+}
+.sidebar-element:hover{
+  padding-left:2.5rem;
+  padding-right:0.5rem;
+  background-color: brown;
+  transition-duration: .5s;
+  transition-property: padding-left;
+}
+.sidebar-logo{
+  font-family: 'Indie Flower', cursive;
+  font-weight: bolder;
+}
+.sidebar-entry{
+  
+  font-weight: bolder;
+}
+.sidebar-child{
+  font-weight: lighter;
+}
+.sidebar-icon{
+  float: right; ;
+}
+/* for dropdown-content */
+
+.dropdown-tag {
+    margin: 0; 
+    display: block;
+    background:inherit; 
+    color:white
+}
+
+/* main */
+#main {
+  height: 100%;
+  position:absolute; 
+  background-color: white;
+  width:100%;
+  margin-left: 0rem;
+  margin-right:0rem;
+  transition:.5s ease;
+ 
+}
+.main-shift{
+  left:250px !important;
+  -webkit-filter:brightness(.5);
+  overflow: hidden;
+  pointer-events: none;
+}
+.main-unshift{
+  left:0rem !important;
+}
+/* navbar  */
+#navbar-section{
+  border:0.05px lightgray solid;
+  background-color: white;
+  position: fixed;
+  width:100%;
+  z-index: 1;
+}
+.navbar-items{
+  padding-top:1.2rem;
+  text-align: center;
+  display: inline-block;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 4rem;
+}
+#toggleBtn{
+  border-right:0.05px lightgray solid;
+}
+#searchBtn{
+
+}
+#loginBtn{
+  float: inline-end;
+  border: 1px solid;
+  border-radius: 3px;
+  margin-right:1.5rem;
+  height:3rem;
+  padding-top:0.6rem;
+  color: rgb(0, 128, 255);
+  cursor: pointer;
+  /* margin-top:1px;
+  margin-bottom:1px; */
+  /* color:black !important; */
+}
+#userIcon{
+  margin-right: 1rem;
+  color: black;
+  background-color: white;
+  border:1px black solid;
+  cursor: pointer;
+  outline:none;
+}
+#searchInput{
+  margin-left: 2rem;
+  outline:none;
+  border:0.1px lightgray none;
+  width: 20rem;
+}
+#navbar-logo{
+  padding-top: 0.4rem;
+  font-weight: bolder;
+  font-size: 2.5rem;
+  font-family: 'Indie Flower', cursive;
+  color:black;
+  text-align: center;
+  display: inline-block;
+  text-shadow: 2px 2px lightblue;
+}
+/* for serch bar */
+
+.search-btn{
+	margin-left:1rem;
+	margin-right:1rem;
+	background-color:rgb(218, 211, 211) !important;
+}
+.search-icon:hover{
+	color:black;
+}
+
+
+@media(max-width:768px){
+  #navbar-logo{
+    padding-top: 0.55rem;
+    font-size: 2rem
+  }
+}
+@media(max-width:576px){
+  #navbar-logo{
+    padding-top: 0.7rem;
+    font-size: 1.7rem
+  }
+}
+
+#blankSpace{
+  width:100%;
+  height: 5rem;
+}
+
+/* content section */
+#content-section{
+  background-color:rgb(255, 242, 204);
+
 }
 
 .animation, .animation-after {
@@ -22,111 +203,34 @@
     z-index: 1;
 }
 
-
-.navbar-dropDown {
-    /* font-family: 'Lobster', cursive; */
-    float: left;
-    overflow: hidden;
-}
-
-.dropBtn .dropDown {
-    font-size: 16px;
-    border: none;
-    outline: none;
-    color: black;
-    padding: 14px 16px;
-    background-color: inherit;
-    font: inherit; /* Important for vertical align on mobile phones */
-    margin: 0; /* Important for vertical align on mobile phones */
-  }
-#newsSharing-navbar{
-  background-color:rgb(218, 211, 211) !important;
-  border-bottom:0.5px grey;
-  box-shadow:1px 0px 1px lightgrey;
-  z-index: 10000;
-  top: 0px;
-  /* position:fixed; */
-  width:100%;
-}
-#navbar-logo{
-  font-family: 'Lobster', cursive;
-  color:black;
-  padding-left: 5rem;
-  border-right: black 0.2px solid;
-}
-
-.navbar-wrapper{
-  display: block;
-  position: absolute;
-  width: 100%;
-  height: 4.5rem;
-  left:0;
-  background-color: rosybrown;
-  opacity: 1;
-}
-
-
-
-
-.navbar-dropDown-content {
-    z-index: 1;
-    display: none;
-    position: absolute;
-    width: 100%;
-    left: 0;
-    margin-top: 1rem;
-    background-color: rosybrown;
-    /* box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); */
-}
-.navbar-content-link{
-  text-align: center;
-}
-
-.navbar-tag {
-    background-color: inherit;
-    margin: 0; 
-    border: none;
-    outline: none;
-}
-
-.navbar-tag:focus {
-  outline: none;
-}
-.login-btn{
-  /* background-color:white;
-  color:darkolivegreen; */
+/* link */
+.link{
   color:white;
 }
+.link:hover{
+  color:white;
+  text-decoration: none;
+}
+/* all */
+*:focus {outline:none !important}
 
 
 
-
-
-
-@media(max-width:768px){
-  .navbar-wrapper{
-    display: none;
-  }
+/* @media(max-width:768px){
   .contentCategory{
-    display: none;
-  }
-  .navbar-items{
     display: none;
   }
   .navbar-tag {
     background-color: inherit;
     padding-top: 0.5rem; 
     padding-bottom: 0.5rem;
-    /* border-bottom: grey 0.5px solid; */
+    
   }
-  #navbar-logo{
-    border: 0px !important;
-  }
-}
+} */
 /* toggle element */
 
 /* outside toggle */
-.outside-toggle-linkBtn {
+/* .outside-toggle-linkBtn {
   border-radius: 4px;
   background-color: inherit;
   border: none;
@@ -161,9 +265,9 @@
 .outside-toggle-linkBtn:hover span::after{
   opacity: 1;
   right: 0;
-}
+} */
 /* inside toggle element */
-.inside-toggle-element{
+/* .inside-toggle-element{
   text-align: center;
 }
 .inside-toggle-linkBtn{
@@ -171,47 +275,18 @@
   padding-bottom:0.3rem;
 }
 
-/* for dropdown-content */
-.dropdown-content {
-  display: none;
-  
-  position: absolute;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 5%;
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-hide{
-  display: hide;
-}
-.dropdown-display{
-  display: block;
-}
 
 
 
 
-.navbar-items{
-  padding-left:1rem;
-}
+
+
 .outside-picked-item{
-  /* border-bottom:black 0.5px solid; */
   background-color:rosybrown;
-}
+} */
 
 
-#blankSpace{
-  width:100%;
-  height: 2rem;
-}
+
 
 /* 
 .insideColNthu span {
@@ -294,9 +369,7 @@
 } */
 
 
-.main{
-  font-family: 'Roboto', sans-serif;
-}
+
 
 
 /* html */
@@ -361,7 +434,6 @@
     transition: 0.5s ease all;
   }
 
-
   .button:hover .s-circle
 {
     top: 47%;
@@ -401,20 +473,6 @@
     width: 40px;
     background-color: black;
 }  */
-
-
-
-
-/* for serch bar */
-
-.search-btn{
-	margin-left:1rem;
-	margin-right:1rem;
-	background-color:rgb(218, 211, 211) !important;
-}
-.search-icon:hover{
-	color:red;
-}
 
 
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";

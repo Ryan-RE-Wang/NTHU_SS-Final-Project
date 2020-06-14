@@ -18,7 +18,9 @@
 }
 .options{
   text-align: center;
-  font-family: 'Lobster', cursive;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Open Sans',sans-serif;
 }
 .list:hover{
  color:rgb(243, 199, 6);
@@ -36,4 +38,17 @@
 }
 .MuiListItem-root{
   justify-content: start !important;
+}
+.Manager_row{
+  background-color: white ;
+}
+.row{
+  margin-right: 0px !important;
+}
+
+/* .M_footer .col-12,.col-md-12 {
+  padding-right: 0px !important;
+} */
+.Manager_header {
+  top:0px;
 }
