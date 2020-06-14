@@ -1,12 +1,10 @@
 .search-page {
-    position: absolute;
     margin: 0rem auto;
     background-color: peachpuff;
 }
-.search-page .post-list {
+.search-page .post-item {
     margin: 0rem auto;
     display: block;
-    position: absolute;
 }
 .calendar{
     color: black;
