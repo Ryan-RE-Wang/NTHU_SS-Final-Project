@@ -122,7 +122,9 @@ class Main extends React.Component {
                         </div>
                         <div style={{display: (this.props.categoryOpen) ? 'block' : 'none'}}>
                                 {/* <div className='dropDown-content'> <Link to='/catagory'></Link></div> */}
+                            <Link to='/category' className='link'>  
                                 <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                            </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nthu')}>
@@ -132,7 +134,9 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.nthuOpen) ? 'block' : 'none'}}>
+                            <Link to='/category' className='link'>  
                                 <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                            </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nctu')}>
@@ -142,16 +146,18 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
+                            <Link to='/category' className='link'>  
                                 <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                            </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry' style={{display: (this.props.alreadyLogin) ? 'block' : 'none'}} onClick={this.handleNavbarToggle}>  
                             <Link to='/Manager' className='link'>                       
-                            <EditIcon/>&nbsp;<span>Edit post</span> 
+                                <EditIcon/>&nbsp;<span>Edit post</span> 
                             </Link>                                
                         </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
                             <Link to='/category' className='link'>                       
-                            <InfoIcon/>&nbsp;<span>ABOUT US</span> 
+                                <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>
                     </div> 
@@ -202,15 +208,22 @@ class Main extends React.Component {
 
                     
                     <div id='blankSpace'></div>
-                    <div id='content-section' >
                     <div className={`${loginPageOpen? '':'d-none'}`}><LoginForm/></div>
+                    <div id='content-section' >
+
 
 
                     {/* for router */}
+<<<<<<< HEAD
                     <Route exact path="/" render={() => (
                         <Homepage/>
+=======
+                    <div>
+                    <Route exact path="/" render={() => (
+                        <Homepage />
+>>>>>>> cdb895a39e010ff4d5ac7cf7fe87cab51d895757
                     )}/>
-                    <Route exact path="/ArticleForm" render={() => (
+                    <Route exact path="/article-form" render={() => (
                         <ArticleForm/>  
                     )}/>
                     <Route exact path='/article' render={() => (
@@ -231,8 +244,7 @@ class Main extends React.Component {
                     </div>
                     </div>
                     <div id='footer-section'style={{display: (this.props.loginPage) ? 'none' : 'block'}}>
-                        {/* <Footer/>  */}
-
+                        <Footer/>
                     </div>
                 </div> 
             </Router>
