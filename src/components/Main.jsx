@@ -157,7 +157,7 @@ class Main extends React.Component {
                             </Link>                                
                         </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
-                            <Link to='/category' className='link'>                       
+                            <Link to='/Manager' className='link'>                       
                                 <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>

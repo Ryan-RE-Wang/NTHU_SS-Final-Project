@@ -1,45 +1,120 @@
-.picture_i:hover{
-    opacity: 0.5; 
-  }
-.picture_i{
-    box-shadow:6px 6px 20px rgb(0, 8, 14);
-    max-width: 224px;
+.picture_d1::before{
+    width: 20px;
+    height: 2px;
+    display: block;
+    background-color:gray;
+    content: "";
+    margin: 5px auto 5px;
+    border-radius: 1px;
 }
-.picture_d{
-    font-family: 'Ruslan Display','DFKai-SB', cursive;
-    font-weight:650;
-    font-size: 24px;
+.picture_d2{
+    font-family: 'Open Sans',sans-serif;
+    font-size: 12px;
+    color: #525252;
+    line-height: 18px;
+    letter-spacing: .5px;
+    text-align: right;
+    padding-right: 3px;
 }
-.article{
-    background-color: rgba(5, 0, 7, 0.2);
+.card1{
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+    max-width: 180px;
+    margin-bottom: 50px;
+    align-items: center;
 }
-.card:hover .btn{
-	visibility: visible;
+.card2{
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.7);
+    width: 180px;
+    margin-bottom: 50px;
+    height: 380px;
+    align-items: center;
+    background-image: url("images/tree.jpg");
 }
-.card .btn:hover {
-    background-color: black;
-    color: white;
+.card2_button{
+    padding-top: 50px;
+    padding-left: 70px;
 }
-.card .btn {
-    position:absolute;
-    top:-1%;
-    left:-1%;
-    background-color: #f1f1f1;
-    color: black;
-    font-size: 8px;
-    border: none;
+.card2_button1{
+    height: 40px;
+    width: 40px;
+    color: teal;
+}
+.card2_button1:hover{
+    height: 40px;
+    width: 40px;
+    color: tomato;
     cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-    visibility: hidden;
 }
-.card {
-    position: relative;
-    background-color:transparent !important;
-    border:0 !important;
+.picture_d1{
 
+    font-family: 'Kalam', cursive;
+    text-align: center;
 }
-.card img {
-    width: 224px;
-    height: 280px;
+.article_describe{
+    background-color: white;
+    width: 180px;
+    height:140px;
+}
+.Article{
+    background-color: #f2f4f1;
+    width: 768px;
+    box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.7);
+    margin-bottom: 30px;
+}
+.col-12 {
+    padding: 0px !important;
+}
+.card1 img {
+    width: 180px;
+    height: 240px;
+    border: none;
   }
+  .card2 .card2_picture {
+    width: 180px;
+    height: 240px;
+    background-image: url("images/add1_background.jpg");
+  }
+
+.Article h3{
+    font-size: 14px;
+    line-height: 15px;
+    letter-spacing: 3px;
+    font-weight: 800;
+    display: inline-block;
+    padding: 16px;
+    text-transform: uppercase;
+    max-width: 100%;
+}
+.Article h3::after{
+    width: 30px;
+    height: 2px;
+    display: block;
+    background-color:gray;
+    content: "";
+    margin: 10px auto 30px;
+    border-radius: 1px;
+}
+.Article_title{
+    align-items: center;
+}
+.bbtn {
+    position: relative;
+    bottom:-100%;
+    left: 88%;
+    height: 15px;
+    width: 15px;
+    background-color: transparent;
+    border-radius: 5px;
+    color:#07a30f;
+    padding-left: auto !important;
+      
+}
+.bbtn:hover{
+    color: tomato;
+    cursor: pointer;
+    width: 15px;
+    height: 15px;
+  }
+.bbtn_div{
+    margin-left: auto;
+}
