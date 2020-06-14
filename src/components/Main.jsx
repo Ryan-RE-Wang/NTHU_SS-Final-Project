@@ -223,7 +223,7 @@ class Main extends React.Component {
                         <Homepage />
 >>>>>>> cdb895a39e010ff4d5ac7cf7fe87cab51d895757
                     )}/>
-                    <Route exact path="/article-form" render={() => (
+                    <Route exact path="/ArticleForm" render={() => (
                         <ArticleForm/>  
                     )}/>
                     <Route exact path='/article' render={() => (
