@@ -1,7 +1,20 @@
 require('../../config.js');
 const pgp = require('pg-promise')();
 const db = pgp(process.env.DB_URL);
+const schemaInfo=`
+    CREATE TABLE info(
+        id              serial PRIMARY KEY NOT NULL,
+        name            text,
+        password        text NOT NULL,
+        account         text,
+        facebook        text,
+        gmail           text,
+        clubs           integer
+    )
 
+
+
+`
 const schemaSql = `
     -- Extensions
     CREATE EXTENSION IF NOT EXISTS pg_trgm;
