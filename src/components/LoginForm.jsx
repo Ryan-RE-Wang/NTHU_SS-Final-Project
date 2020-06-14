@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
+import { createHashHistory } from 'history'
+
+
 import './LoginForm.css'
 
 import {createAccount , login , closeLoginForm , changeForm} from 'states/login-actions.js';
@@ -16,13 +19,15 @@ import ErrorIcon from '@material-ui/icons/Error';
 import CloseIcon from '@material-ui/icons/Close';
 
 class LoginForm extends React.Component{
+
+
 	static propTypes = {
         loginPageOpen: PropTypes.bool
     };
     constructor(props){
-
-		super(props);
 		
+		super(props);
+		const history = createHashHistory()
 		this.state={
 			// createAccountForm:false,
 			formName:'Login Form',
@@ -39,19 +44,25 @@ class LoginForm extends React.Component{
 		this.handleAccountCreate = this.handleAccountCreate.bind(this);
 		this.handleFormClose = this.handleFormClose.bind(this);
 	}
-
+	componentDidUpdate(){
+		if(this.props.alreadyLogin) this.handleFormClose();
+	}
     render (){
+		
 		const {createAccountForm} = this.props;
 		return(
 			
-		<div className={`login_form ${(createAccountForm) ? 'createAccount-form':''} ${(this.props.alreadyLogin || !this.props.loginPageOpen) ? "d-none":''}`}>
+		<div className={`login_form ${(createAccountForm) ? 'createAccount-form':''} `}>
 			<div className={`${(!createAccountForm)? 'd-none':'switch-login'}`}> 
 				Already have a newsSharing account ?
 				&nbsp;
 				<button onClick={this.handleAccountCreate}> Login</button>
 			</div>
         	<div className={`login_box ${(createAccountForm)? 'createAccountStyle':'loginStyle'}`} >
-				<p id='login-closeIcon' onClick={this.handleFormClose}><CloseIcon/></p>
+				<p id='login-closeIcon' onClick={this.handleFormClose}>									
+					<CloseIcon/>
+				</p>
+				
 				<p className='title'>News Sharing</p>
 				<p className='login'>{this.state.formName}</p>
 				<p className={`${this.props.showMsg ? 'warning-msg loginFormMsg' :'d-none'}`}><ErrorIcon/>&nbsp;{this.props.loginMsg}</p>
@@ -152,10 +163,12 @@ class LoginForm extends React.Component{
 	handleSubmit(){
 		console.log("handle submit");
 		const data = this.state;
-		if(this.state.createAccountForm)
+		if(this.props.createAccountForm)
 			this.props.dispatch(createAccount(data.tmp_account,data.tmp_password,data.tmp_email));
 		else 
 			this.props.dispatch(login(data.tmp_account,data.tmp_password));
+		
+		
 		
 	}
 	handleInputChange(e){
@@ -180,7 +193,9 @@ class LoginForm extends React.Component{
 		
 	}
 	handleFormClose(){
+		console.log("close");
 		this.props.dispatch(closeLoginForm());
+		this.props.history.push('/')
 	}
 }
 

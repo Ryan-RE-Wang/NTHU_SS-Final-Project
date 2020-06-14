@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-    BrowserRouter as Router,
-    Route,
-    Link
-} from 'react-router-dom'
+import {HashRouter as Router ,Route, Link } from 'react-router-dom'
+import { browserHistory } from 'react-router'
+
 import {
     Collapse,
     Navbar,
@@ -97,6 +95,7 @@ class Main extends React.Component {
         let {loginPageOpen} = this.props;
         return (
             <Router>
+            
             <div className=' ' id='main-wrapper'>
                 {/* side bar information */}
                 <div id='newsSharing-sidebar' className={`${(this.props.sideBarOpen) ? 'sidebar-active':'sidebar-closed'}`}>
@@ -109,7 +108,9 @@ class Main extends React.Component {
                             <VpnKeyIcon/>&nbsp;<span>Login</span>                     
                         </div>
                         <div className='sidebar-element sidebar-entry'onClick={this.handleNavbarToggle }>   
-                            <HomeIcon/>&nbsp;<span>Home</span>
+                            <Link to='/' className='link'> 
+                                <HomeIcon/>&nbsp;<span>Home</span>
+                            </Link>
                                                      
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
@@ -175,9 +176,9 @@ class Main extends React.Component {
                             </div>
                             <div className={`${(this.props.startSearch) ? 'd-none':'d-block'}`} id='navbar-logo' href="/" onClick={e => this.handleClick('none')}>NewsSharing</div>
                             <div className={`${(this.props.startSearch || this.props.alreadyLogin) ? 'd-none':'d-none d-md-block'}`} onClick={this.handleLogin}>
-                                
+                                <Link to='/login' className='link'>  
                                 <div className='navbar-items' id='loginBtn'><AccountBoxIcon/><span className='d-none d-lg-inline'>&nbsp;LOGIN</span></div>
-                                
+                                </Link>  
                             </div>
                             <div className={`${(this.props.startSearch) ? 'd-none':'d-block d-md-none'}`}>
                                 <div className='navbar-items' id='searchBtn'><SearchIcon onClick={this.handleSearch} className='search-icon'/></div>
@@ -208,39 +209,27 @@ class Main extends React.Component {
 
                     
                     <div id='blankSpace'></div>
-                    <div className={`${loginPageOpen? '':'d-none'}`}><LoginForm/></div>
+                    {/* <div className={`${loginPageOpen? '':'d-none'}`}><LoginForm/></div> */}
                     <div id='content-section' >
 
 
 
                     {/* for router */}
-                    <div>
-                    <Route exact path="/" render={() => (
-                        <Homepage />
-                    )}/>
-                    <Route exact path="/article-form" render={() => (
-                        <ArticleForm/>  
-                    )}/>
-                    <Route exact path='/article' render={() => (
-                        <Article/>
-                    )}/>
-                    <Route exact path="/Manager" render={() => (
-                        <Manager/>  
-                    )}/>
+                    <Route exact path="/" component={Homepage}/>
+                    <Route exact path='/article' component={Article}/>
+                    <Route exact path="/Manager" component={Manager}/>
+                    <Route exact path='/search' component={SearchPage}/>
+                    <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/category" render={() => (
                         <CatalogPage topicName={this.props.tagClick} />
                     )}/>
-                    <Route exact path='/search' render={() => (
-                        <SearchPage/>
-                    )}/>
-                    <Route exact path="/login" render={() => (
-                        <LoginForm/>
-                    )}/>  
+
+
+
                     </div>
-                    </div>
-                    <div id='footer-section'style={{display: (this.props.loginPage) ? 'none' : 'block'}}>
+                    {/* <div id='footer-section'style={{display: (this.props.loginPage) ? 'none' : 'block'}}>
                         <Footer/>
-                    </div>
+                    </div> */}
                 </div> 
                 </div>
             </Router>
