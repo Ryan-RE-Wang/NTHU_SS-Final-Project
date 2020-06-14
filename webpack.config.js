@@ -11,6 +11,7 @@ module.exports = {
             components: path.resolve(srcPath, 'components'),
             api: path.resolve(srcPath, 'api'),
             images: path.resolve(srcPath, 'images'),
+            states: path.resolve(srcPath,'states')
         }
     },
     entry: {
