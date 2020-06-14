@@ -1,6 +1,4 @@
 import React from 'react';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import PropTypes from 'prop-types';
 import {
     BrowserRouter as Router,
@@ -16,6 +14,7 @@ import {
     NavItem,
     NavLink,
     Container,
+    Row,
     InputGroup,
     InputGroupAddon,
     InputGroupButtonDropdown,
@@ -157,7 +156,7 @@ class Main extends React.Component {
                             </Link>                                
                         </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
-                            <Link to='/category' className='link'>                       
+                            <Link to='/Manager' className='link'>                       
                                 <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>
@@ -215,8 +214,9 @@ class Main extends React.Component {
 
 
                     {/* for router */}
-                    <Route exact path="/s" render={() => (
-                        <Homepage/>
+                    <div>
+                    <Route exact path="/" render={() => (
+                        <Homepage />
                     )}/>
                     <Route exact path="/article-form" render={() => (
                         <ArticleForm/>  
@@ -224,8 +224,8 @@ class Main extends React.Component {
                     <Route exact path='/article' render={() => (
                         <Article/>
                     )}/>
-                    <Route exact path="/" render={() => (
-                       <Row> <Col xs={12} md={12} lg={12}><Manager/> </Col>  </Row>
+                    <Route exact path="/Manager" render={() => (
+                        <Manager/>  
                     )}/>
                     <Route exact path="/category" render={() => (
                         <CatalogPage topicName={this.props.tagClick} />
@@ -238,14 +238,11 @@ class Main extends React.Component {
                     )}/>  
                     </div>
                     </div>
-                    <Row>
-                        <Col xs={12} md={12} lg={12}>
-                            <div id='footer-section'style={{display: (this.props.loginPage) ? 'none' : 'block'}}>
-                                <Footer/>
-                            </div>
-                        </Col>
-                    </Row>
+                    <div id='footer-section'style={{display: (this.props.loginPage) ? 'none' : 'block'}}>
+                        <Footer/>
+                    </div>
                 </div> 
+                </div>
             </Router>
         );
     }
