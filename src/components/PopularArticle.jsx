@@ -21,35 +21,11 @@ export default class PopularArticle extends React.Component {
         }
 
         return (
-            <div>
-                <h2>Most Popular</h2>
-                <Container>
-                    <Row className='d-flex' id='firstRow'>
-                        <Col xs={1}/>
-                        <Col xs={7} id='smallScreen'>
-                            <h3>{p.header}</h3>
-                            <img className='img-fluid' src={p.image}/>
-                        </Col>
-                        <Col xs={3} id='bigScreen'>
-                            <h3 className='upLeftHeader'>{p.header}</h3>
-                            <HTMLEllipsis id='content0' unsafeHTML={p.text} maxLine={7} ellipsis='...' basedOn='letters'/>
-                        </Col>
-                        <Col className='border-right border-dark' id='bigScreen' xs={4}>
-                            <img className='img-fluid' id='image0' src={p.image}/>
-                        </Col> 
-                        <Col xs={2}>
-                            <Row>
-                                <img className='img-fluid' id='image1' src='./images/烤魷魚.jpg'/>
-                            </Row>
-                            <Row id='upRightText'>
-                                <h3>Roast Meal!!!!</h3>
-                                <HTMLEllipsis id='content1' unsafeHTML={p.text} maxLine={3} ellipsis='...' basedOn='letters' />
-
-                            </Row>
-                        </Col>
-                    </Row>
-                    <hr className='hor0'/>
-                </Container>
+            <div className='content-r'>
+                <img className='component-img' src="images/poster.jpg" alt=""/>
+                <div className='title-r'>term project demo</div>
+                <div>delta 105</div>
+                <div>2020/6/30 10:00</div>
             </div>
         )
     }
