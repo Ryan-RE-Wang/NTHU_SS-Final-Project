@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useState }from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
@@ -17,6 +17,7 @@ var Preview = false;
 export default class ArticleForm extends React.Component {
     static propTypes = {
         onPost: PropTypes.func,
+        club: PropTypes.string
     }
     constructor(props) {
         super(props);
@@ -25,10 +26,14 @@ export default class ArticleForm extends React.Component {
             titleDanger: false,
             contentValue: '',
             contentDanger: false,
-            dateValue: '',
-            dateDanger: false,
-            timeValue: '',
-            timeDanger: false,
+            startDateValue: '',
+            startDateDanger: false,
+            endDateValue: '',
+            endDateDanger: false,
+            startTimeValue: '',
+            startTimeDanger: false,
+            endTimeValue: '',
+            endTimeDanger: false,
             ticketValue: '', 
             ticketDanger: false,
             locationValue: '',
@@ -41,16 +46,15 @@ export default class ArticleForm extends React.Component {
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
-        this.handleDateChange = this.handleDateChange.bind(this);
-        this.handleTimeChange = this.handleTimeChange.bind(this);
+        this.handleStartDateChange = this.handleStartDateChange.bind(this);
+        this.handleEndDateChange = this.handleEndDateChange.bind(this);
+        this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
+        this.handleEndTimeChange = this.handleEndDateChange.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleTicketChange = this.handleTicketChange.bind(this);
         
-
         // this.handlePreview = this.handlePreview.bind(this);
-        
-
 
         this.handlePost = this.handlePost.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
@@ -61,9 +65,11 @@ export default class ArticleForm extends React.Component {
     
 
     render() {
+
         return (
             <Container className='article-container'>
                 <Form>
+                
                 <div className='title' font-weight='bold'>
                         <FormGroup className='form'>
                             <div className='row d-flex align-items-center'>
@@ -81,7 +87,7 @@ export default class ArticleForm extends React.Component {
                         </FormGroup>
                 </div>
                 <div className='d-flex row justify-content-center align-items-center'>
-                    <div className='poster p-4 '>
+                    <div className='poster p-4'>
                         <FormGroup row className='form'>
                             <div>
                                  <Input type="file" name="file" id="imgFile" onChange={this.handleFileChange}/>
@@ -123,58 +129,57 @@ export default class ArticleForm extends React.Component {
                             </div>
                         </FormGroup>
                     </div>
-                    <div className='info p-4'>
+                    <div className='info p-2'>
                         <FormGroup className='form'>
                             <div className='d-flex row justify-content-start align-items-center'>
                                 <div className='col-1'> 
                                     <EventIcon/>
                                 </div> 
                                 <div className='col-3'>
-                                    <Label for="eventDate" sm={2}>Date</Label>
+                                    Date and Time
                                 </div>
+                                <div className='col-1'>Start</div>
                                 <div className='col-4'>
-                                    Start
                                     <Input
                                         type="date"
                                         name="date"
                                         id="startDate"
-                                        placeholder="date placeholder" />
+                                        placeholder="date placeholder" 
+                                        onChange={this.handleStartDateChange} />
                                 </div>
-                                <div className='col-4'>
-                                    End
+                                <div className='col-3'>
                                     <Input
-                                        type="date"
-                                        name="date"
-                                        id="endDate"
-                                        placeholder="date placeholder" />
+                                        type="time"
+                                        name="time"
+                                        id="startTime"
+                                        placeholder="time placeholder"
+                                        onChange={this.handleStartTimeChange} />
                                 </div>
                             </div>
                         </FormGroup>
                         <FormGroup className='form'>
                             <div className= 'd-flex row justify-content-start align-items-center'>
                                 <div className='col-1' > 
-                                    <AccessTimeIcon/>
                                 </div> 
-                                 <div className='col-3'>
-                                    <Label for="eventTime" sm={2}>Time</Label> 
+                                <div className='col-3'>
                                 </div>
+                                <div className='col-1'>End</div>
                                 <div className='col-4'> 
-                                    Start 
                                     <Input
-                                        type="time"
-                                        name="time"
-                                        id="startTime"
-                                        placeholder="time placeholder"
-                                        onChange={this.handleTimeChange} />
+                                        type="date"
+                                        name="date"
+                                        id="endDate"
+                                        placeholder="date placeholder"
+                                        onChange={this.handleEndDateChange} />
                                 </div>
-                                <div className='col-4'>
-                                    End 
+                                <div className='col-3'>
+                                    
                                     <Input
                                         type="time"
                                         name="time"
                                         id="endTime"
                                         placeholder="time placeholder"
-                                        onChange={this.handleTimeChange} />
+                                        onChange={this.handleEndTimeChange} />
                                 </div>
                             </div>
                         </FormGroup>
@@ -184,8 +189,9 @@ export default class ArticleForm extends React.Component {
                                     <PlaceIcon/>
                                 </div> 
                                 <div className='col-3'>
-                                    <Label for="location" sm={2}>Location</Label>
+                                    Location
                                 </div>
+                                <div className='col-1'></div>
                                 <div className='col-7'>
                                     <Input 
                                         type="textarea" 
@@ -201,8 +207,9 @@ export default class ArticleForm extends React.Component {
                                 <PaymentIcon/>
                             </div>  
                             <div className='col-3'>
-                                <Label for="ticket" sm={2}>Ticket</Label>
+                                Ticket
                             </div>
+                            <div className='col-1'></div>
                             <div className='col-7'>
                                 <Input 
                                     type="textarea" 
@@ -218,7 +225,7 @@ export default class ArticleForm extends React.Component {
                 <FormGroup className='form'>
                     <div className='d-flex row align-items-center'>
                         <div className='col-2'>
-                            <Label for="contentText" sm={2}>Content</Label>
+                            Content
                         </div>
                         <div className='col-8'>
                             <Input 
@@ -261,21 +268,37 @@ export default class ArticleForm extends React.Component {
         }
     }
 
-    handleDateChange(e) {
+    handleStartDateChange(e) {
         const date = e.target.value;
-        this.setState({dateValue: date});
+        this.setState({startDateValue: date});
         if (date) {
-            this.setState({dateDanger: false});
+            this.setState({startDateDanger: false});
+        }
+    }
+    handleEndDateChange(e) {
+        const date = e.target.value;
+        this.setState({endDateValue: date});
+        if (date) {
+            this.setState({endDateDanger: false});
         }
     }
 
-    handleTimeChange(e) {
+    handleStartTimeChange(e) {
         const time = e.target.value;
-        this.setState({timeValue: time});
+        this.setState({startTimeValue: time});
         if (time) {
-            this.setState({timeDanger: false});
+            this.setState({startTimeDanger: false});
         }
     }
+    handleEndTimeChange(e) {
+        const time = e.target.value;
+        this.setState({endTimeValue: time});
+        if (time) {
+            this.setState({endTimeDanger: false});
+        }
+    }
+
+
     handleLocationChange(e) {
         const location = e.target.value;
         this.setState({locationValue: location});
@@ -321,10 +344,6 @@ export default class ArticleForm extends React.Component {
     //     Preview = !Preview;
     // }
 
-    handlePost() {
-        
-    }
-
     handleTagChange(tags) {
         this.setState({tags})
     }
@@ -332,10 +351,12 @@ export default class ArticleForm extends React.Component {
         const {
             titleValue,
             contentValue,
-            dateValue,
-            timeValue,
+            startDateValue,
+            startTimeValue,
+            endDateValue,
+            endTimeValue,
             locationValue,
-            imageValue,
+            file,
             tags,
         } = this.state;
         if (!titleValue || titleValue == '') {
@@ -350,15 +371,27 @@ export default class ArticleForm extends React.Component {
             })
             return;
         }
-        if (!dateValue || dateValue == '') {
+        if (!startDateValue || startDateValue == '') {
             this.setState({
-                dateDanger: true
+                startDateDanger: true
             })
             return;
         }
-        if (!timeValue || timeValue == '') {
+        if (!startTimeValue || startTimeValue == '') {
             this.setState({
-                timeDanger: true
+                startTimeDanger: true
+            })
+            return;
+        }
+        if (!endDateValue || endDateValue == '') {
+            this.setState({
+                endDateDanger: true
+            })
+            return;
+        }
+        if (!endTimeValue || endTimeValue == '') {
+            this.setState({
+                endTimeDanger: true
             })
             return;
         }
@@ -368,22 +401,37 @@ export default class ArticleForm extends React.Component {
             })
             return;
         }
-        if (!imageValue || imageValue == '') {
+        if (!fileDanger || file== '') {
             this.setState({
-            imageDanger: true
+                fileDanger: true
             })
             return;
         }
-        this.props.onPost(this.state.titleValue, this.state.contentValue, this.state.timeValue, this.state.dateValue, this.state.ticketValue, this.state.locationValue, this.state.imageValue, this.state.tags);
+        this.props.onPost(
+                        this.props.club, 
+                        this.state.titleValue, 
+                        this.state.contentValue, 
+                        this.state.startTimeValue,
+                        this.state.endTimeValue,
+                        this.state.startDateValue,
+                        this.state.endTimeValue,
+                        this.state.ticketValue, 
+                        this.state.locationValue, 
+                        this.state.file, 
+                        this.state.tags);
         this.setState({
             titleValue: '',
             titleDanger: false,
             contentValue: '',
             contentDanger: false,
-            dateValue: '',
-            dateDanger: false,
-            timeValue: '',
-            timeDanger: false,
+            startDateValue: '',
+            startDateDanger: false,
+            startTimeValue: '',
+            startTimeDanger: false,
+            endDateValue: '',
+            endDateDanger: false,
+            endTimeValue: '',
+            endTimeDanger: false,
             ticketValue: '',
             ticketDanger: false,
             locationValue: '',
@@ -399,10 +447,14 @@ export default class ArticleForm extends React.Component {
             titleDanger: false,
             contentValue: '',
             contentDanger: false,
-            dateValue: '',
-            dateDanger: false,
-            timeValue: '',
-            timeDanger: false,
+            startDateValue: '',
+            startDateDanger: false,
+            startTimeValue: '',
+            startTimeDanger: false,
+            endDateValue: '',
+            endDateDanger: false,
+            endTimeValue: '',
+            endTimeDanger: false,
             ticketValue: '',
             ticketDanger: false,
             locationValue: '',
