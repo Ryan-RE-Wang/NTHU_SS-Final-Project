@@ -19,10 +19,10 @@ export default class Article_Cover extends React.Component {
 
     render() {
         return (
-            <div className="article">
-                <Container>
+            <div className="Article">
+                <Container >
                     <Row className='d-flex justify-content-center'><h3>latest articles</h3></Row>
-                    <Row>
+                    <Row >
                         {this.state.article.map(p=>
                             <Col xs={12} md={6} lg={4} key={p.title} className='d-flex justify-content-center'>
                             <div className="card1">

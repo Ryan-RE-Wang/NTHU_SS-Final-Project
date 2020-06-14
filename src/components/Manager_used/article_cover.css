@@ -55,7 +55,7 @@
     width: 180px;
     height:140px;
 }
-.article{
+.Article{
     background-color: #f2f4f1;
     width: 768px;
     box-shadow: 5px 15px 15px rgba(0, 0, 0, 0.7);
@@ -75,7 +75,7 @@
     background-image: url("images/add1_background.jpg");
   }
 
-.article h3{
+.Article h3{
     font-size: 14px;
     line-height: 15px;
     letter-spacing: 3px;
@@ -85,7 +85,7 @@
     text-transform: uppercase;
     max-width: 100%;
 }
-.article h3::after{
+.Article h3::after{
     width: 30px;
     height: 2px;
     display: block;
@@ -94,7 +94,7 @@
     margin: 10px auto 30px;
     border-radius: 1px;
 }
-.article_title{
+.Article_title{
     align-items: center;
 }
 .bbtn {
