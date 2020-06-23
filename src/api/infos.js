@@ -29,10 +29,10 @@ function _getInfo(account = '') {
     return infos;
 };
 
-export function createInfo(account = '',password = '', eamil = '') {
+export function createInfo(account = '',password = '', email = '') {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(_createInfo(account,password));
+            resolve(_createInfo(account,password,email));
         }, 1000);
     });
 }
@@ -47,11 +47,9 @@ function _createInfo(account = '', password = '', email = '') {
     if (oldInfos.length > 0) {
         oldInfos.map((obj,i) => {
             
-                if (obj.account === account){
-                    sameAccountName = true;
-                    
-                }
-            
+        if (obj.account === account){
+            sameAccountName = true;    
+        }        
         });
     }
     console.log( oldInfos);

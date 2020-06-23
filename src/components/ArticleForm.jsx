@@ -1,4 +1,5 @@
 import React , { useState }from 'react';
+import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
@@ -22,6 +23,7 @@ export default class ArticleForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id:0,
             titleValue: '',
             titleDanger: false,
             contentValue: '',
@@ -40,7 +42,7 @@ export default class ArticleForm extends React.Component {
             locationDanger: false,
             file: null,
             fileDanger: false,
-            value: 120,
+            Value: 120,
             tags: []
         }
 
@@ -53,10 +55,11 @@ export default class ArticleForm extends React.Component {
         this.handleFileChange = this.handleFileChange.bind(this);
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleTicketChange = this.handleTicketChange.bind(this);
+        this.handleLocationChange = this.handleLocationChange.bind(this);
         
         // this.handlePreview = this.handlePreview.bind(this);
 
-        this.handlePost = this.handlePost.bind(this);
+        this.handleCreatePost = this.handleCreatePost.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
 
         this.handleTagChange = this.handleTagChange.bind(this);
@@ -68,6 +71,7 @@ export default class ArticleForm extends React.Component {
 
         return (
             <div>
+            <div id='blankSpace'></div>
             <Container className='articleform-container'>
                 <Form>
                 <div className='title' font-weight='bold'>
@@ -81,6 +85,7 @@ export default class ArticleForm extends React.Component {
                                         type="textarea" 
                                         name="text" 
                                         id="title" 
+                                        value={this.state.titleValue}
                                         onChange={this.handleTitleChange} />
                                 </div>
                             </div>
@@ -100,13 +105,13 @@ export default class ArticleForm extends React.Component {
                                         height={320}
                                         border={50}
                                         color={[255, 255, 255, 0.6]} // RGBA
-                                        scale={this.state.value/120}
+                                        scale={this.state.Value/120}
                                         rotate={0}
                                     />
                                     <Slider 
                                         min={120}
                                         max={240}
-                                        value={this.state.value}
+                                        value={this.state.Value}
                                         onChange={this.handleSliderChange}
                                         raliStyle={{
                                             height: 2
@@ -144,6 +149,7 @@ export default class ArticleForm extends React.Component {
                                         type="date"
                                         name="date"
                                         id="startDate"
+                                        value={this.state.startDateValue}
                                         placeholder="date placeholder" 
                                         onChange={this.handleStartDateChange} />
                                 </div>
@@ -152,6 +158,7 @@ export default class ArticleForm extends React.Component {
                                         type="time"
                                         name="time"
                                         id="startTime"
+                                        value={this.state.startTimeValue}
                                         placeholder="time placeholder"
                                         onChange={this.handleStartTimeChange} />
                                 </div>
@@ -169,6 +176,7 @@ export default class ArticleForm extends React.Component {
                                         type="date"
                                         name="date"
                                         id="endDate"
+                                        value={this.state.endDateValue}
                                         placeholder="date placeholder"
                                         onChange={this.handleEndDateChange} />
                                 </div>
@@ -178,6 +186,7 @@ export default class ArticleForm extends React.Component {
                                         type="time"
                                         name="time"
                                         id="endTime"
+                                        value={this.state.endTimeValue}
                                         placeholder="time placeholder"
                                         onChange={this.handleEndTimeChange} />
                                 </div>
@@ -197,6 +206,7 @@ export default class ArticleForm extends React.Component {
                                         type="textarea" 
                                         name="text" 
                                         id="location" 
+                                        value={this.state.locationValue}
                                         onChange={this.handleLocationChange} />            
                                 </div> 
                             </div>
@@ -215,6 +225,7 @@ export default class ArticleForm extends React.Component {
                                     type="textarea" 
                                     name="text" 
                                     id="ticket" 
+                                    value={this.state.ticketValue}
                                     onChange={this.handleTicketChange} />
                             </div> 
                         </div>
@@ -231,7 +242,8 @@ export default class ArticleForm extends React.Component {
                             <Input 
                                 type="textarea" 
                                 name="text" 
-                                id="contentText" 
+                                id="contentText"
+                                value={this.state.contentValue} 
                                 onChange={this.handleContentChange} />
                         </div>
                     </div>
@@ -250,7 +262,7 @@ export default class ArticleForm extends React.Component {
                 <div className="buttons" className={`d-flex justify-content-around`}>
                     <div className='row d-flex'>
                         <div className='p-2'>
-                            <Button className='btn-post' color="success" onClick={this.handlePost}>Post</Button>{' '}
+                            <Button className='btn-post' color="success" onClick={this.handleCreatePost}>Post</Button>{' '}
                         </div>
                         <div className='p-2'>
                             <Button className='btn-cancel' color="secondary" onClick={this.handleCancel}>Cancel</Button>{' '} 
@@ -302,7 +314,6 @@ export default class ArticleForm extends React.Component {
         }
     }
 
-
     handleLocationChange(e) {
         const location = e.target.value;
         this.setState({locationValue: location});
@@ -311,8 +322,7 @@ export default class ArticleForm extends React.Component {
         }
     }
     
-
-    handleContentChange() {
+    handleContentChange(e) {
         const text = e.target.value;
         this.setState({contentValue: text});
         if (text) {
@@ -324,11 +334,12 @@ export default class ArticleForm extends React.Component {
         this.setState({
           file: URL.createObjectURL(event.target.files[0])
         })
-        console.log(this.state.file);
+        
     }
 
-    handleTicketChange() {
+    handleTicketChange(e) {
         const ticket = e.tartget.value;
+        console.log(ticket);
         this.setState({ticketValue: ticket});
         if (ticket) {
             this.setState({ticketDanger: false});
@@ -349,10 +360,13 @@ export default class ArticleForm extends React.Component {
     // }
 
     handleTagChange(tags) {
+        console.log(tags);
         this.setState({tags})
     }
-    handlePost() {
+
+    handleCreatePost() {
         const {
+            id,
             titleValue,
             contentValue,
             startDateValue,
@@ -360,9 +374,15 @@ export default class ArticleForm extends React.Component {
             endDateValue,
             endTimeValue,
             locationValue,
+            ticketValue,
             file,
             tags,
         } = this.state;
+
+        this.setState({
+            id: uuid()
+        })
+
         if (!titleValue || titleValue == '') {
             this.setState({
                 titleDanger: true
@@ -411,19 +431,22 @@ export default class ArticleForm extends React.Component {
             })
             return;
         }
-        this.props.onPost(
-                        this.props.club, 
-                        this.state.titleValue, 
-                        this.state.contentValue, 
-                        this.state.startTimeValue,
-                        this.state.endTimeValue,
-                        this.state.startDateValue,
-                        this.state.endTimeValue,
-                        this.state.ticketValue, 
-                        this.state.locationValue, 
-                        this.state.file, 
-                        this.state.tags);
+
+        if (!ticketValue || ticketValue == '') {
+            this.setState({
+                ticketDanger: true
+            })
+            return;
+        }
+        console.log(this.state.id);
+        createPost(this.state).then(() => {
+            this.listPosts(this.props.searchText);
+        }).catch(err => {
+            console.error('Error creating posts', err);
+        });
+
         this.setState({
+            id:0,
             titleValue: '',
             titleDanger: false,
             contentValue: '',
@@ -444,6 +467,8 @@ export default class ArticleForm extends React.Component {
             fileDanger: false,
             tags: []
         })
+
+        
     }
     handleCancel() {
         this.setState({
