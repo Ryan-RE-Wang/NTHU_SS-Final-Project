@@ -14,10 +14,6 @@ main-wrapper -> navbar-slide
   font-family: 'Abel', sans-serif;
 
 }
-<<<<<<< HEAD
-#content-section{
-  background-color:rgb(255, 242, 204);
-=======
 
 
 /* side bar */
@@ -34,7 +30,6 @@ main-wrapper -> navbar-slide
 .sidebar-active{
   left:0rem !important;
   z-index: 1111;
->>>>>>> 99b811bffb0ec9c85efe754bb770e5136c6e11bd
 }
 .sidebar-closed{
   left:-250px !important;
