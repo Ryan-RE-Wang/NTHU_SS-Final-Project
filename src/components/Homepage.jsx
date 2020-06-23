@@ -48,24 +48,24 @@ export default class Homepage extends React.Component {
                 </form>
 
                 <Grid id='grid-container' container spacing={1} justify="space-evenly" alignItems="center">
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
                 </Grid>
 
                 <Grid id='grid-container' container spacing={1} justify="space-evenly" alignItems="center">
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
                 </Grid>
 
                 <Grid id='grid-container' style={{display: (this.state.hasMore) ? 'flex' : 'none'}} container spacing={1} justify="space-evenly" alignItems="center">
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
-                    <Link className='pop' to='/article'><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
+                    <Link className='pop' to='/article' ><PopularArticle/></Link>
                 </Grid>
                 
                 <Button id='seeMore' onClick={this.handleHasMore}>See more</Button>

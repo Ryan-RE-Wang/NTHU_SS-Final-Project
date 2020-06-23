@@ -108,13 +108,13 @@ class Main extends React.Component {
                         <div className='sidebar-element sidebar-entry d-block d-md-none'onClick={this.handleLogin}>   
                             <VpnKeyIcon/>&nbsp;<span>Login</span>                     
                         </div>
-                        <div className='sidebar-element sidebar-entry'onClick={this.handleNavbarToggle }>   
-                            <HomeIcon/>&nbsp;<span>Home</span>
-                                                     
+                        <div className='sidebar-element sidebar-entry'onClick={this.handleNavbarToggle }>  
+                            <Link to='/' className='link'>
+                                <HomeIcon/>&nbsp;<span>Home</span>
+                            </Link>                           
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('category')}>
-
                                 <ListIcon/>&nbsp;<span>Catagory</span>
                                 <ArrowDropDownIcon className={`sidebar-icon ${(this.props.categoryOpen) ? 'd-none' : 'd-inline'}`}/>
                                 <ArrowDropUpIcon className={`sidebar-icon ${(this.props.categoryOpen) ? 'd-inline' :'d-none'}`}/>
@@ -122,7 +122,9 @@ class Main extends React.Component {
                         </div>
                         <div style={{display: (this.props.categoryOpen) ? 'block' : 'none'}}>
                                 {/* <div className='dropDown-content'> <Link to='/catagory'></Link></div> */}
-                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                                <Link to='/category' className='link'>
+                                    <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>Food</div>
+                                </Link>
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nthu')}>
@@ -132,7 +134,9 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.nthuOpen) ? 'block' : 'none'}}>
-                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                                <Link to='/category' className='link'>
+                                    <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                                </Link>
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nctu')}>
@@ -150,7 +154,7 @@ class Main extends React.Component {
                             </Link>                                
                         </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
-                            <Link to='/category' className='link'>                       
+                            <Link to='/article-form' className='link'>                       
                             <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>
@@ -208,7 +212,7 @@ class Main extends React.Component {
 
                     {/* for router */}
                     <div>
-                    <Route exact path="/" render={() => (
+                    <Route exact path="/"  render={() => (
                         <Homepage />
                     )}/>
                     <Route exact path="/article-form" render={() => (

@@ -68,6 +68,7 @@ export default class ArticleForm extends React.Component {
 
         return (
             <div>
+                <div id='blankSpace'></div>
             <Container className='articleform-container'>
                 <Form>
                 <div className='title' font-weight='bold'>
@@ -323,8 +324,10 @@ export default class ArticleForm extends React.Component {
     handleFileChange(event) {
         this.setState({
           file: URL.createObjectURL(event.target.files[0])
-        })
-        console.log(this.state.file);
+        }, ()=> {
+                console.log(this.state.file);
+            }
+        );
     }
 
     handleTicketChange() {
