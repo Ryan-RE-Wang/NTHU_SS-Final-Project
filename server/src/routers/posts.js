@@ -21,40 +21,13 @@ router.get('', function(req, res, next) {
 
 // Create
 router.post('', function(req, res, next) {
-    const {titleValue,
-        titleDanger,
-        contentValue,
-        contentDanger,
-        startDateValue,
-        startDateDanger,
-        startTimeValue,
-        startTimeDanger,
-        endDateValue,
-        endDateDanger,
-        endTimeValue,
-        endTimeDanger,
-        ticketValue,
-        ticketDanger,
-        locationValue,
-        locationDanger,
-        file,
-        fileDanger,
-        tags} = req.body;
-    if (titleDanger || contentDanger || startDateDanger || startTimeDanger || endDateDanger || endTimeDanger || ticketDanger || locationDanger || fileDanger) {
+    const {state} = req.body;
+    if (state.titleDanger || state.contentDanger || state.startDateDanger || state.startTimeDanger || state.endDateDanger || state.endTimeDanger || state.ticketDanger || state.locationDanger || state.fileDanger) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;
         throw err;
     }
-    postModel.create(titleValue,
-        contentValue,
-        startDateValue,
-        startTimeValue,
-        endDateValue,
-        endTimeValue,
-        ticketValue,
-        locationValue,
-        file,
-        tags).then(post => {
+    postModel.create(state).then(post => {
         res.json(post);
     }).catch(next);
 });

@@ -15,6 +15,22 @@ const schemaInfo=`
 
 
 `
+const schemaPost=`
+    CREATE TABLE Post(
+        id              serial PRIMARY KEY NOT NULL,
+        title           text NOT NULL,
+        content         text NOT NULL,
+        startDate       DATE NOT NULL DEFAULT CURRENT_DATE,
+        endDate         DATE NOT NULL DEFAULT CURRENT_DATE,
+        startTime       TIME NOT NULL,
+        endTime         TIME NOT NULL,
+        ticket          integer,
+        location        text,
+        file            text,
+        tags            text[]
+    ) 
+`
+
 const schemaSql = `
     -- Extensions
     CREATE EXTENSION IF NOT EXISTS pg_trgm;

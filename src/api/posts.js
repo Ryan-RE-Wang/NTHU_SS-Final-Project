@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import 'babel-polyfill';
 
@@ -35,7 +34,8 @@ export function listPosts(searchText = '', category='all', date='', start) {
     });
 }
 
-export function createPost(titleValue,
+export function createPost(id,
+    titleValue,
     titleDanger,
     contentValue,
     contentDanger,
@@ -59,6 +59,7 @@ export function createPost(titleValue,
     console.log(`Making POST request to: ${url}`);
 
     return axios.post(url, {
+        id,
         titleValue,
         titleDanger,
         contentValue,
