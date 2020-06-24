@@ -29,6 +29,8 @@ export default class Article extends React.Component {
     }
     constructor(props) {
         super(props);
+
+        this.handleCalender = this.handleCalender.bind(this);
     }
 
     render() {
@@ -56,7 +58,7 @@ export default class Article extends React.Component {
                             </div>
                         </div>
                         <div className=' p-2'>
-                                <Hook/> 
+                                <Hook onClick={this.handleCalender}/> 
                             </div>
                         <div className='d-flex row justify-content-start align-items-center'>
                             <div className='p-2'> 
@@ -117,6 +119,10 @@ export default class Article extends React.Component {
                 </div>
             </Container>
         );
+    }
+
+    handleCalender() {
+        console.log("QAQ");
     }
 }
 const useStyles = makeStyles({
