@@ -187,7 +187,7 @@ class Main extends React.Component {
                                 {/* <div className='navbar-items'  >       */}
                                 <Dropdown isOpen={this.props.userInfoOpen} toggle={this.handleUserInfo} >
                                     <DropdownToggle id='userIcon' >
-                                        <FaceIcon className=''/>{this.props.account}
+                                        <FaceIcon className=''/>{this.props.username}
                                     </DropdownToggle>
                                     <DropdownMenu>
                                         <DropdownItem onClick={this.handleLogout}> <ExitToAppIcon/>&nbsp;&nbsp;&nbsp;SignOut</DropdownItem>
@@ -262,7 +262,7 @@ class Main extends React.Component {
         this.props.dispatch(openLoginForm());
     }
     handleLogout(){
-        this.props.dispatch(logout());
+        this.props.dispatch(logout(this.props.loginType));
     }
 }
 

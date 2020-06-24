@@ -1,20 +1,19 @@
-.Post{
+.AD-Post{
     margin-top: 1rem;
     margin-bottom: 0.5rem;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    /* margin-left: 0.5rem;
+    margin-right: 0.5rem; */
     padding:1.5rem;
     /* padding-right: 0.5rem; */
     background-color:white;
     box-shadow: 1px 1px 4px  gray;
 }
 
-.Post img {    
+.AD-Post img {    
     /* width: 8.5rem; */
     height: 13rem;
     width: auto;
     margin-top: 0.5rem;
-    
     box-shadow: 1px 1px 4px  gray;
 }
 
@@ -29,22 +28,22 @@
     margin-top:1rem;
     font-size: 1.2rem;
 }
-.post-title{
+.AD-Post .post-title{
     font-size: 2rem;
 }
-.post-body{
+.AD-Post .post-body{
     font-size: 1.2rem;
 }
 @media(max-width:768px){
-    .Post img {    
+    .AD-Post img {    
         width: 5rem ;
         height: auto;
         /* box-shadow: 1px 1px 4px  gray; */
     }
-    .post-title{
+    .AD-Post .post-title{
         font-size: 1.6rem;
     }
-    .post-body{
+    .AD-Post .post-body{
         font-size: 0.8rem;
     }
 }

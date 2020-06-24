@@ -3,20 +3,21 @@ import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import { createHashHistory } from 'history'
-
-
 import './LoginForm.css'
 
-import {createAccount , login , closeLoginForm , changeForm} from 'states/login-actions.js';
+import {createAccount , login , closeLoginForm , changeForm , loginWithFB} from 'states/login-actions.js';
 import { clearAllInfo } from '../api/infos';
 import {connect} from 'react-redux';
 import { Loader } from 'semantic-ui-react';
 import MyLoader from 'components/MyLoader.jsx';
 
 
+import {facebookLogin} from 'api/facebook.js';
+
 // icon
 import ErrorIcon from '@material-ui/icons/Error';
 import CloseIcon from '@material-ui/icons/Close';
+import FacebookIcon from '@material-ui/icons/Facebook';
 
 class LoginForm extends React.Component{
 
@@ -32,17 +33,19 @@ class LoginForm extends React.Component{
 			// createAccountForm:false,
 			formName:'Login Form',
 			tmp_email:'',
-			tmp_account:'',
+			tmp_username:'',
 			tmp_password:'',
 			msg_email:'',
-			msg_account:'',
+			msg_username:'',
 			msg_password:'',
+			isLoggedIn: true,
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleValidate = this.handleValidate.bind(this);
 		this.handleAccountCreate = this.handleAccountCreate.bind(this);
 		this.handleFormClose = this.handleFormClose.bind(this);
+		this.fblogin = this.fblogin.bind(this);
 	}
 	componentDidUpdate(){
 		if(this.props.alreadyLogin) this.handleFormClose();
@@ -69,12 +72,12 @@ class LoginForm extends React.Component{
 				{/* <form type='Post'onSubmit={this.handleSubmit}> */}
 				{/* <div> */}
 					
-					<div className="inputBox">
-						<input type="text" name="account" autoComplete="off" value={this.state.tmp_account} onChange={this.handleInputChange} required/>
-						<label>Account name</label>
-						<p className={`${this.state.msg_account===''? 'd-none':'warning-msg'}`}>{this.state.msg_account}</p>
-					</div>
 					<div className={` ${createAccountForm? 'inputBox':'d-none'}`}>
+						<input type="text" name="username" autoComplete="off" value={this.state.tmp_username} onChange={this.handleInputChange} required/>
+						<label>Username name</label>
+						<p className={`${this.state.msg_username===''? 'd-none':'warning-msg'}`}>{this.state.msg_username}</p>
+					</div>
+					<div className={`inputBox`}>
 					{/* <div className="inputBox"> */}
 						<input type="text" name="email" autoComplete="off" value={this.state.tmp_email} onChange={this.handleInputChange} required />
 						<label>Email</label>
@@ -85,22 +88,38 @@ class LoginForm extends React.Component{
 						<label>Password</label>
 						<p className={`${this.state.msg_password===''? 'd-none':'warning-msg'}`}>{this.state.msg_password}</p>
 					</div>					
-					<div className='form-otherOption'id='fogetPassward'>Forget passward?</div><br/>
-					
-					
+					<div>
+						<div className='form-otherOption'id='fogetPassward'>Forget passward?</div><br/>
+					</div>
 
-					{/* <input type="submit" name="login" value="Login" /> */}
+
 					<button id='login-submitBtn'onClick={this.handleValidate}>Submit</button>
 					<div className={`${this.props.loading ? 'd-block ' :'d-none'}`}><MyLoader/></div>
+									
 					
-				{/* </div> */}
+					<h5>Sign in with</h5>
+					<div className='d-flex justify-content-between other-loginbtns'>
+						<button id='facebook-btn' onClick={this.fblogin}><FacebookIcon/>&nbsp; Facebook </button>
+						<button id='google-btn'> <img src="https://img.icons8.com/color/25/000000/google-logo.png"/>&nbsp; Google</button>
+					</div>
 				{/* </form> */}
           	</div>
 				<div className={`${createAccountForm ? "d-none":'form-otherOption'}`}id='createAccount' onClick={this.handleAccountCreate}> Create account</div>
+		<div>
+
+
+		</div>		
+
+		
 		</div>
 			
 		)
 	}
+	fblogin(){
+
+		this.props.dispatch(loginWithFB());
+	}
+
 	handleAccountCreate(){
 		let formName = this.props.createAccountForm? 'Login Form':'Create Account';
 		this.props.dispatch(changeForm());
@@ -108,10 +127,10 @@ class LoginForm extends React.Component{
 			// createAccountForm:!prevState.createAccountForm,
 			formName:formName,
 			tmp_email:'',
-			tmp_account:'',
+			tmp_username:'',
 			tmp_password:'',
 			msg_email:'',
-			msg_account:'',
+			msg_username:'',
 			msg_password:''
 		}));
 		//console.log(this.state.createAccountForm);
@@ -164,9 +183,9 @@ class LoginForm extends React.Component{
 		console.log("handle submit");
 		const data = this.state;
 		if(this.props.createAccountForm)
-			this.props.dispatch(createAccount(data.tmp_account,data.tmp_password,data.tmp_email));
+			this.props.dispatch(createAccount(data.tmp_username,data.tmp_password,data.tmp_email));
 		else 
-			this.props.dispatch(login(data.tmp_account,data.tmp_password));
+			this.props.dispatch(login(data.tmp_email,data.tmp_password));
 		
 		
 		
@@ -193,7 +212,7 @@ class LoginForm extends React.Component{
 		
 	}
 	handleFormClose(){
-		console.log("close");
+		//console.log("close");
 		this.props.dispatch(closeLoginForm());
 		this.props.history.push('/')
 	}
