@@ -160,6 +160,7 @@ class LoginForm extends React.Component{
 		}
 		else return;
 	}
+	
 	handleSubmit(){
 		console.log("handle submit");
 		const data = this.state;

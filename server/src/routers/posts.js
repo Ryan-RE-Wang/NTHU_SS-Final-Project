@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const accessController = require('../middleware/access-controller.js');
 
 const postModel = require('../model/posts.js');
-const voteModel = require('../model/votes.js');
+const touchModel = require('../model/touch.js');
 
 const router = express.Router();
 
@@ -27,20 +27,20 @@ router.post('', function(req, res, next) {
         err.status = 400;
         throw err;
     }
-    postModel.create(state).then(post => {
+    postModel.create(state, 0).then(post => {
         res.json(post);
     }).catch(next);
 });
 
-// Vote
-router.post('/:id/:mood(clear|clouds|drizzle|rain|thunder|snow|windy)Votes', function(req, res, next) {
-    const {id, mood} = req.params;
-    if (!id || !mood) {
-        const err = new Error('Post ID and mood are required');
+// touch
+router.post('/:id', function(req, res, next) {
+    const {id} = req.params;
+    if (!id) {
+        const err = new Error('Post ID and are required');
         err.status = 400;
         throw err;
     }
-    voteModel.create(id, mood).then(post => {
+    touchModel.touch(id).then(post => {
         res.json(post);
     }).catch(next);
 });

@@ -3,7 +3,7 @@ import moment from 'moment';
 import 'babel-polyfill';
 
 // Develop server URL
-const postBaseUrl = 'http://localhost:8080/api';
+const postBaseUrl = 'http://localhost:4000/api';
 // Production server URL
 //const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
 
@@ -34,7 +34,7 @@ export function listPosts(searchText = '', category='all', date='', start) {
     });
 }
 
-export function createPost(id,
+export default function createPost(id,
     titleValue,
     titleDanger,
     contentValue,
@@ -53,7 +53,8 @@ export function createPost(id,
     locationDanger,
     file,
     fileDanger,
-    tags) {
+    tags, 
+    account) {
     let url = `${postBaseUrl}/posts`;
 
     console.log(`Making POST request to: ${url}`);
@@ -78,7 +79,8 @@ export function createPost(id,
         locationDanger,
         file,
         fileDanger,
-        tags
+        tags,
+        account
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
@@ -87,40 +89,17 @@ export function createPost(id,
 }
 
 
-export function createVote(id) {
-    return new Promise((resolve, reject) => {
-        _createVote(id);
-        resolve();
-    });
-}
+export function createTouch(id) {
+    let url = `${postBaseUrl}/posts/${id}/Touch`;
 
-// Simulated server-side code
+    console.log(`Making POST request to: ${url}`);
 
-function _createVote(id) {
-    const posts = _listPosts().map(p => {
-        if (p.id === id) {
-            p['likes']++;
-        }
-        return p;
-    });
-    localStorage.setItem(postKey, JSON.stringify(posts));
-}
+    return axios.post(url).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
 
-export function releasePost(id ,takeBack=false) {
-    return new Promise((resolve, reject) => {
-        _releasePost(id);
-        resolve();
+        console.log(res.data);
+        return res.data;
     });
-}
 
-// Simulated server-side code
-function _releasePost(id,takeBack=false) {
-    const posts = _listPosts().map(p => {
-        if (p.id === id) {
-            if(!takeBack)   p['alreadyPost'] = true;
-            else p['alreadyPost'] = false;
-        }
-        return p;
-    });
-    localStorage.setItem(postKey, JSON.stringify(posts));
 }

@@ -27,7 +27,9 @@ const schemaPost=`
         ticket          integer,
         location        text,
         file            text,
-        tags            text[]
+        tags            text[],
+        touch           integer,
+        account         text
     ) 
 `
 

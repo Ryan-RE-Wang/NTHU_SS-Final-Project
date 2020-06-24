@@ -21,14 +21,14 @@ function list(searchText = '', category, date, start) {
     return db.any(sql, [searchText, start]);
 }
 
-function create(state) {
+function create(state, touch) {
     
     const sql = `
-        INSERT INTO posts ($<this:name>)
-        VALUES ($<mood>, $<text>)
+        INSERT INTO posts
+        VALUES ($<state.id>, $<state.titleValue>, $<state.contentValue>, $<state.startDateValue>, $<state.endDateValue>, $<state.startTimeValue>, $<state.endTimeValue>, $<state.ticketValue>, $<state.locationValue>, $<state.file>, $<state.tags>, $<touch>, $<state.account>)
         RETURNING *
     `;
-    return db.one(sql, {mood, text});
+    return db.one(sql, {state, touch});
 }
 
 module.exports = {
