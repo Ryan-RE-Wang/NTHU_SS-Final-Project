@@ -1,5 +1,10 @@
 import React from 'react';
 import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
+import {
+    BrowserRouter as Router,
+    Route,
+    Link
+} from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -21,12 +26,15 @@ export default class PopularArticle extends React.Component {
         }
 
         return (
-            <div className='content-r'>
-                <img className='component-img' src="images/poster.jpg" alt=""/>
-                <div className='title-r'>term project demo</div>
-                <div>delta 105</div>
-                <div>2020/6/30 10:00</div>
-            </div>
+            <Link className='pop' to='/article' >
+                <div className='popular-content' >
+                    <img className='component-img' src="images/poster.jpg"  alt=""/>
+                    <div className='popular-title'>term project demo</div>
+                    <div className='location'> delta 105</div>
+                    <div className='datetime'> 2020/6/30 10:00</div>
+                </div>
+            </Link>
+            
         )
     }
 }

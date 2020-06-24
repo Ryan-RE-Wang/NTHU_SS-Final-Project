@@ -38,35 +38,47 @@ export default class Homepage extends React.Component {
         }
 
         return (
-            <div>
-                <img id='images' className='image-fluid' src="images/homeBg.jpg" alt=""/>
+            <div className='homepage'>
+                <img className='image-fluid homepage-image' src="images/homeBg.jpg" alt=""/>
                 <form className="form">
                     <div className="input-wrapper">
                         <input className="input" type="text" placeholder=" " data-placeholder="E-mail" required/>
                         <span className="placeholder">Search...</span>
                     </div>
                 </form>
+                <div className='recent-event'> Recent Events</div>
+                <hr width='70%'/>
+                <div className='grid-container row d-flex justify-content-center'>
+                    <div className='p-4 m-4 grid-item'>
+                        <PopularArticle/>
+                    </div>
+                    <div className='p-4 m-4 grid-item'>
+                        <PopularArticle/>
+                    </div>
+                    <div className='p-4 m-4 grid-item'>
+                        <PopularArticle/>
+                    </div>
+                    <div className='p-4 m-4 grid-item'>
+                        <PopularArticle/>
+                    </div>
+                    <div className='p-4 m-4 grid-item'>
+                        <PopularArticle/>
+                    </div>
+                    <div className='p-4 m-4 grid-item'>
+                        <PopularArticle/>
+                    </div>
+                    <div className='p-4 m-4 grid-item'>
+                        <PopularArticle/>
+                    </div>
+                    
+                    <div className='p-4 m-4 grid-item'>
+                        <PopularArticle/>
+                    </div>
+                    
+                    
+                </div>
+                
 
-                <Grid id='grid-container' container spacing={1} justify="space-evenly" alignItems="center">
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                </Grid>
-
-                <Grid id='grid-container' container spacing={1} justify="space-evenly" alignItems="center">
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                </Grid>
-
-                <Grid id='grid-container' style={{display: (this.state.hasMore) ? 'flex' : 'none'}} container spacing={1} justify="space-evenly" alignItems="center">
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                    <Link className='pop' to='/article' ><PopularArticle/></Link>
-                </Grid>
                 
                 <Button id='seeMore' onClick={this.handleHasMore}>See more</Button>
       

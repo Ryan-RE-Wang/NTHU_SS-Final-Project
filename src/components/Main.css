@@ -5,9 +5,6 @@ main-wrapper -> navbar-slide
              -> main        -> navbar-section
                             -> content-section
                             -> footer-section
-
-
-
 */
 #main-wrapper{
   -moz-transition: all 0.5s ease;
@@ -17,7 +14,9 @@ main-wrapper -> navbar-slide
   font-family: 'Abel', sans-serif;
 
 }
-
+#content-section{
+  background-color:rgb(255, 242, 204);
+}
 
 /* side bar */
 
@@ -77,9 +76,6 @@ main-wrapper -> navbar-slide
     background:inherit; 
     color:white
 }
-
-
-
 
 /* main */
 #main {
@@ -190,14 +186,11 @@ main-wrapper -> navbar-slide
   height: 5rem;
 }
 
-
-
 /* content section */
-
 #content-section{
   background-color:rgb(255, 242, 204);
-}
 
+}
 
 .animation, .animation-after {
     position: absolute;
@@ -206,8 +199,6 @@ main-wrapper -> navbar-slide
     top: 40%;
     z-index: 1;
 }
-
-
 
 /* link */
 .link{
@@ -440,7 +431,6 @@ main-wrapper -> navbar-slide
     transition: 0.5s ease all;
   }
 
-
   .button:hover .s-circle
 {
     top: 47%;
@@ -480,11 +470,6 @@ main-wrapper -> navbar-slide
     width: 40px;
     background-color: black;
 }  */
-
-
-
-
-
 
 
 @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";

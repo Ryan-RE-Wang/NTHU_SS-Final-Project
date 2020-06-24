@@ -9,7 +9,8 @@ const initLoginFormState = {
     showMsg:false,
     account:'',
     email:'',
-    createAccountForm:false
+    createAccountForm:false,
+
 }
 
 export function login(state = initLoginFormState , action){
@@ -17,7 +18,9 @@ export function login(state = initLoginFormState , action){
         case '@INFO/START_LOGIN':
             return{
                 ...state,
-                loading: true
+                loading: true,
+                showMsg:false,
+                loginMsg:''
             }
         case '@INFO/SUCCESS_LOGIN':
             return{

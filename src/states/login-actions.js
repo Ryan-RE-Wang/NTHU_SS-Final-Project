@@ -1,29 +1,16 @@
 import {createInfo as createInfoFromAPI,login as loginFromAPI } from 'api/infos.js'
+
+
+
 // change form
 export function changeForm(){
     return {
         type:'@INFO/CHANGE-FORM'
     }
 }
-// create account process
-export function createAccount(account, password, email){
-    return (dispatch,getState) => {
-        dispatch(startLogin);
-        return createInfoFromAPI(account, password, email)
-        .then( (userInfo)=>{
-            if(userInfo.loginSuccess){
-                dispatch(successLogin(userInfo))
-                dispatch(closeLoginForm())
-            }else{
-                dispatch(failLogin(userInfo))
-            }
-        }).catch(err => {
-            console.error('Error creating account', err);
-        });
-    }
-}
 // login process
 function startLogin() {
+    
     return {
         type: '@INFO/START_LOGIN'
     };
@@ -43,6 +30,7 @@ function failLogin(userInfo) {
 }
 
 export function login(account,password){    // high order action genrator
+    console.log("login");
     return (dispatch,getState) => {
         
         dispatch(startLogin());
@@ -51,7 +39,6 @@ export function login(account,password){    // high order action genrator
         .then((userInfo) => {
             if(userInfo.loginSuccess){
                 dispatch(successLogin(userInfo))
-                dispatch(closeLoginForm())
             }else{
                 dispatch(failLogin(userInfo))
             }
@@ -60,6 +47,24 @@ export function login(account,password){    // high order action genrator
             console.error('Error login ', err);
         });
 
+    }
+}
+
+// create account process
+export function createAccount(account, password, email){
+    return (dispatch,getState) => {
+        dispatch(startLogin());
+
+        return createInfoFromAPI(account, password, email)
+        .then( (userInfo)=>{
+            if(userInfo.loginSuccess){
+                dispatch(successLogin(userInfo))
+            }else{
+                dispatch(failLogin(userInfo))
+            }
+        }).catch(err => {
+            console.error('Error creating account', err);
+        });
     }
 }
 

@@ -4,6 +4,13 @@ import {createStore, combineReducers, compose, applyMiddleware} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 
 import Main from 'components/Main.jsx';
+import Article from 'components/Article.jsx';
+import ArticleForm from 'components/ArticleForm.jsx';
+import Homepage from 'components/Homepage.jsx';
+import Manager from 'components/Manager.jsx';
+import CatalogPage from 'components/CatalogPage.jsx';
+import SearchPage from 'components/SearchPage.jsx'
+import LoginForm from 'components/LoginForm.jsx'
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './index.css';
@@ -12,7 +19,7 @@ import {Provider} from 'react-redux';
 // reducer
 import {login , loginPage} from 'states/login-reducers.js';
 import {navBar} from 'states/navbar-reducers.js'
-
+import { HashRouter as Router ,Route , Link } from 'react-router-dom'
 
 window.onload = function() {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -23,8 +30,7 @@ window.onload = function() {
     ReactDOM.render(
         <Provider store={store}>
             <Main/>
-        </Provider>,
-        
+        </Provider>,  
         document.getElementById('root')
     );
 };

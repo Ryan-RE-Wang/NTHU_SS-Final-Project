@@ -4,6 +4,10 @@
 }
 .user_name{
     margin: 0 auto;
+    font-size: 22px;
+    letter-spacing: 2px;
+    font-weight:bold;
+    margin-left: 10px;
 }
 .user_information{
     text-align: justify;
