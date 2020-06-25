@@ -13,17 +13,19 @@ import './ArticleForm.css';
 import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
 import { rgbToHex } from '@material-ui/core';
+import {connect} from 'react-redux';
+import Modal from 'react-bootstrap/Modal';
+import createPost from 'api/posts.js';
 
 var Preview = false;
-export default class ArticleForm extends React.Component {
+class ArticleForm extends React.Component {
     static propTypes = {
-        onPost: PropTypes.func,
         club: PropTypes.string
     }
     constructor(props) {
         super(props);
         this.state = {
-            id:0,
+            id: uuid(),
             titleValue: '',
             titleDanger: false,
             contentValue: '',
@@ -43,7 +45,9 @@ export default class ArticleForm extends React.Component {
             file: null,
             fileDanger: false,
             Value: 120,
-            tags: []
+            tags: [],
+            unFill:'',
+            modalShow:false
         }
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -56,6 +60,7 @@ export default class ArticleForm extends React.Component {
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleTicketChange = this.handleTicketChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
+        this.handleModalClose = this.handleModalClose.bind(this);
         
         // this.handlePreview = this.handlePreview.bind(this);
 
@@ -71,10 +76,21 @@ export default class ArticleForm extends React.Component {
 
         return (
             <div>
+                <Modal show={this.state.modalShow} onHide={this.handleModalClose}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Oops!</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>{this.state.unFill} is required</Modal.Body>
+                    <Modal.Footer>
+                    <Button variant="secondary" onClick={this.handleModalClose}>
+                        Close
+                    </Button>
+                    </Modal.Footer>
+                </Modal>
             <div id='blankSpace'></div>
             <Container className='articleform-container'>
                 <Form>
-                <div className='title' font-weight='bold'>
+                <div className='title' fontWeight='bold'>
                         <FormGroup className='form'>
                             <div className='row d-flex align-items-center'>
                                 <div className='col-2'>
@@ -276,6 +292,10 @@ export default class ArticleForm extends React.Component {
        
     }
 
+    handleModalClose() {
+        this.setState({modalShow: false})
+    }
+
     handleTitleChange(e) {
         const text = e.target.value;
         this.setState({titleValue: text});
@@ -333,13 +353,11 @@ export default class ArticleForm extends React.Component {
     handleFileChange(event) {
         this.setState({
           file: URL.createObjectURL(event.target.files[0])
-        })
-        
+        })        
     }
 
     handleTicketChange(e) {
-        const ticket = e.tartget.value;
-        console.log(ticket);
+        const ticket = e.target.value;
         this.setState({ticketValue: ticket});
         if (ticket) {
             this.setState({ticketDanger: false});
@@ -360,93 +378,91 @@ export default class ArticleForm extends React.Component {
     // }
 
     handleTagChange(tags) {
-        console.log(tags);
         this.setState({tags})
     }
 
     handleCreatePost() {
-        const {
-            id,
-            titleValue,
-            contentValue,
-            startDateValue,
-            startTimeValue,
-            endDateValue,
-            endTimeValue,
-            locationValue,
-            ticketValue,
-            file,
-            tags,
-        } = this.state;
-
-        this.setState({
-            id: uuid()
-        })
-
-        if (!titleValue || titleValue == '') {
+        if (!this.state.titleValue || this.state.titleValue == '') {
             this.setState({
-                titleDanger: true
+                titleDanger: true,
+                modalShow: true,
+                unFill:'title'
             })
             return;
         }
-        if (!contentValue || contentValue == '') {
+        if (!this.state.contentValue || this.state.contentValue == '') {
             this.setState({
-                contentDanger: true
+                contentDanger: true,
+                modalShow: true,
+                unFill:'content'
             })
             return;
         }
-        if (!startDateValue || startDateValue == '') {
+        if (!this.state.startDateValue || this.state.startDateValue == '') {
             this.setState({
-                startDateDanger: true
+                startDateDanger: true,
+                modalShow: true,
+                unFill:'start date'
             })
             return;
         }
-        if (!startTimeValue || startTimeValue == '') {
+        if (!this.state.startTimeValue || this.state.startTimeValue == '') {
             this.setState({
-                startTimeDanger: true
+                startTimeDanger: true,
+                modalShow: true,
+                unFill:'start time'
             })
             return;
         }
-        if (!endDateValue || endDateValue == '') {
+        if (!this.state.endDateValue || this.state.endDateValue == '') {
             this.setState({
-                endDateDanger: true
+                endDateDanger: true,
+                modalShow: true,
+                unFill:'end date'
             })
             return;
         }
-        if (!endTimeValue || endTimeValue == '') {
+        if (!this.state.endTimeValue || this.state.endTimeValue == '') {
             this.setState({
-                endTimeDanger: true
+                endTimeDanger: true,
+                modalShow: true,
+                unFill:'end time'
             })
             return;
         }
-        if (!locationValue || locationValue == '') {
+        if (!this.state.locationValue || this.state.locationValue == '') {
             this.setState({
-                locationDanger: true
+                locationDanger: true,
+                modalShow: true,
+                unFill:'location'
             })
             return;
         }
-        if (!fileDanger || file== '') {
+        if (!this.state.file || this.state.file== '') {
             this.setState({
-                fileDanger: true
+                fileDanger: true,
+                modalShow: true,
+                unFill:'file'
             })
             return;
         }
 
-        if (!ticketValue || ticketValue == '') {
+        if (!this.state.ticketValue || this.state.ticketValue == '') {
             this.setState({
-                ticketDanger: true
+                ticketDanger: true,
+                modalShow: true,
+                unFill:'ticket'
             })
             return;
         }
-        console.log(this.state.id);
-        createPost(this.state).then(() => {
-            this.listPosts(this.props.searchText);
+        createPost(...this.state, this.props.account).then(() => {
+            // this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
         });
 
         this.setState({
-            id:0,
+            id: uuid(),
             titleValue: '',
             titleDanger: false,
             contentValue: '',
@@ -465,13 +481,17 @@ export default class ArticleForm extends React.Component {
             locationDanger: false,
             file: null,
             fileDanger: false,
-            tags: []
+            tags: [],
+            unFill:'',
+            modalShow:false
         })
 
         
     }
+
     handleCancel() {
         this.setState({
+            id: uuid(),
             titleValue: '',
             titleDanger: false,
             contentValue: '',
@@ -495,6 +515,10 @@ export default class ArticleForm extends React.Component {
         })
     }
 }
+
+export default connect(state => ({
+    ...state.login
+}))(ArticleForm);
 
    
 
