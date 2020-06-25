@@ -15,13 +15,5 @@
 }
 .content-r {
     width: 9rem;
-    height: 15rem;
-    border: none;
-    outline: none;
-    color: black;
-}
-
-.content-r:focus {
-  outline: none;
-  border: none;
+    height: 12rem;
 }

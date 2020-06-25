@@ -14,8 +14,9 @@ main-wrapper -> navbar-slide
   font-family: 'Abel', sans-serif;
 
 }
+
 #content-section{
-  background-color:rgb(255, 242, 204);
+  background-color: white;
 }
 
 /* side bar */
@@ -188,7 +189,7 @@ main-wrapper -> navbar-slide
 
 /* content section */
 #content-section{
-  background-color:rgb(255, 242, 204);
+  background-color: white;
 
 }
 

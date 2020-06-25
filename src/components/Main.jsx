@@ -173,7 +173,9 @@ class Main extends React.Component {
                                 <div className=' navbar-items' id='toggleBtn'><DehazeIcon onClick={this.handleNavbarToggle}/><span className='d-none d-md-inline'>&nbsp;MENU</span></div>                               
                                 <div className='d-none d-md-inline navbar-items'id='searchBtn'><SearchIcon onClick={this.handleSearch} className='search-icon'/></div>
                             </div>
-                            <div className={`${(this.props.startSearch) ? 'd-none':'d-block'}`} id='navbar-logo' href="/" onClick={e => this.handleClick('none')}>NewsSharing</div>
+                            <div className={`${(this.props.startSearch) ? 'd-none':'d-block'}`} id='navbar-logo' href="/" onClick={e => this.handleClick('none')}>
+                                NewsSharing
+                            </div>
                             <div className={`${(this.props.startSearch || this.props.alreadyLogin) ? 'd-none':'d-none d-md-block'}`} onClick={this.handleLogin}>
                                 <Link to='/login' className='link'>  
                                 <div className='navbar-items' id='loginBtn'><AccountBoxIcon/><span className='d-none d-lg-inline'>&nbsp;LOGIN</span></div>
@@ -216,7 +218,7 @@ class Main extends React.Component {
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={Manager}/>
+                    <Route exact path="/Manager" component={ArticleForm}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/category" render={() => (

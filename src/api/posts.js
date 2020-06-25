@@ -1,91 +1,89 @@
 import axios from 'axios';
-import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import 'babel-polyfill';
 
+// Develop server URL
+const postBaseUrl = 'http://localhost:8080/api';
+// Production server URL
+//const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
+
 const postKey = 'posts';
 
-export function listPosts(searchText = '' ,category='all', date='') {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(_listPosts(searchText));
-        }, 500);
+export function listPosts(searchText = '', category='all', date='', start) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+    if (searchText)
+        query.push(`searchText=${searchText}`);
+    if(category)
+        query.push(`category=${category}`)
+    if(date)
+        query.push(`data=${date}`)
+    if (start)
+        query.push(`start=${start}`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    console.log(`Making GET request to: ${url}`);
+
+    return axios.get(url).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+
+        //console.dir(res.data);
+        return res.data;
     });
 }
 
-// Simulated server-side code
-function _listPosts(searchText = '') {
-    let postString = localStorage.getItem(postKey);
-    let posts = postString ? JSON.parse(postString) : [];
-    if (posts.length > 0 && searchText) {
-        posts = posts.filter(p => {
-            return p.text.toLocaleLowerCase().indexOf(searchText.toLowerCase()) !== -1
-        });
-    }
-    return posts;
-};
+export function createPost(id,
+    titleValue,
+    titleDanger,
+    contentValue,
+    contentDanger,
+    startDateValue,
+    startDateDanger,
+    startTimeValue,
+    startTimeDanger,
+    endDateValue,
+    endDateDanger,
+    endTimeValue,
+    endTimeDanger,
+    ticketValue,
+    ticketDanger,
+    locationValue,
+    locationDanger,
+    file,
+    fileDanger,
+    tags) {
+    let url = `${postBaseUrl}/posts`;
 
-export function createPost(lub, 
-    title, 
-    content, 
-    startTime,
-    endTime,
-    startDate,
-    endDate,
-    ticket, 
-    location, 
-    file, 
-    tags=[]) {
-    return new Promise((resolve, reject) => {
-        resolve(_createPost(lub, 
-            title, 
-            content, 
-            startTime,
-            endTime,
-            startDate,
-            endDate,
-            ticket, 
-            location, 
-            file, 
-            tags=[]));
+    console.log(`Making POST request to: ${url}`);
+
+    return axios.post(url, {
+        id,
+        titleValue,
+        titleDanger,
+        contentValue,
+        contentDanger,
+        startDateValue,
+        startDateDanger,
+        startTimeValue,
+        startTimeDanger,
+        endDateValue,
+        endDateDanger,
+        endTimeValue,
+        endTimeDanger,
+        ticketValue,
+        ticketDanger,
+        locationValue,
+        locationDanger,
+        file,
+        fileDanger,
+        tags
+    }).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
     });
-}
-
-// Simulated server-side code
-function _createPost(   club, 
-                        title, 
-                        content, 
-                        startTime,
-                        endTime,
-                        startDate,
-                        endDate,
-                        ticket, 
-                        location, 
-                        file, 
-                        tags=[]) {
-    const newPost = {
-        id: uuid(),
-        club: club, 
-        title: title, 
-        content: content, 
-        startTime: startTime,
-        endTime: endTime,
-        startDate: startDate,
-        endDate: endDate,
-        ticket: ticket, 
-        location: location, 
-        file: file, 
-        ts: moment().unix(),
-        alreadyPost: alreadyPost,
-        hashtag: tags,
-        likes: 0
-    };
-    const posts = [
-        newPost,
-        ..._listPosts()
-    ];
-    localStorage.setItem(postKey, JSON.stringify(posts));
-    return newPost;
 }
 
 

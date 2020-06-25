@@ -1,13 +1,19 @@
 import React , { useState }from 'react';
+import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
 import EventIcon from '@material-ui/icons/Event';
+import GroupIcon from '@material-ui/icons/Group';
 import TagsInput from 'react-tagsinput'
 import Slider, { createSliderWithTooltip } from 'rc-slider'; 
 import AvatarEditor from 'react-avatar-editor';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
+import ListIcon from '@material-ui/icons/List';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import './ArticleForm.css';
 import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
@@ -22,6 +28,7 @@ export default class ArticleForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            id:0,
             titleValue: '',
             titleDanger: false,
             contentValue: '',
@@ -40,8 +47,9 @@ export default class ArticleForm extends React.Component {
             locationDanger: false,
             file: null,
             fileDanger: false,
-            value: 120,
-            tags: []
+            Value: 120,
+            tags: [],
+            dropdownOpen: false
         }
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
@@ -53,45 +61,45 @@ export default class ArticleForm extends React.Component {
         this.handleFileChange = this.handleFileChange.bind(this);
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleTicketChange = this.handleTicketChange.bind(this);
+        this.handleLocationChange = this.handleLocationChange.bind(this);
         
         // this.handlePreview = this.handlePreview.bind(this);
 
-        this.handlePost = this.handlePost.bind(this);
+        this.handleCreatePost = this.handleCreatePost.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
-
         this.handleTagChange = this.handleTagChange.bind(this);
+
     }
 
-    
+
 
     render() {
 
         return (
-            <div>
+            <div className='articleform-container flex-column d-flex container justify-content-center align-items-center'>
                 <div id='blankSpace'></div>
-            <Container className='articleform-container'>
+                <div id='blankSpace'></div>
                 <Form>
-                <div className='title' font-weight='bold'>
-                        <FormGroup className='form'>
-                            <div className='row d-flex align-items-center'>
-                                <div className='col-2'>
-                                    <Label for="title" sm={2}>Title</Label>
-                                </div>
-                                <div className='col-8'>
-                                    <Input 
-                                        type="textarea" 
-                                        name="text" 
-                                        id="title" 
-                                        onChange={this.handleTitleChange} />
-                                </div>
+                    <FormGroup className='form'>
+                        <div className='row d-flex'>
+                            <div className='col-2'>
+                                <Label className='label' for="title" sm={2} >Title</Label>
                             </div>
-                        </FormGroup>
-                </div>
-                <div className='d-flex row justify-content-center align-items-center'>
-                    <div className='poster p-4'>
-                        <FormGroup row className='form'>
-                            <div>
-                                 <Input type="file" name="file" id="imgFile" onChange={this.handleFileChange}/>
+                            <div className='col-8'>
+                                <Input 
+                                    type="text" 
+                                    name="text" 
+                                    id="title" 
+                                    value={this.state.titleValue}
+                                    onChange={this.handleTitleChange} />
+                            </div>                   
+                        </div>
+                    </FormGroup>
+                    <div className='p-2 row info m-4'>
+                        <div className='p-4 d-flex flex-row'>
+                            <FormGroup className='form'>
+                                <div>
+                                    <Input  type="file" name="file" id="imgFile" onChange={this.handleFileChange}/>
                                     <FormText color="muted">
                                         Upload your event poster.
                                     </FormText>
@@ -101,13 +109,14 @@ export default class ArticleForm extends React.Component {
                                         height={320}
                                         border={50}
                                         color={[255, 255, 255, 0.6]} // RGBA
-                                        scale={this.state.value/120}
+                                        scale={this.state.Value/120}
                                         rotate={0}
+                                        className='poster'
                                     />
                                     <Slider 
                                         min={120}
                                         max={240}
-                                        value={this.state.value}
+                                        value={this.state.Value}
                                         onChange={this.handleSliderChange}
                                         raliStyle={{
                                             height: 2
@@ -124,146 +133,202 @@ export default class ArticleForm extends React.Component {
                                             background: "none"
                                         }}
                                     />
-                                    {/* <div>{(this.state.file == null) ? '' : <button className= 'preview' onClick={this.handlePreview}><span>Preview</span></button>}</div> */}
-                                    {/* <div>{(Preview) ? <img src={this.state.file}/> : ''}</div> */}
-                {/* <div>{(this.state.file == null) ? '' : <img src={this.state.file}/>}</div> */}
-                            </div>
-                        </FormGroup>
-                    </div>
-                    <div className='info p-2'>
-                        <FormGroup className='form'>
-                            <div className='d-flex row justify-content-start align-items-center'>
-                                <div className='col-1'> 
-                                    <EventIcon/>
-                                </div> 
-                                <div className='col-3'>
-                                    Date and Time
+                                        {/* <div>{(this.state.file == null) ? '' : <button className= 'preview' onClick={this.handlePreview}><span>Preview</span></button>}</div> */}
+                                        {/* <div>{(Preview) ? <img src={this.state.file}/> : ''}</div> */}
+                                        {/* <div>{(this.state.file == null) ? '' : <img src={this.state.file}/>}</div> */}
                                 </div>
-                                <div className='col-1'>Start</div>
-                                <div className='col-4'>
-                                    <Input
-                                        type="date"
-                                        name="date"
-                                        id="startDate"
-                                        placeholder="date placeholder" 
-                                        onChange={this.handleStartDateChange} />
+                            </FormGroup>
+                        </div>
+                        <div className=' col p-4'>
+                            <FormGroup>
+                                <div className='row'>
+                                    <div className='col-2 label'> 
+                                        <EventIcon/>
+                                        Start
+                                    </div>
+                                    <div className='col-5 p-2'>
+                                        <Input
+                                            type="date"
+                                            name="date"
+                                            id="startDate"
+                                            value={this.state.startDateValue}
+                                            placeholder="date placeholder" 
+                                            onChange={this.handleStartDateChange} />
+                                    </div>
+                                    <div className='col-4 p-2'>
+                                        <Input
+                                            type="time"
+                                            name="time"
+                                            id="startTime"
+                                            value={this.state.startTimeValue}
+                                            placeholder="time placeholder"
+                                            onChange={this.handleStartTimeChange} />
+                                    </div>
                                 </div>
-                                <div className='col-3'>
-                                    <Input
-                                        type="time"
-                                        name="time"
-                                        id="startTime"
-                                        placeholder="time placeholder"
-                                        onChange={this.handleStartTimeChange} />
+                                <div className='row'>
+                                    <div  className='col-2 label'> 
+                                        <EventIcon/>
+                                        End
+                                    </div>
+                                    <div className='col-5 p-2'> 
+                                        <Input
+                                            type="date"
+                                            name="date"
+                                            id="endDate"
+                                            value={this.state.endDateValue}
+                                            placeholder="date placeholder"
+                                            onChange={this.handleEndDateChange} />
+                                    </div>
+                                    <div className='col-4 p-2'>
+                                        <Input
+                                            type="time"
+                                            name="time"
+                                            id="endTime"
+                                            value={this.state.endTimeValue}
+                                            placeholder="time placeholder"
+                                            onChange={this.handleEndTimeChange} />
+                                    </div>
                                 </div>
-                            </div>
-                        </FormGroup>
-                        <FormGroup className='form'>
-                            <div className= 'd-flex row justify-content-start align-items-center'>
-                                <div className='col-1' > 
-                                </div> 
-                                <div className='col-3'>
-                                </div>
-                                <div className='col-1'>End</div>
-                                <div className='col-4'> 
-                                    <Input
-                                        type="date"
-                                        name="date"
-                                        id="endDate"
-                                        placeholder="date placeholder"
-                                        onChange={this.handleEndDateChange} />
-                                </div>
-                                <div className='col-3'>
+                                <div className='row '>    
+                                    <div className='col-2 label align-items-center'>
+                                        <PlaceIcon/>
+                                        Lacation
+                                    </div> 
+                                    <div className='col-5 p-2'>
+                                        <Input 
+                                            type="text" 
+                                            name="text" 
+                                            id="location" 
+                                            value={this.state.locationValue}
+                                            onChange={this.handleLocationChange} />    
+                                    </div>                                    
+                                    <div className='col-4 p-2'>
                                     
-                                    <Input
-                                        type="time"
-                                        name="time"
-                                        id="endTime"
-                                        placeholder="time placeholder"
-                                        onChange={this.handleEndTimeChange} />
-                                </div>
-                            </div>
-                        </FormGroup>
-                        <FormGroup className='form'>
-                            <div className='d-flex row justify-content-start align-items-center'>
-                                <div className='col-1'> 
-                                    <PlaceIcon/>
+                                    </div>
+                                </div>    
+                                <div className='row'>
+                                    <div className='col-2 label'>
+                                        <PaymentIcon/>
+                                        Ticket
+                                    </div>
+                                    <div className='col-5 p-2'>
+                                        <Input 
+                                            type="text" 
+                                            name="text" 
+                                            id="ticket" 
+                                            value={this.state.ticketValue}
+                                            onChange={this.handleTicketChange} />
+                                    </div>
+                                    <div className='col-4 p-2'></div>
                                 </div> 
-                                <div className='col-3'>
-                                    Location
+                            </FormGroup>
+                            <div className=" row dropdown">
+                                <div className='col-2 label'>
+                                    <GroupIcon/>
+                                    Club
+                                </div> 
+                                {/* <button className="col-5 p-2 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown button
+                                </button>
+                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a className="dropdown-item" href="#">ClubA</a>
+                                    <a className="dropdown-item" href="#">ClubB</a>
+                                    <a className="dropdown-item" href="#">ClubC</a>
+                                </div> */}
+                                <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
+                                    <DropdownToggle>
+                                        Dropdown
+                                    </DropdownToggle>
+                                    <DropdownMenu
+                                        modifiers={{
+                                        setMaxHeight: {
+                                            enabled: true,
+                                            order: 890,
+                                            fn: (data) => {
+                                            return {
+                                                ...data,
+                                                styles: {
+                                                ...data.styles,
+                                                overflow: 'auto',
+                                                maxHeight: '100px',
+                                                },
+                                            };
+                                            },
+                                        },
+                                        }}
+                                    >
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                        <DropdownItem>Another Action</DropdownItem>
+                                    </DropdownMenu>
+                                </Dropdown>
+
+
+                                <div className='col-4 p-2'></div>
+                            </div>
+                        </div>
+
+                            
+                    </div>
+                        
+                    <div id='blankSpace'></div>
+
+                    <div className='m-8 p-2'>
+                        <FormGroup className='form'>
+                            <div className=''>
+                                <div className='label p-2'>
+                                    Content
                                 </div>
-                                <div className='col-1'></div>
-                                <div className='col-7'>
+                                <div className='content-input'>
                                     <Input 
                                         type="textarea" 
                                         name="text" 
-                                        id="location" 
-                                        onChange={this.handleLocationChange} />            
-                                </div> 
+                                        id="contentText"
+                                        rows='10'
+                                        value={this.state.contentValue} 
+                                        onChange={this.handleContentChange} />
+                                </div>
                             </div>
                         </FormGroup>
-                        <FormGroup className='form'>
-                        <div className='d-flex row justify-content-start align-items-center '>
-                            <div className='col-1'> 
-                                <PaymentIcon/>
-                            </div>  
-                            <div className='col-3'>
-                                Ticket
+                    </div>
+                    
+                
+                    <div className=''> 
+                        <div className='col tag'>
+                            <div className='label p-2'>
+                                Hint: type and press enter 
                             </div>
-                            <div className='col-1'></div>
-                            <div className='col-7'>
-                                <Input 
-                                    type="textarea" 
-                                    name="text" 
-                                    id="ticket" 
-                                    onChange={this.handleTicketChange} />
-                            </div> 
-                        </div>
-                        </FormGroup>
-                    </div>
-                </div>
-                
-                <FormGroup className='form'>
-                    <div className='d-flex row align-items-center'>
-                        <div className='col-2'>
-                            Content
-                        </div>
-                        <div className='p-2 tag col-8'>
-                            <Input 
-                                type="textarea" 
-                                name="text" 
-                                id="contentText" 
-                                onChange={this.handleContentChange} />
+                            <TagsInput 
+                                value={this.state.tags} 
+                                onChange={this.handleTagChange} />
+                            
                         </div>
                     </div>
-                </FormGroup>
-                
-                <div className='row'> 
-                    <div className='col'>
-                        <div className='hint'>Hint: type and press enter </div>
-                        <TagsInput 
-                            value={this.state.tags} 
-                            onChange={this.handleTagChange} />
-                        
+
+                    <div className="buttons" className={`d-flex justify-content-around`}>
+                        <div className='row d-flex'>
+                            <div className='p-2'>
+                                <Button className='btn-post' color="success" onClick={this.handleCreatePost}>Post</Button>{' '}
+                            </div>
+                            <div className='p-2'>
+                                <Button className='btn-cancel' color="secondary" onClick={this.handleCancel}>Cancel</Button>{' '} 
+                            </div>
+                        </div>
                     </div>
-                </div>
                 </Form>
-                <div className="buttons" className={`d-flex justify-content-around`}>
-                    <div className='row d-flex'>
-                        <div className='p-2'>
-                            <Button className='btn-post' color="success" onClick={this.handlePost}>Post</Button>{' '}
-                        </div>
-                        <div className='p-2'>
-                            <Button className='btn-cancel' color="secondary" onClick={this.handleCancel}>Cancel</Button>{' '} 
-                        </div>
-                    </div>
-                </div>
-            </Container>
-            <div id='blankSpace'></div>
             </div>
+        
         );
        
     }
+
 
     handleTitleChange(e) {
         const text = e.target.value;
@@ -303,7 +368,6 @@ export default class ArticleForm extends React.Component {
         }
     }
 
-
     handleLocationChange(e) {
         const location = e.target.value;
         this.setState({locationValue: location});
@@ -312,8 +376,7 @@ export default class ArticleForm extends React.Component {
         }
     }
     
-
-    handleContentChange() {
+    handleContentChange(e) {
         const text = e.target.value;
         this.setState({contentValue: text});
         if (text) {
@@ -324,14 +387,13 @@ export default class ArticleForm extends React.Component {
     handleFileChange(event) {
         this.setState({
           file: URL.createObjectURL(event.target.files[0])
-        }, ()=> {
-                console.log(this.state.file);
-            }
-        );
+        })
+        
     }
 
-    handleTicketChange() {
+    handleTicketChange(e) {
         const ticket = e.tartget.value;
+        console.log(ticket);
         this.setState({ticketValue: ticket});
         if (ticket) {
             this.setState({ticketDanger: false});
@@ -352,10 +414,13 @@ export default class ArticleForm extends React.Component {
     // }
 
     handleTagChange(tags) {
+        console.log(tags);
         this.setState({tags})
     }
-    handlePost() {
+
+    handleCreatePost() {
         const {
+            id,
             titleValue,
             contentValue,
             startDateValue,
@@ -363,9 +428,15 @@ export default class ArticleForm extends React.Component {
             endDateValue,
             endTimeValue,
             locationValue,
+            ticketValue,
             file,
             tags,
         } = this.state;
+
+        this.setState({
+            id: uuid()
+        })
+
         if (!titleValue || titleValue == '') {
             this.setState({
                 titleDanger: true
@@ -414,19 +485,22 @@ export default class ArticleForm extends React.Component {
             })
             return;
         }
-        this.props.onPost(
-                        this.props.club, 
-                        this.state.titleValue, 
-                        this.state.contentValue, 
-                        this.state.startTimeValue,
-                        this.state.endTimeValue,
-                        this.state.startDateValue,
-                        this.state.endTimeValue,
-                        this.state.ticketValue, 
-                        this.state.locationValue, 
-                        this.state.file, 
-                        this.state.tags);
+
+        if (!ticketValue || ticketValue == '') {
+            this.setState({
+                ticketDanger: true
+            })
+            return;
+        }
+        console.log(this.state.id);
+        createPost(this.state).then(() => {
+            this.listPosts(this.props.searchText);
+        }).catch(err => {
+            console.error('Error creating posts', err);
+        });
+
         this.setState({
+            id:0,
             titleValue: '',
             titleDanger: false,
             contentValue: '',
@@ -447,6 +521,8 @@ export default class ArticleForm extends React.Component {
             fileDanger: false,
             tags: []
         })
+
+        
     }
     handleCancel() {
         this.setState({
@@ -472,6 +548,7 @@ export default class ArticleForm extends React.Component {
             tags: []
         })
     }
+
 }
 
    
