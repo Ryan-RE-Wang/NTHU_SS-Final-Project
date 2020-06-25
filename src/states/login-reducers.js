@@ -7,13 +7,15 @@ const initLoginFormState = {
     alreadyLogin:false,
     loginMsg:'',
     showMsg:false,
-    account:'',
+    username:'',
     email:'',
     createAccountForm:false,
-
+    loginType:'',
+    userId:-1
 }
 
 export function login(state = initLoginFormState , action){
+    console.log(action);
     switch(action.type){
         case '@INFO/START_LOGIN':
             return{
@@ -27,8 +29,10 @@ export function login(state = initLoginFormState , action){
                 ...state,
                 alreadyLogin: true,
                 loading: false,
-                account: action.account,
-                createAccountForm: false
+                username: action.username,
+                userId:action.userId,
+                createAccountForm: false,
+                loginType:'normal'
             }
         case '@INFO/FAIL_LOGIN':
             return{
@@ -48,6 +52,16 @@ export function login(state = initLoginFormState , action){
             return{
                 ...state,
                 createAccountForm: !state.createAccountForm
+            }
+        case '@INFO/LOGINSUCCESS_FB':
+            console.log(action)
+            return{
+                ...state,
+                alreadyLogin: true,
+                loading: false,
+                username: action.name,
+                createAccountForm: false,
+                loginType:'FB'
             }
         default:
             return{

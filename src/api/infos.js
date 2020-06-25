@@ -2,68 +2,71 @@ import axios from 'axios';
 import { v4 as uuid } from 'uuid';
 import moment from 'moment';
 import { object } from 'prop-types';
+import {facebookLogin} from 'api/facebook.js';
 //import '@babel/polyfill';
 
+
+
+//
 const infoKey = 'infos';
 
-
-export function getInfo(account = '') {
+export function getInfo(userId = -1) {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(_getInfo(account));
+            resolve(_getInfo(userId));
         }, 500);
     });
 }
 
 // Simulated server-side code
-function _getInfo(account = '') {
+function _getInfo(userId = -1) {
     let infoString = localStorage.getItem(infoKey);
     let infos = infoString ? JSON.parse(infoString) : [];
 
 
-    if (infos.length > 0 && account) {
+    if (infos.length > 0 && userId!==-1) {
         infos = infos.filter(i => {
-            return i.account.toLocaleLowerCase().indexOf(searchText.toLowerCase()) !== -1
+            if(userId === i.userId) return i
         });
     }
     return infos;
 };
 
-export function createInfo(account = '',password = '', email = '') {
+export function createInfo(username = '',password = '', email = '') {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(_createInfo(account,password,email));
+            resolve(_createInfo(username, password, email));
         }, 1000);
     });
 }
 
 // Simulated server-side code
-function _createInfo(account = '', password = '', email = '') {
+function _createInfo(username = '', password = '', email = '') {
     
     let infoString = localStorage.getItem(infoKey);
     let oldInfos = infoString ? JSON.parse(infoString) : [];
-    let sameAccountName = false;
+    let sameEmail = false;
     let createFail = false;
     if (oldInfos.length > 0) {
         oldInfos.map((obj,i) => {
             
-        if (obj.account === account){
-            sameAccountName = true;    
+        if (obj.email === email){
+            sameEmail = true;    
         }        
         });
     }
-    console.log( oldInfos);
+    console.log(oldInfos); /// 
 
-    if(sameAccountName){
+    if(sameEmail){
         return {
             loginSuccess: false,
-            msg: 'account has been used'
+            msg: 'this email has been used'
         }
     }
 
     const newInfo = {
-        id: oldInfos.length,
-        account: account,
+        userId: oldInfos.length,
+        username: username,
         password: password,
         email: email
     }
@@ -81,15 +84,15 @@ function _createInfo(account = '', password = '', email = '') {
     return userInfo;
 };
 
-export function login(account = '',password = '') {
+export function login(email = '',password = '') {
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(_login(account,password));
+            resolve(_login(email,password));
         }, 1000);
     });
 }
 // Simulated server-side code
-function _login(account = '', password = '') {
+function _login(email = '', password = '') {
     console.log(password);
     let infoString = localStorage.getItem(infoKey);
     let oldInfo = infoString ? JSON.parse(infoString) : [];
@@ -97,7 +100,7 @@ function _login(account = '', password = '') {
     console.log(oldInfo);
     if (oldInfo.length > 0) {
         oldInfo = oldInfo.filter(i => {
-            if(i.account === account) return i;
+            if(i.email === email) return i;
             else return
         });
     }
@@ -128,12 +131,12 @@ function _login(account = '', password = '') {
 
 
 
-export function updateInfo(account = '',email) {
+export function updateInfo(userId = '',email) {
 
 };
 
 // Simulated server-side code
-function _updateInfo(account = '', passward = '') {
+function _updateInfo(userId = '', passward = '') {
 
 };
 export function clearAllInfo(){
@@ -151,4 +154,14 @@ function _clearAllInfo(){
         msg:"clear all"
     }
 }
+
+export function loginWithFB(){
+    let response = facebookLogin();
+
+    if(response){
+        console.log("success");
+        this.props.dispatch(login(response.name,response.email));
+    }
+}
+
 
