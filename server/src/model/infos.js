@@ -1,34 +1,56 @@
-const fs = require('fs');
+const pgp = require('pg-promise')();
+const db = pgp(process.env.DB_URL);
 
-function create(account,password) {
-    return new Promise((resolve, reject) => {
-        const newPost = {
-            id: uuid(),
-            mood: mood.charAt(0).toUpperCase() + mood.slice(1),
-            text: text,
-            ts: moment().unix(),
-        };
 
-        list().then(posts => {
-            posts = [
-                newPost,
-                ...posts
-            ];
-            fs.writeFile('data-posts.json', JSON.stringify(posts), err => {
-                if (err) reject(err);
+// create information
+function create(username, password, email) {
 
-                resolve(newPost);
-            });
-        });
-    });
+    const sql = `
+    INSERT INTO infos ($<this:name>)
+    VALUES ($<username>, $<password>, $<email>)
+    RETURNING*
+    `;
+    return db.one(sql, {username, password, email});
+;
 }
-function login(account, password){
-    return new Promise((reslove,reject)=>{
-        
-    });
+// login
+function login(password, email){
+    const sql =`
+    SELECT * FROM infos
+    WHERE password = $<password> AND email = $<email>
+    `;
+    return db.one(sql, {password,email})
 }
-function create(account, password){
-    return new Promise((reslove,reject)=>{
-        
-    });
+function checkInfo(email){
+    const sql =`
+    SELECT * FROM infos
+    WHERE email = $<email>
+    `;
+    return db.one(sql, {email})
 }
+function updatePassword(userId, password){
+    const sql =`
+    UPDATE infos
+    SET password = $<password>
+    WHERE id = $<userId>
+    RETURNING *
+    `;
+    return db.one(sql,{userId,password})
+}
+function updateUsername(userId, username){
+    const sql =`
+    UPDATE infos
+    SET username = $<username>
+    WHERE id = $<userId>
+    RETURNING *
+    `;
+    return db.one(sql,{userId,username})
+}
+
+module.exports(
+    create,
+    login,
+    checkInfo,
+    updatePassword,
+    updateUsername
+)
