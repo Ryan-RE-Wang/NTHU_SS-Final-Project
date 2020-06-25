@@ -5,12 +5,13 @@ const db = pgp(process.env.DB_URL);
 const schemaInfo=`
     CREATE TABLE info(
         id              serial PRIMARY KEY NOT NULL,
-        username            text,
+        username        text,
         password        text NOT NULL,
-        picture         string,
-        clubs           string,
+        email           text NOT NULL,
+        picture         text,
+        clubs           text
     )
-`
+`;
 const schemaPost=`
     CREATE TABLE Post(
         id              serial PRIMARY KEY NOT NULL,
@@ -27,14 +28,11 @@ const schemaPost=`
         touch           integer,
         account         text
     ) 
-`
+`;
 
 db.none(schemaInfo).then(() => {
-    console.log('Schema created');
-    db.none(dataSql).then(() => {
-        console.log('Data populated');
-        pgp.end();
-    });
+    console.log('info table created');
+
 }).catch(err => {
     console.log(process.env.DB_URL);
     console.log('Error creating schema', err);

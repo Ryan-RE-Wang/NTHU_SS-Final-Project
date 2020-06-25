@@ -1,6 +1,7 @@
-const pgp = require('pg-promise')();
-const db = pgp(process.env.DB_URL);
-
+if (!global.db) {
+    const pgp = require('pg-promise')();
+    db = pgp(process.env.DB_URL);
+}
 
 // create information
 function create(username, password, email) {
@@ -47,10 +48,10 @@ function updateUsername(userId, username){
     return db.one(sql,{userId,username})
 }
 
-module.exports(
+module.exports = {
     create,
     login,
     checkInfo,
     updatePassword,
     updateUsername
-)
+};

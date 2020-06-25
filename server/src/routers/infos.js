@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const accessController = require('../middleware/access-controller.js');
 const InfoModel = require('../model/infos.js');
-const { resolve } = require('pg-promise/typescript/ext-promise');
 
 const router = express.Router();
 
@@ -29,7 +28,7 @@ router.post('createInfo',function(req, res, next){
                 .then(
                     (info) => {
                         res.json({
-                            info...,
+                            ...info,
                             loginSuccess: true,
                             msg: 'this email has been used'
                         })
@@ -51,8 +50,8 @@ router.get('',function(){
         (info) => {
             if(info !== null){
                 res.json({
-                    info...,
-                    loginSuccess:true
+                    ...info,
+                    loginSuccess:true,
                     msg:'login success'
                 })
             } else {

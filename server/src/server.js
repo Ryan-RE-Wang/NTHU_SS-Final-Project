@@ -3,7 +3,7 @@ const express = require('express');
 
 const postsRouter = require('./routers/posts.js');
 const clubsRouter = require('./routers/clubs.js');
-const infoRouter = require('./routers/infos.js');
+const infosRouter = require('./routers/infos.js');
 // const requestLogger = require('./middleware/request-logger.js');
 const errorHandler = require('./middleware/error-handler.js');
 const accessController = require('./middleware/access-Controller.js');
@@ -17,11 +17,11 @@ app.use(express.static('dist', {
     }
 }));
 app.use('/api/posts', postsRouter);
-// app.use('/api/todos', todoRouter);
-app.use('/api/infos', infoRouter);
+app.use('/api/infos', infosRouter);
 
 app.get('/*', (req, res) => res.redirect('/'));
 app.use(errorHandler);
+
 
 const port = 4000;
 app.listen(port, () => {

@@ -1,7 +1,7 @@
 {
-  "name": "weathermood-server",
+  "name": "newssharing-server",
   "version": "1.0.0",
-  "description": "WeatherMood server.",
+  "description": "NewsSharing server.",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
