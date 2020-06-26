@@ -1,4 +1,4 @@
-require('../config.js');
+//require('../config.js');
 const express = require('express');
 
 const postsRouter = require('./routers/posts.js');
@@ -18,6 +18,8 @@ app.use(express.static('dist', {
 }));
 app.use('/api/infos', infosRouter);
 app.use('/api/posts', postsRouter);
+app.use('/api/clubs', clubsRouter);
+
 
 
 app.get('/*', (req, res) => res.redirect('/'));

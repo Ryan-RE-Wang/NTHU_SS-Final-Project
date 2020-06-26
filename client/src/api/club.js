@@ -1,47 +1,53 @@
 import axios from 'axios';
-import { v4 as uuid } from 'uuid';
 import moment from 'moment';
-import '@babel/polyfill';
+import 'babel-polyfill';
 
-const clubKey = 'clubs';
+// Develop server URL
+const postBaseUrl = 'http://localhost:4000/api';
+// Production server URL
+//const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
 
+const postKey = 'posts';
 
-export function listClubs(searchText='') {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(_listPosts(searchText));
-        }, 500);
+export function listClub(clubId) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+    if (clubId)
+        query.push(`id=${clubId}`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    console.log(`Making GET request to: ${url}`);
+
+    return axios.get(url).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+
+        //console.dir(res.data);
+        return res.data;
     });
 }
 
-// Simulated server-side code
-function _listClubs(searchText='') {
-    let clubString = localStorage.getItem(clubKey);
-    let clubs = clubString ? JSON.parse(postString) : [];
-    if (clubs.length > 0 && searchText) {
-        clubs = clubs.filter(c => {
-            return c.text.toLocaleLowerCase().indexOf(searchText.toLowerCase()) !== -1
-        });
-    }
-    return clubs;
-};
+export default function createClub(id,
+    clubname,
+    facebook,
+    instagram,
+    clubpic,
+    clubpassword) {
+    let url = `${postBaseUrl}/posts`;
 
-export function createClubs() {
-    return new Promise((resolve, reject) => {
-        resolve(_createClubs());
+    console.log(`Making POST request to: ${url}`);
+
+    return axios.post(url, {
+        id,
+        clubname,
+        facebook,
+        instagram,
+        clubpic,
+        clubpassword
+    }).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
     });
 }
-
-// Simulated server-side code
-function _createClubs() {
-    const newClub = {
-
-    };
-    const clubs = [
-        newClub,
-        ..._listClubs()
-    ];
-    localStorage.setItem(clubKey, JSON.stringify(clubs));
-    return newPost;
-}
-

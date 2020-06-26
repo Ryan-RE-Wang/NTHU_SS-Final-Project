@@ -21,12 +21,12 @@ const schemaPost=`
         endDate         DATE NOT NULL DEFAULT CURRENT_DATE,
         startTime       TIME NOT NULL,
         endTime         TIME NOT NULL,
-        ticket          integer,
-        location        text,
-        file            text,
-        tags            text[],
-        touch           integer,
-        account         text
+        ticket          integer NOT NULL,
+        location        text NOT NULL,
+        fileURL            text NOT NULL,
+        tags            text[] NOT NULL,
+        touch           integer NOT NULL,
+        userId          text
     ) 
 `;
 const schemaClub=`
