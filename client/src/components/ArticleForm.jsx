@@ -20,6 +20,17 @@ import 'rc-slider/assets/index.css';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import createPost from 'api/posts.js';
+import S3 from 'react-aws-s3';
+ 
+ 
+const config = {
+    bucketName: 'team11final',
+    region: 'us-west-1',
+    accessKeyId: 'AKIAIVDIZU2RSKZUZ6OA',
+    secretAccessKey: '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',
+}
+
+const ReactS3Client = new S3(config);
 
 class ArticleForm extends React.Component {
     static propTypes = {
@@ -46,6 +57,8 @@ class ArticleForm extends React.Component {
             locationValue: '',
             locationDanger: false,
             file: null,
+            fileURL: '', 
+            fileName: '',
             fileDanger: false,
             Value: 120,
             tags: [],
@@ -161,7 +174,7 @@ class ArticleForm extends React.Component {
                                         Upload your event poster.
                                     </FormText>
                                     <AvatarEditor
-                                        image={this.state.file}
+                                        image={this.state.fileURL}
                                         width={250}
                                         height={320}
                                         border={50}
@@ -446,9 +459,11 @@ class ArticleForm extends React.Component {
         }
     }
 
-    handleFileChange(event) {
+    handleFileChange(e) {
         this.setState({
-          file: URL.createObjectURL(event.target.files[0])
+          fileURL: URL.createObjectURL(e.target.files[0]),
+          file: e.target.files[0],
+          fileName: e.target.files[0].name
         })        
     }
 
@@ -459,13 +474,12 @@ class ArticleForm extends React.Component {
             this.setState({ticketDanger: false});
         }
     }
-
    
     handleSliderChange(value){
         this.setState({
-            value
+            Value: value
           }, () => {
-            console.log(this.state.value);
+            console.log(this.state.Value);
           }
         );
     };
@@ -475,80 +489,95 @@ class ArticleForm extends React.Component {
     }
 
     handleCreatePost() {
-        if (!this.state.titleValue || this.state.titleValue == '') {
-            this.setState({
-                titleDanger: true,
-                modalShow: true,
-                unFill:'title'
-            })
-            return;
-        }
-        if (!this.state.contentValue || this.state.contentValue == '') {
-            this.setState({
-                contentDanger: true,
-                modalShow: true,
-                unFill:'content'
-            })
-            return;
-        }
-        if (!this.state.startDateValue || this.state.startDateValue == '') {
-            this.setState({
-                startDateDanger: true,
-                modalShow: true,
-                unFill:'start date'
-            })
-            return;
-        }
-        if (!this.state.startTimeValue || this.state.startTimeValue == '') {
-            this.setState({
-                startTimeDanger: true,
-                modalShow: true,
-                unFill:'start time'
-            })
-            return;
-        }
-        if (!this.state.endDateValue || this.state.endDateValue == '') {
-            this.setState({
-                endDateDanger: true,
-                modalShow: true,
-                unFill:'end date'
-            })
-            return;
-        }
-        if (!this.state.endTimeValue || this.state.endTimeValue == '') {
-            this.setState({
-                endTimeDanger: true,
-                modalShow: true,
-                unFill:'end time'
-            })
-            return;
-        }
-        if (!this.state.locationValue || this.state.locationValue == '') {
-            this.setState({
-                locationDanger: true,
-                modalShow: true,
-                unFill:'location'
-            })
-            return;
-        }
-        if (!this.state.file || this.state.file== '') {
-            this.setState({
-                fileDanger: true,
-                modalShow: true,
-                unFill:'file'
-            })
-            return;
-        }
+        console.log(this.state.fileURL)
+        // if (!this.state.titleValue || this.state.titleValue == '') {
+        //     this.setState({
+        //         titleDanger: true,
+        //         modalShow: true,
+        //         unFill:'title'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.contentValue || this.state.contentValue == '') {
+        //     this.setState({
+        //         contentDanger: true,
+        //         modalShow: true,
+        //         unFill:'content'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.startDateValue || this.state.startDateValue == '') {
+        //     this.setState({
+        //         startDateDanger: true,
+        //         modalShow: true,
+        //         unFill:'start date'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.startTimeValue || this.state.startTimeValue == '') {
+        //     this.setState({
+        //         startTimeDanger: true,
+        //         modalShow: true,
+        //         unFill:'start time'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.endDateValue || this.state.endDateValue == '') {
+        //     this.setState({
+        //         endDateDanger: true,
+        //         modalShow: true,
+        //         unFill:'end date'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.endTimeValue || this.state.endTimeValue == '') {
+        //     this.setState({
+        //         endTimeDanger: true,
+        //         modalShow: true,
+        //         unFill:'end time'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.locationValue || this.state.locationValue == '') {
+        //     this.setState({
+        //         locationDanger: true,
+        //         modalShow: true,
+        //         unFill:'location'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.file || this.state.file== '') {
+        //     this.setState({
+        //         fileDanger: true,
+        //         modalShow: true,
+        //         unFill:'file'
+        //     })
+        //     return;
+        // }
 
-        if (!this.state.ticketValue || this.state.ticketValue == '') {
-            this.setState({
-                ticketDanger: true,
-                modalShow: true,
-                unFill:'ticket'
-            })
-            return;
-        }
-        createPost(...this.state, this.props.account).then(() => {
+        // if (!this.state.ticketValue || this.state.ticketValue == '') {
+        //     this.setState({
+        //         ticketDanger: true,
+        //         modalShow: true,
+        //         unFill:'ticket'
+        //     })
+        //     return;
+        // }
+        // ReactS3Client.uploadFile(this.state.file, this.state.fileName).then(
+        //     data => console.log(data))
+        // .catch(err => console.error(err))
+        createPost(this.state.id,
+            this.state.titleValue,
+            this.state.contentValue,
+            this.state.startDateValue,
+            this.state.startTimeValue,
+            this.state.endDateValue,
+            this.state.endTimeValue,
+            this.state.ticketValue,
+            this.state.locationValue,
+            this.state.fileName,
+            this.state.tags,  
+            this.props.userId).then(() => {
             // this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
@@ -573,6 +602,8 @@ class ArticleForm extends React.Component {
             locationValue: '',
             locationDanger: false,
             file: null,
+            fileURL: '',
+            fileName: '',
             fileDanger: false,
             tags: [],
             dropdownOpen: false,
@@ -607,6 +638,8 @@ class ArticleForm extends React.Component {
             locationValue: '',
             locationDanger: false,
             file: null,
+            fileURL: '',
+            fileName: '',
             fileDanger: false,
             value: 120,
             tags: [],
