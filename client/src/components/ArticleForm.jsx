@@ -1,7 +1,7 @@
-import React , { useState }from 'react';
+import React from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
-import { Container, Row, Col, Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Button, Form, FormGroup, Input, FormText } from 'reactstrap';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
@@ -12,20 +12,15 @@ import BlockIcon from '@material-ui/icons/Block';
 import TagsInput from 'react-tagsinput'
 import Slider, { createSliderWithTooltip } from 'rc-slider'; 
 import AvatarEditor from 'react-avatar-editor';
-import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
-import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
-import ListIcon from '@material-ui/icons/List';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import ReactCodeInput from 'react-verification-code-input';
 import './ArticleForm.css';
 import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
-import { rgbToHex } from '@material-ui/core';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import createPost from 'api/posts.js';
 
-var Preview = false;
 class ArticleForm extends React.Component {
     static propTypes = {
         club: PropTypes.string
@@ -70,7 +65,7 @@ class ArticleForm extends React.Component {
         this.handleStartDateChange = this.handleStartDateChange.bind(this);
         this.handleEndDateChange = this.handleEndDateChange.bind(this);
         this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
-        this.handleEndTimeChange = this.handleEndDateChange.bind(this);
+        this.handleEndTimeChange = this.handleEndTimeChange.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleTicketChange = this.handleTicketChange.bind(this);
@@ -142,12 +137,12 @@ class ArticleForm extends React.Component {
                 </div>
                 <Form>
                     <FormGroup className='form'>
-                        <div className='row d-flex'>
-                                <div className=''>
-                                <Label className='label' for="title" sm={2} >Title</Label>
+                        <div className='row d-flex justify-content-center align-items-center'>
+                                <div className='cl label'>
+                                    Title
                                 </div>
                                 
-                                <div className=''>
+                                <div className='col '>
                                 <Input 
                                     type="text" 
                                     name="text" 
@@ -195,36 +190,38 @@ class ArticleForm extends React.Component {
                                             background: "none"
                                         }}
                                     />
-                                        {/* <div>{(this.state.file == null) ? '' : <button className= 'preview' onClick={this.handlePreview}><span>Preview</span></button>}</div> */}
-                                        {/* <div>{(Preview) ? <img src={this.state.file}/> : ''}</div> */}
-                                        {/* <div>{(this.state.file == null) ? '' : <img src={this.state.file}/>}</div> */}
                                 </div>
                             </FormGroup>
                         </div>
                         <div className=' col p-4'>
-                            <FormGroup>
+
                                 <div className='row'>
                                     <div className='col-2 label'> 
                                         <EventIcon/>
                                         Start
                                     </div>
                                     <div className='col-5 p-2'>
-                                        <Input
-                                            type="date"
-                                            name="date"
-                                            id="startDate"
-                                            value={this.state.startDateValue}
-                                            placeholder="date placeholder" 
-                                            onChange={this.handleStartDateChange} />
+                                        <FormGroup> 
+                                            <Input
+                                                type="date"
+                                                name="date"
+                                                id="startDate"
+                                                value={this.state.startDateValue}
+                                                placeholder="date placeholder" 
+                                                onChange={this.handleStartDateChange} /> 
+                                        </FormGroup>
                                     </div>
                                     <div className='col-4 p-2'>
-                                        <Input
-                                            type="time"
-                                            name="time"
-                                            id="startTime"
-                                            value={this.state.startTimeValue}
-                                            placeholder="time placeholder"
-                                            onChange={this.handleStartTimeChange} />
+                                        <FormGroup> 
+                                            <Input
+                                                type="time"
+                                                name="time"
+                                                id="startTime"
+                                                value={this.state.startTimeValue}
+                                                placeholder="time placeholder"
+                                                onChange={this.handleStartTimeChange} />  
+                                        </FormGroup>
+                                        
                                     </div>
                                 </div>
                                 <div className='row'>
@@ -233,22 +230,26 @@ class ArticleForm extends React.Component {
                                         End
                                     </div>
                                     <div className='col-5 p-2'> 
-                                        <Input
-                                            type="date"
-                                            name="date"
-                                            id="endDate"
-                                            value={this.state.endDateValue}
-                                            placeholder="date placeholder"
-                                            onChange={this.handleEndDateChange} />
+                                        <FormGroup> 
+                                            <Input
+                                                type="date"
+                                                name="date"
+                                                id="endDate"
+                                                value={this.state.endDateValue}
+                                                placeholder="date placeholder" 
+                                                onChange={this.handleEndDateChange} /> 
+                                        </FormGroup>
                                     </div>
                                     <div className='col-4 p-2'>
-                                        <Input
-                                            type="time"
-                                            name="time"
-                                            id="endTime"
-                                            value={this.state.endTimeValue}
-                                            placeholder="time placeholder"
-                                            onChange={this.handleEndTimeChange} />
+                                        <FormGroup> 
+                                            <Input
+                                                type="time"
+                                                name="time"
+                                                id="endTime"
+                                                value={this.state.endTimeValue}
+                                                placeholder="time placeholder"
+                                                onChange={this.handleEndTimeChange} />  
+                                        </FormGroup>
                                     </div>
                                 </div>
                                 <div className='row '>    
@@ -257,12 +258,14 @@ class ArticleForm extends React.Component {
                                         Lacation
                                     </div> 
                                     <div className='col-5 p-2'>
-                                        <Input 
-                                            type="text" 
-                                            name="text" 
-                                            id="location" 
-                                            value={this.state.locationValue}
-                                            onChange={this.handleLocationChange} />    
+                                        <FormGroup> 
+                                            <Input 
+                                                type="text" 
+                                                name="text" 
+                                                id="location" 
+                                                value={this.state.locationValue}
+                                                onChange={this.handleLocationChange} />       
+                                        </FormGroup>
                                     </div>                                    
                                     <div className='col-4 p-2'>
                                     
@@ -274,29 +277,22 @@ class ArticleForm extends React.Component {
                                         Ticket
                                     </div>
                                     <div className='col-5 p-2'>
-                                        <Input 
+                                        <FormGroup> 
+                                          <Input 
                                             type="text" 
                                             name="text" 
                                             id="ticket" 
                                             value={this.state.ticketValue}
-                                            onChange={this.handleTicketChange} />
+                                            onChange={this.handleTicketChange} />  
+                                        </FormGroup>
                                     </div>
                                     <div className='col-4 p-2'></div>
-                                </div> 
-                            </FormGroup>
+                                </div>
                             <div className=" row dropdown">
                                 <div className='col-2 label'>
                                     <GroupIcon/>
                                     Club
                                 </div> 
-                                {/* <button className="col-5 p-2 btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown button
-                                </button>
-                                <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a className="dropdown-item" href="#">ClubA</a>
-                                    <a className="dropdown-item" href="#">ClubB</a>
-                                    <a className="dropdown-item" href="#">ClubC</a>
-                                </div> */}
                                 <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
                                     <DropdownToggle>
                                         {this.state.club}
@@ -322,13 +318,9 @@ class ArticleForm extends React.Component {
                                         {clubListItems}
                                     </DropdownMenu>
                                 </Dropdown>
-
-
                                 <div className='col-4 p-2'></div>
                             </div>
                         </div>
-
-                            
                     </div>
                         
                     <div id='blankSpace'></div>
@@ -477,9 +469,6 @@ class ArticleForm extends React.Component {
           }
         );
     };
-    // handlePreview() {
-    //     Preview = !Preview;
-    // }
 
     handleTagChange(tags) {
         this.setState({tags})
@@ -586,8 +575,13 @@ class ArticleForm extends React.Component {
             file: null,
             fileDanger: false,
             tags: [],
+            dropdownOpen: false,
             unFill:'',
-            modalShow:false
+            modalShow: false,
+            clubVerificationModalShow: false,
+            club: 'select your club',
+            clubVerified: false,
+            verifiedInput: false
         })
 
         
@@ -615,7 +609,14 @@ class ArticleForm extends React.Component {
             file: null,
             fileDanger: false,
             value: 120,
-            tags: []
+            tags: [],
+            dropdownOpen: false,
+            unFill:'',
+            modalShow: false,
+            clubVerificationModalShow: false,
+            club: 'select your club',
+            clubVerified: false,
+            verifiedInput: false
         })
     }
 
