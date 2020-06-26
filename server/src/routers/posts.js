@@ -24,9 +24,8 @@ router.get('/getPost', function(req, res, next) {
     ).catch(next);
 });
 
-
 // Create
-router.post('createPost', function(req, res, next) {
+router.post('/createPost', function(req, res, next) {
     const {titleValue,
         contentValue,
         startDateValue,
@@ -70,8 +69,31 @@ router.post('/touch/:id', function(req, res, next) {
         res.json(post);
     }).catch(next);
 });
-router.post('/save/:id', function(){
-    
-})
+//save
+router.post('/save', function(req, res, next){
+    const {title, content, startDate, endDate, startTime, endTime, ticket,
+        location, fileURL, tags} = req.body;
+
+    postModel.save(title, content, startDate, endDate, startTime, endTime, ticket,
+        location, fileURL, tags)
+    .then(post)=>{
+        res.json({
+            ...post,
+            savePostSuccess: true,
+            msg: "save sucessfully"
+        })
+    }).catch(next);
+});
+//post
+router.post('/post/:id', function(req, res, next){
+    const {postId} = req.parms;
+    postModel.post(postId)
+    .then(()=>{
+        res.json({
+            postSuccess:true,
+            msg: "post sucessfully"
+        })
+    }).catch(next);
+});
 
 module.exports = router;
