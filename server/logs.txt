@@ -66,3 +66,11 @@
     at next (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/index.js:275:10)
     at module.exports (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/middleware/access-controller.js:14:5)
     at Layer.handle [as handle_request] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/layer.js:95:5)
+1593153843 ERROR  Error: getaddrinfo ENOTFOUND undefined
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+1593154377 ERROR  TypeError: InfoModel.createFB is not a function
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/routers/infos.js:54:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+1593154541 ERROR  TypeError: InfoModel.createFB is not a function
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/routers/infos.js:54:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)

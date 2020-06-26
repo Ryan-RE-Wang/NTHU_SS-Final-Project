@@ -95,7 +95,6 @@ class Main extends React.Component {
         let {loginPageOpen} = this.props;
         return (
             <Router>
-            
             <div className=' ' id='main-wrapper'>
                 {/* side bar information */}
                 <div id='newsSharing-sidebar' className={`${(this.props.sideBarOpen) ? 'sidebar-active':'sidebar-closed'}`}>

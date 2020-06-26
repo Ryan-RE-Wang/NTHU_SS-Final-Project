@@ -29,7 +29,16 @@ const schemaPost=`
         account         text
     ) 
 `;
-
+const schemaClub=`
+    CREATE TABLE Club(
+        id              serial PRIMARY KEY NOT NULL,
+        clubname        text Not NULL,
+        facebook        text,
+        instagram       text,
+        clubpic         text,
+        clubpassword    text Not NULL,
+    )
+`;
 db.none(schemaInfo).then(() => {
     console.log('info table created');
 
