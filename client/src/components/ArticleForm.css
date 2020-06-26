@@ -1,19 +1,27 @@
 .articleform-container {
-    padding: 1rem;
-    position: relative;
-    margin: 0 10rem;  
-    max-width: 800px;
-    background-color: rgba(5, 0, 7, 0.2);
+  padding: 1rem;
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
 }
 #blankSpace{
   width:100%;
   height: 5rem;
 }
+.check-icon {
+  color: rgb(32,178,170);
+}
+.block-icon {
+  color: red;
+}
 .title {
     text-align: center;
 }
 .articleform-container .hint {
-  padding-left: 4.8rem;
+  padding-left: 3rem;
+}
+.articleform-container .content-input {
+  max-width: 600px;
 }
 .articleform-container .tag {
   margin: 0 4rem;
@@ -26,7 +34,29 @@
     max-width: 60rem;
     margin: 0rem auto;
 }
+.articleform-container textarea {
+  width: 100%;
+  min-width: 500px;
+}
+.articleform-container .label {
+  color: rgb(32,178,170);
+  text-align: start;
+}
+.articleform-container .poster {
+  background-color: #d7f7f6;
+}
 
+
+@media (max-width: 780px) {
+  .articleform-container .info {
+    flex-direction: column;
+  }
+
+  .articleform-container textarea {
+    max-width: 400px;
+    width: 100%;
+  }
+}
 .buttons {
     position: relative;
     width: 7rem;

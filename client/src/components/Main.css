@@ -16,7 +16,7 @@ main-wrapper -> navbar-slide
 }
 
 #content-section{
-  background-color:rgb(255, 242, 204);
+  background-color: white;
 }
 
 /* side bar */
@@ -189,8 +189,7 @@ main-wrapper -> navbar-slide
 
 /* content section */
 #content-section{
-  margin-top: 2rem;
-  background-color: rgb(245, 245, 245);
+  background-color: white;
 
 }
 

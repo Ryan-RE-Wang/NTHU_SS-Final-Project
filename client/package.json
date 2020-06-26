@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack -p",
     "watch": "webpack -w",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -51,6 +51,7 @@
     "react-simple-animate": "^3.3.7",
     "react-tag-input": "^6.4.2",
     "react-tagsinput": "^3.19.0",
+    "react-verification-code-input": "^1.2.3",
     "reactstrap": "^8.4.1",
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",

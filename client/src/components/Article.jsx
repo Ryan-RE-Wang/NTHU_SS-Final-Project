@@ -32,6 +32,9 @@ export default class Article extends React.Component {
 
         this.handleCalender = this.handleCalender.bind(this);
     }
+    componentDidMount() {
+        window.scrollTo(0, 0);
+    }
 
     render() {
         return (
@@ -49,12 +52,22 @@ export default class Article extends React.Component {
                             <div className='p-2'>  
                                 Date and Time 
                             </div>
-                            <div className='col'>
-                                2020/06/22 17:00
+                            <div className='datetime col'>
+                                <div>
+                                    2020/06/22
+                                </div>
+                                <div>
+                                    17:00
+                                </div>
                             </div>
                             <div> - </div>
-                            <div className='col'>
-                                2020/06/22 21:00
+                            <div className='datetime col'>
+                                <div>
+                                    2020/06/22
+                                </div>
+                                <div>
+                                    17:00
+                                </div>
                             </div>
                         </div>
                         <div className=' p-2'>
@@ -85,7 +98,7 @@ export default class Article extends React.Component {
                             Contact 
                         </div> 
                         <div className='p-1 row'>
-                            <a href="#"><img className='' src="images/rsz_1corgi.jpg" alt="" height="100rem" margin="0 auto"/></a>
+                            <img className='' src="images/rsz_1corgi.jpg" alt="" height="100rem" margin="0 auto"/>
                         </div>
                         <div className='p-1 row' >
                             0912-345-789
