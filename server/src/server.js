@@ -16,8 +16,9 @@ app.use(express.static('dist', {
         res.set('Cache-Control', 'public, s-maxage=86400');
     }
 }));
-app.use('/api/posts', postsRouter);
 app.use('/api/infos', infosRouter);
+app.use('/api/posts', postsRouter);
+
 
 app.get('/*', (req, res) => res.redirect('/'));
 app.use(errorHandler);

@@ -4,11 +4,10 @@ import moment from 'moment';
 import { object } from 'prop-types';
 import {facebookLogin} from 'api/facebook.js';
 //import '@babel/polyfill';
-
-
-
 //
 const infoKey = 'infos';
+const infoBaseUrl = 'http://localhost:4000/api/infos';
+
 
 export function getInfo(userId = -1) {
     return new Promise((resolve, reject) => {
@@ -18,19 +17,7 @@ export function getInfo(userId = -1) {
     });
 }
 
-// Simulated server-side code
-function _getInfo(userId = -1) {
-    let infoString = localStorage.getItem(infoKey);
-    let infos = infoString ? JSON.parse(infoString) : [];
 
-
-    if (infos.length > 0 && userId!==-1) {
-        infos = infos.filter(i => {
-            if(userId === i.userId) return i
-        });
-    }
-    return infos;
-};
 
 export function createInfo(username = '',password = '', email = '') {
     return new Promise((resolve, reject) => {
@@ -39,6 +26,33 @@ export function createInfo(username = '',password = '', email = '') {
         }, 1000);
     });
 }
+export function login(email = '',password = '') {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(_login(email,password));
+        }, 1000);
+    });
+}
+export function updateInfo(userId = '',email) {
+
+};
+export function clearAllInfo(){
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(_clearAllInfo());
+        }, 1000);
+    });
+}
+export function loginWithFB(){
+    let response = facebookLogin();
+
+    if(response){
+        console.log("success");
+        this.props.dispatch(login(response.name,response.email));
+    }
+}
+
+
 
 // Simulated server-side code
 function _createInfo(username = '', password = '', email = '') {
@@ -83,14 +97,6 @@ function _createInfo(username = '', password = '', email = '') {
     localStorage.setItem(infoKey,JSON.stringify(infos));
     return userInfo;
 };
-
-export function login(email = '',password = '') {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(_login(email,password));
-        }, 1000);
-    });
-}
 // Simulated server-side code
 function _login(email = '', password = '') {
     console.log(password);
@@ -128,24 +134,10 @@ function _login(email = '', password = '') {
     }
     return userInfo;
 };
-
-
-
-export function updateInfo(userId = '',email) {
-
-};
-
 // Simulated server-side code
 function _updateInfo(userId = '', passward = '') {
 
 };
-export function clearAllInfo(){
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(_clearAllInfo());
-        }, 1000);
-    });
-}
 function _clearAllInfo(){
     let clear = [];
     localStorage.setItem(infoKey,JSON.stringify(clear));
@@ -154,14 +146,18 @@ function _clearAllInfo(){
         msg:"clear all"
     }
 }
+// Simulated server-side code
+function _getInfo(userId = -1) {
+    let infoString = localStorage.getItem(infoKey);
+    let infos = infoString ? JSON.parse(infoString) : [];
 
-export function loginWithFB(){
-    let response = facebookLogin();
 
-    if(response){
-        console.log("success");
-        this.props.dispatch(login(response.name,response.email));
+    if (infos.length > 0 && userId!==-1) {
+        infos = infos.filter(i => {
+            if(userId === i.userId) return i
+        });
     }
-}
+    return infos;
+};
 
 

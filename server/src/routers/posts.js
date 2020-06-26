@@ -21,6 +21,7 @@ router.get('', function(req, res, next) {
 
 // Create
 router.post('', function(req, res, next) {
+    
     const {state} = req.body;
     if (state.titleDanger || state.contentDanger || state.startDateDanger || state.startTimeDanger || state.endDateDanger || state.endTimeDanger || state.ticketDanger || state.locationDanger || state.fileDanger) {
         const err = new Error('There must be some form you are not complete!');
