@@ -1,0 +1,19 @@
+.popular-content .component-img {
+    width: 10rem;
+    height: auto;
+}
+
+.popular-content .popular-title {
+    font-size: 1rem;
+    text-align: center;
+}
+.popular-content .location {
+    text-align: center;
+}
+.popular-content .datetime {
+    text-align: center;
+}
+.content-r {
+    width: 9rem;
+    height: 12rem;
+}

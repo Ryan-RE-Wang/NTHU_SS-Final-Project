@@ -1,9 +1,9 @@
 require('../config.js');
 const express = require('express');
 
-const postRouter = require('./routers/posts.js');
-const todoRouter = require('./routers/todos.js');
-const infoRouter = require('./routers/infos.js');
+const postsRouter = require('./routers/posts.js');
+const clubsRouter = require('./routers/clubs.js');
+const infosRouter = require('./routers/infos.js');
 // const requestLogger = require('./middleware/request-logger.js');
 const errorHandler = require('./middleware/error-handler.js');
 const accessController = require('./middleware/access-Controller.js');
@@ -16,14 +16,14 @@ app.use(express.static('dist', {
         res.set('Cache-Control', 'public, s-maxage=86400');
     }
 }));
-// app.use('/api/posts', postRouter);
-// app.use('/api/todos', todoRouter);
-app.use('/api/infos', infoRouter);
+app.use('/api/posts', postsRouter);
+app.use('/api/infos', infosRouter);
 
 app.get('/*', (req, res) => res.redirect('/'));
 app.use(errorHandler);
 
-const port = 8080;
+
+const port = 4000;
 app.listen(port, () => {
     console.log(`Server is up and running on port ${port}...`);
 });

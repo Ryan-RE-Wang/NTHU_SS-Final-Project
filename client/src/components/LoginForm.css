@@ -1,0 +1,227 @@
+.login_form{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 380px;
+}
+.createAccount-form{
+  width:420px;
+}
+.login_box {
+  padding: 1rem 2rem 2.7rem 2rem;
+  background: white;
+  box-sizing: border-box;
+  border: 1px solid lightgray;
+  
+  z-index: 10;
+}
+.loginStyle{
+  border-radius: 0.5rem;
+}
+.createAccountStyle{
+  border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-top:none !important;
+}
+#login-closeIcon{
+
+  float: right;
+}
+
+.title{
+  font-family: 'Indie Flower', cursive;
+  color: black;
+  font-size: 2.5rem;
+  text-align: center;
+  display: block;
+  font-weight: bolder;
+  padding-top:1.5rem;
+  text-shadow: 2px 2px lightblue;
+}
+.login{
+  color: black;
+  font-size: 1.5rem;
+  text-align: center;
+  display: block;
+
+}
+
+.login_box .inputBox {
+  position: relative;
+}
+.login_box .inputBox input {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  color:black;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  border: none;
+  border-bottom: 0.5px solid lightgray;
+  border-radius: 0.2rem;
+  outline: none;
+  background:rgb(240, 242, 243); 
+}
+.login_box .inputBox label {
+  position: absolute;
+  top: 1.5rem;
+  left: 0.5rem;
+  letter-spacing: 1px;
+  /* padding: 10px 0; */
+  font-size: 1rem;
+  color:black;
+  pointer-events: none;
+  transition: 0.2s;
+}
+
+.login_box .inputBox input:focus ~ label,
+.login_box .inputBox input:valid ~ label{
+  top: -7px;
+  left: 0rem;
+  color: rgb(0, 128, 255);
+  font-size: 0.9rem;
+  padding-left:5px;
+  padding-right:5px;
+} 
+/* .login_box .inputBox input:focus ~ label,
+.login_box .inputBox input:valid ~ label {
+  top: -18px;
+  left: 0;
+  color: darkolivegreen;
+  font-size: 0.5rem;
+} */
+#login-submitBtn{
+
+  outline: none;
+  cursor: pointer;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  margin-left:auto;
+  margin-right:auto;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left:2rem;
+  padding-right:2rem;
+  border: 1px  solid;
+  color:white;
+  font-size: 1rem;
+  font-weight: bolder;
+  /* border-color:lightblue; */
+  background-color: rgb(32,178,170);
+  border-radius: 1rem;
+  display:block
+}
+  
+/* a {
+  color: #03a9f4;
+  margin-left: 2%;
+} */
+.form-otherOption{
+  padding-left: 0rem;
+  color: grey;
+  font-size: 1rem;
+  padding-bottom: 0.7px;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  font-weight: bolder;
+}
+.form-otherOption:hover{
+  
+}
+#fogetPassward{
+  /* display: inline-block; */
+  float: right;
+}
+#fogetPassward:hover{
+  text-decoration: underline;
+  /* border-bottom: rgb(0, 128, 255) 0.5px solid; */
+}
+#createAccount{
+  display: block;
+  padding-top: 0.6rem;
+  color: black;
+  font-size: 1rem;
+  font-weight: bolder;
+  /* align-content: center; */
+  text-align: center;
+}
+.switch-login{
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+  background-color: rgb(240, 242, 243);
+  text-align: center;
+  color: black;
+  border: 1px solid lightgray; 
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.switch-login button{
+  padding:0.3rem 1.5rem ;
+  font-size: 1rem;
+  border-radius: 3rem;
+  background-color: white;
+  border:solid 1px lightgray;
+  outline:none;
+}
+.switch-login button:hover{
+  border:solid 1px black;
+}
+.loginFormMsg{
+  text-align: center;
+}
+
+.warning-msg{
+  display: block;
+  color: rgb(220,20,60);
+  letter-spacing: 0.5px;
+  font-size: 1rem;
+}
+
+.other-loginbtns{
+  padding-top: 0.5rem;
+  border-top: 0.5px lightgrey solid ;
+}
+#facebook-btn{
+  width:9.5rem;
+  height:2.5rem;
+  color: white;
+  background-color: royalblue;
+  border-radius: 0.5rem;
+  border: solid 0.5px royalblue;
+  text-align: left;
+  display: inline-block;
+  padding: 0rem 1rem;
+  /* vertical-align: top; */
+
+}
+#google-btn{
+  width:9.5rem;
+  height:2.5rem;
+  color: grey;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: solid 0.5px black;
+  display: inline-block;
+  text-align: left;
+  padding: 0rem 1rem;
+  /* vertical-align: top; */
+}
+
+@media(max-width:462px){
+    .login_box {
+        top:0 !important; 
+        left:0 !important;
+        transform: translate(0%, 0%);
+        width: 100%;
+        height: 100%;
+        background: white;
+        box-sizing: border-box;
+        border: 0px solid gray;
+        border-radius: 0.5rem;
+
+    }
+}
+
+
+  
