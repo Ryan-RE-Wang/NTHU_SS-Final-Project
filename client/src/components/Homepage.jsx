@@ -48,7 +48,7 @@ export default class Homepage extends React.Component {
                 </form>
                 <div className='recent-event'> Recent Events</div>
                 <hr width='70%'/>
-                <div className='grid-container row d-flex justify-content-center'>
+                <div className='grid-container row d-flex justify-content-center align-items-center'>
                     <div className='p-4 m-4 grid-item'>
                         <PopularArticle/>
                     </div>

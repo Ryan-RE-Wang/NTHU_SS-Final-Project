@@ -99,8 +99,7 @@ class ArticleForm extends React.Component {
         )
         return (
             <div className='articleform-container flex-column d-flex container justify-content-center align-items-center'>
-                <div id='blankSpace'></div>
-                <div id='blankSpace'></div>
+                <div id='blankSpace2'></div>
                 <div>
                     <Modal show={this.state.modalShow} onHide={this.handleModalClose}>
                         <Modal.Header closeButton>
@@ -115,17 +114,25 @@ class ArticleForm extends React.Component {
                     </Modal>
                 </div>
                 <div>
-                    <Modal show={this.state.clubVerificationModalShow} onHide={this.handleClubVerificationSubmit}>
+                    <Modal show={this.state.clubVerificationModalShow} onHide={this.handleClubModalClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>Input the verification code for {this.state.club} </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <ReactCodeInput onComplete={this.handleClubVerificationSubmit}/>
-                            {(this.state.verifiedInput)?
-                                (this.state.clubVerified)? 
-                                <CheckCircleIcon className='check-icon'/> : 
-                                <BlockIcon className='block-icon'/> : ''
-                            }
+                            <div className='d-flex row justify-content-center align-items-center'>
+                                <div p-1 m-1>
+                                    <ReactCodeInput onComplete={this.handleClubVerificationSubmit}/> 
+                                </div>
+                                <div p-1 m-1>
+                                   {(this.state.verifiedInput)?
+                                    (this.state.clubVerified)? 
+                                    <CheckCircleIcon className='check-icon'/> : 
+                                    <BlockIcon className='block-icon'/> : ''
+                                    } 
+                                </div>
+                                
+                            </div>
+                            
                             
                         </Modal.Body>
                         <Modal.Footer>
@@ -255,7 +262,7 @@ class ArticleForm extends React.Component {
                                 <div className='row '>    
                                     <div className='col-2 label align-items-center'>
                                         <PlaceIcon/>
-                                        Lacation
+                                        Location
                                     </div> 
                                     <div className='col-5 p-2'>
                                         <FormGroup> 
@@ -323,7 +330,7 @@ class ArticleForm extends React.Component {
                         </div>
                     </div>
                         
-                    <div id='blankSpace'></div>
+                    <div id='blankSpace2'></div>
 
                     <div className='m-8 p-2'>
                         <FormGroup className='form'>
@@ -346,7 +353,7 @@ class ArticleForm extends React.Component {
                     
                 
                     <div className=''> 
-                        <div className='col tag'>
+                        <div className='col justify-content-center align-items-center tag'>
                             <div className='label p-2'>
                                 Hint: type and press enter 
                             </div>
@@ -463,9 +470,9 @@ class ArticleForm extends React.Component {
    
     handleSliderChange(value){
         this.setState({
-            value
+            Value: value
           }, () => {
-            console.log(this.state.value);
+            console.log(this.state.Value);
           }
         );
     };

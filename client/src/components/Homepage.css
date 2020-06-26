@@ -1,3 +1,6 @@
+.homepage {
+  box-sizing: border-box;
+}
 .homepage .homepage-image {
     width: 100%;
     display: block;
@@ -22,6 +25,7 @@
 .homepage .grid-container .grid-item {
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
 .pop:focus {
   outline: none;

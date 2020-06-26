@@ -4,6 +4,10 @@
   margin: 0 auto;
   max-width: 800px;
 }
+#blankSpace2{
+  width: 100%;
+  height: 15rem;
+}
 
 .check-icon {
   color: rgb(32,178,170);

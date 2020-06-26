@@ -34,7 +34,8 @@ export function listPosts(searchText = '', category='all', date='', start) {
     });
 }
 
-export default function createPost(id,
+export default function createPost(
+    id,
     titleValue,
     titleDanger,
     contentValue,

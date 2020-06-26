@@ -24,6 +24,7 @@
     border-left: 1px grey solid;
     background-color: rgba(5, 0, 7, 0);
 }
+
 .article .content .contact .contact-title {
     padding: 1.2rem;
 }
@@ -47,9 +48,15 @@
 .article img {
     border: 1px solid whitesmoke;
 }
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .article .content {
         margin: 2rem 2rem;
+        flex-direction: column;
+    }
+    .article .content .paragraph {
+        border-top: 1px grey solid;
+        border-left: 0px;
+        background-color: rgba(5, 0, 7, 0);
     }
     .article .title {
         font-size: 2rem;

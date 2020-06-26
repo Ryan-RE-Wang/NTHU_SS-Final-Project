@@ -37,14 +37,24 @@ export default class Article extends React.Component {
     }
 
     render() {
+        const tags = ['nthu', 'kaohsiung', 'food'];
+        let tagItems = '';
+        if (tags !== []) {
+            tagItems = tags.map((tags) =>
+                <Link key={tags} to='/category'>
+                    #{tags} &nbsp;
+                </Link>
+            )
+        } 
+        
         return (
             <Container className='article'>
                 <div className='title' fontWeight='bold'>This is an article</div>
-                <div className='d-flex row content justify-content-center'>
+                <div className='d-flex row content justify-content-center align-items-center'>
                     <div className='poster'>
                         <a href="#"><img className='img-fluid' src="images/烤魷魚.jpg" alt="grilled squid" width="320rem" margin="0 auto"/></a>
                     </div>
-                    <div className='info align-item-center'>
+                    <div className='info align-item-center justify-content-center'>
                         <div className='d-flex row justify-content-start align-items-center'>
                             <div className='p-2'> 
                                 <EventIcon/>
@@ -92,7 +102,7 @@ export default class Article extends React.Component {
                     </div>
                 </div>
                 <hr></hr>
-                <div className='d-flex row content justify-content-center'>
+                <div className='d-flex row content justify-content-center align-items-center'>
                     <div className='col-2 contact align-items-center'> 
                         <div className='p-1 row'> 
                             Contact 
@@ -111,23 +121,15 @@ export default class Article extends React.Component {
                     </div>                    
                 </div>
                 <div className='tags d-flex row justify-content-center'>
-                    <Link className='pl-1 pr-1'>
-                        #food
-                    </Link>
-                    <Link className='pl-1 pr-1'>
-                        #nthu
-                    </Link>
-                    <Link className='pl-1 pr-1'>
-                        #kaohsiung
-                    </Link>
+                    {tagItems}
                 </div>
                 <hr></hr>
                 <div className='related-articles d-flex row justify-content-center'>
                     <div className='p-2'>
-                        <a href="#"><img className='' src="images/烤魷魚.jpg" alt="" height="200rem" margin="0 auto"/></a>
+                        <a href="/#/article"><img className='' src="images/烤魷魚.jpg" alt="" height="200rem" margin="0 auto"/></a>
                     </div>
                     <div className='p-2'>
-                        <a href="#"><img className='' src="images/烤魷魚.jpg" alt="" height="200rem" margin="0 auto"/></a>
+                        <a href="/#/article"><img className='' src="images/烤魷魚.jpg" alt="" height="200rem" margin="0 auto"/></a>
                     </div>
                 </div>
             </Container>
