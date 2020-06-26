@@ -4,27 +4,24 @@ if (!global.db) {
 }
 
 function list(id) {
-    const where = [];
-    if (id)
-        where.push(`id ILIKE '%$1:value%'`);
     const sql = `
         SELECT *
         FROM club
-        ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
+        WHERE id = $<id>
         ORDER BY id DESC
         LIMIT 10
     `;
-    return db.any(sql, [id]);
+    return db.one(sql, {id});
 }
 
-function create(id, clubName, facebook, instagram, clubPic, clubPassword) {
+function create(id, clubname, facebook, instagram, clubpic, clubpassword) {
     
     const sql = `
-        INSERT INTO club
-        VALUES ($<id>, $<clubName>, $<facebook>, $<instagram>, $<clubPic>, $<clubPassword>)
+        INSERT INTO club ($<this:name>)
+        VALUES ($<id>, $<clubname>, $<facebook>, $<instagram>, $<clubpic>, $<clubpassword>)
         RETURNING *
     `;
-    return db.one(sql, {id, clubName, facebook, instagram, clubPic, clubPassword});
+    return db.one(sql, {id, clubname, facebook, instagram, clubpic, clubpassword});
 }
 
 module.exports = {

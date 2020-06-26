@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const accessController = require('../middleware/access-controller.js');
 
 const postModel = require('../model/posts.js');
-const fileModel = require('../model/postFile.js')
+// const fileModel = require('../model/postFile.js')
 const touchModel = require('../model/touch.js');
 
 const router = express.Router();
@@ -12,7 +12,7 @@ router.use(bodyParser.json());
 router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
-router.get('', function(req, res, next) {
+router.get('/getPost', function(req, res, next) {
     const {searchText, category, start} = req.query;
     postModel.list(searchText, category, start).then(posts => {
         return posts;
@@ -26,7 +26,7 @@ router.get('', function(req, res, next) {
 
 
 // Create
-router.post('', function(req, res, next) {
+router.post('createPost', function(req, res, next) {
     const {titleValue,
         contentValue,
         startDateValue,
@@ -53,13 +53,13 @@ router.post('', function(req, res, next) {
         locationValue,
         fileName,
         tags,  
-        userId, 0).then(post => {
+        userId).then(post => {
         res.json(post)
     }).catch(next);
 });
 
 // touch
-router.post('/:id', function(req, res, next) {
+router.post('/touch/:id', function(req, res, next) {
     const {id} = req.params;
     if (!id) {
         const err = new Error('Post ID and are required');
@@ -70,5 +70,8 @@ router.post('/:id', function(req, res, next) {
         res.json(post);
     }).catch(next);
 });
+router.post('/save/:id', function(){
+    
+})
 
 module.exports = router;

@@ -74,3 +74,21 @@
 1593154541 ERROR  TypeError: InfoModel.createFB is not a function
     at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/routers/infos.js:54:23
     at processTicksAndRejections (internal/process/task_queues.js:97:5)
+1593163457 ERROR  error: column "clubName" of relation "club" does not exist
+    at Connection.parseE (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:539:11)
+    at Connection.parseMessage (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:366:17)
+    at Socket.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:105:22)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:273:9)
+    at Socket.Readable.push (_stream_readable.js:214:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593163635 ERROR  Error: Property 'clubName' doesn't exist.
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/formatting.js:252:29)
+    at Database.$query (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/query.js:115:41)
+    at Database.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/query.js:231:23)
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/database.js:242:42
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
