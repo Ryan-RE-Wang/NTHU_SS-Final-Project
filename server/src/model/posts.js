@@ -3,7 +3,7 @@ if (!global.db) {
     db = pgp(process.env.DB_URL);
 }
 
-function list(searchText = '', category = '', start = '') {
+function list(searchText = '', category = '', start = '', userid) {
     const where = [];
     if (searchText)
         where.push(`titleValue ILIKE '%$1:value%'`);
@@ -11,6 +11,8 @@ function list(searchText = '', category = '', start = '') {
         where.push(`tag ILIKE '%$1:`)
     if (start)
         where.push('startDate <= $2');
+    if (userid)
+        where.push('')
     const sql = `
         SELECT *
         FROM posts
@@ -53,6 +55,8 @@ function create(titleValue,
         touch
     });
 }
+
+function save()
 
 module.exports = {
     list,
