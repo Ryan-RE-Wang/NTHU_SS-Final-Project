@@ -217,7 +217,7 @@ class Main extends React.Component {
                     {/* for router */}
                     <div>
                     <Route exact path="/" render={() => (
-                        <Manager_dev/>
+                        <Homepage/>
                     )}/>
                     <Route exact path="/article-form" render={() => (
                         <ArticleForm/>  
