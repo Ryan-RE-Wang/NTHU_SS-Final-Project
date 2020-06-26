@@ -4,23 +4,20 @@ if (!global.db) {
 }
 
 function list(id) {
-    const where = [];
-    if (id)
-        where.push(`id ILIKE '%$1:value%'`);
     const sql = `
         SELECT *
         FROM club
-        ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
+        WHERE id = $<id>
         ORDER BY id DESC
         LIMIT 10
     `;
-    return db.any(sql, [id]);
+    return db.one(sql, {id});
 }
 
 function create(id, clubname, facebook, instagram, clubpic, clubpassword) {
     
     const sql = `
-        INSERT INTO club
+        INSERT INTO club ($<this:name>)
         VALUES ($<id>, $<clubname>, $<facebook>, $<instagram>, $<clubpic>, $<clubpassword>)
         RETURNING *
     `;
@@ -34,6 +31,8 @@ function updateClubName(id, clubname){
     WHERE id = $<id>
     RETURNING *
     `;
+
+    return db.one(sql, {clubname});
 }
 
 function updatefacebook(id, facebook){
@@ -43,6 +42,7 @@ function updatefacebook(id, facebook){
     WHERE id = $<id>
     RETURNING *
     `;
+    return db.one(sql, {facebook});
 }
 
 function updateinstagram(id, instagram){
@@ -52,6 +52,7 @@ function updateinstagram(id, instagram){
     WHERE id = $<id>
     RETURNING *
     `;
+    return db.one(sql, {instagram});
 }
 
 function updateclubpic(id, clubpic){
@@ -60,19 +61,19 @@ function updateclubpic(id, clubpic){
     SET clubpic = $<clubpic>
     WHERE id = $<id>
     RETURNING *
-    `;
+    `
+    return db.one(sql, {clubpic});
 }
 
 function updateclubpassword(id, userid, clubname){
     const sql =`
     UPDATE info
     SET clubname = $<clubname>
-    WHERE id = $<id>
+    WHERE id = $<id> AND userid = $<userid>
     RETURNING *
     `;
+    return db.one(sql, {userid, clubname});
 }
-
-    
 
 module.exports = {
     list,
@@ -81,5 +82,5 @@ module.exports = {
     updatefacebook,
     updateinstagram,
     updateclubpic,
-
+    updateclubpassword
 };

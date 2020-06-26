@@ -21,14 +21,37 @@ function list(searchText = '', category = '', start = '') {
     return db.any(sql, [searchText, category, start]);
 }
 
-function create(state, touch) {
-    
+function create(titleValue,
+    contentValue,
+    startDateValue,
+    startTimeValue,
+    endDateValue,
+    endTimeValue,
+    ticketValue,
+    locationValue,
+    fileName,
+    tags,  
+    userId) {
+    const touch = 0;
     const sql = `
         INSERT INTO posts
-        VALUES ($<state.id>, $<state.titleValue>, $<state.contentValue>, $<state.startDateValue>, $<state.endDateValue>, $<state.startTimeValue>, $<state.endTimeValue>, $<state.ticketValue>, $<state.locationValue>, $<state.fileName>, $<state.tags>, $<touch>, $<state.userId>)
+        VALUES ($<id>, $<titleValue>, $<contentValue>, $<startDateValue>, $<endDateValue>, $<startTimeValue>, $<endTimeValue>, $<ticketValue>, $<locationValue>, $<fileName>, $<tags>, $<userId>, $<touch>)
         RETURNING *
     `;
-    return db.one(sql, {state, touch});
+    return db.one(sql,{
+        titleValue,
+        contentValue,
+        startDateValue,
+        startTimeValue,
+        endDateValue,
+        endTimeValue,
+        ticketValue,
+        locationValue,
+        fileName,
+        tags,  
+        userId, 
+        touch
+    });
 }
 
 module.exports = {

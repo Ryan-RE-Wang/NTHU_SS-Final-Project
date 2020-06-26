@@ -5,7 +5,6 @@ if (!global.db) {
 
 // create information
 function create(username, password, email) {
-
     const sql = `
     INSERT INTO info ($<this:name>)
     VALUES ($<username>, $<password>, $<email>)
@@ -13,6 +12,24 @@ function create(username, password, email) {
     `;
     return db.one(sql, {username, password, email});
 ;
+}
+function createFB(username, email){
+    const password = 'facebook!!';
+    console.log("start create account from fb...")
+    const sql = `
+    INSERT INTO info ($<this:name>)
+    VALUES ($<username>, $<password>, $<email>)
+    RETURNING*
+    `;
+    return db.one(sql, {username,password,email});
+}
+// loginfb
+function loginFB(email){
+    const sql =`
+    SELECT * FROM info
+    WHERE password = email = $<email>
+    `;
+    return db.one(sql, {email})
 }
 // login
 function login(password, email){
@@ -50,7 +67,9 @@ function updateUsername(userId, username){
 
 module.exports = {
     create,
+    createFB,
     login,
+    loginFB,
     checkInfo,
     updatePassword,
     updateUsername

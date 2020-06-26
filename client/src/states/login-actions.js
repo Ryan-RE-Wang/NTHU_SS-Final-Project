@@ -1,4 +1,5 @@
-import {createInfo as createInfoFromAPI,login as loginFromAPI } from 'api/infos.js'
+import {createInfo as createInfoFromAPI,login as loginFromAPI ,
+        createInfoFB as createInfoFBFromAPI, loginFB as loginFBFromAPI} from 'api/infos.js'
 import {facebookLogin as facebookLoginFromAPI ,facebookLogout as facebookLogoutFromAPI,getUserData as getFBUserDataFromAPI} from 'api/facebook.js'
 
 
@@ -67,7 +68,58 @@ export function createAccount(username, password, email){
         });
     }
 }
+export function loginWithFB(){
+    return (dispatch,getstate) =>{
+        dispatch(startLogin());
 
+        return facebookLoginFromAPI()
+        .then( // add a function'  
+            (response) => {                   
+            if(response) return getFBUserDataFromAPI().then((userdata)=>{
+                return userdata
+            })
+        }).then(
+            (response) => {
+                //console.log(response)
+                //dispatch(LoginSuccessFB(response))
+
+                return loginFBFromAPI(response.email).then((userInfo) => {
+                    //dispatch(getUserId(userId))
+                    dispatch(LoginSuccessFB(response))
+                })
+        }).catch(err => {
+            console.error("fb login fail", err);
+        })
+    }
+}
+export function createAccountWithFB(){
+    return (dispatch,getstate) =>{
+        dispatch(startLogin());
+        return facebookLoginFromAPI()
+        .then(
+            (response) => {
+                if(response){
+                    return createInfoFBFromAPI(response.username,response.email).then((userInfo) => {
+                        return userInfo
+                    })
+                }
+            }
+        ).then((userInfo)=>{
+            if(userInfo.loginSuccess){
+                dispatch(successLogin(userInfo))
+            }else{
+                dispatch(failLogin(userInfo))
+            }
+        })
+        .catch(err => {
+            console.error("fb login fail", err);
+        })
+
+    }
+    return {
+        type:'@INFO/LOGIN_FB'
+    }
+}
 
 // logout process
 function _logout(){
@@ -96,39 +148,13 @@ function LoginSuccessFB(response){
         ...response
     }
 }
-
-export function loginWithFB(){
-    return (dispatch,getstate) =>{
-        dispatch(startLogin());
-
-        return facebookLoginFromAPI()
-        .then( // add a function'  
-            (response) => {                   
-            if(response) return getFBUserDataFromAPI().then((userdata)=>{
-                return userdata
-            })
-        }).then(
-            (response) => {
-                //console.log(response)
-                dispatch(LoginSuccessFB(response))
-        }).catch(err => {
-            console.error("fb login fail", err);
-        })
+function getUserId(userId){
+    return{
+        type:'@INFO/GETUSERID_FB',
+        userId:userId 
     }
 }
-export function createAccountWithFB(){
-    return (dispatch,getstate) =>{
-        dispatch(startLogin());
 
-        let response = facebookLoginFromAPI();
-        if(response){   
-            this.props.dispatch(successLogin(response.name,response.email));
-        }
-    }
-    return {
-        type:'@INFO/LOGIN_FB'
-    }
-}
 
 // update process
 
