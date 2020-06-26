@@ -1,5 +1,9 @@
 node_modules/*
-dist/*.bundle.js
-dist/*.bundle.js.map
+client/node_modules/*
+server/node_modules/*
+client/dist/*.bundle.js
+client/dist/*.bundle.js.map
+server/dist/*.bundle.js
+server/dist/*.bundle.js.map
 .tern-project
 server/env.sh
