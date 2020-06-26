@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Container from 'react-bootstrap/Container';
 import './M_home.css';
 
 export default class Home extends React.Component {
@@ -21,6 +22,7 @@ export default class Home extends React.Component {
     
     render() {
         return (
+            <div className="HOME_body_M">
             <Row className = "home_M">
                     <Col className = "home_M1">
                         <img  className = "image_M" src='/images/user1.jpg' alt="logo"/>
@@ -34,6 +36,7 @@ export default class Home extends React.Component {
                         </div>
                     </Col>
                 </Row>
+            </div>
         )
     }
 }

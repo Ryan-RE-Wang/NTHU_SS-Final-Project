@@ -52,6 +52,7 @@ import Article from 'components/Article.jsx';
 import ArticleForm from 'components/ArticleForm.jsx';
 import Homepage from 'components/Homepage.jsx';
 import Manager from 'components/Manager.jsx';
+import Manager_dev from 'components/Manager_dev.jsx'
 import CatalogPage from 'components/CatalogPage.jsx';
 import SearchPage from 'components/SearchPage.jsx'
 import LoginForm from 'components/LoginForm.jsx'
@@ -216,7 +217,7 @@ class Main extends React.Component {
                     {/* for router */}
                     <div>
                     <Route exact path="/" render={() => (
-                        <Homepage />
+                        <Manager_dev/>
                     )}/>
                     <Route exact path="/article-form" render={() => (
                         <ArticleForm/>  
@@ -225,7 +226,7 @@ class Main extends React.Component {
                         <Article/>
                     )}/>
                     <Route exact path="/Manager" render={() => (
-                        <Manager/>  
+                        <Manager_dev/>  
                     )}/>
                     <Route exact path="/category" render={() => (
                         <CatalogPage topicName={this.props.tagClick} />

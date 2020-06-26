@@ -1,0 +1,106 @@
+.body_M{
+    display: flex;
+    margin-top: 45px;
+    font-family:sans-serif;
+    margin-bottom: 5px;
+}
+.sidebar_M{
+    position: relative;
+    width: 200px;
+    height: auto;
+    background-color: #262626;
+    left:0px;
+    transition: background-color 500ms linear;
+}
+.sidebar_M .fucker{
+    background-color: #eb1313;
+}
+
+.sidebar_M ul li {
+    color:rgba(230,230,230,0.9);
+    list-style:none;
+    padding:15px 10px;
+    border-bottom:1px solid rgba(100,100,100,0.3);
+    text-align: center;
+}
+.sidebar_M ul li:hover {
+    color:rgb(240, 240, 138);
+    cursor: pointer;
+}
+.content_M{
+    min-height: 600px;
+    flex:1;
+    background-color: #333;
+    text-align: center;
+}
+.sidebar_M .toggle-btn {
+    position: absolute;
+    left:185px;
+    top:0px;
+}
+.sidebar_M .toggle-btn span {
+    display: block;
+    width:30px;
+    height: 5px;
+    background: black;
+    margin:5px 0px;
+}
+.sidebar_M .toggle-btn:hover span {
+    display: block;
+    width:30px;
+    height: 5px;
+    background: white;
+    margin:5px 0px;
+}
+.sidebar_M .toggle-btn .vertical_span {
+    display: block;
+    width:2px;
+    margin-top: 0;
+    height: 300px;
+    margin-left: 13px;
+    background: transparent;
+    
+}
+
+.sidebar_M .toggle-btn:hover .vertical_span {
+    display: block;
+    width:2px;
+    margin-top: 0;
+    height: 300px;
+    margin-left: 13px;
+    background: white;
+    
+}
+.sidebar_M .toggle-btn .vertical_span1 {
+    display: block;
+    width:2px;
+    height: 265px;
+    margin-left: 13px;
+    background: transparent;
+}
+.sidebar_M .toggle-btn:hover .vertical_span1 {
+    display: block;
+    width:2px;
+    height: 265px;
+    margin-left: 13px;
+    background: white;
+}
+.sidebar_M::after{
+        content: "";
+        background: white;
+        width:30px;
+        height: auto;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        margin-top: -15px;
+    
+
+
+}
+.sidebar_M .toggle-btn:hover {
+    cursor: pointer;
+}
+.sidebar_icon_M .fa{
+    padding-right: 10px;
+}
