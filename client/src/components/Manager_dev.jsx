@@ -4,7 +4,8 @@ import Col from 'react-bootstrap/Col';
 import Contact_Us_information from './Manager_used/contact_us_information.jsx';
 import Article_Cover from './Manager_used/article_cover.jsx';
 import Header from './Manager_used/header.jsx';
-
+import ArticleForm from './ArticleForm.jsx';
+import Article from './Article.jsx';
 import Home from './Manager_used/M_home.jsx';
 import Sidebar from './Manager_used/sidebar.jsx';
 import './Manager_dev.css'
@@ -16,7 +17,7 @@ export default class Manager_dev extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            nowpage:'1',
+            nowpage:'5',
             sidebarOpen:false
         }
 
@@ -47,7 +48,7 @@ export default class Manager_dev extends React.Component {
         })
     }
     list_Selected(page) {
-        if(page == '1'||page== '2'||page=='3')
+        if(page == '1'||page== '2'||page=='3'||page=='4'||page=='5')
             this.setState({nowpage: page});
         else
             console.log(`${page} error`);
@@ -56,16 +57,22 @@ export default class Manager_dev extends React.Component {
         if(page == '1'){
             return (
                  <Home/>
-               
-
             )
         }else if(page == '2'){
             return (
-                <Article_Cover/>
+                <Article_Cover select={this.list_Selected}/>
             )
         }else if(page == '3'){
             return (
                 <Contact_Us_information/>            
+            )    
+        }else if(page == '4'){
+            return (
+                <ArticleForm/>            
+            )    
+        }else if(page == '5'){
+            return (
+                <div className="Manager_article_outline"><Article/> </div>         
             )    
         }else{
 

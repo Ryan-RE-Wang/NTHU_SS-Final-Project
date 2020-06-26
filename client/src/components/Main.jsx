@@ -157,7 +157,7 @@ class Main extends React.Component {
                             </Link>                                
                         </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
-                            <Link to='/Manager' className='link'>                       
+                            <Link to='/article' className='link'>                       
                                 <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>
@@ -217,27 +217,11 @@ class Main extends React.Component {
 
 
                     {/* for router */}
-<<<<<<< HEAD:src/components/Main.jsx
-                    <div>
-                    <Route exact path="/" render={() => (
-                        <Homepage/>
-                    )}/>
-                    <Route exact path="/article-form" render={() => (
-                        <ArticleForm/>  
-                    )}/>
-                    <Route exact path='/article' render={() => (
-                        <Article/>
-                    )}/>
-                    <Route exact path="/Manager" render={() => (
-                        <Manager_dev/>  
-                    )}/>
-=======
                     <Route exact path="/" component={Homepage}/>
-                    <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={ArticleForm}/>
+                    <Route exact path='/article' component={ArticleForm}/>
+                    <Route exact path="/Manager" component={Manager_dev}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
->>>>>>> 473f0fc3a48e0f6394cea42dcaa531d9c3839c92:client/src/components/Main.jsx
                     <Route exact path="/category" render={() => (
                         <CatalogPage topicName={this.props.tagClick} />
                     )}/>
