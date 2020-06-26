@@ -17,17 +17,69 @@ function list(id) {
     return db.any(sql, [id]);
 }
 
-function create(id, clubName, facebook, instagram, clubPic, clubPassword) {
+function create(id, clubname, facebook, instagram, clubpic, clubpassword) {
     
     const sql = `
         INSERT INTO club
-        VALUES ($<id>, $<clubName>, $<facebook>, $<instagram>, $<clubPic>, $<clubPassword>)
+        VALUES ($<id>, $<clubname>, $<facebook>, $<instagram>, $<clubpic>, $<clubpassword>)
         RETURNING *
     `;
-    return db.one(sql, {id, clubName, facebook, instagram, clubPic, clubPassword});
+    return db.one(sql, {id, clubname, facebook, instagram, clubpic, clubpassword});
 }
+
+function updateClubName(id, clubname){
+    const sql =`
+    UPDATE info
+    SET clubname = $<clubname>
+    WHERE id = $<id>
+    RETURNING *
+    `;
+}
+
+function updatefacebook(id, facebook){
+    const sql =`
+    UPDATE info
+    SET facebook = $<facebook>
+    WHERE id = $<id>
+    RETURNING *
+    `;
+}
+
+function updateinstagram(id, instagram){
+    const sql =`
+    UPDATE info
+    SET instagram = $<instagram>
+    WHERE id = $<id>
+    RETURNING *
+    `;
+}
+
+function updateclubpic(id, clubpic){
+    const sql =`
+    UPDATE info
+    SET clubpic = $<clubpic>
+    WHERE id = $<id>
+    RETURNING *
+    `;
+}
+
+function updateclubpassword(id, userid, clubname){
+    const sql =`
+    UPDATE info
+    SET clubname = $<clubname>
+    WHERE id = $<id>
+    RETURNING *
+    `;
+}
+
+    
 
 module.exports = {
     list,
-    create
+    create,
+    updateClubName,
+    updatefacebook,
+    updateinstagram,
+    updateclubpic,
+
 };
