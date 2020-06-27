@@ -13,20 +13,18 @@ router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
 router.get('/getPost', function(req, res, next) {
-    const {searchText, category, start} = req.query;
-    postModel.list(searchText, category, start).then(posts => {
+    const {searchText, category, start, mode, club} = req.body;
+    postModel.list(searchText, category, start, mode, club).then(posts => {
         return posts;
-    }).then(
-        (posts => {
-            fileModel.list(posts.fileName)}).then(file => {
-                return {posts, file};
-            })
-    ).catch(next);
+    }).then(post => {
+            res.json(post)
+    }).catch(next);
 });
 
 // Create
 router.post('/createPost', function(req, res, next) {
-    const {titleValue,
+    const {id,
+        titleValue,
         contentValue,
         startDateValue,
         startTimeValue,
@@ -35,14 +33,18 @@ router.post('/createPost', function(req, res, next) {
         ticketValue,
         locationValue,
         fileName,
-        tags,  
+        tags,
+        mode, 
+        club, 
         userId} = req.body;
     if (!userId) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;
         throw err;
     }
-    postModel.create(titleValue,
+    postModel.create(
+        id,
+        titleValue,
         contentValue,
         startDateValue,
         startTimeValue,
@@ -51,17 +53,19 @@ router.post('/createPost', function(req, res, next) {
         ticketValue,
         locationValue,
         fileName,
-        tags,  
+        tags,
+        mode, 
+        club, 
         userId).then(post => {
         res.json(post)
     }).catch(next);
 });
 
 // touch
-router.post('/touch/:id', function(req, res, next) {
+router.post('/:id', function(req, res, next) {
     const {id} = req.params;
     if (!id) {
-        const err = new Error('Post ID and are required');
+        const err = new Error('Post ID are required');
         err.status = 400;
         throw err;
     }
@@ -69,30 +73,28 @@ router.post('/touch/:id', function(req, res, next) {
         res.json(post);
     }).catch(next);
 });
-//save
-router.post('/save', function(req, res, next){
-    const {title, content, startDate, endDate, startTime, endTime, ticket,
-        location, fileURL, tags} = req.body;
 
-    postModel.save(title, content, startDate, endDate, startTime, endTime, ticket,
-        location, fileURL, tags)
-    .then(post)=>{
-        res.json({
-            ...post,
-            savePostSuccess: true,
-            msg: "save sucessfully"
-        })
+router.get('/update', function(req, res, next) {
+    const {id} = req.body;
+    if (!id) {
+        const err = new Error('Post ID are required');
+        err.status = 400;
+        throw err;
+    }
+    postModel.getdetail(id).then(post => {
+        res.json(post);
     }).catch(next);
 });
-//post
-router.post('/post/:id', function(req, res, next){
-    const {postId} = req.parms;
-    postModel.post(postId)
-    .then(()=>{
-        res.json({
-            postSuccess:true,
-            msg: "post sucessfully"
-        })
+
+router.post('/delete', function(req, res, next) {
+    const {id} = req.body;
+    if (!id) {
+        const err = new Error('Post ID are required');
+        err.status = 400;
+        throw err;
+    }
+    postModel.deletepost(id).then(post => {
+        res.json(post);
     }).catch(next);
 });
 

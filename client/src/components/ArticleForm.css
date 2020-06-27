@@ -4,10 +4,11 @@
   margin: 0 auto;
   max-width: 800px;
 }
-#blankSpace{
-  width:100%;
-  height: 5rem;
+#blankSpace2{
+  width: 100%;
+  height: 15rem;
 }
+
 .check-icon {
   color: rgb(32,178,170);
 }
@@ -26,6 +27,10 @@
 .articleform-container .tag {
   margin: 0 4rem;
 }
+.ArticleForm_Tag{ 
+  margin:0 auto !important;
+  max-width: 500px !important;
+}
 .article-form {
     font-weight: bold;
 }
@@ -43,12 +48,12 @@
   text-align: start;
   font-family: 'Abel', sans-serif;
 }
-.articleform-container .poster {
+.articleform-container .poster-form {
   background-color: #d7f7f6;
 }
 
 
-@media (max-width: 780px) {
+@media (max-width: 1000px) {
   .articleform-container .info {
     flex-direction: column;
   }
@@ -65,4 +70,6 @@
 }
 
 
-
+.ArticleForm_TITLE{
+  margin-right: 10px;
+}

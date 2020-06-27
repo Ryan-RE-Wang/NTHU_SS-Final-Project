@@ -9,52 +9,34 @@ const postBaseUrl = 'http://localhost:4000/api';
 
 const postKey = 'posts';
 
-export function listPosts(searchText = '', category='all', date='', start) {
-    let url = `${postBaseUrl}/posts`;
-    let query = [];
-    if (searchText)
-        query.push(`searchText=${searchText}`);
-    if(category)
-        query.push(`category=${category}`)
-    if(date)
-        query.push(`data=${date}`)
-    if (start)
-        query.push(`start=${start}`);
-    if (query.length)
-        url += '?' + query.join('&');
+export function listPosts(searchText = '', category='all', start = '', mode = null, club = '') {
+    let url = `${postBaseUrl}/posts/getPost`;
 
     console.log(`Making GET request to: ${url}`);
 
-    return axios.get(url).then(function(res) {
+    return axios.get(url, {searchText, category, start, mode, club}).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
 
-        //console.dir(res.data);
         return res.data;
     });
 }
 
-export default function createPost(id,
+export default function createPost(
+    id,
     titleValue,
-    titleDanger,
     contentValue,
-    contentDanger,
     startDateValue,
-    startDateDanger,
     startTimeValue,
-    startTimeDanger,
     endDateValue,
-    endDateDanger,
     endTimeValue,
-    endTimeDanger,
     ticketValue,
-    ticketDanger,
     locationValue,
-    locationDanger,
     file,
-    fileDanger,
-    tags, 
-    account) {
+    tags,
+    mode,
+    club, 
+    userid) {
     let url = `${postBaseUrl}/posts`;
 
     console.log(`Making POST request to: ${url}`);
@@ -62,25 +44,18 @@ export default function createPost(id,
     return axios.post(url, {
         id,
         titleValue,
-        titleDanger,
         contentValue,
-        contentDanger,
         startDateValue,
-        startDateDanger,
         startTimeValue,
-        startTimeDanger,
         endDateValue,
-        endDateDanger,
         endTimeValue,
-        endTimeDanger,
         ticketValue,
-        ticketDanger,
         locationValue,
-        locationDanger,
         file,
-        fileDanger,
         tags,
-        account
+        mode,
+        club,
+        userid
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
@@ -88,9 +63,8 @@ export default function createPost(id,
     });
 }
 
-
 export function createTouch(id) {
-    let url = `${postBaseUrl}/posts/${id}/Touch`;
+    let url = `${postBaseUrl}/posts/${id}`;
 
     console.log(`Making POST request to: ${url}`);
 
@@ -98,8 +72,32 @@ export function createTouch(id) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
 
-        console.log(res.data);
         return res.data;
     });
+}
 
+export function getpostdetail(id) {
+    let url = `${postBaseUrl}/posts/update`;
+
+    console.log(`Making getdetail request to: ${url}`);
+
+    return axios.get(url, {id}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+
+        return res.data;
+    })
+}
+
+export function deletepost(id) {
+    let url = `${postBaseUrl}/posts/delete`;
+
+    console.log(`Making delete request to: ${url}`);
+
+    return axios.post(url, {id}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+
+        return res.data;
+    });
 }

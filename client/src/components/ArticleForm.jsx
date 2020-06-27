@@ -1,7 +1,10 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
-import { Button, Form, FormGroup, Input, FormText } from 'reactstrap';
+import {  Form, FormGroup, Input, FormText } from 'reactstrap';
+
+import { makeStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button'
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
@@ -9,6 +12,11 @@ import EventIcon from '@material-ui/icons/Event';
 import GroupIcon from '@material-ui/icons/Group';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import BlockIcon from '@material-ui/icons/Block';
+import DeleteIcon from '@material-ui/icons/Delete';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import KeyboardVoiceIcon from '@material-ui/icons/KeyboardVoice';
+import Icon from '@material-ui/core/Icon';
+import SaveIcon from '@material-ui/icons/Save';
 import TagsInput from 'react-tagsinput'
 import Slider, { createSliderWithTooltip } from 'rc-slider'; 
 import AvatarEditor from 'react-avatar-editor';
@@ -32,7 +40,11 @@ const config = {
 
 const ReactS3Client = new S3(config);
 
+
+
 class ArticleForm extends React.Component {
+    
+
     static propTypes = {
         club: PropTypes.string
     }
@@ -86,7 +98,7 @@ class ArticleForm extends React.Component {
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleClubVerificationSubmit = this.handleClubVerificationSubmit.bind(this);
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
-        this.handleClubItemClick = 
+        this.onSave = this.onSave.bind(this);
         
         // this.handlePreview = this.handlePreview.bind(this);
 
@@ -95,10 +107,13 @@ class ArticleForm extends React.Component {
         this.handleTagChange = this.handleTagChange.bind(this);
 
     }
+     
+    setEditorRef = (editor) => this.editor = editor
 
 
 
     render() {
+
         const clubList = ['Club A', 'Club B', 'Club C', 'Club D', 'Club E'];
         let clubListItems = clubList.map((clubList) =>
             <DropdownItem key={clubList} onClick={() => 
@@ -112,8 +127,7 @@ class ArticleForm extends React.Component {
         )
         return (
             <div className='articleform-container flex-column d-flex container justify-content-center align-items-center'>
-                <div id='blankSpace'></div>
-                <div id='blankSpace'></div>
+                <div id='blankSpace2'></div>
                 <div>
                     <Modal show={this.state.modalShow} onHide={this.handleModalClose}>
                         <Modal.Header closeButton>
@@ -121,28 +135,36 @@ class ArticleForm extends React.Component {
                         </Modal.Header>
                         <Modal.Body>{this.state.unFill} is required</Modal.Body>
                         <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleModalClose}>
+                        <Button variant="contained" color="secondary" onClick={this.handleModalClose}>
                             Close
                         </Button>
                         </Modal.Footer>
                     </Modal>
                 </div>
                 <div>
-                    <Modal show={this.state.clubVerificationModalShow} onHide={this.handleClubVerificationSubmit}>
+                    <Modal show={this.state.clubVerificationModalShow} onHide={this.handleClubModalClose}>
                         <Modal.Header closeButton>
                             <Modal.Title>Input the verification code for {this.state.club} </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <ReactCodeInput onComplete={this.handleClubVerificationSubmit}/>
-                            {(this.state.verifiedInput)?
-                                (this.state.clubVerified)? 
-                                <CheckCircleIcon className='check-icon'/> : 
-                                <BlockIcon className='block-icon'/> : ''
-                            }
+                            <div className='d-flex row justify-content-center align-items-center'>
+                                <div p-1 m-1>
+                                    <ReactCodeInput onComplete={this.handleClubVerificationSubmit}/> 
+                                </div>
+                                <div p-1 m-1>
+                                   {(this.state.verifiedInput)?
+                                    (this.state.clubVerified)? 
+                                    <CheckCircleIcon className='check-icon'/> : 
+                                    <BlockIcon className='block-icon'/> : ''
+                                    } 
+                                </div>
+                                
+                            </div>
+                            
                             
                         </Modal.Body>
                         <Modal.Footer>
-                        <Button variant="secondary" onClick={this.handleClubModalClose}>
+                        <Button variant="contained" color="secondary" onClick={this.handleClubModalClose}>
                             Close
                         </Button>
                         </Modal.Footer>
@@ -170,10 +192,11 @@ class ArticleForm extends React.Component {
                             <FormGroup className='form'>
                                 <div>
                                     <Input  type="file" name="file" id="imgFile" onChange={this.handleFileChange}/>
-                                    <FormText color="muted">
+                                    <FormText className='p-1' color="muted">
                                         Upload your event poster.
                                     </FormText>
                                     <AvatarEditor
+                                        ref={this.setEditorRef}
                                         image={this.state.fileURL}
                                         width={250}
                                         height={320}
@@ -181,7 +204,7 @@ class ArticleForm extends React.Component {
                                         color={[255, 255, 255, 0.6]} // RGBA
                                         scale={this.state.Value/120}
                                         rotate={0}
-                                        className='poster'
+                                        className='poster-form'
                                     />
                                     <Slider 
                                         min={120}
@@ -203,6 +226,7 @@ class ArticleForm extends React.Component {
                                             background: "none"
                                         }}
                                     />
+                                    <Button className='p-1' variant="contained" color='default' onClick={this.onSave} > Save </Button>
                                 </div>
                             </FormGroup>
                         </div>
@@ -268,7 +292,7 @@ class ArticleForm extends React.Component {
                                 <div className='row '>    
                                     <div className='col-2 label align-items-center'>
                                         <PlaceIcon/>
-                                        Lacation
+                                        Location
                                     </div> 
                                     <div className='col-5 p-2'>
                                         <FormGroup> 
@@ -336,7 +360,7 @@ class ArticleForm extends React.Component {
                         </div>
                     </div>
                         
-                    <div id='blankSpace'></div>
+                    <div id='blankSpace2'></div>
 
                     <div className='m-8 p-2'>
                         <FormGroup className='form'>
@@ -349,6 +373,7 @@ class ArticleForm extends React.Component {
                                         type="textarea" 
                                         name="text" 
                                         id="contentText"
+                                        maxLength="10"
                                         rows='10'
                                         value={this.state.contentValue} 
                                         onChange={this.handleContentChange} />
@@ -359,9 +384,10 @@ class ArticleForm extends React.Component {
                     
                 
                     <div className=''> 
-                        <div className='col tag'>
+
+                        <div className='col tag ArticleForm_Tag'>
                             <div className='label p-2'>
-                                Hint: type and press enter 
+                                Hint: type and press enter  
                             </div>
                             <TagsInput 
                                 value={this.state.tags} 
@@ -373,10 +399,31 @@ class ArticleForm extends React.Component {
                     <div className="buttons" className={`d-flex justify-content-around`}>
                         <div className='row d-flex'>
                             <div className='p-2'>
-                                <Button className='btn-post' color="success" onClick={this.handleCreatePost}>Post</Button>{' '}
+                                <Button
+                                    variant="contained"
+                                    color="default"
+                                    
+                                >
+                                    <SaveIcon /> &nbsp; Save for later
+                                </Button>
                             </div>
                             <div className='p-2'>
-                                <Button className='btn-cancel' color="secondary" onClick={this.handleCancel}>Cancel</Button>{' '} 
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleCreatePost}
+                                >
+                                    <CloudUploadIcon /> &nbsp; Post
+                                </Button>
+                            </div>
+                            <div className='p-2'>
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    onClick={this.handleCancel}
+                                >
+                                    <DeleteIcon /> &nbsp; Delete
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -388,6 +435,10 @@ class ArticleForm extends React.Component {
        
     }
 
+    onSave() {
+        
+    }
+
     handleModalClose() {
         this.setState({modalShow: false})
     }
@@ -396,8 +447,6 @@ class ArticleForm extends React.Component {
     }
     handleClubVerificationSubmit(e) {
         const input = e;
-        console.log(input);
-
         if (input === '000000') {
             this.setState({clubVerified: true, verifiedInput: true})
         } else {
@@ -489,7 +538,11 @@ class ArticleForm extends React.Component {
     }
 
     handleCreatePost() {
-        console.log(this.state.fileURL)
+
+        // if (this.editor)
+        //     const canvasScaled = this.editor.getImageScaledToCanvas()
+        
+
         // if (!this.state.titleValue || this.state.titleValue == '') {
         //     this.setState({
         //         titleDanger: true,
@@ -576,12 +629,15 @@ class ArticleForm extends React.Component {
             this.state.ticketValue,
             this.state.locationValue,
             this.state.fileName,
-            this.state.tags,  
+            this.state.tags, 
+            this.state.club, 
             this.props.userId).then(() => {
             // this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
         });
+
+
 
         this.setState({
             id: uuid(),
@@ -615,7 +671,7 @@ class ArticleForm extends React.Component {
             verifiedInput: false
         })
 
-        
+
     }
 
     handleCancel() {
@@ -658,6 +714,4 @@ class ArticleForm extends React.Component {
 export default connect(state => ({
     ...state.login
 }))(ArticleForm);
-
-   
 
