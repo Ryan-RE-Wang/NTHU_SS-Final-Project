@@ -11,20 +11,28 @@
     left:0px;
     transition: background-color 500ms linear;
 }
-.sidebar_M .fucker{
-    background-color: #eb1313;
-}
 
-.sidebar_M ul li {
-    color:rgba(230,230,230,0.9);
-    list-style:none;
-    padding:15px 10px;
-    border-bottom:1px solid rgba(100,100,100,0.3);
-    text-align: center;
-}
+
+
 .sidebar_M ul li:hover {
     color:rgb(240, 240, 138);
     cursor: pointer;
+}
+.sidebar_M ul li:hover::before {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100px;
+    margin-left: 60px;
+    background-color: rgb(240, 240, 138);
+}
+.sidebar_M ul li:hover::after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100px;
+    margin-left: 15px;
+    background-color: rgb(240, 240, 138);
 }
 .content_M{
     min-height: 600px;
@@ -100,10 +108,15 @@
 .sidebar_M .toggle-btn:hover {
     cursor: pointer;
 }
-.sidebar_icon_M .fa{
-    padding-right: 10px;
-}
 
+.navbar_M{
+    display: none;
+}
+.Manager_home{
+    background-color: transparent;
+    padding-top: 100px;
+    margin: 0 5vw;
+}
 .Manager_article_outline{
     margin: 8vw;
     border: 10px solid rgb(252, 194, 36);
@@ -114,4 +127,19 @@
     margin: 8vw;
     border: 10px solid rgb(252, 194, 36);
     background-color: rgb(249, 250, 245);
+}
+.Manager_sidebar_btn  {		
+    background-color: black !important;
+    color: black;
+}
+@media only screen and (max-width: 768px) {
+    
+    .sidebar_M{
+        display: none;
+    }
+    .navbar_M{
+        display: block;
+        width: 100%;
+        height: 30px;
+    }
 }

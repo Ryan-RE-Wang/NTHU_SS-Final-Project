@@ -19,17 +19,17 @@ const schemaPost=`
 
     CREATE TABLE post(
         id              serial PRIMARY KEY NOT NULL,
-        title           text NOT NULL,
-        content         text NOT NULL,
-        startdate       DATE NOT NULL DEFAULT CURRENT_DATE,
-        enddate         DATE NOT NULL DEFAULT CURRENT_DATE,
-        starttime       TIME NOT NULL,
-        endtime         TIME NOT NULL,
-        ticket          integer NOT NULL,
-        location        text NOT NULL,
-        fileurl         text NOT NULL,
-        tags            text[] NOT NULL,
-        touch           integer NOT NULL,
+        title           text,
+        content         text,
+        startdate       DATE DEFAULT CURRENT_DATE,
+        enddate         DATE DEFAULT CURRENT_DATE,
+        starttime       TIME,
+        endtime         TIME,
+        ticket          text,
+        location        text,
+        fileurl         text,
+        tags            text[],
+        touch           integer,
         userid          text,
         mode            boolean
         club            text

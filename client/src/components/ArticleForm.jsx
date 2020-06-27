@@ -1,15 +1,19 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
-import { Button, Form, FormGroup, Input, FormText } from 'reactstrap';
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
+import {  Form, FormGroup, Input, FormText } from 'reactstrap';
+import Button from '@material-ui/core/Button'
 import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
 import EventIcon from '@material-ui/icons/Event';
 import GroupIcon from '@material-ui/icons/Group';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import BlockIcon from '@material-ui/icons/Block';
+import DeleteIcon from '@material-ui/icons/Delete';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
+import SaveIcon from '@material-ui/icons/Save';
 import TagsInput from 'react-tagsinput'
+import ImageIcon from '@material-ui/icons/Image';
 import Slider, { createSliderWithTooltip } from 'rc-slider'; 
 import AvatarEditor from 'react-avatar-editor';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
@@ -20,6 +24,8 @@ import 'rc-slider/assets/index.css';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import createPost from 'api/posts.js';
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
  
 import S3 from 'react-aws-s3';
  
@@ -56,10 +62,16 @@ class ArticleForm extends React.Component {
             ticketDanger: false,
             locationValue: '',
             locationDanger: false,
-            file: null,
-            fileURL: '', 
             fileName: '',
             fileDanger: false,
+            src: null,
+            crop: {
+                unit: '%',
+                width: 30,
+                aspect: 42 / 57,
+            },
+            croppedImageUrl: null,
+            croppedImage: null,
             Value: 120,
             tags: [],
             dropdownOpen: false,
@@ -79,15 +91,14 @@ class ArticleForm extends React.Component {
         this.handleEndDateChange = this.handleEndDateChange.bind(this);
         this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
         this.handleEndTimeChange = this.handleEndTimeChange.bind(this);
-        this.handleFileChange = this.handleFileChange.bind(this);
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleTicketChange = this.handleTicketChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleClubVerificationSubmit = this.handleClubVerificationSubmit.bind(this);
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
-        this.setEditorRef = this.setEditorRef.bind(this);   
-        this.onSave = this.onSave.bind(this);    
+        this.dataURLtoFile = this.dataURLtoFile.bind(this);
+        
         // this.handlePreview = this.handlePreview.bind(this);
 
         this.handleCreatePost = this.handleCreatePost.bind(this);
@@ -95,6 +106,95 @@ class ArticleForm extends React.Component {
         this.handleTagChange = this.handleTagChange.bind(this);
 
     }
+
+    componentDidMount() {
+        this.setState({
+            fileName: uuid()
+        })
+    }
+     
+    setEditorRef = (editor) => this.editor = editor
+
+    onSelectFile = e => {
+        if (e.target.files && e.target.files.length > 0) {
+          const reader = new FileReader();
+          reader.addEventListener('load', () =>
+            this.setState({ src: reader.result, fileDanger: false })
+          );
+          reader.readAsDataURL(e.target.files[0]);
+        }
+      };
+    
+      // If you setState the crop in here you should return false.
+      onImageLoaded = image => {
+        this.imageRef = image;
+      };
+    
+      onCropComplete = crop => {
+        this.makeClientCrop(crop);
+      };
+    
+      onCropChange = (crop, percentCrop) => {
+        // You could also use percentCrop:
+        // this.setState({ crop: percentCrop });
+        this.setState({ crop });
+      };
+    
+      async makeClientCrop(crop) {
+        if (this.imageRef && crop.width && crop.height) {
+          const croppedImageUrl = await this.getCroppedImg(
+            this.imageRef,
+            crop,
+            'newFile.jpeg'
+          );
+          this.setState({ croppedImageUrl });
+        }
+      }
+    
+      getCroppedImg(image, crop, fileName) {
+        const canvas = document.createElement('canvas');
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        canvas.width = crop.width;
+        canvas.height = crop.height;
+        const ctx = canvas.getContext('2d');
+    
+        ctx.drawImage(
+          image,
+          crop.x * scaleX,
+          crop.y * scaleY,
+          crop.width * scaleX,
+          crop.height * scaleY,
+          0,
+          0,
+          crop.width,
+          crop.height
+        );
+    
+        return new Promise((resolve, reject) => {
+
+            
+            const reader = new FileReader();
+            canvas.toBlob(blob => {
+                if (!blob) {
+                //reject(new Error('Canvas is empty'));
+                console.error('Canvas is empty');
+                return;
+                }
+
+                reader.readAsDataURL(blob)
+                reader.onloadend = () => {
+                    this.dataURLtoFile(reader.result, 'cropped.jpg')
+                }
+                blob.name = fileName;
+                window.URL.revokeObjectURL(this.fileUrl);
+                this.fileUrl = window.URL.createObjectURL(blob);
+                resolve(this.fileUrl);
+
+            }, 'image/jpeg');
+        });
+    }
+
 
 
     render() {
@@ -164,45 +264,35 @@ class ArticleForm extends React.Component {
                                 </div>                
                         </div>
                     </FormGroup>
-                    <div className='p-2 row info m-4'>
-                        <div className='p-4 d-flex flex-row'>
+                    <div className='p-2 col info m-4'>
+                        <div className='p-4 d-flex flex-col justify-content-center align-items-center'>
                             <FormGroup className='form'>
                                 <div>
-                                    <Input  type="file" name="file" id="imgFile" onChange={this.handleFileChange}/>
-                                    <FormText color="muted">
-                                        Upload your event poster.
-                                    </FormText>
-                                    <AvatarEditor
-                                        ref={this.setEditorRef}
-                                        image={this.state.fileURL}
-                                        width={250}
-                                        height={320}
-                                        border={50}
-                                        color={[255, 255, 255, 0.6]} // RGBA
-                                        scale={this.state.Value/120}
-                                        rotate={0}
-                                        className='poster'
-                                    />
-                                    <Slider 
-                                        min={120}
-                                        max={240}
-                                        value={this.state.Value}
-                                        onChange={this.handleSliderChange}
-                                        raliStyle={{
-                                            height: 2
-                                        }}
-                                        handleStyle={{
-                                            height: 14,
-                                            width: 14,
-                                            margintop: -7,
-                                            marginleft: -7,
-                                            backgroundColor: "#A1E0F8",
-                                            border: 0
-                                        }}
-                                        trackStyle={{
-                                            background: "none"
-                                        }}
-                                    />
+                                    <div >
+                                        <ImageIcon className='label'/>
+                                        <input type="file" accept="image/*"  onChange={this.onSelectFile} />
+                                    </div>
+
+                                        <div>
+                                            {this.state.src && (
+                                                <ReactCrop
+                                                    src={this.state.src}
+                                                    crop={this.state.crop}
+                                                    ruleOfThirds
+                                                    onImageLoaded={this.onImageLoaded}
+                                                    onComplete={this.onCropComplete}
+                                                    onChange={this.onCropChange}
+                                                />
+                                            )}
+                                        </div>
+                                        <div>
+                                            {this.state.croppedImageUrl && (
+                                                <img alt="Crop" style={{ maxWidth: '100%', height: '360px' }} src={this.state.croppedImageUrl} />
+                                            )}
+                                        </div>
+
+                                    
+                                    
                                 </div>
                             </FormGroup>
                         </div>
@@ -349,6 +439,7 @@ class ArticleForm extends React.Component {
                                         type="textarea" 
                                         name="text" 
                                         id="contentText"
+                                        maxLength="3000"
                                         rows='10'
                                         value={this.state.contentValue} 
                                         onChange={this.handleContentChange} />
@@ -359,7 +450,6 @@ class ArticleForm extends React.Component {
                     
                 
                     <div className=''> 
-
                         <div className='col tag ArticleForm_Tag'>
                             <div className='label p-2'>
                                 Hint: type and press enter 
@@ -374,7 +464,21 @@ class ArticleForm extends React.Component {
                     <div className="buttons" className={`d-flex justify-content-around`}>
                         <div className='row d-flex'>
                             <div className='p-2'>
-                                <Button className='btn-post' color="success" onClick={this.handleCreatePost}>Post</Button>{' '}
+                                <Button
+                                    variant="contained"
+                                    color="default" 
+                                >
+                                    <SaveIcon /> &nbsp; Save for later
+                                </Button>
+                            </div>
+                            <div className='p-2'>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleCreatePost}
+                                >
+                                    <CloudUploadIcon /> &nbsp; Post
+                                </Button>
                             </div>
                             <div className='p-2'>
                                 <Button className='btn-cancel' color="secondary" onClick={this.handleCancel}>Cancel</Button>{' '} 
@@ -386,12 +490,18 @@ class ArticleForm extends React.Component {
         );   
     }
 
-    setEditorRef = (editor) => this.editor = editor;
-
-    onSave() {
-        if (this.editor) {
-            this.setState({file: this.editor.getImageScaledToCanvas()})
+    dataURLtoFile(dataurl, filename) {
+        let arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+                
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
         }
+        let croppedImage = new File([u8arr], filename, {type:mime});
+        this.setState({croppedImage: croppedImage}) 
     }
 
     handleModalClose() {
@@ -467,13 +577,6 @@ class ArticleForm extends React.Component {
         }
     }
 
-    handleFileChange(e) {
-        this.setState({
-          fileURL: URL.createObjectURL(e.target.files[0]),
-          file: e.target.files[0],
-          fileName: uuid()
-        })        
-    }
 
     handleTicketChange(e) {
         const ticket = e.target.value;
@@ -493,7 +596,7 @@ class ArticleForm extends React.Component {
         this.setState({tags})
     }
 
-    handleCreatePost() {
+    handleCreatePost() {        
 
         // if (!this.state.titleValue || this.state.titleValue == '') {
         //     this.setState({
@@ -551,7 +654,7 @@ class ArticleForm extends React.Component {
         //     })
         //     return;
         // }
-        // if (!this.state.file || this.state.file== '') {
+        // if (!this.state.src || this.state.src== '') {
         //     this.setState({
         //         fileDanger: true,
         //         modalShow: true,
@@ -568,10 +671,8 @@ class ArticleForm extends React.Component {
         //     })
         //     return;
         // }
-
-        ReactS3Client
-        .uploadFile(this.state.file, this.state.fileName)
-        .then(data => console.log(data))
+        ReactS3Client.uploadFile(this.state.croppedImage, this.state.fileName).then(
+            data => console.log(data))
         .catch(err => console.error(err))
 
         createPost(this.state.id,
@@ -584,7 +685,8 @@ class ArticleForm extends React.Component {
             this.state.ticketValue,
             this.state.locationValue,
             this.state.fileName,
-            this.state.tags, 
+            this.state.tags,
+            true, 
             this.state.club, 
             this.props.userId).then(() => {
             // this.listPosts(this.props.searchText);
@@ -610,10 +712,16 @@ class ArticleForm extends React.Component {
             ticketDanger: false,
             locationValue: '',
             locationDanger: false,
-            file: null,
-            fileURL: '',
             fileName: '',
             fileDanger: false,
+            src: null,
+            crop: {
+                unit: '%',
+                width: 30,
+                aspect: 42 / 57,
+            },
+            croppedImageUrl: null,
+            croppedImage: null,
             tags: [],
             dropdownOpen: false,
             unFill:'',
@@ -646,10 +754,16 @@ class ArticleForm extends React.Component {
             ticketDanger: false,
             locationValue: '',
             locationDanger: false,
-            file: null,
-            fileURL: '',
             fileName: '',
             fileDanger: false,
+            src: null,
+            crop: {
+                unit: '%',
+                width: 30,
+                aspect: 42 / 57,
+            },
+            croppedImageUrl: null,
+            croppedImage: null,
             value: 120,
             tags: [],
             dropdownOpen: false,

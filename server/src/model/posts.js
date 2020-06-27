@@ -33,8 +33,8 @@ function create(
     title,
     content,
     startdate,
-    starttime,
     enddate,
+    starttime,
     endtime,
     ticket,
     location,
@@ -45,17 +45,17 @@ function create(
     userid) {
     const touch = 0;
     const sql = `
-        INSERT INTO posts
+        INSERT INTO post ($<this:name>)
         VALUES ($<id>, $<title>, $<content>, $<startdate>, $<enddate>, $<starttime>, $<endtime>, $<ticket>, $<location>, $<fileurl>, $<tags>, $<touch>, $<userid>, $<mode>, $<club>)
         RETURNING *
     `;
-    return db.one(sql,{
+    return db.none(sql,{
         id,
         title,
         content,
         startdate,
-        starttime,
         enddate,
+        starttime,
         endtime,
         ticket,
         location,

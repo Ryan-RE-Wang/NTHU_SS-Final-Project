@@ -1,0 +1,32 @@
+.navbar_Manager{
+    background-color: #262626;
+    color: white;
+}
+.navbar_btn_manager{
+    margin-left: 15px !important;
+    margin-right: 15px !important;
+    text-align: center;
+}
+.navbar_btn_manager:hover{
+    color:rgb(240, 240, 138);
+    cursor: pointer;
+}
+.navbar_btn_manager:hover::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100px;
+    background-color: rgb(240, 240, 138);
+}
+.navbar_btn_manager:hover::before{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100px;
+    background-color: rgb(240, 240, 138);
+    margin-left: 35px;
+}
+.row {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}

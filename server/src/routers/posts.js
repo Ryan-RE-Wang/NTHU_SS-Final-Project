@@ -22,41 +22,41 @@ router.get('/getPost', function(req, res, next) {
 });
 
 // Create
-router.post('/createPost', function(req, res, next) {
+router.post('', function(req, res, next) {
     const {id,
-        titleValue,
-        contentValue,
-        startDateValue,
-        startTimeValue,
-        endDateValue,
-        endTimeValue,
-        ticketValue,
-        locationValue,
-        fileName,
+        title,
+        content,
+        startdate,
+        enddate,
+        starttime,
+        endtime,
+        ticket,
+        location,
+        fileurl,
         tags,
         mode, 
         club, 
-        userId} = req.body;
-    if (!userId) {
+        userid} = req.body;
+    if (!userid) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;
         throw err;
     }
     postModel.create(
         id,
-        titleValue,
-        contentValue,
-        startDateValue,
-        startTimeValue,
-        endDateValue,
-        endTimeValue,
-        ticketValue,
-        locationValue,
-        fileName,
+        title,
+        content,
+        startdate,
+        enddate,
+        starttime,
+        endtime,
+        ticket,
+        location,
+        fileurl,
         tags,
         mode, 
         club, 
-        userId).then(post => {
+        userid).then(post => {
         res.json(post)
     }).catch(next);
 });
