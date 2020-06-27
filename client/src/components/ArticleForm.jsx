@@ -390,8 +390,6 @@ class ArticleForm extends React.Component {
     }
     handleClubVerificationSubmit(e) {
         const input = e;
-        console.log(input);
-
         if (input === '000000') {
             this.setState({clubVerified: true, verifiedInput: true})
         } else {

@@ -15,6 +15,12 @@
     font-size: 3.2rem;
     font-weight: bold;
 }
+.article .info {
+    margin: 0 auto;
+    text-align: center;
+}
+
+
 .poster-container {
     display: flex;
     align-items: center;
@@ -28,9 +34,12 @@
 .article .content .contact .contact-title {
     padding: 1.2rem;
 }
+.article .contact {
+    text-align: center;
+}
 .poster {
     padding: 1rem;
-    min-width: 4rem;
+    max-width: 2rem;
     position: relative;
 }
 .article .content {
@@ -52,6 +61,7 @@
     .article .content {
         margin: 2rem 2rem;
         flex-direction: column;
+        text-align: center;
     }
     .article .content .paragraph {
         border-top: 1px grey solid;
@@ -63,5 +73,9 @@
     }
     .article .info {
         margin: 2rem 1rem;
+    }
+    .article .info2 {
+        flex-direction: column;
+        text-align: center;
     }
 }
