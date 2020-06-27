@@ -10,7 +10,7 @@ export default class Contact_Us_information extends React.Component {
 
     render() {
         return (
-            <Container>
+            <Container className="CONTACT_us">
                     <Row className='d-flex justify-content-center'>
                             <div className="CS_box">
                                 <div className="background-img">

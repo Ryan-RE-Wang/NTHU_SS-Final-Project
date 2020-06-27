@@ -5,7 +5,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import { createHashHistory } from 'history'
 import './LoginForm.css'
 
-import {createAccount , login , closeLoginForm , changeForm , loginWithFB} from 'states/login-actions.js';
+import {createAccount, login, closeLoginForm, changeForm, loginWithFB, createAccountWithFB} from 'states/login-actions.js';
 import { clearAllInfo } from '../api/infos';
 import {connect} from 'react-redux';
 import { Loader } from 'semantic-ui-react';
@@ -116,8 +116,11 @@ class LoginForm extends React.Component{
 		)
 	}
 	fblogin(){
-
-		this.props.dispatch(loginWithFB());
+		if(this.props.createAccountForm){
+			this.props.dispatch(createAccountWithFB());
+		}else{
+			this.props.dispatch(loginWithFB());
+		}
 	}
 
 	handleAccountCreate(){

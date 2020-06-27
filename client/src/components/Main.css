@@ -472,8 +472,7 @@ main-wrapper -> navbar-slide
     background-color: black;
 }  */
 
-
-@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+ @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css"; 
 
 .mainLoginInput{
 	/* height: 40px; */

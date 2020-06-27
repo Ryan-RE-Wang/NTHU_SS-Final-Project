@@ -27,6 +27,10 @@
 .articleform-container .tag {
   margin: 0 4rem;
 }
+.ArticleForm_Tag{ 
+  margin:0 auto !important;
+  max-width: 500px !important;
+}
 .article-form {
     font-weight: bold;
 }
@@ -64,6 +68,5 @@
     width: 7rem;
     margin: auto;
 }
-
 
 

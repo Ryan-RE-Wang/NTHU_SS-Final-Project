@@ -1,3 +1,7 @@
+.HOME_body_M {
+  max-width: 768px;
+  margin:70px 15px;
+}
 .home_M {
     background-image: url('/images/M_home_background2.png');
     background-size: cover;

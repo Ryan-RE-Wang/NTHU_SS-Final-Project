@@ -50,6 +50,7 @@ import Article from 'components/Article.jsx';
 import ArticleForm from 'components/ArticleForm.jsx';
 import Homepage from 'components/Homepage.jsx';
 import Manager from 'components/Manager.jsx';
+import Manager_dev from 'components/Manager_dev.jsx'
 import CatalogPage from 'components/CatalogPage.jsx';
 import SearchPage from 'components/SearchPage.jsx'
 import LoginForm from 'components/LoginForm.jsx'
@@ -95,7 +96,6 @@ class Main extends React.Component {
         let {loginPageOpen} = this.props;
         return (
             <Router>
-            
             <div className=' ' id='main-wrapper'>
                 {/* side bar information */}
                 <div id='newsSharing-sidebar' className={`${(this.props.sideBarOpen) ? 'sidebar-active':'sidebar-closed'}`}>
@@ -156,7 +156,7 @@ class Main extends React.Component {
                             </Link>                                
                         </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
-                            <Link to='/Manager' className='link'>                       
+                            <Link to='/article' className='link'>                       
                                 <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>
@@ -217,8 +217,8 @@ class Main extends React.Component {
 
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
-                    <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={ArticleForm}/>
+                    <Route exact path='/article' component={ArticleForm}/>
+                    <Route exact path="/Manager" component={Manager_dev}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/category" render={() => (
