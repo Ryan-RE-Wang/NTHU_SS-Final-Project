@@ -35,8 +35,8 @@ export default function createClub(id,
     facebook,
     instagram,
     clubpic,
-    clubpassword,
-    savemode) {
+    clubpassword
+    ) {
     let url = `${postBaseUrl}/posts`;
 
     console.log(`Making POST request to: ${url}`);
@@ -50,7 +50,6 @@ export default function createClub(id,
         instagram,
         clubpic,
         clubpassword,
-        savemode
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);

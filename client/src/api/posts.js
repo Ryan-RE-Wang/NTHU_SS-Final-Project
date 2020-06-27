@@ -34,6 +34,7 @@ export default function createPost(
     locationValue,
     file,
     tags,
+    mode,
     club, 
     userid) {
     let url = `${postBaseUrl}/posts`;
@@ -52,6 +53,7 @@ export default function createPost(
         locationValue,
         file,
         tags,
+        mode,
         club,
         userid
     }).then(function(res) {

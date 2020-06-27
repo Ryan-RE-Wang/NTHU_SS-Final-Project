@@ -3,27 +3,27 @@ if (!global.db) {
     db = pgp(process.env.DB_URL);
 }
 
-function list(searchText = '', category = '', start = '', mode = null, club = '') {
+function list(searchText = '', category = '', start = '', mode = null, club = '', order) {
     const where = [];
     if (searchText)
         where.push(`titleValue ILIKE '%$1:value%'`);
     if (category)
-        where.push(`tag ILIKE '%$2:'`)
+        where.push(`tag ILIKE '%$2:'`);
     if (start)
         where.push(`startDate <= $3`);
     if (mode)
-        where.push(`mode = $4`)
+        where.push(`mode = $4`);
     if (club)
-        where.push(`club = $5`)
-        
+        where.push(`club = $5`);
+
     const sql = `
         SELECT *
         FROM posts
         ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
-        ORDER BY id DESC
+        ORDER BY $<order> ASC
         LIMIT 10
     `;
-    return db.any(sql, [searchText, category, start, mode, club]);
+    return db.any(sql, [searchText, category, start, mode, club, order]);
 }
 
 function create(
@@ -38,9 +38,9 @@ function create(
     location,
     fileurl,
     tags,  
-    userid,
     mode,
-    club) {
+    club,
+    userid) {
     const touch = 0;
     const sql = `
         INSERT INTO posts

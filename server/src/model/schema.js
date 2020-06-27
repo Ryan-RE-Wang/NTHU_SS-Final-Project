@@ -47,7 +47,6 @@ const schemaClub=`
         instagram       text,
         clubpic         text,
         clubpassword    text NOT NULL,
-        savemode        integer
     )
 `;
 db.none(schemaInfo).then(() => {

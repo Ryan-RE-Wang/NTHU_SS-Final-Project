@@ -33,7 +33,8 @@ router.post('/createPost', function(req, res, next) {
         ticketValue,
         locationValue,
         fileName,
-        tags, 
+        tags,
+        mode, 
         club, 
         userId} = req.body;
     if (!userId) {
@@ -52,7 +53,8 @@ router.post('/createPost', function(req, res, next) {
         ticketValue,
         locationValue,
         fileName,
-        tags, 
+        tags,
+        mode, 
         club, 
         userId).then(post => {
         res.json(post)
