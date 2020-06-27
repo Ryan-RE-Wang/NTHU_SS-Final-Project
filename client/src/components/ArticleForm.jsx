@@ -172,15 +172,9 @@ class ArticleForm extends React.Component {
                 </div>
                 <Form>
                     <FormGroup className='form'>
-<<<<<<< HEAD
-                        <div className='row d-flex'>
-                                <div className=''>
-                                <Label className='label ArticleForm_TITLE' for="title" sm={2} >Title</Label>
-=======
                         <div className='row d-flex justify-content-center align-items-center'>
                                 <div className='cl label'>
                                     Title
->>>>>>> 89b8ca5f118accc70c6dc4936a2abcb193db4466
                                 </div>
                                 
                                 <div className='col '>
@@ -390,11 +384,7 @@ class ArticleForm extends React.Component {
                     
                 
                     <div className=''> 
-<<<<<<< HEAD
-                        <div className='col justify-content-center align-items-center tag'>
-=======
                         <div className='col tag ArticleForm_Tag'>
->>>>>>> 4fd3c75fb03332bc801d5abd1872f687fce92567
                             <div className='label p-2'>
                                 Hint: type and press enter  
                             </div>
@@ -548,8 +538,8 @@ class ArticleForm extends React.Component {
 
     handleCreatePost() {
 
-        if (this.editor)
-            const canvasScaled = this.editor.getImageScaledToCanvas()
+        // if (this.editor)
+        //     const canvasScaled = this.editor.getImageScaledToCanvas()
         
 
         // if (!this.state.titleValue || this.state.titleValue == '') {
