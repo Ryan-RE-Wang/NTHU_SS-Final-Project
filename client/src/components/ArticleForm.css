@@ -53,7 +53,7 @@
 }
 
 
-@media (max-width: 780px) {
+@media (max-width: 1000px) {
   .articleform-container .info {
     flex-direction: column;
   }
@@ -70,32 +70,6 @@
 }
 
 
-.preview span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-    transition: 0.5s;
-  }
-  
-.preview span::after {
-    font-family: 'Font Awesome 5 Free'; 
-    font-weight: 900; 
-    content: "\00bb";
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-  
-.preview:hover span {
-    padding-right: 25px;
-  } 
-  
-.preview:hover span::after{
-    opacity: 1;
-    right: 0;
-  }
 .ArticleForm_TITLE{
   margin-right: 10px;
 }
