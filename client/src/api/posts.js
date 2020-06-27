@@ -9,12 +9,12 @@ const postBaseUrl = 'http://localhost:4000/api';
 
 const postKey = 'posts';
 
-export function listPosts(searchText = '', category='all', start = '', mode = null, club = '') {
+export function listPosts(searchText = '', category='all', start = '', mode = null, club = '', order = '', userid = '') {
     let url = `${postBaseUrl}/posts/getPost`;
 
     console.log(`Making GET request to: ${url}`);
 
-    return axios.get(url, {searchText, category, start, mode, club}).then(function(res) {
+    return axios.get(url, {searchText, category, start, mode, club, userid}).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
 

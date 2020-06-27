@@ -3,7 +3,7 @@ if (!global.db) {
     db = pgp(process.env.DB_URL);
 }
 
-function list(searchText = '', category = '', start = '', mode = null, club = '', order) {
+function list(searchText = '', category = '', start = '', mode = null, club = '', order = '', userid = '') {
     const where = [];
     if (searchText)
         where.push(`titleValue ILIKE '%$1:value%'`);
@@ -15,6 +15,8 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
         where.push(`mode = $4`);
     if (club)
         where.push(`club = $5`);
+    if (userid)
+        where.push(`userid = $6`);
 
     const sql = `
         SELECT *
@@ -23,7 +25,7 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
         ORDER BY $<order> ASC
         LIMIT 10
     `;
-    return db.any(sql, [searchText, category, start, mode, club, order]);
+    return db.any(sql, [searchText, category, start, mode, club, order, userid]);
 }
 
 function create(

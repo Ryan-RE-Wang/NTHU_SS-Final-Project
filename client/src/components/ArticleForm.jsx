@@ -20,14 +20,14 @@ import 'rc-slider/assets/index.css';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import createPost from 'api/posts.js';
-import S3 from 'react-aws-s3';
  
+import S3 from 'react-aws-s3';
  
 const config = {
     bucketName: 'team11final',
     region: 'us-west-1',
-    accessKeyId: 'AKIAIVDIZU2RSKZUZ6OA',
-    secretAccessKey: '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',
+    accessKeyId: 'AKIAYY47H3QJVLMYGFHB',
+    secretAccessKey: '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',
 }
 
 const ReactS3Client = new S3(config);
@@ -86,8 +86,7 @@ class ArticleForm extends React.Component {
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleClubVerificationSubmit = this.handleClubVerificationSubmit.bind(this);
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
-        this.handleClubItemClick = 
-        
+        this.setEditorRef = this.setEditorRef.bind(this);       
         // this.handlePreview = this.handlePreview.bind(this);
 
         this.handleCreatePost = this.handleCreatePost.bind(this);
@@ -95,9 +94,6 @@ class ArticleForm extends React.Component {
         this.handleTagChange = this.handleTagChange.bind(this);
 
     }
-     
-    setEditorRef = (editor) => this.editor = editor
-
 
 
     render() {
@@ -385,18 +381,19 @@ class ArticleForm extends React.Component {
                     </div>
                 </Form>
             </div>
-
-        
-        );
-       
+        );   
     }
+
+    setEditorRef = (editor) => this.editor = editor
 
     handleModalClose() {
         this.setState({modalShow: false})
     }
+
     handleClubModalClose() {
         this.setState({clubVerificationModalShow: false});
     }
+    
     handleClubVerificationSubmit(e) {
         const input = e;
         console.log(input);
@@ -465,8 +462,8 @@ class ArticleForm extends React.Component {
     handleFileChange(e) {
         this.setState({
           fileURL: URL.createObjectURL(e.target.files[0]),
-          file: e.target.files[0],
-          fileName: e.target.files[0].name
+          file: this.editor.getImageScaledToCanvas(),
+          fileName: uuid()
         })        
     }
 
@@ -481,10 +478,7 @@ class ArticleForm extends React.Component {
     handleSliderChange(value){
         this.setState({
             Value: value
-          }, () => {
-            console.log(this.state.Value);
-          }
-        );
+        });
     };
 
     handleTagChange(tags) {
@@ -492,10 +486,6 @@ class ArticleForm extends React.Component {
     }
 
     handleCreatePost() {
-
-        if (this.editor)
-            const canvasScaled = this.editor.getImageScaledToCanvas()
-        
 
         // if (!this.state.titleValue || this.state.titleValue == '') {
         //     this.setState({
@@ -557,7 +547,7 @@ class ArticleForm extends React.Component {
         //     this.setState({
         //         fileDanger: true,
         //         modalShow: true,
-        //         unFill:'file'
+        //         unFill:'file',
         //     })
         //     return;
         // }
@@ -570,9 +560,12 @@ class ArticleForm extends React.Component {
         //     })
         //     return;
         // }
-        // ReactS3Client.uploadFile(this.state.file, this.state.fileName).then(
-        //     data => console.log(data))
-        // .catch(err => console.error(err))
+
+        ReactS3Client
+        .uploadFile(this.state.file, this.state.fileName)
+        .then(data => console.log(data))
+        .catch(err => console.error(err))
+
         createPost(this.state.id,
             this.state.titleValue,
             this.state.contentValue,

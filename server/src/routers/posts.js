@@ -13,8 +13,8 @@ router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
 router.get('/getPost', function(req, res, next) {
-    const {searchText, category, start, mode, club} = req.body;
-    postModel.list(searchText, category, start, mode, club).then(posts => {
+    const {searchText, category, start, mode, club, order, userid} = req.body;
+    postModel.list(searchText, category, start, mode, club, order, userid).then(posts => {
         return posts;
     }).then(post => {
             res.json(post)
