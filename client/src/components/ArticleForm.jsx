@@ -359,7 +359,8 @@ class ArticleForm extends React.Component {
                     
                 
                     <div className=''> 
-                        <div className='col tag'>
+
+                        <div className='col tag ArticleForm_Tag'>
                             <div className='label p-2'>
                                 Hint: type and press enter 
                             </div>
