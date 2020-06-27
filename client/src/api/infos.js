@@ -45,7 +45,6 @@ export function createInfoFB(username = '',email = ''){
 export function login(email = '',password = '') {
     const url = `${infoBaseUrl}/login`;
     return axios.get(url, {
-        username,
         password,
         email
     }).then(function(res) {
