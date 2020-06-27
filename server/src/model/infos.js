@@ -5,42 +5,59 @@ if (!global.db) {
 
 // create information
 function create(username, password, email) {
-
     const sql = `
-    INSERT INTO infos ($<this:name>)
+    INSERT INTO info ($<this:name>)
     VALUES ($<username>, $<password>, $<email>)
     RETURNING*
     `;
     return db.one(sql, {username, password, email});
 ;
 }
+function createFB(username, email){
+    const password = 'facebook!!';
+    console.log("start create account from fb...")
+    const sql = `
+    INSERT INTO info ($<this:name>)
+    VALUES ($<username>, $<password>, $<email>)
+    RETURNING*
+    `;
+    return db.one(sql, {username,password,email});
+}
+// loginfb
+function loginFB(email){
+    const sql =`
+    SELECT * FROM info
+    WHERE password = email = $<email>
+    `;
+    return db.one(sql, {email})
+}
 // login
 function login(password, email){
     const sql =`
-    SELECT * FROM infos
+    SELECT * FROM info
     WHERE password = $<password> AND email = $<email>
     `;
     return db.one(sql, {password,email})
 }
 function checkInfo(email){
     const sql =`
-    SELECT * FROM infos
+    SELECT * FROM info
     WHERE email = $<email>
     `;
     return db.one(sql, {email})
 }
-function updatePassword(userId, password){
+function updatePassword(userId, newpassword, oldpassword){
     const sql =`
-    UPDATE infos
-    SET password = $<password>
-    WHERE id = $<userId>
+    UPDATE info
+    SET password = $<newpassword>
+    WHERE id = $<userId> AND password = $<oldpassword>
     RETURNING *
     `;
-    return db.one(sql,{userId,password})
+    return db.one(sql,{userId,newpassword,oldpassword})
 }
 function updateUsername(userId, username){
     const sql =`
-    UPDATE infos
+    UPDATE info
     SET username = $<username>
     WHERE id = $<userId>
     RETURNING *
@@ -50,7 +67,9 @@ function updateUsername(userId, username){
 
 module.exports = {
     create,
+    createFB,
     login,
+    loginFB,
     checkInfo,
     updatePassword,
     updateUsername

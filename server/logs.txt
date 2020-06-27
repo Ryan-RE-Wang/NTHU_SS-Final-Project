@@ -2,3 +2,93 @@
     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:64:26)
 1592981322 ERROR  Error: getaddrinfo ENOTFOUND undefined
     at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:64:26)
+1593080752 ERROR  TypeError: Cannot read property 'titleDanger' of undefined
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/routers/posts.js:26:15
+    at Layer.handle [as handle_request] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/index.js:275:10)
+    at module.exports (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/middleware/access-controller.js:14:5)
+    at Layer.handle [as handle_request] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/layer.js:95:5)
+1593080826 ERROR  error: relation "infos" does not exist
+    at Connection.parseE (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:539:11)
+    at Connection.parseMessage (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:366:17)
+    at Socket.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:105:22)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:273:9)
+    at Socket.Readable.push (_stream_readable.js:214:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593080943 ERROR  QueryResultError: 0
+    at new QueryResultError (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/errors/queryResult.js:121:24)
+    at Query.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/query.js:180:41)
+    at Query.handleReadyForQuery (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/query.js:106:10)
+    at Connection.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/client.js:163:19)
+    at Connection.emit (events.js:315:20)
+    at Socket.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:273:9)
+    at Socket.Readable.push (_stream_readable.js:214:10)
+1593087454 ERROR  QueryResultError: 0
+    at new QueryResultError (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/errors/queryResult.js:121:24)
+    at Query.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/query.js:180:41)
+    at Query.handleReadyForQuery (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/query.js:106:10)
+    at Connection.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/client.js:163:19)
+    at Connection.emit (events.js:315:20)
+    at Socket.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:273:9)
+    at Socket.Readable.push (_stream_readable.js:214:10)
+1593087477 ERROR  QueryResultError: 0
+    at new QueryResultError (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/errors/queryResult.js:121:24)
+    at Query.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/query.js:180:41)
+    at Query.handleReadyForQuery (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/query.js:106:10)
+    at Connection.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/client.js:163:19)
+    at Connection.emit (events.js:315:20)
+    at Socket.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:109:12)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:273:9)
+    at Socket.Readable.push (_stream_readable.js:214:10)
+1593088965 ERROR  ReferenceError: username is not defined
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/routers/infos.js:45:36
+    at Layer.handle [as handle_request] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at next (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/route.js:137:13)
+    at Route.dispatch (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/route.js:112:3)
+    at Layer.handle [as handle_request] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/layer.js:95:5)
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/index.js:281:22
+    at Function.process_params (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/index.js:335:12)
+    at next (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/index.js:275:10)
+    at module.exports (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/middleware/access-controller.js:14:5)
+    at Layer.handle [as handle_request] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/express/lib/router/layer.js:95:5)
+1593153843 ERROR  Error: getaddrinfo ENOTFOUND undefined
+    at GetAddrInfoReqWrap.onlookup [as oncomplete] (dns.js:66:26)
+1593154377 ERROR  TypeError: InfoModel.createFB is not a function
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/routers/infos.js:54:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+1593154541 ERROR  TypeError: InfoModel.createFB is not a function
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/src/routers/infos.js:54:23
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+1593163457 ERROR  error: column "clubName" of relation "club" does not exist
+    at Connection.parseE (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:539:11)
+    at Connection.parseMessage (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:366:17)
+    at Socket.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg/lib/connection.js:105:22)
+    at Socket.emit (events.js:315:20)
+    at addChunk (_stream_readable.js:297:12)
+    at readableAddChunk (_stream_readable.js:273:9)
+    at Socket.Readable.push (_stream_readable.js:214:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593163635 ERROR  Error: Property 'clubName' doesn't exist.
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/formatting.js:252:29)
+    at Database.$query (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/query.js:115:41)
+    at Database.<anonymous> (/Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/query.js:231:23)
+    at /Users/andersonlin/Documents/School/Grade3_Second/SoftwareStudio/co-project/ss-final-project/server/node_modules/pg-promise/lib/database.js:242:42
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)

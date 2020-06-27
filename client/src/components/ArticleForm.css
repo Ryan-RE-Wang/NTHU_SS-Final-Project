@@ -45,6 +45,7 @@
 .articleform-container .label {
   color: rgb(32,178,170);
   text-align: start;
+  font-family: 'Abel', sans-serif;
 }
 .articleform-container .poster {
   background-color: #d7f7f6;
@@ -67,20 +68,8 @@
     margin: auto;
 }
 
-.preview {
-    border-radius: 4px;
-  background-color: inherit;
-  border: none;
-  color: black;
-  text-align: center;
-  font-size: 15px;
-  padding: 20px;
-  width: 200px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
 
+<<<<<<< HEAD
 .preview span {
     cursor: pointer;
     display: inline-block;
@@ -110,3 +99,6 @@
 .ArticleForm_TITLE{
   margin-right: 10px;
 }
+=======
+
+>>>>>>> 89b8ca5f118accc70c6dc4936a2abcb193db4466

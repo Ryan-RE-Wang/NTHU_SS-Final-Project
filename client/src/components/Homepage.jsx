@@ -39,7 +39,7 @@ export default class Homepage extends React.Component {
 
         return (
             <div className='homepage'>
-                <img className='image-fluid homepage-image' src="images/homeBg.jpg" alt=""/>
+                <img className='image-fluid homepage-image' src="/images/114.jpg" alt=""/>
                 <form className="form">
                     <div className="input-wrapper">
                         <input className="input" type="text" placeholder=" " data-placeholder="E-mail" required/>

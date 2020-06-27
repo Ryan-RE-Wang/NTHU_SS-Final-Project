@@ -4,41 +4,99 @@ import moment from 'moment';
 import { object } from 'prop-types';
 import {facebookLogin} from 'api/facebook.js';
 //import '@babel/polyfill';
-
-
-
 //
 const infoKey = 'infos';
+const infoBaseUrl = 'http://localhost:4000/api/infos';
+
 
 export function getInfo(userId = -1) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(_getInfo(userId));
-        }, 500);
+    const url = `${infoBaseUrl}`;
+    return axios.get(url, {
+        userId
+    }).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
     });
 }
-
-// Simulated server-side code
-function _getInfo(userId = -1) {
-    let infoString = localStorage.getItem(infoKey);
-    let infos = infoString ? JSON.parse(infoString) : [];
-
-
-    if (infos.length > 0 && userId!==-1) {
-        infos = infos.filter(i => {
-            if(userId === i.userId) return i
-        });
-    }
-    return infos;
-};
-
 export function createInfo(username = '',password = '', email = '') {
+    const url = `${infoBaseUrl}/createInfo`;
+    return axios.post(url, {
+        username,
+        password,
+        email
+    }).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+}
+export function createInfoFB(username = '',email = ''){
+    const url = `${infoBaseUrl}/createInfoFB`;
+    return axios.post(url,{
+        username,
+        email
+    }).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+}
+export function login(email = '',password = '') {
+    const url = `${infoBaseUrl}/login`;
+    return axios.get(url, {
+        username,
+        password,
+        email
+    }).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+}
+export function loginFB(email){
+    const url = `${infoBaseUrl}/loginFB`;
+    console.log("login fb");
+    return axios.get(url, {
+        email
+    }).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+}
+export function updatePassword(userId = '', updateValue, oldValue) {
+    const updateType = "password";
+    const url = `${infoBaseUrl}/updateInfo/${userId}/${updateType}/${updateValue}/${oldValue}`;
+
+    return axios.post(url)
+    .then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+};
+export function updateUsername(userId = '', updateValue, oldValue) {
+    const updateType = "username";
+    const url = `${infoBaseUrl}/updateInfo/${userId}/${updateType}/${updateValue}/${oldValue}`;
+
+    return axios.post(url)
+    .then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+};
+export function clearAllInfo(){
     return new Promise((resolve, reject) => {
         setTimeout(() => {
-            resolve(_createInfo(username, password, email));
+            resolve(_clearAllInfo());
         }, 1000);
     });
 }
+
+
+
 
 // Simulated server-side code
 function _createInfo(username = '', password = '', email = '') {
@@ -83,14 +141,6 @@ function _createInfo(username = '', password = '', email = '') {
     localStorage.setItem(infoKey,JSON.stringify(infos));
     return userInfo;
 };
-
-export function login(email = '',password = '') {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(_login(email,password));
-        }, 1000);
-    });
-}
 // Simulated server-side code
 function _login(email = '', password = '') {
     console.log(password);
@@ -128,24 +178,10 @@ function _login(email = '', password = '') {
     }
     return userInfo;
 };
-
-
-
-export function updateInfo(userId = '',email) {
-
-};
-
 // Simulated server-side code
 function _updateInfo(userId = '', passward = '') {
 
 };
-export function clearAllInfo(){
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(_clearAllInfo());
-        }, 1000);
-    });
-}
 function _clearAllInfo(){
     let clear = [];
     localStorage.setItem(infoKey,JSON.stringify(clear));
@@ -154,14 +190,18 @@ function _clearAllInfo(){
         msg:"clear all"
     }
 }
+// Simulated server-side code
+function _getInfo(userId = -1) {
+    let infoString = localStorage.getItem(infoKey);
+    let infos = infoString ? JSON.parse(infoString) : [];
 
-export function loginWithFB(){
-    let response = facebookLogin();
 
-    if(response){
-        console.log("success");
-        this.props.dispatch(login(response.name,response.email));
+    if (infos.length > 0 && userId!==-1) {
+        infos = infos.filter(i => {
+            if(userId === i.userId) return i
+        });
     }
-}
+    return infos;
+};
 
 

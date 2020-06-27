@@ -1,9 +1,9 @@
 require('../config.js');
 const express = require('express');
-
+const infosRouter = require('./routers/infos.js');
 const postsRouter = require('./routers/posts.js');
 const clubsRouter = require('./routers/clubs.js');
-const infosRouter = require('./routers/infos.js');
+
 // const requestLogger = require('./middleware/request-logger.js');
 const errorHandler = require('./middleware/error-handler.js');
 const accessController = require('./middleware/access-Controller.js');
@@ -16,8 +16,11 @@ app.use(express.static('dist', {
         res.set('Cache-Control', 'public, s-maxage=86400');
     }
 }));
-app.use('/api/posts', postsRouter);
 app.use('/api/infos', infosRouter);
+app.use('/api/posts', postsRouter);
+app.use('/api/clubs', clubsRouter);
+
+
 
 app.get('/*', (req, res) => res.redirect('/'));
 app.use(errorHandler);
