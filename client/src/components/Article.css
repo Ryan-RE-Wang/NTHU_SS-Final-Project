@@ -26,9 +26,11 @@
     align-items: center;
     justify-content: center;
 }
-.article .content .paragraph {
-    border-left: 1px grey solid;
+.article .paragraph {
+    border-left: 0.7px #e8e8e8 solid;
+    padding: 1rem;
     background-color: rgba(5, 0, 7, 0);
+    text-align: justify;
 }
 
 .article .content .contact .contact-title {
@@ -64,12 +66,16 @@
         text-align: center;
     }
     .article .content .paragraph {
-        border-top: 1px grey solid;
+        border-top: 0.7px #e8e8e8 solid;
         border-left: 0px;
         background-color: rgba(5, 0, 7, 0);
+        text-align: justify;
     }
     .article .title {
         font-size: 2rem;
+    }
+    .article .location {
+        flex-direction: column;
     }
     .article .info {
         margin: 2rem 1rem;

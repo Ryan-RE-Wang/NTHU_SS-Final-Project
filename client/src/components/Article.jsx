@@ -107,10 +107,15 @@ export default class Article extends React.Component {
                         <div className='p-2 title' fontWeight='bold'>
                                 This is an article
                         </div>
-                        <div className='p-2' >
-                            <PlaceIcon/>
-                            Location &nbsp; 蒙民偉樓
+                        <div className='p-2 row location align-items-center justify-content-center' >
+                           <div className='p-2' >
+                                <PlaceIcon/> Location
+                            </div>
+                            <div>
+                                 &nbsp; 蒙民偉樓
+                            </div> 
                         </div>
+                        
                     </div>
                 </div>    
                 <hr></hr>
@@ -138,17 +143,17 @@ export default class Article extends React.Component {
                         </div>
                 </div>
                 <div className='d-flex row content justify-content-center align-items-center'>
-                    <div className='col-2 contact align-items-center'> 
-                        <div className='p-1 row'> 
+                    <div className='col-3 col contact align-items-center justify-content-center'> 
+                        <div className='p-1 '> 
                             Contact 
                         </div> 
-                        <div className='p-1 row'>
+                        <div className='p-1 '>
                             <img className='' src="images/rsz_1corgi.jpg" alt="" height="100rem" margin="0 auto"/>
                         </div>
-                        <div className='p-1 row' >
+                        <div className='p-1 ' >
                             0912-345-789
                         </div>
-                        <div className='p-1 row'>
+                        <div className='p-1'>
                             corgithedog@gmail.com
                         </div>
                     </div>
