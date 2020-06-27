@@ -17,33 +17,37 @@ const schemaInfo=`
 const schemaPost=`
     DROP TABLE IF EXISTS post;
 
-    CREATE TABLE Post(
+    CREATE TABLE post(
         id              serial PRIMARY KEY NOT NULL,
         title           text NOT NULL,
         content         text NOT NULL,
-        startDate       DATE NOT NULL DEFAULT CURRENT_DATE,
-        endDate         DATE NOT NULL DEFAULT CURRENT_DATE,
-        startTime       TIME NOT NULL,
-        endTime         TIME NOT NULL,
+        startdate       DATE NOT NULL DEFAULT CURRENT_DATE,
+        enddate         DATE NOT NULL DEFAULT CURRENT_DATE,
+        starttime       TIME NOT NULL,
+        endtime         TIME NOT NULL,
         ticket          integer NOT NULL,
         location        text NOT NULL,
-        fileURL            text NOT NULL,
+        fileurl         text NOT NULL,
         tags            text[] NOT NULL,
         touch           integer NOT NULL,
-        userId          text,
-        alreadypost     boolean
+        userid          text,
+        mode            boolean
+        club            text
     ) 
 `;
 const schemaClub=`
     DROP TABLE IF EXISTS club;
 
-    CREATE TABLE Club(
+    CREATE TABLE club(
         id              serial PRIMARY KEY NOT NULL,
-        clubname        text Not NULL,
+        userid          serial PRIMARY KEY NOT NULL,
+        school          text NOT NULL,
+        clubname        text NOT NULL,
         facebook        text,
         instagram       text,
         clubpic         text,
-        clubpassword    text Not NULL
+        clubpassword    text NOT NULL,
+        savemode        integer
     )
 `;
 db.none(schemaInfo).then(() => {

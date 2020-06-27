@@ -95,6 +95,8 @@ class ArticleForm extends React.Component {
         this.handleTagChange = this.handleTagChange.bind(this);
 
     }
+     
+    setEditorRef = (editor) => this.editor = editor
 
 
 
@@ -174,6 +176,7 @@ class ArticleForm extends React.Component {
                                         Upload your event poster.
                                     </FormText>
                                     <AvatarEditor
+                                        ref={this.setEditorRef}
                                         image={this.state.fileURL}
                                         width={250}
                                         height={320}
@@ -489,7 +492,11 @@ class ArticleForm extends React.Component {
     }
 
     handleCreatePost() {
-        console.log(this.state.fileURL)
+
+        if (this.editor)
+            const canvasScaled = this.editor.getImageScaledToCanvas()
+        
+
         // if (!this.state.titleValue || this.state.titleValue == '') {
         //     this.setState({
         //         titleDanger: true,
@@ -576,7 +583,8 @@ class ArticleForm extends React.Component {
             this.state.ticketValue,
             this.state.locationValue,
             this.state.fileName,
-            this.state.tags,  
+            this.state.tags, 
+            this.state.club, 
             this.props.userId).then(() => {
             // this.listPosts(this.props.searchText);
         }).catch(err => {
