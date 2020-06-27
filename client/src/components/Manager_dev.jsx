@@ -8,6 +8,7 @@ import ArticleForm from './ArticleForm.jsx';
 import Article from './Article.jsx';
 import Home from './Manager_used/M_home.jsx';
 import Sidebar from './Manager_used/sidebar.jsx';
+import SignUp_club from './SignUp_club.jsx';
 import './Manager_dev.css'
 
 
@@ -17,7 +18,7 @@ export default class Manager_dev extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            nowpage:'5',
+            nowpage:'3',
             sidebarOpen:false
         }
 
@@ -64,11 +65,14 @@ export default class Manager_dev extends React.Component {
             )
         }else if(page == '3'){
             return (
-                <Contact_Us_information/>            
+                // <Contact_Us_information/>   
+                <SignUp_club/>         
             )    
         }else if(page == '4'){
             return (
-                <ArticleForm/>            
+                <div className="Manager_ArticleForm">
+                <ArticleForm/>   
+                </div>         
             )    
         }else if(page == '5'){
             return (

@@ -144,7 +144,7 @@ class ArticleForm extends React.Component {
                     <FormGroup className='form'>
                         <div className='row d-flex'>
                                 <div className=''>
-                                <Label className='label' for="title" sm={2} >Title</Label>
+                                <Label className='label ArticleForm_TITLE' for="title" sm={2} >Title</Label>
                                 </div>
                                 
                                 <div className=''>
@@ -344,6 +344,7 @@ class ArticleForm extends React.Component {
                                         type="textarea" 
                                         name="text" 
                                         id="contentText"
+                                        maxLength="10"
                                         rows='10'
                                         value={this.state.contentValue} 
                                         onChange={this.handleContentChange} />
@@ -354,9 +355,9 @@ class ArticleForm extends React.Component {
                     
                 
                     <div className=''> 
-                        <div className='col tag'>
+                        <div className='col tag ArticleForm_Tag'>
                             <div className='label p-2'>
-                                Hint: type and press enter 
+                                Hint: type and press enter  
                             </div>
                             <TagsInput 
                                 value={this.state.tags} 

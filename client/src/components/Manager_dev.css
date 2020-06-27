@@ -106,4 +106,10 @@
 
 .Manager_article_outline{
     margin:100px;
+    background-color: rgb(209, 209, 138);
+    border: 15px !important;
+    border-color: sandybrown;
+}
+.Manager_ArticleForm{
+    margin: 3vw;
 }
