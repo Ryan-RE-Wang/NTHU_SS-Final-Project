@@ -1,0 +1,30 @@
+
+.sidebar_manager_usedr:hover::after{
+    content: "";
+    display: block;
+    height: 2px;
+    width: 100px;
+    background-color: rgb(240, 240, 138);
+}
+.sidebar_manager_usedr:hover{
+    color:rgb(240, 240, 138) !important;
+    cursor: pointer;
+}
+.sidebar_icon_M{
+    margin-top: 20px;
+    color:rgba(230,230,230,0.9);
+    list-style:none;
+    padding:15px 10px;
+    border-bottom:1px solid rgba(100,100,100,0.3);
+    text-align: center;
+    width: 100%;
+}
+.just_a_line{
+    content: "";
+    height: 1px;
+    width: 100px;
+    display: block;
+    background-color: transparent;
+    margin-bottom: 25px;
+}
+

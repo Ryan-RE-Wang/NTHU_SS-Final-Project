@@ -156,7 +156,7 @@ class Main extends React.Component {
                             </Link>                                
                         </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
-                            <Link to='/article' className='link'>                       
+                            <Link to='/articleform' className='link'>                       
                                 <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>
@@ -217,10 +217,11 @@ class Main extends React.Component {
 
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
-                    <Route exact path='/article' component={ArticleForm}/>
+                    <Route exact path='/article' component={Article}/>
                     <Route exact path="/Manager" component={Manager_dev}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
+                    <Route exact path="/articleform" component={ArticleForm}/> 
                     <Route exact path="/category" render={() => (
                         <CatalogPage topicName={this.props.tagClick} />
                     )}/>

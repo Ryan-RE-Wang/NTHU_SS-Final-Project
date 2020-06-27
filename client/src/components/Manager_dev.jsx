@@ -8,7 +8,9 @@ import ArticleForm from './ArticleForm.jsx';
 import Article from './Article.jsx';
 import Home from './Manager_used/M_home.jsx';
 import Sidebar from './Manager_used/sidebar.jsx';
+import Navbar from './Manager_used/navbar.jsx';
 import SignUp_club from './SignUp_club.jsx';
+import Userside_manager from './Userside_manager.jsx';
 import './Manager_dev.css'
 
 
@@ -18,7 +20,7 @@ export default class Manager_dev extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            nowpage:'5',
+            nowpage:'1',
             sidebarOpen:false
         }
 
@@ -31,16 +33,17 @@ export default class Manager_dev extends React.Component {
 
     render() {
         let content = this.render_Selected(this.state.nowpage);
-        let sidebarClassname = this.state.sidebarOpen ? 'sidebar_M fucker' : 'sidebar_M';
-        console.log(sidebarClassname);
+       
         return (
-            
-            <div className="body_M">
-                <Sidebar className={sidebarClassname} toggle={this.toggleSidebar} select={this.list_Selected}/>
+
+            <div className="body_M row">
+                <Navbar className="navbar_M col-12" toggle={this.toggleSidebar} select={this.list_Selected}/>
+                <Sidebar className="sidebar_M" toggle={this.toggleSidebar} select={this.list_Selected}/>
                 <div className="content_M">
                     {content}
                 </div>
             </div>
+        
         )
     }
     toggleSidebar() {
@@ -57,7 +60,7 @@ export default class Manager_dev extends React.Component {
     render_Selected(page) {
         if(page == '1'){
             return (
-                 <Home/>
+                <div className="Manager_home"> <Home/> </div>
             )
         }else if(page == '2'){
             return (
@@ -65,8 +68,10 @@ export default class Manager_dev extends React.Component {
             )
         }else if(page == '3'){
             return (
-                // <Contact_Us_information/>   
-                <SignUp_club/>         
+                //  <Contact_Us_information/>
+                // <Userside_manager/>  
+                <ArticleForm/>
+                        
             )    
         }else if(page == '4'){
             return (

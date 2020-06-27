@@ -152,15 +152,9 @@ class ArticleForm extends React.Component {
                 </div>
                 <Form>
                     <FormGroup className='form'>
-<<<<<<< HEAD
                         <div className='row d-flex'>
                                 <div className=''>
                                 <Label className='label ArticleForm_TITLE' for="title" sm={2} >Title</Label>
-=======
-                        <div className='row d-flex justify-content-center align-items-center'>
-                                <div className='cl label'>
-                                    Title
->>>>>>> 89b8ca5f118accc70c6dc4936a2abcb193db4466
                                 </div>
                                 
                                 <div className='col '>
@@ -500,86 +494,82 @@ class ArticleForm extends React.Component {
 
     handleCreatePost() {
 
-        if (this.editor)
-            const canvasScaled = this.editor.getImageScaledToCanvas()
-        
+        if (!this.state.titleValue || this.state.titleValue == '') {
+            this.setState({
+                titleDanger: true,
+                modalShow: true,
+                unFill:'title'
+            })
+            return;
+        }
+        if (!this.state.contentValue || this.state.contentValue == '') {
+            this.setState({
+                contentDanger: true,
+                modalShow: true,
+                unFill:'content'
+            })
+            return;
+        }
+        if (!this.state.startDateValue || this.state.startDateValue == '') {
+            this.setState({
+                startDateDanger: true,
+                modalShow: true,
+                unFill:'start date'
+            })
+            return;
+        }
+        if (!this.state.startTimeValue || this.state.startTimeValue == '') {
+            this.setState({
+                startTimeDanger: true,
+                modalShow: true,
+                unFill:'start time'
+            })
+            return;
+        }
+        if (!this.state.endDateValue || this.state.endDateValue == '') {
+            this.setState({
+                endDateDanger: true,
+                modalShow: true,
+                unFill:'end date'
+            })
+            return;
+        }
+        if (!this.state.endTimeValue || this.state.endTimeValue == '') {
+            this.setState({
+                endTimeDanger: true,
+                modalShow: true,
+                unFill:'end time'
+            })
+            return;
+        }
+        if (!this.state.locationValue || this.state.locationValue == '') {
+            this.setState({
+                locationDanger: true,
+                modalShow: true,
+                unFill:'location'
+            })
+            return;
+        }
+        if (!this.state.file || this.state.file== '') {
+            this.setState({
+                fileDanger: true,
+                modalShow: true,
+                unFill:'file'
+            })
+            return;
+        }
 
-        // if (!this.state.titleValue || this.state.titleValue == '') {
-        //     this.setState({
-        //         titleDanger: true,
-        //         modalShow: true,
-        //         unFill:'title'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.contentValue || this.state.contentValue == '') {
-        //     this.setState({
-        //         contentDanger: true,
-        //         modalShow: true,
-        //         unFill:'content'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.startDateValue || this.state.startDateValue == '') {
-        //     this.setState({
-        //         startDateDanger: true,
-        //         modalShow: true,
-        //         unFill:'start date'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.startTimeValue || this.state.startTimeValue == '') {
-        //     this.setState({
-        //         startTimeDanger: true,
-        //         modalShow: true,
-        //         unFill:'start time'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.endDateValue || this.state.endDateValue == '') {
-        //     this.setState({
-        //         endDateDanger: true,
-        //         modalShow: true,
-        //         unFill:'end date'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.endTimeValue || this.state.endTimeValue == '') {
-        //     this.setState({
-        //         endTimeDanger: true,
-        //         modalShow: true,
-        //         unFill:'end time'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.locationValue || this.state.locationValue == '') {
-        //     this.setState({
-        //         locationDanger: true,
-        //         modalShow: true,
-        //         unFill:'location'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.file || this.state.file== '') {
-        //     this.setState({
-        //         fileDanger: true,
-        //         modalShow: true,
-        //         unFill:'file'
-        //     })
-        //     return;
-        // }
-
-        // if (!this.state.ticketValue || this.state.ticketValue == '') {
-        //     this.setState({
-        //         ticketDanger: true,
-        //         modalShow: true,
-        //         unFill:'ticket'
-        //     })
-        //     return;
-        // }
-        // ReactS3Client.uploadFile(this.state.file, this.state.fileName).then(
-        //     data => console.log(data))
-        // .catch(err => console.error(err))
+        if (!this.state.ticketValue || this.state.ticketValue == '') {
+            this.setState({
+                ticketDanger: true,
+                modalShow: true,
+                unFill:'ticket'
+            })
+            return;
+        }
+        ReactS3Client.uploadFile(this.state.file, this.state.fileName).then(
+            data => console.log(data))
+        .catch(err => console.error(err))
         createPost(this.state.id,
             this.state.titleValue,
             this.state.contentValue,
