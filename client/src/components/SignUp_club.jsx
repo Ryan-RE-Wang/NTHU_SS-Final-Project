@@ -37,12 +37,8 @@ class SignUp_club extends React.Component {
             descriptionDanger: false,
             fb_urlValue: '', 
             fb_urlDanger: false,
-            fb_nameValue: '',
-            fb_nameDanger: false,
             ig_urlValue: '', 
             ig_urlDanger: false,
-            ig_nameValue: '',
-            ig_nameDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
             file: null,
@@ -57,13 +53,10 @@ class SignUp_club extends React.Component {
 
         this.handleClubNameChange = this.handleClubNameChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
-        this.handleFB_nameChange = this.handleFB_nameChange.bind(this);
         this.handleFB_URLChange = this.handleFB_URLChange.bind(this);
-        this.handleIG_nameChange = this.handleIG_nameChange.bind(this);
         this.handleIG_URLChange = this.handleIG_URLChange.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
         this.handleVerification_CodeChange = this.handleVerification_CodeChange.bind(this);
-        this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleClubVerificationSubmit = this.handleClubVerificationSubmit.bind(this);
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
@@ -84,7 +77,7 @@ class SignUp_club extends React.Component {
                         <Modal.Header closeButton>
                             <Modal.Title>Oops!</Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>{this.state.unFill} is required</Modal.Body>
+                        <Modal.Body>{this.state.unFill}</Modal.Body>
                         <Modal.Footer>
                         <Button variant="secondary" onClick={this.handleModalClose}>
                             Close
@@ -136,25 +129,7 @@ class SignUp_club extends React.Component {
                         </div>
                         <div className=''>
                             <FormGroup>
-                                <div className=''>    
-                                    <div className='row justify-content-center combine'>
-                                    <Icon size={28} icon={facebook2} />
-                                    <div className="signupclub_title">FB Name</div>
-                                    </div> 
-                                    <div className=''>
-                                        <Input 
-                                            type="text" 
-                                            name="text" 
-                                            placeholder="space is limited to 20 characters"
-                                            id="fb_name" 
-                                            maxLength="20"
-                                            value={this.state.fb_nameValue}
-                                            onChange={this.handleFB_nameChange} />    
-                                    </div>                                    
-                                    <div className=''>
-                                    
-                                    </div>
-                                </div>    
+          
                                 <div className=''>
                                     <div className='row justify-content-center combine'>
                                     <Icon size={28} icon={facebook} />
@@ -171,26 +146,10 @@ class SignUp_club extends React.Component {
                                     </div>
                                     <div className=''></div>
                                 </div> 
+                 
                                 <div className=''>
                                     <div className='row justify-content-center combine'>
                                     <Icon size={28} icon={instagram} />
-                                    <div className="signupclub_title">IG Name</div>
-                                    </div>
-                                    <div className=''>
-                                        <Input 
-                                            type="text" 
-                                            placeholder="space is limited to 20 characters"
-                                            name="text" 
-                                            id="ig_name" 
-                                            maxLength="20"
-                                            value={this.state.ig_nameValue}
-                                            onChange={this.handleIG_nameChange} />
-                                    </div>
-                                    <div className=''></div>
-                                </div> 
-                                <div className=''>
-                                    <div className='row justify-content-center combine'>
-                                    <Icon size={28} icon={link} />
                                     <div className="signupclub_title">IG URL</div>
                                     </div>
                                     <div className=''>
@@ -213,7 +172,7 @@ class SignUp_club extends React.Component {
                                         <Input 
                                             type="text" 
                                             name="text" 
-                                            placeholder="6 number only"
+                                            placeholder="6 numbers only"
                                             id="verification_code" 
                                             maxLength="6"
                                             value={this.state.verification_codeValue}
@@ -312,20 +271,6 @@ class SignUp_club extends React.Component {
         }
     }
     
-    handleFB_nameChange(e) {
-        const text = e.target.value;
-        this.setState({fb_nameValue: text});
-        if (text) {
-            this.setState({fb_nameDanger: false});
-        }
-    }
-    handleIG_nameChange(e) {
-        const text = e.target.value;
-        this.setState({ig_nameValue: text});
-        if (text) {
-            this.setState({ig_nameDanger: false});
-        }
-    }
     handleVerification_CodeChange(e) {
         const text = e.target.value;
         this.setState({verification_codeValue: text});
@@ -347,15 +292,7 @@ class SignUp_club extends React.Component {
             this.setState({descriptionDanger: false});
         }
     }
-    handleSliderChange(e){ 
-        const value = e.target.value;
-        this.setState({
-            Value:value
-          }, () => {
-            console.log(this.state.value);
-          }
-        );
-    };
+
 
 
     handleCreatePost() {
@@ -363,55 +300,7 @@ class SignUp_club extends React.Component {
             this.setState({
                 clubnameDanger: true,
                 modalShow: true,
-                unFill:'clubname'
-            })
-            return;
-        }
-        if (!this.state.descriptionValue || this.state.descriptionValue == '') {
-            this.setState({
-                descriptionDanger: true,
-                modalShow: true,
-                unFill:'description'
-            })
-            return;
-        }
-        if (!this.state.fb_urlValue || this.state.fb_urlValue == '') {
-            this.setState({
-                fb_urlDanger: true,
-                modalShow: true,
-                unFill:'fb_url'
-            })
-            return;
-        }
-        if (!this.state.fb_nameValue || this.state.fb_nameValue == '') {
-            this.setState({
-                fb_nameDanger: true,
-                modalShow: true,
-                unFill:'fb_name'
-            })
-            return;
-        }
-        if (!this.state.ig_urlValue || this.state.ig_urlValue == '') {
-            this.setState({
-                ig_urlDanger: true,
-                modalShow: true,
-                unFill:'ig_url'
-            })
-            return;
-        }
-        if (!this.state.ig_nameValue || this.state.ig_nameValue == '') {
-            this.setState({
-                ig_nameDanger: true,
-                modalShow: true,
-                unFill:'ig_name'
-            })
-            return;
-        }
-        if (!this.state.verification_codeValue || this.state.verification_codeValue == '') {
-            this.setState({
-                verification_codeDanger: true,
-                modalShow: true,
-                unFill:'verification_code'
+                unFill:'clubname is required'
             })
             return;
         }
@@ -419,10 +308,36 @@ class SignUp_club extends React.Component {
             this.setState({
                 fileDanger: true,
                 modalShow: true,
-                unFill:'file'
+                unFill:'photo is required'
             })
             return;
         }
+     
+        if (!this.state.verification_codeValue || this.state.verification_codeValue == '') {
+            this.setState({
+                verification_codeDanger: true,
+                modalShow: true,
+                unFill:'verification_code is required'
+            })
+            return;
+        }
+        if (this.state.verification_codeValue.length!=6) { 
+            　　this.setState({
+                verification_codeDanger: true,
+                modalShow: true,
+                unFill:'verification_code should have 6 numbers'
+            })
+            return; 
+        } 
+        if (!this.state.descriptionValue || this.state.descriptionValue == '') {
+            this.setState({
+                descriptionDanger: true,
+                modalShow: true,
+                unFill:'description is required'
+            })
+            return;
+        }
+   
 
         
         createPost(...this.state, this.props.account).then(() => {
@@ -439,12 +354,8 @@ class SignUp_club extends React.Component {
             descriptionDanger: false,
             fb_urlValue: '', 
             fb_urlDanger: false,
-            fb_nameValue: '',
-            fb_nameDanger: false,
             ig_urlValue: '', 
             ig_urlDanger: false,
-            ig_nameValue: '',
-            ig_nameDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
             file: null,
@@ -466,12 +377,8 @@ class SignUp_club extends React.Component {
             descriptionDanger: false,
             fb_urlValue: '', 
             fb_urlDanger: false,
-            fb_nameValue: '',
-            fb_nameDanger: false,
             ig_urlValue: '', 
             ig_urlDanger: false,
-            ig_nameValue: '',
-            ig_nameDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
             file: null,

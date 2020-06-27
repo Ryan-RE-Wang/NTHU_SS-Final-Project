@@ -18,7 +18,7 @@ export default class Manager_dev extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            nowpage:'3',
+            nowpage:'5',
             sidebarOpen:false
         }
 
@@ -76,7 +76,11 @@ export default class Manager_dev extends React.Component {
             )    
         }else if(page == '5'){
             return (
-                <div className="Manager_article_outline"><Article/> </div>         
+                
+                <div className="Manager_article_outline">
+                    <Article/> 
+                </div>
+                  
             )    
         }else{
 

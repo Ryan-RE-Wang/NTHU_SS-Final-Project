@@ -105,11 +105,13 @@
 }
 
 .Manager_article_outline{
-    margin:100px;
-    background-color: rgb(209, 209, 138);
-    border: 15px !important;
-    border-color: sandybrown;
+    margin: 8vw;
+    border: 10px solid rgb(252, 194, 36);
+    background-color: rgb(247, 227, 140);
+
 }
 .Manager_ArticleForm{
-    margin: 3vw;
+    margin: 8vw;
+    border: 10px solid rgb(252, 194, 36);
+    background-color: rgb(249, 250, 245);
 }
