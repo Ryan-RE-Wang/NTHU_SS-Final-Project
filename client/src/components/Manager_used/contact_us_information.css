@@ -1,6 +1,10 @@
 
+.CONTACT_us{
+  margin-top: 70px !important;
+}
 .CS_box{
-  width: 768px;
+  position: relative;
+  width: 70%;
   padding-bottom: 50px;
 }
 .background-img{
@@ -25,8 +29,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px; 
-  height: 300px;
+  width: 40%; 
+  height: 65%;
   background: #111845a6 !important;
   box-sizing: border-box;
   overflow: hidden;
@@ -71,12 +75,19 @@
   right:15px;
   bottom:15px;
   border:1px solid #f0a591;
-  padding:20px;
+  padding:1.60vw;
   text-align:center;
   box-shadow: 0 5px 10px rgba(9,0,0,0.5);
 
 }
-
+.box .content1 h2{
+  font-size: 2vw ;
+  margin-bottom: 2%;
+}
+.box .content1 p{
+  font-size: 1% ;
+  text-align:center;
+}
 .box span{
   position: absolute;
   top: 0;

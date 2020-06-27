@@ -183,8 +183,8 @@ main-wrapper -> navbar-slide
 }
 
 #blankSpace{
-  width:100%;
-  height: 5rem;
+  width: 100%;
+  height: 2.3rem;
 }
 
 /* content section */
@@ -472,8 +472,7 @@ main-wrapper -> navbar-slide
     background-color: black;
 }  */
 
-
-@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css";
+ @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css"; 
 
 .mainLoginInput{
 	/* height: 40px; */

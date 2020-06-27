@@ -86,7 +86,8 @@ class ArticleForm extends React.Component {
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleClubVerificationSubmit = this.handleClubVerificationSubmit.bind(this);
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
-        this.setEditorRef = this.setEditorRef.bind(this);       
+        this.setEditorRef = this.setEditorRef.bind(this);   
+        this.onSave = this.onSave.bind(this);    
         // this.handlePreview = this.handlePreview.bind(this);
 
         this.handleCreatePost = this.handleCreatePost.bind(this);
@@ -384,7 +385,13 @@ class ArticleForm extends React.Component {
         );   
     }
 
-    setEditorRef = (editor) => this.editor = editor
+    setEditorRef = (editor) => this.editor = editor;
+
+    onSave() {
+        if (this.editor) {
+            this.setState({file: this.editor.getImageScaledToCanvas()})
+        }
+    }
 
     handleModalClose() {
         this.setState({modalShow: false})
@@ -462,7 +469,7 @@ class ArticleForm extends React.Component {
     handleFileChange(e) {
         this.setState({
           fileURL: URL.createObjectURL(e.target.files[0]),
-          file: this.editor.getImageScaledToCanvas(),
+          file: e.target.files[0],
           fileName: uuid()
         })        
     }
