@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
-
+import LocationOnIcon from '@material-ui/icons/LocationOn';
 import './PopularArticle.css';
 
 export default class PopularArticle extends React.Component {
@@ -26,12 +26,12 @@ export default class PopularArticle extends React.Component {
         }
 
         return (
-            <Link className='pop' to='/article' >
+            <Link className='pop home-article-link' to='/article' >
                 <div className='popular-content' >
                     <img className='component-img' src="images/poster.jpg"  alt=""/>
-                    <div className='popular-title'>term project demo</div>
-                    <div className='location'> delta 105</div>
-                    <div className='datetime'> 2020/6/30 10:00</div>
+                    {/* <div className='location'><LocationOnIcon/> Delta 105</div> */}
+                    <div className='popular-title'>Term project demo</div>
+                    {/* <div className='datetime'> 2020/6/30 10:00</div> */}
                 </div>
             </Link>
             

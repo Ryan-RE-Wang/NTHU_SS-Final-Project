@@ -68,9 +68,9 @@ export default class Manager_dev extends React.Component {
             )
         }else if(page == '3'){
             return (
-                //  <Contact_Us_information/>
+                 <Contact_Us_information/>
                 // <Userside_manager/>  
-                <ArticleForm/>
+                // <ArticleForm/>
                         
             )    
         }else if(page == '4'){
