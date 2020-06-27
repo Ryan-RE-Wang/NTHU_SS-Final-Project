@@ -1,47 +1,204 @@
 import axios from 'axios';
-import { v4 as uuid } from 'uuid';
 import moment from 'moment';
-import '@babel/polyfill';
+import 'babel-polyfill';
 
-const clubKey = 'clubs';
+// Develop server URL
+const postBaseUrl = 'http://localhost:4000/api';
+// Production server URL
+//const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
 
+const postKey = 'posts';
 
-export function listClubs(searchText='') {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            resolve(_listPosts(searchText));
-        }, 500);
+export default function listClub(school = '') {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+    if (school)
+        query.push(`school=${school}`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    console.log(`Making GET request to: ${url}`);
+
+    return axios.get(url).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+
+        //console.dir(res.data);
+        return res.data;
     });
 }
 
-// Simulated server-side code
-function _listClubs(searchText='') {
-    let clubString = localStorage.getItem(clubKey);
-    let clubs = clubString ? JSON.parse(postString) : [];
-    if (clubs.length > 0 && searchText) {
-        clubs = clubs.filter(c => {
-            return c.text.toLocaleLowerCase().indexOf(searchText.toLowerCase()) !== -1
-        });
-    }
-    return clubs;
-};
+export default function createClub(id,
+    userid, 
+    school,
+    clubname,
+    facebook,
+    instagram,
+    clubpic,
+    clubpassword
+    ) {
+    let url = `${postBaseUrl}/posts`;
 
-export function createClubs() {
-    return new Promise((resolve, reject) => {
-        resolve(_createClubs());
+    console.log(`Making POST request to: ${url}`);
+
+    return axios.post(url, {
+        id,
+        userid,
+        school,
+        clubname,
+        facebook,
+        instagram,
+        clubpic,
+        clubpassword,
+    }).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
     });
 }
 
-// Simulated server-side code
-function _createClubs() {
-    const newClub = {
+export default function getClubPassword(clubname) {
+    let url = `${postBaseUrl}/posts`;
 
-    };
-    const clubs = [
-        newClub,
-        ..._listClubs()
-    ];
-    localStorage.setItem(clubKey, JSON.stringify(clubs));
-    return newPost;
+    let query = [];
+    if (clubname)
+        query.push(`clubname`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.get(url, {clubname}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+
+        return res.data;
+    });
 }
 
+export default function getClubdetail(clubname) {
+    let url = `${postBaseUrl}/posts`;
+
+    let query = [];
+    if (clubname)
+        query.push(`clubdetail`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.get(url, {clubname}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+
+        return res.data;
+    });
+}
+
+export default function updateClubName(id, newclubname) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+
+    if (newclubname)
+        query.push(`newclubname`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.post(url, {id, newclubname}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    })
+}
+
+export default function updateClubinstagram(id, newinstagram) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+
+    if (newinstagram)
+        query.push(`instagram`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.post(url, {id, newinstagram}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    })
+}
+
+export default function updateClubfacebook(id, newfacebook) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+
+    if (newfacebook)
+        query.push(`facebook`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.post(url, {id, newfacebook}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    })
+}
+
+export default function updateClubpic(id, newpic) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+
+    if (newpic)
+        query.push(`newpic`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.post(url, {id, newpic}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    })
+}
+
+export default function updateClubpw(id, userid, oldpw, newpw) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+
+    if (newpw)
+        query.push(`pw`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.post(url, {id, userid, oldpw, newpw}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    })
+}
+
+export default function updateClubmode(id, newmode) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+
+    if (newmode)
+        query.push(`mode`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.post(url, {id, newmode}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    })
+}
+
+export default function updateClubleader(id, userid, pw, newleader) {
+    let url = `${postBaseUrl}/posts`;
+    let query = [];
+
+    if (newleader)
+        query.push(`leader`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.post(url, {id, userid, pw, newleader}).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    })
+}

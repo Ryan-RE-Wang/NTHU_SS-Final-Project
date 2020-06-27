@@ -2,7 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const accessController = require('../middleware/access-controller.js');
 const InfoModel = require('../model/infos.js');
-
 const router = express.Router();
 
 router.use(bodyParser.json());
@@ -36,12 +35,39 @@ router.post('/createInfo',function(req, res, next){
             )
     }).catch(next)
 });
+// create info FB
+router.post('/createInfoFB',function(req, res, next){
+    const {username, email} = req.body;
+    console.log("create user info", username, email)
+
+    InfoModel.checkInfo(email)
+    .then(
+        (info) => {          
+            res.json({
+                loginSuccess: false,
+                msg: 'this facebook account has been used'
+            })
+    }).catch(
+        (err) =>{
+            console.log("create a new account via facebook",err);
+            InfoModel.createFB(username, email)
+            .then(
+                (info) => {
+                    res.json({
+                        ...info,
+                        loginSuccess: true,
+                        msg: 'create new account successfully'
+                    })
+                }
+            ).catch(err => reject())
+    }).catch(next)
+});
 
 // login
 router.get('/login',function(req,res,next){
     const {password,email} = req.query;
 
-    console.log(password,email,);
+    console.log(password,email);
     InfoModel.login(password, email)
     .then(
         (info) => {  
@@ -57,6 +83,27 @@ router.get('/login',function(req,res,next){
             msg:'wrong password or email'
         })
     }).catch(next);
+});
+// login fb
+router.get('/loginFB',function(req,res,next){
+    const {email} = req.query;
+    console.log(email, "use facebook to login");
+    InfoModel.loginFB(email)
+    .then(
+        (info) => {  
+            res.json({
+                ...info,
+                loginSuccess:true,
+                msg:'login fb success'
+            })
+    }).catch(
+        () => {
+            res.json({
+                loginSuccess:false,
+                msg:'you should create an account via facebook first'
+            })
+        }
+    ).catch(next); 
 });
 //update info
 router.post('/updateInfo/:id/:updateType/:updateValue/:oldValue',function(req,res,next){
