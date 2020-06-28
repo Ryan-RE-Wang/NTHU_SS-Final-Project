@@ -5,15 +5,11 @@ import {
     BrowserRouter as Router,
     Route,
     Link
-<<<<<<< HEAD
 } from 'react-router-dom'
 import TextField from '@material-ui/core/TextField';
-=======
-} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {getPage} from 'states/clickPage-action.js';
 import {getpostdetail} from 'api/posts.js';
->>>>>>> dev
 import './Post.css'
 
 const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
@@ -29,7 +25,7 @@ class Post extends React.Component{
         dates: PropTypes.string,
         place: PropTypes.string,
         holder: PropTypes.string,
-        imageurl: PropTypes.string
+        imageurl: PropTypes.string,
         p: PropTypes.object
     };
 
@@ -49,7 +45,20 @@ class Post extends React.Component{
                     </div>
                     <div className='col-9 post-right'>
                         <span className='post-title'>{this.props.p.title}</span><br/>
-                        <span className='post-body'>{this.props.p.startdatetime}</span><br/>
+                        <span className='post-body'>
+                            <TextField
+                                    id="datetime-local"
+                                    label="Start Date and Time"
+                                    type="datetime-local"
+                                    defaultValue={this.props.p.startdatetime}
+                                    InputLabelProps={{
+                                    shrink: true,
+                                    }}
+                                    InputProps={{
+                                        readOnly: true,
+                                      }}
+                                />    
+                        </span><br/>
                         <span className='post-body'>{this.props.p.location}</span><br/>
                         <span className='post-body'>{this.props.p.club}</span><br/>
                         <Link to="/article" className="">
