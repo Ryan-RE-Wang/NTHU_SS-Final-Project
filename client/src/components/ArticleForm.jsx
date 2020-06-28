@@ -232,7 +232,7 @@ class ArticleForm extends React.Component {
                         <Modal.Header closeButton>
                             <Modal.Title>Input the verification code for {this.state.club} </Modal.Title>
                         </Modal.Header>
-                        <Modal.Body>
+                        <Modal.Body className='row justify-content-center '>
                             <ReactCodeInput onComplete={this.handleClubVerificationSubmit}/>
                             {(this.state.verifiedInput)?
                                 (this.state.clubVerified)? 
@@ -398,9 +398,9 @@ class ArticleForm extends React.Component {
                                     Club
                                 </div> 
                                 <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
-                                    <DropdownToggle>
-                                        {this.state.club}
-                                    </DropdownToggle>
+                                        <DropdownToggle>
+                                            {(this.state.clubVerified)? this.state.club : 'select your club'}
+                                        </DropdownToggle>
                                     <DropdownMenu
                                         modifiers={{
                                         setMaxHeight: {
@@ -482,7 +482,9 @@ class ArticleForm extends React.Component {
                                 </Button>
                             </div>
                             <div className='p-2'>
-                                <Button className='btn-cancel' color="secondary" onClick={this.handleCancel}>Cancel</Button>{' '} 
+                                <Button variant='contained' color="secondary" onClick={this.handleCancel}>
+                                    <DeleteIcon/> &nbsp; Cancel
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -517,7 +519,7 @@ class ArticleForm extends React.Component {
         const input = e;
 
         if (input === '000000') {
-            this.setState({clubVerified: true, verifiedInput: true})
+            this.setState({clubVerified: true, verifiedInput: true, clubVerificationModalShow: false})
         } else {
             this.setState({clubVerified: false, verifiedInput: true})
         }
