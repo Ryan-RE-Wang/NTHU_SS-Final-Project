@@ -2,6 +2,7 @@ import React , { useState }from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,6 +12,9 @@ import AvatarEditor from 'react-avatar-editor';
 import './SignUp_club.css';
 import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
+import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import createPost from 'api/posts.js';
@@ -44,9 +48,10 @@ class SignUp_club extends React.Component {
             ig_urlDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
-            file: null,
             fileDanger: false,
             Value: 120,
+            university:'University',
+            universityDanger: false,
             src: null,
             crop: {
                 unit: '%',
@@ -57,6 +62,8 @@ class SignUp_club extends React.Component {
             croppedImage: null,
             unFill:'',
             modalShow: false,
+            dropdownOpen:false,
+            fileName: '',
             
         }
 
@@ -72,7 +79,10 @@ class SignUp_club extends React.Component {
         this.handleClubVerificationSubmit = this.handleClubVerificationSubmit.bind(this);
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
         this.handleCreatePost = this.handleCreatePost.bind(this);
+        
         this.handleCancel = this.handleCancel.bind(this);
+        this.dataURLtoFile = this.dataURLtoFile.bind(this);
+   
 
     }
     onSelectFile = e => {
@@ -224,6 +234,20 @@ class SignUp_club extends React.Component {
                             
                         </div>
                         <div className=''>
+                        <div className='row justify-content-center combine'>
+                        <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})}>
+                            <DropdownToggle caret>
+                                {this.state.university}
+                                </DropdownToggle>
+                            <DropdownMenu>
+                                
+                                <DropdownItem onClick={()=>{this.setState({university:'NTHU'})}}>NTHU</DropdownItem>
+                                <DropdownItem divider />
+                                <DropdownItem onClick={()=>{this.setState({university:'NCTU'})}}>NCTU</DropdownItem>
+                            </DropdownMenu>
+                         </Dropdown>
+                         </div>
+
                             <FormGroup>
           
                                 <div className=''>
@@ -306,13 +330,33 @@ class SignUp_club extends React.Component {
                         </FormGroup>
                     </div>
 
-                    <div className="form_button_signupclub" >
-                        <div className='row'>
-                            <div className='col'>
-                                <Button className='btn-post' color="success" onClick={this.handleCreatePost}>Post</Button>{' '}
+                    <div className="buttons" className={`d-flex justify-content-around`}>
+                        <div className='row d-flex'>
+                            <div className='p-2'>
+                                <Button
+                                    variant="contained"
+                                    color="default" 
+                                >
+                                    <SaveIcon /> &nbsp; Save for later
+                                </Button>
                             </div>
-                            <div className='col'>
-                                <Button className='btn-cancel' color="secondary" onClick={this.handleCancel}>Cancel</Button>{' '} 
+                            <div className='p-2'>
+                                <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={this.handleCreatePost}
+                                >
+                                    <CloudUploadIcon /> &nbsp; Post
+                                </Button>
+                            </div>
+                            <div className='p-2'>
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    onClick={this.handleCancel}
+                                >
+                                    <DeleteIcon /> &nbsp; Delete
+                                </Button>
                             </div>
                         </div>
                     </div>
@@ -323,7 +367,20 @@ class SignUp_club extends React.Component {
         );
        
     }
-
+ 
+    dataURLtoFile(dataurl, filename) {
+        let arr = dataurl.split(','),
+            mime = arr[0].match(/:(.*?);/)[1],
+            bstr = atob(arr[1]), 
+            n = bstr.length, 
+            u8arr = new Uint8Array(n);
+                
+        while(n--){
+            u8arr[n] = bstr.charCodeAt(n);
+        }
+        let croppedImage = new File([u8arr], filename, {type:mime});
+        this.setState({croppedImage: croppedImage}) 
+    }
     handleModalClose() {
         this.setState({modalShow: false})
     }
@@ -392,50 +449,59 @@ class SignUp_club extends React.Component {
 
 
     handleCreatePost() {
-        if (!this.state.clubnameValue || this.state.clubnameValue == '') {
-            this.setState({
-                clubnameDanger: true,
-                modalShow: true,
-                unFill:'clubname is required'
-            })
-            return;
-        }
-        if (!this.state.file || this.state.file== '') {
-            this.setState({
-                fileDanger: true,
-                modalShow: true,
-                unFill:'photo is required'
-            })
-            return;
-        }
-     
-        if (!this.state.verification_codeValue || this.state.verification_codeValue == '') {
-            this.setState({
-                verification_codeDanger: true,
-                modalShow: true,
-                unFill:'verification_code is required'
-            })
-            return;
-        }
-        if (this.state.verification_codeValue.length!=6) { 
-            　　this.setState({
-                verification_codeDanger: true,
-                modalShow: true,
-                unFill:'verification_code should have 6 numbers'
-            })
-            return; 
-        } 
-        if (!this.state.descriptionValue || this.state.descriptionValue == '') {
-            this.setState({
-                descriptionDanger: true,
-                modalShow: true,
-                unFill:'description is required'
-            })
-            return;
-        }
+        // if (!this.state.clubnameValue || this.state.clubnameValue == '') {
+        //     this.setState({
+        //         clubnameDanger: true,
+        //         modalShow: true,
+        //         unFill:'clubname is required'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.croppedImageUrl || this.state.croppedImageUrl== '') {
+        //     this.setState({
+        //         fileDanger: true,
+        //         modalShow: true,
+        //         unFill:'photo is required'
+        //     })
+        //     return;
+        // }
+        // if (this.state.university=="University" || this.state.university=='') {
+        //     this.setState({
+        //         universityDanger: true,
+        //         modalShow: true,
+        //         unFill:'should select one university'
+        //     })
+        //     return;
+        // }
+        // if (!this.state.verification_codeValue || this.state.verification_codeValue == '') {
+        //     this.setState({
+        //         verification_codeDanger: true,
+        //         modalShow: true,
+        //         unFill:'verification_code is required'
+        //     })
+        //     return;
+        // }
+        // if (this.state.verification_codeValue.length!=6) { 
+        //     　　this.setState({
+        //         verification_codeDanger: true,
+        //         modalShow: true,
+        //         unFill:'verification_code should have 6 numbers'
+        //     })
+        //     return; 
+        // } 
+        // if (!this.state.descriptionValue || this.state.descriptionValue == '') {
+        //     this.setState({
+        //         descriptionDanger: true,
+        //         modalShow: true,
+        //         unFill:'description is required'
+        //     })
+        //     return;
+        // }
    
 
-        
+        ReactS3Client.uploadFile(this.state.croppedImage, this.state.fileName).then(
+            data => console.log(data))
+        .catch(err => console.error(err))
         createPost(...this.state, this.props.account).then(() => {
             // this.listPosts(this.props.searchText);
         }).catch(err => {
@@ -454,11 +520,23 @@ class SignUp_club extends React.Component {
             ig_urlDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
-            file: null,
             fileDanger: false,
             Value: 120,
+            university:'University',
+            universityDanger: false,
+            src: null,
+            crop: {
+                unit: '%',
+                width: 30,
+                aspect: 42 / 57,
+            },
+            croppedImageUrl: null,
+            croppedImage: null,
             unFill:'',
             modalShow: false,
+            dropdownOpen:false,
+            fileName: '',
+            
         })
 
         
@@ -477,11 +555,23 @@ class SignUp_club extends React.Component {
             ig_urlDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
-            file: null,
             fileDanger: false,
             Value: 120,
+            university:'University',
+            universityDanger: false,
+            src: null,
+            crop: {
+                unit: '%',
+                width: 30,
+                aspect: 42 / 57,
+            },
+            croppedImageUrl: null,
+            croppedImage: null,
             unFill:'',
             modalShow: false,
+            dropdownOpen:false,
+            fileName: '',
+            
         })
     }
 
