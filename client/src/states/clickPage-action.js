@@ -1,5 +1,7 @@
-export function getPageId () {
+// get page id
+export function getPage(page){
     return {
-        type: '@PAGE/GETID'
+        type:'@POST/GETPAGE',
+        ...page
     }
 }

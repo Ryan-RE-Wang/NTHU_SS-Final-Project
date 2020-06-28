@@ -13,19 +13,11 @@ import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
 import EventIcon from '@material-ui/icons/Event';
 import TextField from '@material-ui/core/TextField';
+import {connect} from 'react-redux';
 import './Article.css';
 
-export default class Article extends React.Component {
+class Article extends React.Component {
     static propTypes = {
-        title: PropTypes.string,
-        content: PropTypes.string,
-        startDateTime: PropTypes.number,
-        endDateTime: PropTypes.number,
-        ticket: PropTypes.string,
-        fileurl: PropTypes.string,
-        location: PropTypes.string,
-        tags: PropTypes.array,
-        club: PropTypes.string
     }
     constructor(props) {
         super(props);
@@ -36,12 +28,12 @@ export default class Article extends React.Component {
     }
 
     render() {
-        const _tags = ['nthu', 'kaohsiung', 'food'];
+        // const _tags = ['nthu', 'kaohsiung', 'food'];
         let tagItems = '';
-        if (_tags !== []) {
-            tagItems = _tags.map((_tags) =>
-                <Link key={_tags} to='/category'>
-                    #{_tags} &nbsp;
+        if (this.props.tags !== []) {
+            tagItems = this.props.tags.map(tags =>
+                <Link key={tags} to='/category'>
+                    #{tags} &nbsp;
                 </Link>
             )
         } 
@@ -66,18 +58,14 @@ export default class Article extends React.Component {
     
                 gapi.auth2.getAuthInstance().signIn().then(() => {
                     var event = {
-                        'summary': 'Desserts Festival',
-                        // this.props.title,
-                        'location': 'Mong Ning Wei',
-                        // this.props.location,
+                        'summary': this.props.title,
+                        'location': this.props.location,
                         'start': {
-                        'dateTime': '2017-05-24T10:30',
-                        // this.props.startDateTime + '-07:00',
+                        'dateTime': this.props.startdatetime + '-07:00',
                         'timeZone': 'Taipei/Taiwan'
                         },
                         'end': {
-                        'dateTime': '2017-05-24T10:30',
-                        // this.props.endDateTime + '-07:00',
+                        'dateTime': this.props.enddatetime + '-07:00',
                         'timeZone': 'Taipei/Taiwan'
                         }
                     };
@@ -97,7 +85,7 @@ export default class Article extends React.Component {
             
         }
         
-        const imageSrc = 'https://team11final.s3-us-west-1.amazonaws.com/1681ca51-9b78-4dcd-a319-1512215c2adf.jpeg?fbclid=IwAR1oVg0DWbh7Vw8nxD0-ZXNZkZs7NENoKO9Zk_VdQo81EhZPyx_wn3Otujc';
+        const imageSrc = 'https://team11final.s3-us-west-1.amazonaws.com/'+this.props.fileurl+'.jpeg';
         return (
             <Container className='article'>
                 
@@ -107,16 +95,15 @@ export default class Article extends React.Component {
                     </div>
                     <div className='col-6 info align-items-center justify-content-center'>
                         <div className='p-2 title' fontWeight='bold'>
-                                Dessert Festival
-                                {/* {this.props.title} */}
+                                {this.props.title}
                         </div>
                         <div className='p-2 row location align-items-center justify-content-center' >
                            <div className='p-2' >
                                 <PlaceIcon/> Location
                             </div>
                             <div>
-                                 &nbsp; Mong Ming Wei
-                                 {/* {this.props.location} */}
+                                 &nbsp; 
+                                 {this.props.location}
                             </div> 
                         </div>
                         
@@ -136,7 +123,7 @@ export default class Article extends React.Component {
                                     id="datetime-local"
                                     label="Start Date and Time"
                                     type="datetime-local"
-                                    defaultValue='2017-05-24T10:30'
+                                    defaultValue={this.props.startdatetime}
                                     InputLabelProps={{
                                     shrink: true,
                                     }}
@@ -152,7 +139,7 @@ export default class Article extends React.Component {
                                     id="datetime-local"
                                     label="End Date and Time"
                                     type="datetime-local"
-                                    defaultValue='2017-05-24T10:30'
+                                    defaultValue={this.props.enddatetime}
                                     InputLabelProps={{
                                     shrink: true,
                                     }}
@@ -168,8 +155,8 @@ export default class Article extends React.Component {
                         </div>
                         <div className='d-flex row justify-content-center align-items-center '>
                             <div className='p-2'> 
-                                <PaymentIcon/> Ticket &nbsp; $0
-                                {/* {this.props.ticket} */}
+                                <PaymentIcon/> Ticket &nbsp;
+                                {this.props.ticket}
                             </div> 
                         </div>
                 </div>
@@ -181,16 +168,12 @@ export default class Article extends React.Component {
                         <div className='p-1 '>
                             <img className='' src="images/rsz_1corgi.jpg" alt="" height="100rem" margin="0 auto"/>
                         </div>
-                        <div className='p-1 ' >
-                            0912-345-789
-                        </div>
                         <div className='p-1'>
                             corgithedog@gmail.com
                         </div>
                     </div>
                     <div className='col-8 paragraph'> 
-                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                        {/* {this.props.content} */}
+                        {this.props.content}
                     </div>                    
                 </div>
                 <div className='tags d-flex row justify-content-center'>
@@ -207,8 +190,9 @@ export default class Article extends React.Component {
                 </div>
             </Container>
         );
-    }
-
-    
-    
+    }  
 }
+
+export default connect(state => ({
+	...state.page
+}))(Article);

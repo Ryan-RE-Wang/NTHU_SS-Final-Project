@@ -57,7 +57,7 @@ export default class CatalogPage extends React.Component{
         let children = (<div>There are no posts</div>);
         if (this.state.posts.length) {
             children = this.state.posts.map(p => (
-                <div key={p.id}><Post intro={p.title} dates={p.startdate} place={p.location} holder={p.club} imageurl={p.fileurl}/></div>
+                <div key={p.id}><Post p={p}/></div>
             ))
         }
 

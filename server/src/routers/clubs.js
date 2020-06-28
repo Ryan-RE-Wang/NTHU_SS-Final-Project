@@ -21,13 +21,15 @@ router.get('/:school', function(req, res, next) {
 
 // Create
 router.post('', function(req, res, next) {
-    const {id, userid, school, clubname, facebook, instagram, clubPic, clubpassword} = req.body;
+    console.log(req.body);
+    const {id, userid, school, clubname, facebook, instagram, clubpic, clubpassword, description} = req.body;
     if (!id) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;
         throw err;
     }
-    clubModel.create(id, userid, school, clubname, facebook, instagram, clubPic, clubpassword).then(club => {
+    
+    clubModel.create(id, userid, school, clubname, facebook, instagram, clubpic, clubpassword, description).then(club => {
         res.json(club)
     }).catch(next);
 });

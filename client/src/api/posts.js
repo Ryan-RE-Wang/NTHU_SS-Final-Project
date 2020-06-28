@@ -71,7 +71,7 @@ export function createTouch(id) {
 }
 
 export function getpostdetail(id) {
-    let url = `${postBaseUrl}/posts/update`;
+    let url = `${postBaseUrl}/posts/get`;
 
     console.log(`Making getdetail request to: ${url}`);
 

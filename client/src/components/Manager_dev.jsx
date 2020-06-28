@@ -9,6 +9,7 @@ import Article from './Article.jsx';
 import Home from './Manager_used/M_home.jsx';
 import Sidebar from './Manager_used/sidebar.jsx';
 import Navbar from './Manager_used/navbar.jsx';
+import BorderColorIcon from '@material-ui/icons/BorderColor';
 import SignUp_club from './SignUp_club.jsx';
 import Userside_manager from './Userside_manager.jsx';
 import './Manager_dev.css'
@@ -59,6 +60,7 @@ export default class Manager_dev extends React.Component {
             <div>
                 <div className="M_club_information_title">Club information</div>
                 <div className="Manager_home"> 
+                    <div className="Manager_home_above_editbtn" onClick={()=>this.list_Selected('4')}><BorderColorIcon/><div className="M_edit" >Edit</div></div>
                     <Home/> 
                 </div>
             </div>
@@ -84,9 +86,9 @@ export default class Manager_dev extends React.Component {
             )    
         }else if(page == '4'){
             return (
-                <div className="Manager_ArticleForm">
-                <ArticleForm/>   
-                </div>         
+               
+                <SignUp_club/>   
+                  
             )    
         }else if(page == '5'){
             return (

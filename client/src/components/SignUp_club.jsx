@@ -86,7 +86,6 @@ class SignUp_club extends React.Component {
         this.handleIG_URLChange = this.handleIG_URLChange.bind(this);
         this.handleVerification_CodeChange = this.handleVerification_CodeChange.bind(this);
         this.handleModalClose = this.handleModalClose.bind(this);
-        this.handleClubVerificationSubmit = this.handleClubVerificationSubmit.bind(this);
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
         this.handleCreateClub = this.handleCreateClub.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
@@ -393,16 +392,6 @@ class SignUp_club extends React.Component {
     handleClubModalClose() {
         this.setState({clubVerificationModalShow: false});
     }
-    handleClubVerificationSubmit(e) {
-        const input = e;
-        console.log(input);
-
-        if (input === '000000') {
-            this.setState({clubVerified: true, verifiedInput: true})
-        } else {
-            this.setState({clubVerified: false, verifiedInput: true})
-        }
-    }
 
     handleClubNameChange(e) {
         const text = e.target.value;
@@ -501,14 +490,17 @@ class SignUp_club extends React.Component {
             data => console.log(data))
         .catch(err => console.error(err))
         
+        console.log(this.state.fileName);
+
         createClub(this.state.id,
             this.props.account,
-            'nthu',
+            this.state.school,
             this.state.clubnameValue,
             this.state.fb_urlValue,
             this.state.ig_urlValue,
             this.state.fileName,
             this.state.verification_codeValue,
+            this.state.descriptionValue
             ).then(() => {
             this.listPosts(this.props.searchText);
         }).catch(err => {
@@ -543,7 +535,6 @@ class SignUp_club extends React.Component {
             modalShow: false,
             dropdownOpen:false,
             fileName: '',
-            
         })
 
         
