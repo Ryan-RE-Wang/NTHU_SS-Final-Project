@@ -47,7 +47,6 @@ function create(
     const sql = `
         INSERT INTO post ($<this:name>)
         VALUES ($<id>, $<title>, $<content>, $<startdate>, $<enddate>, $<starttime>, $<endtime>, $<ticket>, $<location>, $<fileurl>, $<tags>, $<touch>, $<userid>, $<mode>, $<club>)
-        RETURNING *
     `;
     return db.none(sql,{
         id,
@@ -73,7 +72,6 @@ function createTouch(id) {
     UPDATE post
     SET touch = touch + 1
     WHERE id = $<id>
-    RETURNING *
     `
     return db.none(sql, {id});
 }
@@ -92,7 +90,6 @@ function deletepost(id) {
     const sql = `
     DELETE FROM post
     WHERE id = $<id>
-    RETURNING *
     `
     return db.none(sql, {id});
 }
