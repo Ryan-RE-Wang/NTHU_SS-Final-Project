@@ -27,7 +27,7 @@ import {instagram} from 'react-icons-kit/icomoon/instagram';
 import {quill} from 'react-icons-kit/icomoon/quill';
 import {link} from 'react-icons-kit/icomoon/link';
 import ReactCrop from 'react-image-crop';
-import createClub from 'api/club.js';
+import {createClub} from 'api/club.js';
 import 'react-image-crop/dist/ReactCrop.css';
 
 import S3 from 'react-aws-s3';

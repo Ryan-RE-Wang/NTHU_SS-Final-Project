@@ -33,10 +33,8 @@ function create(
     id,
     title,
     content,
-    startdate,
-    enddate,
-    starttime,
-    endtime,
+    startdatetime,
+    enddatetime,
     ticket,
     location,
     fileurl,
@@ -47,16 +45,14 @@ function create(
     const touch = 0;
     const sql = `
         INSERT INTO post ($<this:name>)
-        VALUES ($<id>, $<title>, $<content>, $<startdate>, $<enddate>, $<starttime>, $<endtime>, $<ticket>, $<location>, $<fileurl>, $<tags>, $<touch>, $<userid>, $<mode>, $<club>)
+        VALUES ($<id>, $<title>, $<content>, $<startdatetime>, $<enddatetime>, $<ticket>, $<location>, $<fileurl>, $<tags>, $<touch>, $<userid>, $<mode>, $<club>)
     `;
     return db.none(sql,{
         id,
         title,
         content,
-        startdate,
-        enddate,
-        starttime,
-        endtime,
+        startdatetime,
+        enddatetime,
         ticket,
         location,
         fileurl,

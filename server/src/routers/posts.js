@@ -25,10 +25,8 @@ router.post('', function(req, res, next) {
     const {id,
         title,
         content,
-        startdate,
-        enddate,
-        starttime,
-        endtime,
+        startdatetime,
+        enddatetime,
         ticket,
         location,
         fileurl,
@@ -36,7 +34,7 @@ router.post('', function(req, res, next) {
         mode, 
         club, 
         userid} = req.body;
-    if (!userid) {
+    if (userid === 100) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;
         throw err;
@@ -45,10 +43,8 @@ router.post('', function(req, res, next) {
         id,
         title,
         content,
-        startdate,
-        enddate,
-        starttime,
-        endtime,
+        startdatetime,
+        enddatetime,
         ticket,
         location,
         fileurl,

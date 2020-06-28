@@ -27,7 +27,7 @@ export function listClub(school = '') {
     });
 }
 
-export default function createClub(id = '',
+export function createClub(id = '',
     userid = '', 
     school = '',
     clubname = '',
