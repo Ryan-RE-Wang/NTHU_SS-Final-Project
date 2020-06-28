@@ -479,7 +479,7 @@ class ArticleForm extends React.Component {
 
     handleStartDateTimeChange(e) {
         const dateTime = e.target.value;
-        this.setState({startDateValue: dateTime});
+        this.setState({startDateTimeValue: dateTime});
         if (dateTime) {
             this.setState({startDateTimeDanger: false});
         }
@@ -528,7 +528,6 @@ class ArticleForm extends React.Component {
     }
 
     handleCreatePost() {        
-
         // if (!this.state.titleValue || this.state.titleValue == '') {
         //     this.setState({
         //         titleDanger: true,

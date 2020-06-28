@@ -5,40 +5,40 @@ import {
     BrowserRouter as Router,
     Route,
     Link
-} from 'react-router-dom'
+} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {getPage} from 'states/clickPage-action.js';
+import {getpostdetail} from 'api/posts.js';
 import './Post.css'
 
 const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
 const lasturl = '.jpeg';
 
-export default class Post extends React.Component{
+class Post extends React.Component{
     static propTypes = {
-        intro: PropTypes.string,
-        dates: PropTypes.string,
-        place: PropTypes.string,
-        holder: PropTypes.string,
-        imageurl: PropTypes.string
+        p: PropTypes.object
     };
 
     constructor(props){
         super(props);
 
+        this.handleClick = this.handleClick.bind(this);
+
     }
     render(){
-        console.log(this.props.imageurl);
         return(       
             <div className='AD-Post'>
                     <Row>
                     <div className='col-3 post-left'>
-                        <img src={baseUrl + this.props.imageurl + lasturl} className='img-fluid'/>
+                        <img src={baseUrl + this.props.p.fileurl + lasturl} className='img-fluid'/>
                     </div>
                     <div className='col-9 post-right'>
-                        <span className='post-title'>{this.props.intro}</span><br/>
-                        <span className='post-body'>{this.props.date}</span><br/>
-                        <span className='post-body'>{this.props.place}</span><br/>
-                        <span className='post-body'>{this.props.holder}</span><br/>
+                        <span className='post-title'>{this.props.p.title}</span><br/>
+                        <span className='post-body'>{this.props.p.startdatetime}</span><br/>
+                        <span className='post-body'>{this.props.p.location}</span><br/>
+                        <span className='post-body'>{this.props.p.club}</span><br/>
                         <Link to="/article" className="">
-                            <button className=' d-none d-md-block moreInfoBtn'>More Info</button>
+                            <button className=' d-none d-md-block moreInfoBtn' onClick={this.handleClick}>More Info</button>
                         </Link>
                         
                     </div>
@@ -46,4 +46,12 @@ export default class Post extends React.Component{
             </div>
         )
     }
+
+    handleClick() {
+        this.props.dispatch(getPage(this.props.p));  
+    }
 }
+
+export default connect(state => ({
+	...state.page
+}))(Post);

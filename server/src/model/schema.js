@@ -16,6 +16,7 @@ const schemaInfo=`
 `;
 const schemaPost=`
     DROP TABLE IF EXISTS post;
+    CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
     CREATE TABLE post(
         id              text,
@@ -32,6 +33,7 @@ const schemaPost=`
         mode            boolean,
         club            text
     ); 
+    CREATE INDEX post_idx_id ON post USING gin(id gin_trgm_ops);
 `;
 const schemaClub=`
     DROP TABLE IF EXISTS club;
@@ -44,7 +46,8 @@ const schemaClub=`
         facebook        text,
         instagram       text,
         clubpic         text,
-        clubpassword    text NOT NULL
+        clubpassword    text,
+        description     text
     );
 `;
 db.none(schemaInfo).then(() => {

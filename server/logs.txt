@@ -630,3 +630,835 @@
     at readableAddChunk (_stream_readable.js:275:11)
     at Socket.Readable.push (_stream_readable.js:209:10)
     at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593344704 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593344713 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593345051 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346390 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346521 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346547 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346640 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346652 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346790 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346797 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346838 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346850 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346937 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346964 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593346969 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593347041 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593347044 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593347071 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593347079 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593347103 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593347280 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593347827 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593348116 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593348298 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593348388 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593348404 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349043 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349109 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349114 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349206 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349223 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349225 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349318 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349402 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349405 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349426 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349427 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349441 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349476 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349563 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349635 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349664 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349681 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:75:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349835 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349876 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593349989 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350069 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350110 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350129 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350438 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350484 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350489 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350588 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350622 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350658 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350695 ERROR  Error: Post ID are required
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\posts.js:76:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593350726 ERROR  error: syntax error at or near "RETURNING"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593350781 ERROR  error: syntax error at or near "RETURNING"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593350815 ERROR  error: syntax error at or near "RETURNING"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593351065 ERROR  error: syntax error at or near "RETURNING"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593351130 ERROR  error: column "startdate" does not exist
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593351171 ERROR  QueryResultError: 0
+    at new QueryResultError (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\errors\queryResult.js:121:24)
+    at Query.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:180:41)
+    at Query.handleReadyForQuery (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\query.js:106:10)
+    at Connection.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\client.js:163:19)
+    at Connection.emit (events.js:311:20)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:109:12)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+1593351236 ERROR  QueryResultError: 0
+    at new QueryResultError (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\errors\queryResult.js:121:24)
+    at Query.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:180:41)
+    at Query.handleReadyForQuery (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\query.js:106:10)
+    at Connection.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\client.js:163:19)
+    at Connection.emit (events.js:311:20)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:109:12)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+1593351584 ERROR  error: syntax error at or near "RETURNING"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593351598 ERROR  error: syntax error at or near "RETURNING"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593351717 ERROR  error: syntax error at or near "RETURN"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593351736 ERROR  error: syntax error at or near "RETURN"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593352245 ERROR  error: cannot determine type of empty array
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593354166 ERROR  Error: There must be some form you are not complete!
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\clubs.js:25:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593354238 ERROR  Error: There must be some form you are not complete!
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\clubs.js:26:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593354274 ERROR  Error: There must be some form you are not complete!
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\clubs.js:26:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593354284 ERROR  Error: There must be some form you are not complete!
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\clubs.js:26:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593354336 ERROR  Error: There must be some form you are not complete!
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\clubs.js:27:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593354408 ERROR  Error: There must be some form you are not complete!
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\clubs.js:27:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593354449 ERROR  Error: There must be some form you are not complete!
+    at C:\Users\user\Desktop\ss\ss-final-project\server\src\routers\clubs.js:27:21
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:335:12)
+    at next (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\index.js:275:10)
+    at module.exports (C:\Users\user\Desktop\ss\ss-final-project\server\src\middleware\access-controller.js:14:5)
+    at Layer.handle [as handle_request] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\express\lib\router\layer.js:95:5)
+1593354590 ERROR  Error: Property 'description' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+1593354688 ERROR  Error: Property 'description' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+1593355820 ERROR  error: cannot determine type of empty array
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)

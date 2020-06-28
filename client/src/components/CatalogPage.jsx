@@ -48,11 +48,10 @@ export default class CatalogPage extends React.Component{
     static order = ['A to Z','Popularity','Date'];
 
     render(){
-
         let children = (<div>There are no posts</div>);
         if (this.state.posts.length) {
             children = this.state.posts.map(p => (
-                <div key={p.id}><Post intro={p.title} dates={p.startdate} place={p.location} holder={p.club} imageurl={p.fileurl}/></div>
+                <div key={p.id}><Post p={p}/></div>
             ))
         }
 
@@ -198,7 +197,6 @@ export default class CatalogPage extends React.Component{
 
     listPosts(searchText, category, start, mode, club, order, userid) {
         listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
-            console.log(posts);
             this.setState({
                 posts
             })

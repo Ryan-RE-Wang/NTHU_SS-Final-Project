@@ -32,14 +32,14 @@ function getClubdetail(clubname) {
     return db.one(sql, {clubname});
 }
 
-function create(id, userid, school, clubname, facebook, instagram, clubpic, clubpassword) {
+function create(id, userid, school, clubname, facebook, instagram, clubpic, clubpassword, description) {
     
     const sql = `
         INSERT INTO club ($<this:name>)
-        VALUES ($<id>, $<userid>, $<school>, $<clubname>, $<facebook>, $<instagram>, $<clubpic>, $<clubpassword>)
+        VALUES ($<id>, $<userid>, $<school>, $<clubname>, $<facebook>, $<instagram>, $<clubpic>, $<clubpassword>, $<description>)
         RETURNING *
     `;
-    return db.one(sql, {id, userid, school, clubname, facebook, instagram, clubpic, clubpassword});
+    return db.one(sql, {id, userid, school, clubname, facebook, instagram, clubpic, clubpassword, description});
 }
 
 function updateClubName(id, clubname){

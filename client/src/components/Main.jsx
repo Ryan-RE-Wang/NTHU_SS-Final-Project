@@ -218,7 +218,7 @@ class Main extends React.Component {
 
 
                     {/* for router */}
-                    <Route exact path="/" component={Manager_dev}/>
+                    <Route exact path="/" component={ArticleForm}/>
                     <Route exact path='/article' component={Article}/>
                     <Route exact path="/Manager" component={Userside_manager}/>
                     <Route exact path='/search' component={SearchPage}/>

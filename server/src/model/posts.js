@@ -75,10 +75,10 @@ function createTouch(id) {
 
 function getdetail(id) {
     const sql = `
-    SELECT title, content, startdate, enddate, starttime, endtime, ticket, location, fileurl, tags, club
+    SELECT title, content, startdatetime, enddatetime, ticket, location, fileurl, tags, club
     FROM post
     WHERE id = $<id>
-    RETURNING *
+    RETURN
     `
     return db.one(sql, {id});
 }

@@ -34,12 +34,14 @@ export function createClub(id = '',
     facebook = '',
     instagram = '',
     clubpic = '',
-    clubpassword = ''
+    clubpassword = '',
+    description = ''
     ) {
     let url = `${postBaseUrl}`;
 
     console.log(`Making POST request to: ${url}`);
-
+    console.log(clubpic);
+    
     return axios.post(url, {
         id,
         userid,
@@ -49,6 +51,7 @@ export function createClub(id = '',
         instagram,
         clubpic,
         clubpassword,
+        description
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
