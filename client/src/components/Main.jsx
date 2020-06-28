@@ -57,30 +57,33 @@ import LoginForm from 'components/LoginForm.jsx'
 import Footer from "components/Footer_Content.jsx"
 import SignUp_club from "components/SignUp_club.jsx"
 import {connect} from 'react-redux';
+import {listClub} from 'api/club.js';
 
 // action
 import {closeLoginForm, openLoginForm , logout} from 'states/login-actions.js';
 import {openUserInfo, changeToggle, clickList, clickTag, openSearchBar} from 'states/navbar-actions';
+import Userside_manager from 'components/Userside_manager.jsx';
 
 
 class Main extends React.Component {
     static propTypes = {
-        loginPageOpen: PropTypes.bool
+        loginPageOpen: PropTypes.bool,
     };
 
     constructor(props) {
         super(props);
-        // this.state = {
-        //     nthuOpen: false,
-        //     nctuOpen: false,
-        //     categoryOpen: false,
-        //     tagClick: '',
-        //     // animateComplete: false,
-        //     startSearch: false,
-        //     loginPage: false,
-        //     sideBarOpen: false,
-        //     userInfoOpen:false
-        // }
+        this.state = {
+            // nthuOpen: false,
+            // nctuOpen: false,
+            // categoryOpen: false,
+            // tagClick: '',
+            // // animateComplete: false,
+            // startSearch: false,
+            // loginPage: false,
+            // sideBarOpen: false,
+            // userInfoOpen:false
+            clubs: [],
+        }
         
         this.handleClick = this.handleClick.bind(this);
         this.handleLinkSelect = this.handleLinkSelect.bind(this);
@@ -90,11 +93,19 @@ class Main extends React.Component {
         this.handleLogin = this.handleLogin.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
         this.handleUserInfo = this.handleUserInfo.bind(this);
+
+        this.listClubs = this.listClubs.bind(this);
+    }
+
+    componentDidMount() {
+        this.listClubs();
     }
 
     render() {
         
         let {loginPageOpen} = this.props;
+
+
         return (
             <Router>
             <div className=' ' id='main-wrapper'>
@@ -157,7 +168,7 @@ class Main extends React.Component {
                             </Link>                                
                         </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
-                            <Link to='/signup_Club' className='link'>                       
+                            <Link to='/Manager' className='link'>                       
                                 <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>
@@ -217,9 +228,9 @@ class Main extends React.Component {
 
 
                     {/* for router */}
-                    <Route exact path="/" component={ArticleForm}/>
+                    <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={Manager_dev}/>
+                    <Route exact path="/Manager" component={Userside_manager}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>
@@ -239,6 +250,15 @@ class Main extends React.Component {
             </Router>
         );
     }
+
+    listClubs() {
+        listClub().then(clubs => {
+            this.setState({
+                clubs
+            })
+        })
+    }
+
     animateComplete() {
         this.setState(() => ({
             animateComplete: true

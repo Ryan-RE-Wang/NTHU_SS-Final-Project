@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const accessController = require('../middleware/access-controller.js');
 
 const postModel = require('../model/posts.js');
-// const fileModel = require('../model/postFile.js')
 const touchModel = require('../model/touch.js');
 
 const router = express.Router();
@@ -13,8 +12,8 @@ router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
 router.get('/getPost', function(req, res, next) {
-    const {searchText, category, start, mode, club, order, userid} = req.body;
-    postModel.list(searchText, category, start, mode, club, order, userid).then(posts => {
+    const {searchText, category, start, mode, club, order, userid, startofPost} = req.body;
+    postModel.list(searchText, category, start, mode, club, order, userid, startofPost).then(posts => {
         return posts;
     }).then(post => {
             res.json(post)
@@ -26,10 +25,8 @@ router.post('', function(req, res, next) {
     const {id,
         title,
         content,
-        startdate,
-        enddate,
-        starttime,
-        endtime,
+        startdatetime,
+        enddatetime,
         ticket,
         location,
         fileurl,
@@ -37,7 +34,7 @@ router.post('', function(req, res, next) {
         mode, 
         club, 
         userid} = req.body;
-    if (!userid) {
+    if (userid === 100) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;
         throw err;
@@ -46,10 +43,8 @@ router.post('', function(req, res, next) {
         id,
         title,
         content,
-        startdate,
-        enddate,
-        starttime,
-        endtime,
+        startdatetime,
+        enddatetime,
         ticket,
         location,
         fileurl,

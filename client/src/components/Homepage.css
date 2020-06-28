@@ -18,7 +18,7 @@
 }
 .homepage .grid-container {
     margin: 2rem 2rem;
-    border-bottom: 1px solid lightgrey;
+    /* border-bottom: 1px solid lightgrey; */
 }
 .homepage .grid-container .grid-item {
   background-color: white;
@@ -64,6 +64,7 @@
   width: 100%;
   outline: none;
   box-sizing: border-box;
+  border: 1px solid lightgrey;
 }
 
 
@@ -97,8 +98,15 @@
   transition: .2s ease;
 } 
 
-#seeMore {
-  margin-left: 46%;
+.homepage #seeMore-btn {
+  padding: 0.8rem 1rem;
+  background-color: rgb(250,250,250);
+  border-radius: 5rem;
+  border: 1px solid black;
+  color:black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #most-popular-img{
@@ -106,6 +114,11 @@
   height:auto;
   /* padding-right: rem;
   float: right; */
+}
+.homepage-column{
+  padding: 1rem 2rem;
+  margin: 0rem 0rem;
+  box-shadow: 1px 1px 10px 10px  rgb(241, 239, 239) inset;
 }
 
 .homepage-margin{
@@ -119,6 +132,9 @@
   background-color: white;
   border: 1px solid lightgray;
   width: 1200px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
 }
 
 @media(max-width:1200px){

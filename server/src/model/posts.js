@@ -3,7 +3,7 @@ if (!global.db) {
     db = pgp(process.env.DB_URL);
 }
 
-function list(searchText = '', category = '', start = '', mode = null, club = '', order = '', userid = '') {
+function list(searchText = '', category = '', start = '', mode = null, club = '', order = '', userid = '', startofPost) {
     const where = [];
     if (searchText)
         where.push(`titleValue ILIKE '%$1:value%'`);
@@ -14,28 +14,29 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
     if (mode)
         where.push(`mode = $4`);
     if (club)
-        where.push(`club = $5`);
+        where.push(`club = '$5'`);
     if (userid)
-        where.push(`userid = $6`);
+        where.push(`userid = '$6'`);
+    if (startofPost)
+        where.push(`id < $7`)
 
+    const id1 = (order === '') ?  'id' : order;
     const sql = `
         SELECT *
-        FROM posts
+        FROM post
         ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
-        ORDER BY $<order> ASC
-        LIMIT 10
+        ORDER BY ${id1} ASC
+        LIMIT 3
     `;
-    return db.any(sql, [searchText, category, start, mode, club, order, userid]);
+    return db.any(sql, [searchText, category, start, mode, club, userid]);
 }
 
 function create(
     id,
     title,
     content,
-    startdate,
-    enddate,
-    starttime,
-    endtime,
+    startdatetime,
+    enddatetime,
     ticket,
     location,
     fileurl,
@@ -46,16 +47,14 @@ function create(
     const touch = 0;
     const sql = `
         INSERT INTO post ($<this:name>)
-        VALUES ($<id>, $<title>, $<content>, $<startdate>, $<enddate>, $<starttime>, $<endtime>, $<ticket>, $<location>, $<fileurl>, $<tags>, $<touch>, $<userid>, $<mode>, $<club>)
+        VALUES ($<id>, $<title>, $<content>, $<startdatetime>, $<enddatetime>, $<ticket>, $<location>, $<fileurl>, $<tags>, $<touch>, $<userid>, $<mode>, $<club>)
     `;
     return db.none(sql,{
         id,
         title,
         content,
-        startdate,
-        enddate,
-        starttime,
-        endtime,
+        startdatetime,
+        enddatetime,
         ticket,
         location,
         fileurl,

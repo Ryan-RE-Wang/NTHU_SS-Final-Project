@@ -17,7 +17,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
-import {createClub} from 'api/club.js';
 import { Icon } from 'react-icons-kit';
 import {facebook2} from 'react-icons-kit/icomoon/facebook2';
 import {facebook} from 'react-icons-kit/icomoon/facebook';
@@ -27,9 +26,21 @@ import {instagram} from 'react-icons-kit/icomoon/instagram';
 import {quill} from 'react-icons-kit/icomoon/quill';
 import {link} from 'react-icons-kit/icomoon/link';
 import ReactCrop from 'react-image-crop';
+import {createClub} from 'api/club.js';
 import 'react-image-crop/dist/ReactCrop.css';
 
-var Preview = false;
+import S3 from 'react-aws-s3';
+ 
+const s3URL = 'https://team11final.s3-us-west-1.amazonaws.com/';
+const config = {
+    bucketName: 'team11final',
+    region: 'us-west-1',
+    accessKeyId: 'AKIAYY47H3QJVLMYGFHB',
+    secretAccessKey: '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',
+}
+
+const ReactS3Client = new S3(config);
+
 class SignUp_club extends React.Component {
     static propTypes = {
         club: PropTypes.string
@@ -48,6 +59,8 @@ class SignUp_club extends React.Component {
             ig_urlDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
+            file: null,
+            fileName:'',
             fileDanger: false,
             Value: 120,
             university:'University',
@@ -67,24 +80,27 @@ class SignUp_club extends React.Component {
             
         }
 
-        
-
         this.handleClubNameChange = this.handleClubNameChange.bind(this);
         this.handleDescriptionChange = this.handleDescriptionChange.bind(this);
         this.handleFB_URLChange = this.handleFB_URLChange.bind(this);
         this.handleIG_URLChange = this.handleIG_URLChange.bind(this);
-        this.handleFileChange = this.handleFileChange.bind(this);
         this.handleVerification_CodeChange = this.handleVerification_CodeChange.bind(this);
         this.handleModalClose = this.handleModalClose.bind(this);
         this.handleClubVerificationSubmit = this.handleClubVerificationSubmit.bind(this);
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
-        this.handleCreatePost = this.handleCreatePost.bind(this);
-        
+        this.handleCreateClub = this.handleCreateClub.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.dataURLtoFile = this.dataURLtoFile.bind(this);
    
 
     }
+
+    componentDidMount() {
+        this.setState({
+            fileName: uuid()
+        })
+    }
+
     onSelectFile = e => {
         if (e.target.files && e.target.files.length > 0) {
           const reader = new FileReader();
@@ -335,13 +351,7 @@ class SignUp_club extends React.Component {
                   
                         <div className='row justify-content-center btngroup_signup'>
                             <div className='col'>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleCreatePost}
-                                >
-                                    <CloudUploadIcon /> &nbsp; Create
-                                </Button>
+                                <Button className='btn-post' color="success" onClick={this.handleCreateClub}>Post</Button>{' '}
                             </div>
                             <div className='col signupdelete_btn'>
                                 <Button
@@ -362,7 +372,7 @@ class SignUp_club extends React.Component {
         );
        
     }
- 
+
     dataURLtoFile(dataurl, filename) {
         let arr = dataurl.split(','),
             mime = arr[0].match(/:(.*?);/)[1],
@@ -376,6 +386,7 @@ class SignUp_club extends React.Component {
         let croppedImage = new File([u8arr], filename, {type:mime});
         this.setState({croppedImage: croppedImage}) 
     }
+
     handleModalClose() {
         this.setState({modalShow: false})
     }
@@ -427,12 +438,6 @@ class SignUp_club extends React.Component {
         }
     }
 
-    handleFileChange(event) {
-        this.setState({
-          file: URL.createObjectURL(event.target.files[0])
-        })        
-    }
-
     handleDescriptionChange(e) {
         const text = e.target.value;
         this.setState({descriptionValue: text});
@@ -443,7 +448,7 @@ class SignUp_club extends React.Component {
 
 
 
-    handleCreatePost() {
+    handleCreateClub() {
         // if (!this.state.clubnameValue || this.state.clubnameValue == '') {
         //     this.setState({
         //         clubnameDanger: true,
@@ -493,9 +498,20 @@ class SignUp_club extends React.Component {
         //     return;
         // }
    
-
-        createPost(...this.state, this.props.account).then(() => {
-            // this.listPosts(this.props.searchText);
+        ReactS3Client.uploadFile(this.state.croppedImage, this.state.fileName).then(
+            data => console.log(data))
+        .catch(err => console.error(err))
+        
+        createClub(this.state.id,
+            this.props.account,
+            'nthu',
+            this.state.clubnameValue,
+            this.state.fb_urlValue,
+            this.state.ig_urlValue,
+            this.state.fileName,
+            this.state.verification_codeValue,
+            ).then(() => {
+            this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
         });
@@ -536,7 +552,7 @@ class SignUp_club extends React.Component {
 
     handleCancel() {
         this.setState({
-            id: uuid(),
+            id: '',
             clubnameValue: '',
             clubnameDanger: false,
             descriptionValue: '',

@@ -12,9 +12,11 @@ import Post from 'components/Post.jsx';
 import Pop_Post from 'components/Pop_Post.jsx';
 import './CatalogPage.css'
 import Footer_Content from 'components/Footer_Content.jsx';
+import {listPosts} from 'api/posts.js';
 
 export default class CatalogPage extends React.Component{
     static propTypes = {
+    
         topicName: PropTypes.string,
         description: PropTypes.string
     };
@@ -26,10 +28,24 @@ export default class CatalogPage extends React.Component{
             orderClick: false,
             masking: false,
             postLoading: false,
+            searchText: '',
+            category: '',
+            start:'',
+            mode: false,
+            club: '',
+            order: 'id',
+            userid: '',
+            posts: [], 
+            hasMore: true
         };
         this.handleExplore = this.handleExplore.bind(this); 
         this.handleOrder = this.handleOrder.bind(this); 
-        
+        this.listPosts = this.listPosts.bind(this);
+        this.listMorePosts = this.listMorePosts.bind(this);
+    }
+
+    componentDidMount() {
+        this.listPosts(this.state.searchText, this.state.category, this.state.mode, this.state.club, this.state.order, this.state.userid);
     }
 
     static catagory = ['All','Food','PE','Music','Association','Art','Competition'];
@@ -38,7 +54,13 @@ export default class CatalogPage extends React.Component{
     render(){
         
         const {masking, postLoading} = this.state;
-        document.querySelector('')
+        let children = (<div>There are no posts</div>);
+        if (this.state.posts.length) {
+            children = this.state.posts.map(p => (
+                <div key={p.id}><Post intro={p.title} dates={p.startdate} place={p.location} holder={p.club} imageurl={p.fileurl}/></div>
+            ))
+        }
+
         return(  
             <div>     
             <div className='catalogPage-wrapper'>
@@ -163,14 +185,12 @@ export default class CatalogPage extends React.Component{
                                 {
                                     postLoading && <Alert color='warning' className='loading'>Loading...</Alert>
                                 }
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div className='button-wrapper'><button id='showMoreBtn'> SHOW MORE</button></div>
                                 
+                                {children}
+                                {   (this.state.posts.length)?
+                                    <div className='button-wrapper'><button id='showMoreBtn' onClick={this.listMorePosts}> SHOW MORE</button></div>
+                                    : ''
+                                }
                             </div>
                         </div>
 
@@ -184,6 +204,56 @@ export default class CatalogPage extends React.Component{
             </div>
         )
     }
+
+    listPosts(searchText, category, start, mode, club, order, userid) {
+        this.setState({
+            postLoading: true,
+            masking: true,
+        }, () => {
+            listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
+                this.setState({
+                    posts, 
+                    postLoading: false
+                });
+            }).catch(err => {
+                console.error('Error listing posts', err);
+                this.setState({
+                    posts: [],
+                    postLoading: false
+                })
+            })
+        })
+
+        setTimeout(() => {
+            this.setState({
+                masking: false
+            });
+        }, 600);
+        
+    }
+
+    listMorePosts() {
+        if (this.state.posts.length < 1) {
+            return;
+        }
+        this.setState({
+            postLoading: true
+        });
+        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.posts[this.state.posts.length - 1].id)
+        .then(posts => {
+            this.setState({
+                ...this.state,
+                posts: [...this.state.posts, ...posts], 
+                hasMore: posts.length > 0
+            });
+        }).catch(err => {
+            console.error('Error listing posts', err);
+        }).then(() => this.setState({
+            postLoading: false
+        }))
+
+    }
+
     handleExplore(){
         let display = true;
         if(this.state.exploreClick) display = false;

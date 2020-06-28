@@ -2,6 +2,7 @@ import React from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import {  Form, FormGroup, Input, FormText } from 'reactstrap';
+import {HashRouter as Router ,Route, Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button'
 import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
@@ -24,7 +25,7 @@ import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
-import createPost from 'api/posts.js';
+import {createPost} from 'api/posts.js';
 import getClubPassword from 'api/posts.js';
 import ReactCrop from 'react-image-crop';
 import TextField from '@material-ui/core/TextField';
@@ -107,7 +108,9 @@ class ArticleForm extends React.Component {
 
     }
 
+
     componentDidMount() {
+        window.scrollTo(0, 0);
         this.setState({
             fileName: uuid()
         })
@@ -249,14 +252,14 @@ class ArticleForm extends React.Component {
                 </div>
                 <div className='row d-flex justify-content-center align-items-center'>
                     <form noValidate autoComplete="off">
-                        <TextField id="standard-basic" label="Title" onChange={this.handleTitleChange}/>
+                        <TextField id="standard-basic" label="Title" value={this.state.titleValue} onChange={this.handleTitleChange}/>
                     </form>
                 </div>
                 <div className='p-2 col info m-4'>
                     <div className='p-4 justify-content-center align-items-center'>
                         <div className='row align-items-center justify-content-center'>
                             <ImageIcon className='label'/>
-                            <input className='p-2' type="file" accept="image/*"  onChange={this.onSelectFile} />
+                            <input className='p-2' type="file" accept="image/*" onChange={this.onSelectFile} />
                         </div>
                         <div className='p-2 row align-items-center justify-content-center'>
                             {this.state.src && (
@@ -288,6 +291,7 @@ class ArticleForm extends React.Component {
                                         label="Start Date and Time"
                                         type="datetime-local"
                                         defaultValue=' '
+                                        value={this.state.startDateTimeValue}
                                         onChange={this.handleStartDateTimeChange}
                                         InputLabelProps={{
                                         shrink: true,
@@ -307,6 +311,7 @@ class ArticleForm extends React.Component {
                                         label="End Date and Time"
                                         type="datetime-local"
                                         defaultValue=' '
+                                        value={this.state.endDateTimeValue}
                                         onChange={this.handleEndDateTimeChange}
                                         InputLabelProps={{
                                         shrink: true,
@@ -411,26 +416,32 @@ class ArticleForm extends React.Component {
 
                     <div className="d-flex flex-wrap flex-row buttons justify-content-around">
                             <div className='p-2'>
-                                <Button
-                                    variant="contained"
-                                    color="default" 
-                                >
-                                    <SaveIcon /> &nbsp; Save for later
-                                </Button>
+                                <Link to='/Manager'  style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                                    <Button
+                                        variant="contained"
+                                        color="default" 
+                                    >
+                                        <SaveIcon /> &nbsp; Save for later
+                                    </Button>
+                                </Link>
                             </div>
                             <div className='p-2 '>
-                                <Button
-                                    variant="contained"
-                                    color="primary"
-                                    onClick={this.handleCreatePost}
-                                >
-                                    <CloudUploadIcon /> &nbsp; Post
-                                </Button>
+                                <Link to='/Manager'  style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                                    <Button
+                                        variant="contained"
+                                        color="primary"
+                                        onClick={this.handleCreatePost}
+                                    >
+                                            <CloudUploadIcon /> &nbsp; Post
+                                    </Button>
+                                </Link>
                             </div>
                             <div className='p-2'>
-                                <Button variant='contained' color="secondary" onClick={this.handleCancel}>
-                                    <DeleteIcon/> &nbsp; Cancel
-                                </Button>
+                                <Link  to='/Manager'  style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                                    <Button variant='contained' color="secondary" onClick={this.handleCancel}>
+                                            <DeleteIcon/> &nbsp; Cancel
+                                    </Button>
+                                </Link>
                             </div>
                     </div>
             </div>
@@ -479,7 +490,7 @@ class ArticleForm extends React.Component {
 
     handleStartDateTimeChange(e) {
         const dateTime = e.target.value;
-        this.setState({startDateValue: dateTime});
+        this.setState({startDateTimeValue: dateTime});
         if (dateTime) {
             this.setState({startDateTimeDanger: false});
         }
@@ -528,7 +539,6 @@ class ArticleForm extends React.Component {
     }
 
     handleCreatePost() {        
-
         // if (!this.state.titleValue || this.state.titleValue == '') {
         //     this.setState({
         //         titleDanger: true,

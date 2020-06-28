@@ -12,28 +12,26 @@ const schemaInfo=`
         email           text NOT NULL,
         picture         text,
         clubs           text
-    )
+    );
 `;
 const schemaPost=`
     DROP TABLE IF EXISTS post;
 
-    CREATE TABLE post (
-        id              serial PRIMARY KEY NOT NULL,
+    CREATE TABLE post(
+        id              text,
         title           text,
         content         text,
-        startdate       DATE DEFAULT CURRENT_DATE,
-        enddate         DATE DEFAULT CURRENT_DATE,
-        starttime       TIME,
-        endtime         TIME,
+        startdatetime   text,
+        enddatetime     text,
         ticket          text,
         location        text,
         fileurl         text,
         tags            text[],
         touch           integer,
         userid          text,
-        mode            boolean
+        mode            boolean,
         club            text
-    ) 
+    ); 
 `;
 const schemaClub=`
     DROP TABLE IF EXISTS club;
@@ -41,13 +39,13 @@ const schemaClub=`
     CREATE TABLE club(
         id              text,
         userid          text,
-        school          text NOT NULL,
+        school          text,
         clubname        text NOT NULL,
         facebook        text,
         instagram       text,
         clubpic         text,
         clubpassword    text NOT NULL
-    )
+    );
 `;
 const dataSql = `
     -- Populate dummy post
@@ -66,21 +64,62 @@ const dataSql = `
         mode,
         club)
     SELECT
-        generate_series(1, 1000),
+        i,
         'word' || i || ' word' || (i+1) || ' word' || (i+2),
         'word' || i || ' word' || (i+1) || ' word' || (i+2), 
         '2017-05-24T10:30',
         '2017-05-24T10:30',
         '0',
         'Mong Ming Wei',
-        'https://team11final.s3-us-west-1.amazonaws.com/1681ca51-9b78-4dcd-a319-1512215c2adf.jpeg?fbclid=IwAR1oVg0DWbh7Vw8nxD0-ZXNZkZs7NENoKO9Zk_VdQo81EhZPyx_wn3Otujc',
-        '['a', 'b', 'c']',
+        '1681ca51-9b78-4dcd-a319-1512215c2adf',
+        '{a, b, c}',
         0,
         'Hello Kitty', 
         true,
         'A'
 
-    FROM generate_series(1, 1000) AS s(i);
+    FROM generate_series(1, 10) AS s(i) ORDER BY RANDOM();
+    -- Populate dummy clubs
+    INSERT INTO club (
+        id,
+        userid,
+        school,
+        clubname,
+        facebook,
+        instagram,
+        clubpic,
+        clubpassword
+    )
+    SELECT
+        generate_series(1, 3),
+        'word' || i || ' word' || (i+1) || ' word' || (i+2),
+        'nthu', 
+        'word' || i,
+        'facebook' || i,
+        'instagram' || i,
+        '1681ca51-9b78-4dcd-a319-1512215c2adf',
+        '000000'
+    FROM generate_series(1, 3) AS s(i);
+    INSERT INTO club (
+        id,
+        userid,
+        school,
+        clubname,
+        facebook,
+        instagram,
+        clubpic,
+        clubpassword
+    )
+    SELECT
+        generate_series(4, 6),
+        'word' || i || ' word' || (i+1) || ' word' || (i+2),
+        'nctu', 
+        'word' || i,
+        'facebook' || i,
+        'instagram' || i,
+        '1681ca51-9b78-4dcd-a319-1512215c2adf',
+        '000000'
+    FROM generate_series(4, 6) AS s(i);
 `;
 db.none(schemaInfo).then(() => {
     console.log('info table created');

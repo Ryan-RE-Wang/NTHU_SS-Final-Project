@@ -5,7 +5,7 @@ if (!global.db) {
 
 function list(school) {
     const sql = `
-        SELECT school
+        SELECT *
         FROM club
         WHERE school = $<school>
         ORDER BY id DESC
