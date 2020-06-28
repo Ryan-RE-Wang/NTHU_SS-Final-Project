@@ -412,7 +412,6 @@ class SignUp_club extends React.Component {
         }
     }
 
-    
 
     handleFB_URLChange(e) {
         const fb_url = e.target.value;
