@@ -18,9 +18,12 @@ import { Icon } from 'react-icons-kit';
 import {facebook2} from 'react-icons-kit/icomoon/facebook2';
 import {facebook} from 'react-icons-kit/icomoon/facebook';
 import {key} from 'react-icons-kit/icomoon/key';
+import ImageIcon from '@material-ui/icons/Image';
 import {instagram} from 'react-icons-kit/icomoon/instagram';
 import {quill} from 'react-icons-kit/icomoon/quill';
 import {link} from 'react-icons-kit/icomoon/link';
+import ReactCrop from 'react-image-crop';
+import 'react-image-crop/dist/ReactCrop.css';
 
 var Preview = false;
 class SignUp_club extends React.Component {
@@ -44,6 +47,14 @@ class SignUp_club extends React.Component {
             file: null,
             fileDanger: false,
             Value: 120,
+            src: null,
+            crop: {
+                unit: '%',
+                width: 30,
+                aspect: 42 / 57,
+            },
+            croppedImageUrl: null,
+            croppedImage: null,
             unFill:'',
             modalShow: false,
             
@@ -64,9 +75,83 @@ class SignUp_club extends React.Component {
         this.handleCancel = this.handleCancel.bind(this);
 
     }
+    onSelectFile = e => {
+        if (e.target.files && e.target.files.length > 0) {
+          const reader = new FileReader();
+          reader.addEventListener('load', () =>
+            this.setState({ src: reader.result, fileDanger: false })
+          );
+          reader.readAsDataURL(e.target.files[0]);
+        }
+      };
 
+    onImageLoaded = image => {
+        this.imageRef = image;
+      };
+    
+      onCropComplete = crop => {
+        this.makeClientCrop(crop);
+      };
+    
+      onCropChange = (crop, percentCrop) => {
+        // You could also use percentCrop:
+        // this.setState({ crop: percentCrop });
+        this.setState({ crop });
+      };
+      async makeClientCrop(crop) {
+        if (this.imageRef && crop.width && crop.height) {
+          const croppedImageUrl = await this.getCroppedImg(
+            this.imageRef,
+            crop,
+            'newFile.jpeg'
+          );
+          this.setState({ croppedImageUrl });
+        }
+      }
+    
+      getCroppedImg(image, crop, fileName) {
+        const canvas = document.createElement('canvas');
+        const scaleX = image.naturalWidth / image.width;
+        const scaleY = image.naturalHeight / image.height;
+        canvas.width = crop.width;
+        canvas.height = crop.height;
+        const ctx = canvas.getContext('2d');
+    
+        ctx.drawImage(
+          image,
+          crop.x * scaleX,
+          crop.y * scaleY,
+          crop.width * scaleX,
+          crop.height * scaleY,
+          0,
+          0,
+          crop.width,
+          crop.height
+        );
+    
+        return new Promise((resolve, reject) => {
 
+            
+            const reader = new FileReader();
+            canvas.toBlob(blob => {
+                if (!blob) {
+                //reject(new Error('Canvas is empty'));
+                console.error('Canvas is empty');
+                return;
+                }
 
+                reader.readAsDataURL(blob)
+                reader.onloadend = () => {
+                    this.dataURLtoFile(reader.result, 'cropped.jpg')
+                }
+                blob.name = fileName;
+                window.URL.revokeObjectURL(this.fileUrl);
+                this.fileUrl = window.URL.createObjectURL(blob);
+                resolve(this.fileUrl);
+
+            }, 'image/jpeg');
+        });
+    }
     render() {
         
         return (
@@ -107,22 +192,33 @@ class SignUp_club extends React.Component {
                     </FormGroup>
                     <div className=''>
                         <div className=''>
-                            <FormGroup className=''>
+                        <FormGroup className='form'>
                                 <div>
-                                    <Input  type="file" name="file" id="club_img" onChange={this.handleFileChange}/>
-                                    <FormText color="muted">
-                                        Upload your club photo.
-                                    </FormText>
-                                    <AvatarEditor
-                                        image={this.state.file}
-                                        width={300}
-                                        height={300}
-                                        border={15}
-                                        color={[25,25,25, 0.8]} // RGBA
-                                        scale={this.state.Value/120}
-                                        rotate={0}
-                                        className=''
-                                    />
+                                    <div >
+                                        <ImageIcon className='label'/>
+                                        <input type="file" accept="image/*"  onChange={this.onSelectFile} />
+                                    </div>
+
+                                        <div>
+                                            {this.state.src && (
+                                                <ReactCrop
+                                                    src={this.state.src}
+                                                    crop={this.state.crop}
+                                                    ruleOfThirds
+                                                    onImageLoaded={this.onImageLoaded}
+                                                    onComplete={this.onCropComplete}
+                                                    onChange={this.onCropChange}
+                                                />
+                                            )}
+                                        </div>
+                                        <div>
+                                            {this.state.croppedImageUrl && (
+                                                <img alt="Crop" style={{ maxWidth: '100%', height: '360px' }} src={this.state.croppedImageUrl} />
+                                            )}
+                                        </div>
+
+                                    
+                                    
                                 </div>
                             </FormGroup>
                             
