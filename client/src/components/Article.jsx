@@ -12,20 +12,20 @@ import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
 import EventIcon from '@material-ui/icons/Event';
+import TextField from '@material-ui/core/TextField';
 import './Article.css';
 
 export default class Article extends React.Component {
     static propTypes = {
         title: PropTypes.string,
         content: PropTypes.string,
-        startDate: PropTypes.number,
-        endDate: PropTypes.number,
-        startTime: PropTypes.number,
-        endTime: PropTypes.number,
+        startDateTime: PropTypes.number,
+        endDateTime: PropTypes.number,
         ticket: PropTypes.string,
-        image: PropTypes.string,
+        fileurl: PropTypes.string,
         location: PropTypes.string,
-        tags: PropTypes.array
+        tags: PropTypes.array,
+        club: PropTypes.string
     }
     constructor(props) {
         super(props);
@@ -65,18 +65,20 @@ export default class Article extends React.Component {
                 gapi.client.load('calendar', 'v3', () => console.log('bam!'));
     
                 gapi.auth2.getAuthInstance().signIn().then(() => {
-                    console.log('Hello')
                     var event = {
-                        'summary': 'Google I/O 2015',
-                        'location': '800 Howard St., San Francisco, CA 94103',
-                        'description': 'A chance to hear more about Google\'s developer products.',
+                        'summary': 'Desserts Festival',
+                        // this.props.title,
+                        'location': 'Mong Ning Wei',
+                        // this.props.location,
                         'start': {
-                        'dateTime': '2015-05-28T09:00:00-07:00',
-                        'timeZone': 'America/Los_Angeles'
+                        'dateTime': '2017-05-24T10:30',
+                        // this.props.startDateTime + '-07:00',
+                        'timeZone': 'Taipei/Taiwan'
                         },
                         'end': {
-                        'dateTime': '2015-05-28T17:00:00-07:00',
-                        'timeZone': 'America/Los_Angeles'
+                        'dateTime': '2017-05-24T10:30',
+                        // this.props.endDateTime + '-07:00',
+                        'timeZone': 'Taipei/Taiwan'
                         }
                     };
                         
@@ -87,7 +89,6 @@ export default class Article extends React.Component {
                     
                     request.execute(event => {
                         window.open(event.htmlLink)
-                        console.log(event.data.htmlLink)
                     });
                         
                 });
@@ -96,23 +97,26 @@ export default class Article extends React.Component {
             
         }
         
+        const imageSrc = 'https://team11final.s3-us-west-1.amazonaws.com/1681ca51-9b78-4dcd-a319-1512215c2adf.jpeg?fbclid=IwAR1oVg0DWbh7Vw8nxD0-ZXNZkZs7NENoKO9Zk_VdQo81EhZPyx_wn3Otujc';
         return (
             <Container className='article'>
                 
                 <div className='d-flex row content justify-content-center align-items-center'>
                     <div className='col-4 poster'>
-                        <img className='img-fluid' src="images/烤魷魚.jpg" alt="grilled squid" width="240rem" margin="0 auto"/>
+                        <img className='img-fluid' src= {imageSrc} width="240rem" margin="0 auto"/>
                     </div>
                     <div className='col-6 info align-items-center justify-content-center'>
                         <div className='p-2 title' fontWeight='bold'>
-                                This is an article
+                                Dessert Festival
+                                {/* {this.props.title} */}
                         </div>
                         <div className='p-2 row location align-items-center justify-content-center' >
                            <div className='p-2' >
                                 <PlaceIcon/> Location
                             </div>
                             <div>
-                                 &nbsp; 蒙民偉樓
+                                 &nbsp; Mong Ming Wei
+                                 {/* {this.props.location} */}
                             </div> 
                         </div>
                         
@@ -127,10 +131,36 @@ export default class Article extends React.Component {
                         </div>
                         <div className='datetime col-3'>
                             <div className='p-1 ' >
-                                Start 2020/06/22 17:00
+                            <form noValidate>
+                                <TextField
+                                    id="datetime-local"
+                                    label="Start Date and Time"
+                                    type="datetime-local"
+                                    defaultValue='2017-05-24T10:30'
+                                    InputLabelProps={{
+                                    shrink: true,
+                                    }}
+                                    InputProps={{
+                                        readOnly: true,
+                                      }}
+                                />
+                            </form>
                             </div>
                             <div className='p-1 '>
-                                End 2020/06/22 17:00
+                                <form noValidate>
+                                <TextField
+                                    id="datetime-local"
+                                    label="End Date and Time"
+                                    type="datetime-local"
+                                    defaultValue='2017-05-24T10:30'
+                                    InputLabelProps={{
+                                    shrink: true,
+                                    }}
+                                    InputProps={{
+                                        readOnly: true,
+                                      }}
+                                />
+                            </form>
                             </div>
                         </div>
                         <div className='p-1 col-3'>
@@ -139,6 +169,7 @@ export default class Article extends React.Component {
                         <div className='d-flex row justify-content-center align-items-center '>
                             <div className='p-2'> 
                                 <PaymentIcon/> Ticket &nbsp; $0
+                                {/* {this.props.ticket} */}
                             </div> 
                         </div>
                 </div>
@@ -157,7 +188,9 @@ export default class Article extends React.Component {
                             corgithedog@gmail.com
                         </div>
                     </div>
-                    <div className='col-8 paragraph'> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,
+                    <div className='col-8 paragraph'> 
+                        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                        {/* {this.props.content} */}
                     </div>                    
                 </div>
                 <div className='tags d-flex row justify-content-center'>
@@ -179,19 +212,3 @@ export default class Article extends React.Component {
     
     
 }
-// const useStyles = makeStyles({
-//   root: {
-//     background: 'linear-gradient(45deg, #f7a73e 30%, #f75a3e 90%)',
-//     border: 0,
-//     borderRadius: 3,
-//     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-//     color: 'white',
-//     height: 48,
-//     padding: '0 30px',
-//   },
-// });
-
-// function Hook() {
-//   const classes = useStyles();
-//   return <Button className={classes.root}>Save to Calendar</Button>;
-// }
