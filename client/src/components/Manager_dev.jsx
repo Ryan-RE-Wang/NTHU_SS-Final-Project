@@ -21,12 +21,12 @@ export default class Manager_dev extends React.Component {
         super(props);
         this.state={
             nowpage:'1',
-            sidebarOpen:false
+            
         }
 
         this.list_Selected = this.list_Selected.bind(this);
         this.render_Selected = this.render_Selected.bind(this);
-        this.toggleSidebar = this.toggleSidebar.bind(this);
+     
     }
     
     
@@ -37,8 +37,8 @@ export default class Manager_dev extends React.Component {
         return (
 
             <div className="body_M row">
-                <Navbar className="navbar_M col-12" toggle={this.toggleSidebar} select={this.list_Selected}/>
-                <Sidebar className="sidebar_M" toggle={this.toggleSidebar} select={this.list_Selected}/>
+                <Navbar className="navbar_M col-12" select={this.list_Selected}/>
+                <Sidebar  select={this.list_Selected}/>
                 <div className="content_M">
                     {content}
                 </div>
@@ -46,11 +46,7 @@ export default class Manager_dev extends React.Component {
         
         )
     }
-    toggleSidebar() {
-        this.setState({
-            sidebarOpen: ~this.state.sidebarOpen
-        })
-    }
+  
     list_Selected(page) {
         if(page == '1'||page== '2'||page=='3'||page=='4'||page=='5')
             this.setState({nowpage: page});

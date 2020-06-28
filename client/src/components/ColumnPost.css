@@ -1,0 +1,60 @@
+.columnPost .learnmore-btn{
+    font-size: 1.2rem;
+    color: white;
+    background-color: pink;
+    border-radius: 0.5rem;
+    border:none;
+    padding: 1rem 0.8rem;
+}
+.columnPost .discription{
+    padding-top:2rem;
+    display: inline-block;
+    padding-bottom: 2rem;;
+}
+.columnPost .columPost-img{
+    display: inline-block;
+}
+.columnPost img{
+    height:19rem;
+
+    /* height:auto;
+    width:auto; */
+}
+.columnPost{
+    display: flex;
+    flex-wrap: nowrap;
+}
+.addleftmargin{
+    margin-left:2rem;
+}
+.addrightmargin{
+    margin-right:2rem;
+
+}
+
+@media (max-width:500px){
+    .columnPost{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .order-reverse{
+        flex-wrap: wrap-reverse;
+    }
+    .columnPost .columPost-img{
+        justify-items:center;
+    }
+    .columnPost img{
+        height:14rem;
+        margin-left:auto;
+        margin-right:auto;
+        border: 1px solid black;
+        
+    }
+    .column-title {
+        font-size:4rem!important;
+    }
+    .addrightmargin{
+        margin-right:0rem;
+        margin-left:2rem;
+    }
+}

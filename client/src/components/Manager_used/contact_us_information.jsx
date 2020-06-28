@@ -10,8 +10,7 @@ export default class Contact_Us_information extends React.Component {
 
     render() {
         return (
-            <div className="CONTACT_us">
-                    <Row className='d-flex justify-content-center'>
+            // <div className="CONTACT_us">
                             <div className="CS_box">
                                 <div className="background-img">
                                 <div className="box">
@@ -27,8 +26,7 @@ export default class Contact_Us_information extends React.Component {
                                 </div>
                                 </div>
                             </div>
-                    </Row>
-            </div>
+            // </div>
         )
     }
 }
