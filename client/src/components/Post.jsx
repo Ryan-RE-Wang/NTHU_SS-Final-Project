@@ -20,7 +20,6 @@ class Post extends React.Component{
         // intro: PropTypes.string,
         // dates: PropTypes.bool,
         // place: propTypes.string,
-        masking: PropTypes.bool,
         intro: PropTypes.string,
         dates: PropTypes.string,
         place: PropTypes.string,
@@ -36,16 +35,29 @@ class Post extends React.Component{
 
     }
     render(){
-        const {masking} = this.props;
+
         return(       
-            <div className={`AD-Post  ${masking ? 'masking' : ''}`}>
+            <div className={`AD-Post`}>
                     <Row>
                     <div className='col-3 post-left'>
                         <img src={baseUrl + this.props.p.fileurl + lasturl} className='img-fluid'/>
                     </div>
                     <div className='col-9 post-right'>
                         <span className='post-title'>{this.props.p.title}</span><br/>
-                        <span className='post-body'>{this.props.p.startdatetime}</span><br/>
+                        <span className='post-body'>
+                            <TextField
+                                    id="datetime-local"
+                                    label="Start Date and Time"
+                                    type="datetime-local"
+                                    defaultValue={this.props.p.startdatetime}
+                                    InputLabelProps={{
+                                    shrink: true,
+                                    }}
+                                    InputProps={{
+                                        readOnly: true,
+                                      }}
+                                />    
+                        </span><br/>
                         <span className='post-body'>{this.props.p.location}</span><br/>
                         <span className='post-body'>{this.props.p.club}</span><br/>
                         <Link to="/article" className="">
