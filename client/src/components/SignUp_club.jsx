@@ -165,6 +165,7 @@ class SignUp_club extends React.Component {
     render() {
         
         return (
+            <div className="signupclub_body">
             <div className= 'signuplcub'>
                
                 <div>
@@ -182,10 +183,11 @@ class SignUp_club extends React.Component {
                 </div>
             
                 <Form>
+                    <div className="signuph1_title">Create Club</div>
                     <FormGroup className=''>
                         <div className=''>
-                                <div className=''>
-                                <Label  for="clubname"  ><div className="signupclub_title">Club Name</div></Label>
+                                <div className='signupclub_title'>
+                                <Label  for="clubname"  ><div className="">Club Name</div></Label>
                                 </div>
                                 
                                 <div className=''>
@@ -330,26 +332,18 @@ class SignUp_club extends React.Component {
                         </FormGroup>
                     </div>
 
-                    <div className="buttons" className={`d-flex justify-content-around`}>
-                        <div className='row d-flex'>
-                            <div className='p-2'>
-                                <Button
-                                    variant="contained"
-                                    color="default" 
-                                >
-                                    <SaveIcon /> &nbsp; Save for later
-                                </Button>
-                            </div>
-                            <div className='p-2'>
+                  
+                        <div className='row justify-content-center btngroup_signup'>
+                            <div className='col'>
                                 <Button
                                     variant="contained"
                                     color="primary"
                                     onClick={this.handleCreatePost}
                                 >
-                                    <CloudUploadIcon /> &nbsp; Post
+                                    <CloudUploadIcon /> &nbsp; Create
                                 </Button>
                             </div>
-                            <div className='p-2'>
+                            <div className='col signupdelete_btn'>
                                 <Button
                                     variant="contained"
                                     color="secondary"
@@ -359,9 +353,10 @@ class SignUp_club extends React.Component {
                                 </Button>
                             </div>
                         </div>
-                    </div>
+                 
                 </Form>
             </div>
+        </div>
 
         
         );
@@ -499,9 +494,6 @@ class SignUp_club extends React.Component {
         // }
    
 
-        ReactS3Client.uploadFile(this.state.croppedImage, this.state.fileName).then(
-            data => console.log(data))
-        .catch(err => console.error(err))
         createPost(...this.state, this.props.account).then(() => {
             // this.listPosts(this.props.searchText);
         }).catch(err => {
