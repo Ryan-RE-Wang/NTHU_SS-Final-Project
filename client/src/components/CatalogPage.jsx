@@ -16,7 +16,6 @@ import {listPosts} from 'api/posts.js';
 
 export default class CatalogPage extends React.Component{
     static propTypes = {
-    
         topicName: PropTypes.string,
         description: PropTypes.string
     };
@@ -26,7 +25,6 @@ export default class CatalogPage extends React.Component{
         this.state = {
             exploreClick: false,
             orderClick: false,
-            masking: false,
             postLoading: false,
             searchText: '',
             category: '',
@@ -170,7 +168,7 @@ export default class CatalogPage extends React.Component{
                                 </div>
                                 </div>
                         </div>
-                        <div className=' col-12 col-lg-9 posts-table'>
+                        <div className=' col-12 col-lg-9 posts-table '>
                             <div className='posts-table-heading'> Popular Activities</div>
                             <div className=''>
                                 {/* <Carousel interval='5000' controls={true}>
@@ -179,13 +177,9 @@ export default class CatalogPage extends React.Component{
                                 </Carousel> */}
                                 
                             </div>
-                            <div className='posts-table-heading'> ALL</div>
-                            {/* <div className='d-flex row justify-content-center'> */}
+                            <div className= 'posts-table-heading'> ALL</div>
+                                {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                             <div>
-                                {
-                                    postLoading && <Alert color='warning' className='loading'>Loading...</Alert>
-                                }
-                                
                                 {children}
                                 {   (this.state.posts.length)?
                                     <div className='button-wrapper'><button id='showMoreBtn' onClick={this.listMorePosts}> SHOW MORE</button></div>
@@ -208,7 +202,6 @@ export default class CatalogPage extends React.Component{
     listPosts(searchText, category, start, mode, club, order, userid) {
         this.setState({
             postLoading: true,
-            masking: true,
         }, () => {
             listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
                 this.setState({
@@ -223,12 +216,6 @@ export default class CatalogPage extends React.Component{
                 })
             })
         })
-
-        setTimeout(() => {
-            this.setState({
-                masking: false
-            });
-        }, 600);
         
     }
 

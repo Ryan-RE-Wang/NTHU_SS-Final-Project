@@ -20,7 +20,6 @@ class Post extends React.Component{
         // intro: PropTypes.string,
         // dates: PropTypes.bool,
         // place: propTypes.string,
-        masking: PropTypes.bool,
         intro: PropTypes.string,
         dates: PropTypes.string,
         place: PropTypes.string,
@@ -36,9 +35,9 @@ class Post extends React.Component{
 
     }
     render(){
-        const {masking} = this.props;
+
         return(       
-            <div className={`AD-Post  ${masking ? 'masking' : ''}`}>
+            <div className={`AD-Post`}>
                     <Row>
                     <div className='col-3 post-left'>
                         <img src={baseUrl + this.props.p.fileurl + lasturl} className='img-fluid'/>

@@ -21,18 +21,24 @@ import PaymentIcon from '@material-ui/icons/Payment';
 import EventIcon from '@material-ui/icons/Event';
 import LinesEllipsis from 'react-lines-ellipsis';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html'
+import {getPage} from 'states/clickPage-action.js';
 
 import './SearchPost.css'
+
+const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
+const lasturl = '.jpeg';
 
 export default class SearchPost extends React.Component {
     static propTypes = {
         // intro: PropTypes.string,
         // dates: PropTypes.bool,
-        // place: propTypes.string
+        // place: propTypes.string,
+        p: PropTypes.object
     };
 
     constructor(props){
         super(props);
+        this.handleClick = this.handleClick.bind(this);
     }
     
     render() {
@@ -41,12 +47,12 @@ export default class SearchPost extends React.Component {
             <Container className='container'>
                 <div className='search-post d-flex row'> 
                     <div className='poster col'>
-                        <img src='./images/烤魷魚.jpg' className='img-fluid'/>
+                        <img src={baseUrl + this.props.p.fileurl + lasturl} className='img-fluid'/>
                     </div>
                     <div className='col'>
                         <div className='content d-flex row justify-content-start align-items-center'>
                         <div className='p-2 title'>
-                            Welcome
+                            {this.props.p.title}
                         </div>
                         <div className='p-2'>
                             <div className='d-flex row justify-content-start align-items-center'>
@@ -54,23 +60,26 @@ export default class SearchPost extends React.Component {
                                     <EventIcon/>
                                 </div> 
                                 <div className='p-2'>  
-                                    Date &nbsp; 2020/06/22
+                                    <TextField
+                                        id="datetime-local"
+                                        label="Start Date and Time"
+                                        type="datetime-local"
+                                        defaultValue={this.props.p.startdatetime}
+                                        InputLabelProps={{
+                                        shrink: true,
+                                        }}
+                                        InputProps={{
+                                            readOnly: true,
+                                        }}
+                                    /> 
                                 </div> 
-                            </div>
-                            <div className= 'd-flex row justify-content-start align-items-center'>
-                                <div className='p-2' > 
-                                    <AccessTimeIcon/>
-                                </div> 
-                                <div className='p-2' > 
-                                    Time &nbsp; 17:00
-                                </div>
                             </div>
                             <div className='d-flex row justify-content-start align-items-center'>
                                 <div className='p-2'> 
                                     <PlaceIcon/>
                                 </div> 
                                 <div className='p-2'> 
-                                    Location &nbsp; 蒙民偉樓
+                                    {this.props.p.location}
                                 </div>
                             </div>
 
@@ -82,7 +91,7 @@ export default class SearchPost extends React.Component {
                                     />
                             </div>
                             <div className='link'> 
-                                <Link to="/article" className="btn btn-secondary">
+                                <Link to="/article" className="btn btn-secondary" onClick={this.handleClick}>
                                     More Info
                                 </Link>
                             </div>
@@ -94,5 +103,9 @@ export default class SearchPost extends React.Component {
                 </div>
             </Container>
         )
+    }
+
+    handleClick() {
+        this.props.dispatch(getPage(this.props.p));  
     }
 }
