@@ -60,7 +60,12 @@ export default class Manager_dev extends React.Component {
     render_Selected(page) {
         if(page == '1'){
             return (
-                <div className="Manager_home"> <Home/> </div>
+            <div>
+                <div className="M_club_information_title">Club information</div>
+                <div className="Manager_home"> 
+                    <Home/> 
+                </div>
+            </div>
             )
         }else if(page == '2'){
             return (
@@ -68,7 +73,15 @@ export default class Manager_dev extends React.Component {
             )
         }else if(page == '3'){
             return (
-                 <Contact_Us_information/>
+                <div>
+                    <div>
+                        <div className="M_club_information_title">our team 11</div>
+                    </div>
+                    <div className="M_contact_us_body">
+                        <Contact_Us_information/>
+                    </div>
+                </div>
+              
                 // <Userside_manager/>  
                 // <ArticleForm/>
                         
