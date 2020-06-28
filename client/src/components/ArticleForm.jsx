@@ -288,7 +288,6 @@ class ArticleForm extends React.Component {
                                         label="Start Date and Time"
                                         type="datetime-local"
                                         defaultValue=' '
-                                        value={this.state.startDateTimeValue}
                                         onChange={this.handleStartDateTimeChange}
                                         InputLabelProps={{
                                         shrink: true,
@@ -308,7 +307,6 @@ class ArticleForm extends React.Component {
                                         label="End Date and Time"
                                         type="datetime-local"
                                         defaultValue=' '
-                                        value={this.state.endDateTimeValue}
                                         onChange={this.handleEndDateTimeChange}
                                         InputLabelProps={{
                                         shrink: true,
@@ -475,14 +473,12 @@ class ArticleForm extends React.Component {
         const text = e.target.value;
         this.setState({titleValue: text});
         if (text) {
-            console.log(text)
             this.setState({titleDanger: false});
         }
     }
 
     handleStartDateTimeChange(e) {
         const dateTime = e.target.value;
-        console.log(date)
         this.setState({startDateValue: dateTime});
         if (dateTime) {
             this.setState({startDateTimeDanger: false});

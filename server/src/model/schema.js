@@ -17,7 +17,7 @@ const schemaInfo=`
 const schemaPost=`
     DROP TABLE IF EXISTS post;
 
-    CREATE TABLE post(
+    CREATE TABLE post (
         id              serial PRIMARY KEY NOT NULL,
         title           text,
         content         text,
@@ -39,15 +39,48 @@ const schemaClub=`
     DROP TABLE IF EXISTS club;
 
     CREATE TABLE club(
-        id              serial PRIMARY KEY NOT NULL,
-        userid          serial PRIMARY KEY NOT NULL,
+        id              text,
+        userid          text,
         school          text NOT NULL,
         clubname        text NOT NULL,
         facebook        text,
         instagram       text,
         clubpic         text,
-        clubpassword    text NOT NULL,
+        clubpassword    text NOT NULL
     )
+`;
+const dataSql = `
+    -- Populate dummy post
+    INSERT INTO post (
+        id,
+        title,
+        content,
+        startdatetime,
+        enddatetime,
+        ticket,
+        location,
+        fileurl,
+        tags,
+        touch,
+        userid,
+        mode,
+        club)
+    SELECT
+        generate_series(1, 1000),
+        'word' || i || ' word' || (i+1) || ' word' || (i+2),
+        'word' || i || ' word' || (i+1) || ' word' || (i+2), 
+        '2017-05-24T10:30',
+        '2017-05-24T10:30',
+        '0',
+        'Mong Ming Wei',
+        'https://team11final.s3-us-west-1.amazonaws.com/1681ca51-9b78-4dcd-a319-1512215c2adf.jpeg?fbclid=IwAR1oVg0DWbh7Vw8nxD0-ZXNZkZs7NENoKO9Zk_VdQo81EhZPyx_wn3Otujc',
+        '['a', 'b', 'c']',
+        0,
+        'Hello Kitty', 
+        true,
+        'A'
+
+    FROM generate_series(1, 1000) AS s(i);
 `;
 db.none(schemaInfo).then(() => {
     console.log('info table created');

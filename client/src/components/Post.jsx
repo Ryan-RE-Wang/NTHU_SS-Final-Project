@@ -12,7 +12,8 @@ export default class Post extends React.Component{
     static propTypes = {
         // intro: PropTypes.string,
         // dates: PropTypes.bool,
-        // place: propTypes.string
+        // place: propTypes.string,
+        masking: PropTypes.bool
     };
 
     constructor(props){
@@ -20,8 +21,9 @@ export default class Post extends React.Component{
 
     }
     render(){
+        const {masking} = this.props;
         return(       
-            <div className='AD-Post'>
+            <div className={`AD-Post  ${masking ? 'masking' : ''}`}>
                     <Row>
                     <div className='col-3 post-left'>
                         <img src='./images/mac-d.png' className='img-fluid'/>

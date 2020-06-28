@@ -17,7 +17,7 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
-import createPost from 'api/posts.js';
+import {createClub} from 'api/club.js';
 import { Icon } from 'react-icons-kit';
 import {facebook2} from 'react-icons-kit/icomoon/facebook2';
 import {facebook} from 'react-icons-kit/icomoon/facebook';
@@ -55,8 +55,8 @@ class SignUp_club extends React.Component {
             src: null,
             crop: {
                 unit: '%',
-                width: 30,
-                aspect: 42 / 57,
+                width: 300,
+                aspect: 1 / 1,
             },
             croppedImageUrl: null,
             croppedImage: null,

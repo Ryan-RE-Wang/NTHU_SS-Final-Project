@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,UncontrolledDropdown } from 'reactstrap';
-
+import {Alert} from 'reactstrap';
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import Carousel from 'react-bootstrap/Carousel'
 import CheckIcon from '@material-ui/icons/Check';
@@ -24,7 +24,8 @@ export default class CatalogPage extends React.Component{
         this.state = {
             exploreClick: false,
             orderClick: false,
-            
+            masking: false,
+            postLoading: false,
         };
         this.handleExplore = this.handleExplore.bind(this); 
         this.handleOrder = this.handleOrder.bind(this); 
@@ -36,7 +37,8 @@ export default class CatalogPage extends React.Component{
 
     render(){
         
-
+        const {masking, postLoading} = this.state;
+        document.querySelector('')
         return(  
             <div>     
             <div className='catalogPage-wrapper'>
@@ -158,6 +160,9 @@ export default class CatalogPage extends React.Component{
                             <div className='posts-table-heading'> ALL</div>
                             {/* <div className='d-flex row justify-content-center'> */}
                             <div>
+                                {
+                                    postLoading && <Alert color='warning' className='loading'>Loading...</Alert>
+                                }
                                 <div ><Post/></div>
                                 <div ><Post/></div>
                                 <div ><Post/></div>
