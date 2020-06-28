@@ -12,6 +12,7 @@ import BlockIcon from '@material-ui/icons/Block';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SaveIcon from '@material-ui/icons/Save';
+import AssignmentIcon from '@material-ui/icons/Assignment';
 import TagsInput from 'react-tagsinput'
 import ImageIcon from '@material-ui/icons/Image';
 import Slider, { createSliderWithTooltip } from 'rc-slider'; 
@@ -26,6 +27,9 @@ import Modal from 'react-bootstrap/Modal';
 import {createPost} from 'api/posts.js';
 import getClubPassword from 'api/posts.js';
 import ReactCrop from 'react-image-crop';
+import TextField from '@material-ui/core/TextField';
+import InputAdornment from '@material-ui/core/InputAdornment';
+  
 import 'react-image-crop/dist/ReactCrop.css';
  
 import S3 from 'react-aws-s3';
@@ -51,14 +55,10 @@ class ArticleForm extends React.Component {
             titleDanger: false,
             contentValue: '',
             contentDanger: false,
-            startDateValue: '',
-            startDateDanger: false,
-            endDateValue: '',
-            endDateDanger: false,
-            startTimeValue: '',
-            startTimeDanger: false,
-            endTimeValue: '',
-            endTimeDanger: false,
+            startDateTimeValue: '',
+            startDateTimeDanger: false,
+            endDateTimeValue: '',
+            endDateTimeDanger: false,
             ticketValue: '', 
             ticketDanger: false,
             locationValue: '',
@@ -88,10 +88,8 @@ class ArticleForm extends React.Component {
 
         this.handleTitleChange = this.handleTitleChange.bind(this);
         this.handleContentChange = this.handleContentChange.bind(this);
-        this.handleStartDateChange = this.handleStartDateChange.bind(this);
-        this.handleEndDateChange = this.handleEndDateChange.bind(this);
-        this.handleStartTimeChange = this.handleStartTimeChange.bind(this);
-        this.handleEndTimeChange = this.handleEndTimeChange.bind(this);
+        this.handleStartDateTimeChange = this.handleStartDateTimeChange.bind(this);
+        this.handleEndDateTimeChange = this.handleEndDateTimeChange.bind(this);
         this.handleSliderChange = this.handleSliderChange.bind(this);
         this.handleTicketChange = this.handleTicketChange.bind(this);
         this.handleLocationChange = this.handleLocationChange.bind(this);
@@ -105,6 +103,7 @@ class ArticleForm extends React.Component {
         this.handleCreatePost = this.handleCreatePost.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.handleTagChange = this.handleTagChange.bind(this);
+        this.handel
 
     }
 
@@ -207,7 +206,7 @@ class ArticleForm extends React.Component {
                     clubVerificationModalShow: true,
                     clubVerified: (this.state.club !== clubList)? false: this.state.clubVerified,
                     verifiedInput: (this.state.club !== clubList)? false: this.state.verifiedInput})}>
-                 {clubList}
+                {clubList}
             </DropdownItem>
         )
         return (
@@ -248,208 +247,159 @@ class ArticleForm extends React.Component {
                         </Modal.Footer>
                     </Modal>
                 </div>
-                <Form>
-                    <FormGroup className='form'>
-                        <div className='row d-flex justify-content-center align-items-center'>
-                                <div className='cl label'>
-                                    Title
-                                </div>
-                                
-                                <div className='col '>
-                                <Input 
-                                    type="text" 
-                                    name="text" 
-                                    id="title" 
-                                    value={this.state.titleValue}
-                                    onChange={this.handleTitleChange} />
-                                </div>                
+                <div className='row d-flex justify-content-center align-items-center'>
+                    <form noValidate autoComplete="off">
+                        <TextField id="standard-basic" label="Title" onChange={this.handleTitleChange}/>
+                    </form>
+                </div>
+                <div className='p-2 col info m-4'>
+                    <div className='p-4 justify-content-center align-items-center'>
+                        <div className='row align-items-center justify-content-center'>
+                            <ImageIcon className='label'/>
+                            <input className='p-2' type="file" accept="image/*"  onChange={this.onSelectFile} />
                         </div>
-                    </FormGroup>
-                    <div className='p-2 col info m-4'>
-                        <div className='p-4 d-flex flex-col justify-content-center align-items-center'>
-                            <FormGroup className='form'>
-                                <div>
-                                    <div >
-                                        <ImageIcon className='label'/>
-                                        <input type="file" accept="image/*"  onChange={this.onSelectFile} />
-                                    </div>
-
-                                        <div>
-                                            {this.state.src && (
-                                                <ReactCrop
-                                                    src={this.state.src}
-                                                    crop={this.state.crop}
-                                                    ruleOfThirds
-                                                    onImageLoaded={this.onImageLoaded}
-                                                    onComplete={this.onCropComplete}
-                                                    onChange={this.onCropChange}
-                                                />
-                                            )}
-                                        </div>
-                                        <div>
-                                            {this.state.croppedImageUrl && (
-                                                <img alt="Crop" style={{ maxWidth: '100%', height: '360px' }} src={this.state.croppedImageUrl} />
-                                            )}
-                                        </div>
-
-                                    
-                                    
-                                </div>
-                            </FormGroup>
+                        <div className='p-2 row align-items-center justify-content-center'>
+                            {this.state.src && (
+                                <ReactCrop
+                                    src={this.state.src}
+                                    crop={this.state.crop}
+                                    ruleOfThirds
+                                    onImageLoaded={this.onImageLoaded}
+                                    onComplete={this.onCropComplete}
+                                    onChange={this.onCropChange}
+                                />
+                            )}
                         </div>
-                        <div className=' col p-4'>
-
-                                <div className='row'>
-                                    <div className='col-2 label'> 
-                                        <EventIcon/>
-                                        Start
-                                    </div>
-                                    <div className='col-5 p-2'>
-                                        <FormGroup> 
-                                            <Input
-                                                type="date"
-                                                name="date"
-                                                id="startDate"
-                                                value={this.state.startDateValue}
-                                                placeholder="date placeholder" 
-                                                onChange={this.handleStartDateChange} /> 
-                                        </FormGroup>
-                                    </div>
-                                    <div className='col-4 p-2'>
-                                        <FormGroup> 
-                                            <Input
-                                                type="time"
-                                                name="time"
-                                                id="startTime"
-                                                value={this.state.startTimeValue}
-                                                placeholder="time placeholder"
-                                                onChange={this.handleStartTimeChange} />  
-                                        </FormGroup>
-                                        
-                                    </div>
-                                </div>
-                                <div className='row'>
-                                    <div  className='col-2 label'> 
-                                        <EventIcon/>
-                                        End
-                                    </div>
-                                    <div className='col-5 p-2'> 
-                                        <FormGroup> 
-                                            <Input
-                                                type="date"
-                                                name="date"
-                                                id="endDate"
-                                                value={this.state.endDateValue}
-                                                placeholder="date placeholder" 
-                                                onChange={this.handleEndDateChange} /> 
-                                        </FormGroup>
-                                    </div>
-                                    <div className='col-4 p-2'>
-                                        <FormGroup> 
-                                            <Input
-                                                type="time"
-                                                name="time"
-                                                id="endTime"
-                                                value={this.state.endTimeValue}
-                                                placeholder="time placeholder"
-                                                onChange={this.handleEndTimeChange} />  
-                                        </FormGroup>
-                                    </div>
-                                </div>
-                                <div className='row '>    
-                                    <div className='col-2 label align-items-center'>
-                                        <PlaceIcon/>
-                                        Lacation
-                                    </div> 
-                                    <div className='col-5 p-2'>
-                                        <FormGroup> 
-                                            <Input 
-                                                type="text" 
-                                                name="text" 
-                                                id="location" 
-                                                value={this.state.locationValue}
-                                                onChange={this.handleLocationChange} />       
-                                        </FormGroup>
-                                    </div>                                    
-                                    <div className='col-4 p-2'>
-                                    
-                                    </div>
-                                </div>    
-                                <div className='row'>
-                                    <div className='col-2 label'>
-                                        <PaymentIcon/>
-                                        Ticket
-                                    </div>
-                                    <div className='col-5 p-2'>
-                                        <FormGroup> 
-                                          <Input 
-                                            type="text" 
-                                            name="text" 
-                                            id="ticket" 
-                                            value={this.state.ticketValue}
-                                            onChange={this.handleTicketChange} />  
-                                        </FormGroup>
-                                    </div>
-                                    <div className='col-4 p-2'></div>
-                                </div>
-                            <div className=" row dropdown">
-                                <div className='col-2 label'>
-                                    <GroupIcon/>
-                                    Club
-                                </div> 
-                                <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
-                                        <DropdownToggle>
-                                            {(this.state.clubVerified)? this.state.club : 'select your club'}
-                                        </DropdownToggle>
-                                    <DropdownMenu
-                                        modifiers={{
+                        <div className='p-2 row align-items-center justify-content-center'>
+                            {this.state.croppedImageUrl && (
+                                <img alt="Crop" style={{ maxWidth: '100%', height: '360px' }} src={this.state.croppedImageUrl} />
+                            )}
+                        </div>
+                    </div>
+                    <div className=' col p-4'>
+                        <div className='row justify-content-center align-items-center'>
+                            <div className='p-2 label'> 
+                                <EventIcon/> 
+                            </div>
+                            <div className=' p-2'>
+                                <form  noValidate>
+                                    <TextField
+                                        id="datetime-local"
+                                        label="Start Date and Time"
+                                        type="datetime-local"
+                                        defaultValue=' '
+                                        value={this.state.startDateTimeValue}
+                                        onChange={this.handleStartDateTimeChange}
+                                        InputLabelProps={{
+                                        shrink: true,
+                                        }}
+                                    />
+                                </form>
+                            </div>
+                        </div>
+                        <div className='row justify-content-center align-items-center'>
+                            <div  className='p-2 label'> 
+                                <EventIcon/> 
+                            </div>
+                            <div className='p-2'> 
+                                 <form  noValidate>
+                                    <TextField
+                                        id="datetime-local"
+                                        label="End Date and Time"
+                                        type="datetime-local"
+                                        defaultValue=' '
+                                        value={this.state.endDateTimeValue}
+                                        onChange={this.handleEndDateTimeChange}
+                                        InputLabelProps={{
+                                        shrink: true,
+                                        }}
+                                    />
+                                </form>
+                            </div>
+                        </div>
+                        <div className='row justify-content-center align-items-center'>    
+                            <div className='p-2 label '>
+                                <PlaceIcon/>
+                            </div> 
+                            <div className='p-2'>
+                                <form noValidate autoComplete="off">
+                                    <TextField 
+                                        id="standard-basic" 
+                                        label="Location" 
+                                        value={this.state.locationValue}
+                                        onChange={this.handleLocationChange}
+                                        />
+                                </form>
+                            </div>                                    
+                        </div> 
+                        <div className='row justify-content-center align-items-center'>
+                            <div className='p-2 label'>
+                                <PaymentIcon/>
+                            </div>
+                            <div className=' p-2'>
+                                <form noValidate autoComplete="off">
+                                    <TextField 
+                                        id="standard-basic" 
+                                        label="Ticket" 
+                                        value={this.state.ticketValue}
+                                        onChange={this.handleTicketChange}
+                                        />
+                                </form>
+                            </div>
+                        </div>
+                        <div className=" p-2 row dropdown justify-content-center align-items-center">
+                            <div className='p-2 label'>
+                                <GroupIcon/>
+                            </div> 
+                            <Dropdown className='p-2' isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
+                                <DropdownToggle>
+                                    {(this.state.clubVerified)? this.state.club : 'select your club'}
+                                </DropdownToggle>
+                                <DropdownMenu
+                                    modifiers={{
                                         setMaxHeight: {
                                             enabled: true,
                                             order: 890,
                                             fn: (data) => {
-                                            return {
-                                                ...data,
-                                                styles: {
-                                                ...data.styles,
-                                                overflow: 'auto',
-                                                maxHeight: '100px',
-                                                },
-                                            };
+                                                return {
+                                                    ...data,
+                                                    styles: {
+                                                        ...data.styles,
+                                                        overflow: 'auto',
+                                                        maxHeight: '100px',
+                                                    },
+                                                };
                                             },
                                         },
-                                        }}
-                                    >
-                                        {clubListItems}
-                                    </DropdownMenu>
-                                </Dropdown>
-                                <div className='col-4 p-2'></div>
-                            </div>
+                                    }}
+                                >
+                                    {clubListItems}
+                                </DropdownMenu>
+                            </Dropdown>
                         </div>
                     </div>
-                        
-                    <div id='blankSpace'></div>
-
-                    <div className='m-8 p-2'>
-                        <FormGroup className='form'>
-                            <div className=''>
-                                <div className='label p-2'>
-                                    Content
-                                </div>
-                                <div className='content-input'>
-                                    <Input 
-                                        type="textarea" 
-                                        name="text" 
-                                        id="contentText"
-                                        maxLength="3000"
-                                        rows='10'
-                                        value={this.state.contentValue} 
-                                        onChange={this.handleContentChange} />
-                                </div>
-                            </div>
-                        </FormGroup>
+                </div>    
+                <div id='blankSpace'></div>
+                    <div className='m-8 p-2 flex-wrap'>
+                        <div className='label p-2'>
+                            <AssignmentIcon />
+                        </div>
+                        <div className='content-input'>
+                            <form>
+                                <TextField
+                                    id="filled-multiline-static"
+                                    label="Content"
+                                    fullWidth={true}
+                                    multiline
+                                    rows={12}
+                                    defaultValue= ''
+                                    variant="filled"
+                                    value={this.state.contentValue}
+                                    onChange={this.handleContentChange}
+                                />
+                            </form>
+                        </div>
                     </div>
-                    
-                
                     <div className=''> 
                         <div className='col tag ArticleForm_Tag'>
                             <div className='label p-2'>
@@ -458,12 +408,10 @@ class ArticleForm extends React.Component {
                             <TagsInput 
                                 value={this.state.tags} 
                                 onChange={this.handleTagChange} />
-                            
                         </div>
                     </div>
 
-                    <div className="buttons" className={`d-flex justify-content-around`}>
-                        <div className='row d-flex'>
+                    <div className="d-flex flex-wrap flex-row buttons justify-content-around">
                             <div className='p-2'>
                                 <Button
                                     variant="contained"
@@ -472,7 +420,7 @@ class ArticleForm extends React.Component {
                                     <SaveIcon /> &nbsp; Save for later
                                 </Button>
                             </div>
-                            <div className='p-2'>
+                            <div className='p-2 '>
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -486,9 +434,7 @@ class ArticleForm extends React.Component {
                                     <DeleteIcon/> &nbsp; Cancel
                                 </Button>
                             </div>
-                        </div>
                     </div>
-                </Form>
             </div>
         );   
     }
@@ -529,37 +475,24 @@ class ArticleForm extends React.Component {
         const text = e.target.value;
         this.setState({titleValue: text});
         if (text) {
+            console.log(text)
             this.setState({titleDanger: false});
         }
     }
 
-    handleStartDateChange(e) {
-        const date = e.target.value;
-        this.setState({startDateValue: date});
-        if (date) {
-            this.setState({startDateDanger: false});
+    handleStartDateTimeChange(e) {
+        const dateTime = e.target.value;
+        console.log(date)
+        this.setState({startDateValue: dateTime});
+        if (dateTime) {
+            this.setState({startDateTimeDanger: false});
         }
     }
-    handleEndDateChange(e) {
-        const date = e.target.value;
-        this.setState({endDateValue: date});
-        if (date) {
-            this.setState({endDateDanger: false});
-        }
-    }
-
-    handleStartTimeChange(e) {
-        const time = e.target.value;
-        this.setState({startTimeValue: time});
-        if (time) {
-            this.setState({startTimeDanger: false});
-        }
-    }
-    handleEndTimeChange(e) {
-        const time = e.target.value;
-        this.setState({endTimeValue: time});
-        if (time) {
-            this.setState({endTimeDanger: false});
+    handleEndDateTimeChange(e) {
+        const dateTime = e.target.value;
+        this.setState({endDateTimeValue: dateTime});
+        if (dateTime) {
+            this.setState({endDateTimeDanger: false});
         }
     }
 
@@ -616,38 +549,24 @@ class ArticleForm extends React.Component {
         //     })
         //     return;
         // }
-        // if (!this.state.startDateValue || this.state.startDateValue == '') {
+        // if (!this.state.startDateTimeValue || this.state.startDateTimeValue == '') {
         //     this.setState({
-        //         startDateDanger: true,
+        //         startDateTimeDanger: true,
         //         modalShow: true,
-        //         unFill:'start date'
+        //         unFill:'start date and time'
         //     })
         //     return;
         // }
-        // if (!this.state.startTimeValue || this.state.startTimeValue == '') {
-        //     this.setState({
-        //         startTimeDanger: true,
-        //         modalShow: true,
-        //         unFill:'start time'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.endDateValue || this.state.endDateValue == '') {
+
+        // if (!this.state.endDateTimeValue || this.state.endDateTimeValue == '') {
         //     this.setState({
         //         endDateDanger: true,
         //         modalShow: true,
-        //         unFill:'end date'
+        //         unFill:'end date and time'
         //     })
         //     return;
         // }
-        // if (!this.state.endTimeValue || this.state.endTimeValue == '') {
-        //     this.setState({
-        //         endTimeDanger: true,
-        //         modalShow: true,
-        //         unFill:'end time'
-        //     })
-        //     return;
-        // }
+        // 
         // if (!this.state.locationValue || this.state.locationValue == '') {
         //     this.setState({
         //         locationDanger: true,
@@ -680,10 +599,8 @@ class ArticleForm extends React.Component {
         createPost(this.state.id,
             this.state.titleValue,
             this.state.contentValue,
-            this.state.startDateValue,
-            this.state.startTimeValue,
-            this.state.endDateValue,
-            this.state.endTimeValue,
+            this.state.startDateTimeValue,
+            this.state.endDateTimeValue,
             this.state.ticketValue,
             this.state.locationValue,
             this.state.fileName,
@@ -702,14 +619,10 @@ class ArticleForm extends React.Component {
             titleDanger: false,
             contentValue: '',
             contentDanger: false,
-            startDateValue: '',
-            startDateDanger: false,
-            startTimeValue: '',
-            startTimeDanger: false,
-            endDateValue: '',
-            endDateDanger: false,
-            endTimeValue: '',
-            endTimeDanger: false,
+            startDateTimeValue: '',
+            startDateTimeDanger: false,
+            endDateTimeValue: '',
+            endDateTimeDanger: false,
             ticketValue: '',
             ticketDanger: false,
             locationValue: '',
@@ -744,14 +657,10 @@ class ArticleForm extends React.Component {
             titleDanger: false,
             contentValue: '',
             contentDanger: false,
-            startDateValue: '',
-            startDateDanger: false,
-            startTimeValue: '',
-            startTimeDanger: false,
-            endDateValue: '',
-            endDateDanger: false,
-            endTimeValue: '',
-            endTimeDanger: false,
+            startDateTimeValue: '',
+            startDateTimeDanger: false,
+            endDateTimeValue: '',
+            endDateTimeDanger: false,
             ticketValue: '',
             ticketDanger: false,
             locationValue: '',

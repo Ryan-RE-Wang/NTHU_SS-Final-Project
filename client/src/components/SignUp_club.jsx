@@ -2,6 +2,7 @@ import React , { useState }from 'react';
 import { v4 as uuid } from 'uuid';
 import PropTypes from 'prop-types';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -11,6 +12,9 @@ import AvatarEditor from 'react-avatar-editor';
 import './SignUp_club.css';
 import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
+import SaveIcon from '@material-ui/icons/Save';
+import DeleteIcon from '@material-ui/icons/Delete';
+import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import createPost from 'api/posts.js';
@@ -60,6 +64,8 @@ class SignUp_club extends React.Component {
             fileName:'',
             fileDanger: false,
             Value: 120,
+            university:'University',
+            universityDanger: false,
             src: null,
             crop: {
                 unit: '%',
@@ -70,6 +76,8 @@ class SignUp_club extends React.Component {
             croppedImage: null,
             unFill:'',
             modalShow: false,
+            dropdownOpen:false,
+            fileName: '',
             
         }
 
@@ -83,6 +91,8 @@ class SignUp_club extends React.Component {
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
         this.handleCreateClub = this.handleCreateClub.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
+        this.dataURLtoFile = this.dataURLtoFile.bind(this);
+   
 
     }
 
@@ -172,6 +182,7 @@ class SignUp_club extends React.Component {
     render() {
         
         return (
+            <div className="signupclub_body">
             <div className= 'signuplcub'>
                
                 <div>
@@ -189,10 +200,11 @@ class SignUp_club extends React.Component {
                 </div>
             
                 <Form>
+                    <div className="signuph1_title">Create Club</div>
                     <FormGroup className=''>
                         <div className=''>
-                                <div className=''>
-                                <Label  for="clubname"  ><div className="signupclub_title">Club Name</div></Label>
+                                <div className='signupclub_title'>
+                                <Label  for="clubname"  ><div className="">Club Name</div></Label>
                                 </div>
                                 
                                 <div className=''>
@@ -241,6 +253,20 @@ class SignUp_club extends React.Component {
                             
                         </div>
                         <div className=''>
+                        <div className='row justify-content-center combine'>
+                        <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})}>
+                            <DropdownToggle caret>
+                                {this.state.university}
+                                </DropdownToggle>
+                            <DropdownMenu>
+                                
+                                <DropdownItem onClick={()=>{this.setState({university:'NTHU'})}}>NTHU</DropdownItem>
+                                <DropdownItem divider />
+                                <DropdownItem onClick={()=>{this.setState({university:'NCTU'})}}>NCTU</DropdownItem>
+                            </DropdownMenu>
+                         </Dropdown>
+                         </div>
+
                             <FormGroup>
           
                                 <div className=''>
@@ -323,18 +349,25 @@ class SignUp_club extends React.Component {
                         </FormGroup>
                     </div>
 
-                    <div className="form_button_signupclub" >
-                        <div className='row'>
+                  
+                        <div className='row justify-content-center btngroup_signup'>
                             <div className='col'>
                                 <Button className='btn-post' color="success" onClick={this.handleCreateClub}>Post</Button>{' '}
                             </div>
-                            <div className='col'>
-                                <Button className='btn-cancel' color="secondary" onClick={this.handleCancel}>Cancel</Button>{' '} 
+                            <div className='col signupdelete_btn'>
+                                <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    onClick={this.handleCancel}
+                                >
+                                    <DeleteIcon /> &nbsp; Delete
+                                </Button>
                             </div>
                         </div>
-                    </div>
+                 
                 </Form>
             </div>
+        </div>
 
         
         );
@@ -425,7 +458,7 @@ class SignUp_club extends React.Component {
         //     })
         //     return;
         // }
-        // if (!this.state.file || this.state.file== '') {
+        // if (!this.state.croppedImageUrl || this.state.croppedImageUrl== '') {
         //     this.setState({
         //         fileDanger: true,
         //         modalShow: true,
@@ -433,7 +466,14 @@ class SignUp_club extends React.Component {
         //     })
         //     return;
         // }
-     
+        // if (this.state.university=="University" || this.state.university=='') {
+        //     this.setState({
+        //         universityDanger: true,
+        //         modalShow: true,
+        //         unFill:'should select one university'
+        //     })
+        //     return;
+        // }
         // if (!this.state.verification_codeValue || this.state.verification_codeValue == '') {
         //     this.setState({
         //         verification_codeDanger: true,
@@ -489,11 +529,23 @@ class SignUp_club extends React.Component {
             ig_urlDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
-            file: null,
             fileDanger: false,
             Value: 120,
+            university:'University',
+            universityDanger: false,
+            src: null,
+            crop: {
+                unit: '%',
+                width: 30,
+                aspect: 42 / 57,
+            },
+            croppedImageUrl: null,
+            croppedImage: null,
             unFill:'',
             modalShow: false,
+            dropdownOpen:false,
+            fileName: '',
+            
         })
 
         
@@ -512,11 +564,23 @@ class SignUp_club extends React.Component {
             ig_urlDanger: false,
             verification_codeValue: '',
             verification_codeDanger: false,
-            file: null,
             fileDanger: false,
             Value: 120,
+            university:'University',
+            universityDanger: false,
+            src: null,
+            crop: {
+                unit: '%',
+                width: 30,
+                aspect: 42 / 57,
+            },
+            croppedImageUrl: null,
+            croppedImage: null,
             unFill:'',
             modalShow: false,
+            dropdownOpen:false,
+            fileName: '',
+            
         })
     }
 
