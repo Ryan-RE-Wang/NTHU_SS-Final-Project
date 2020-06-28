@@ -11,12 +11,30 @@
     background-color: #333;
     text-align: center;
 }
-
-
+.Manager_home_above_editbtn{
+    position: absolute;
+    right: 14px;
+    bottom: 8px;
+    color: rgb(255, 188, 4);
+    font-size: 32px;
+}
+.Manager_home_above_editbtn:hover{
+    cursor: pointer;
+}
+.Manager_home_above_editbtn:hover .M_edit{
+    display: inline-flex;
+    color: rgb(255, 188, 4);
+    font-size: 28px;
+    float:left;
+}
+.M_edit{
+    display: none;
+}
 .navbar_M{
     display: none;
 }
 .Manager_home{
+    position: relative;
     background-color: transparent;
     margin-top: 50px !important;
     margin: 0 auto;
