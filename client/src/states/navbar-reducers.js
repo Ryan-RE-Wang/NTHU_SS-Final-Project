@@ -35,8 +35,8 @@ export function navBar(state=initNavBarState,action){
         case('@NAVBAR/CLICK-NCTU'):
             return{
                 ...state,
-                nctuOpen: false,
-                nthuOpen: !state.nctuOpen,
+                nthuOpen: false,
+                nctuOpen: !state.nctuOpen,
                 categoryOpen: false
             }
         case('@NAVBAR/CLICK-CATAGORY'):
