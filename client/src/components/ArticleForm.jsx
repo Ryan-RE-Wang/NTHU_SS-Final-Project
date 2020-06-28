@@ -14,8 +14,6 @@ import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import SaveIcon from '@material-ui/icons/Save';
 import TagsInput from 'react-tagsinput'
 import ImageIcon from '@material-ui/icons/Image';
-import Slider, { createSliderWithTooltip } from 'rc-slider'; 
-import AvatarEditor from 'react-avatar-editor';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import ReactCodeInput from 'react-verification-code-input';
 import './ArticleForm.css';
@@ -265,7 +263,6 @@ class ArticleForm extends React.Component {
                                 <div className='cl label'>
                                     Title
                                 </div>
-                                
                                 <div className='col '>
                                 <Input 
                                     type="text" 
@@ -276,203 +273,193 @@ class ArticleForm extends React.Component {
                                 </div>                
                         </div>
                     </FormGroup>
-                    <div className='p-2 col info m-4'>
-                        <div className='p-4 d-flex flex-col justify-content-center align-items-center'>
-                            <FormGroup className='form'>
-                                <div>
-                                    <div >
-                                        <ImageIcon className='label'/>
-                                        <input type="file" accept="image/*"  onChange={this.onSelectFile} />
-                                    </div>
-
-                                        <div>
-                                            {this.state.src && (
-                                                <ReactCrop
-                                                    src={this.state.src}
-                                                    crop={this.state.crop}
-                                                    ruleOfThirds
-                                                    onImageLoaded={this.onImageLoaded}
-                                                    onComplete={this.onCropComplete}
-                                                    onChange={this.onCropChange}
-                                                />
-                                            )}
-                                        </div>
-                                        <div>
-                                            {this.state.croppedImageUrl && (
-                                                <img alt="Crop" style={{ maxWidth: '100%', height: '360px' }} src={this.state.croppedImageUrl} />
-                                            )}
-                                        </div>
-
-                                    
-                                    
-                                </div>
-                            </FormGroup>
-                        </div>
-                        <div className=' col p-4'>
-
-                                <div className='row'>
-                                    <div className='col-2 label'> 
-                                        <EventIcon/>
-                                        Start
-                                    </div>
-                                    <div className='col-5 p-2'>
-                                        <FormGroup> 
-                                            <Input
-                                                type="date"
-                                                name="date"
-                                                id="startDate"
-                                                value={this.state.startDateValue}
-                                                placeholder="date placeholder" 
-                                                onChange={this.handleStartDateChange} /> 
-                                        </FormGroup>
-                                    </div>
-                                    <div className='col-4 p-2'>
-                                        <FormGroup> 
-                                            <Input
-                                                type="time"
-                                                name="time"
-                                                id="startTime"
-                                                value={this.state.startTimeValue}
-                                                placeholder="time placeholder"
-                                                onChange={this.handleStartTimeChange} />  
-                                        </FormGroup>
-                                        
-                                    </div>
-                                </div>
-                                <div className='row'>
-                                    <div  className='col-2 label'> 
-                                        <EventIcon/>
-                                        End
-                                    </div>
-                                    <div className='col-5 p-2'> 
-                                        <FormGroup> 
-                                            <Input
-                                                type="date"
-                                                name="date"
-                                                id="endDate"
-                                                value={this.state.endDateValue}
-                                                placeholder="date placeholder" 
-                                                onChange={this.handleEndDateChange} /> 
-                                        </FormGroup>
-                                    </div>
-                                    <div className='col-4 p-2'>
-                                        <FormGroup> 
-                                            <Input
-                                                type="time"
-                                                name="time"
-                                                id="endTime"
-                                                value={this.state.endTimeValue}
-                                                placeholder="time placeholder"
-                                                onChange={this.handleEndTimeChange} />  
-                                        </FormGroup>
-                                    </div>
-                                </div>
-                                <div className='row '>    
-                                    <div className='col-2 label align-items-center'>
-                                        <PlaceIcon/>
-                                        Location
-                                    </div> 
-                                    <div className='col-5 p-2'>
-                                        <FormGroup> 
-                                            <Input 
-                                                type="text" 
-                                                name="text" 
-                                                id="location" 
-                                                value={this.state.locationValue}
-                                                onChange={this.handleLocationChange} />       
-                                        </FormGroup>
-                                    </div>                                    
-                                    <div className='col-4 p-2'>
-                                    
-                                    </div>
-                                </div>    
-                                <div className='row'>
-                                    <div className='col-2 label'>
-                                        <PaymentIcon/>
-                                        Ticket
-                                    </div>
-                                    <div className='col-5 p-2'>
-                                        <FormGroup> 
-                                          <Input 
-                                            type="text" 
-                                            name="text" 
-                                            id="ticket" 
-                                            value={this.state.ticketValue}
-                                            onChange={this.handleTicketChange} />  
-                                        </FormGroup>
-                                    </div>
-                                    <div className='col-4 p-2'></div>
-                                </div>
-                            <div className=" row dropdown">
-                                <div className='col-2 label'>
-                                    <GroupIcon/>
-                                    Club
-                                </div> 
-                                <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
-                                    <DropdownToggle>
-                                        {this.state.club}
-                                    </DropdownToggle>
-                                    <DropdownMenu
-                                        modifiers={{
-                                        setMaxHeight: {
-                                            enabled: true,
-                                            order: 890,
-                                            fn: (data) => {
-                                            return {
-                                                ...data,
-                                                styles: {
-                                                ...data.styles,
-                                                overflow: 'auto',
-                                                maxHeight: '100px',
-                                                },
-                                            };
-                                            },
-                                        },
-                                        }}
-                                    >
-                                        {clubListItems}
-                                    </DropdownMenu>
-                                </Dropdown>
-                                <div className='col-4 p-2'></div>
-                            </div>
-                        </div>
-                    </div>
-                        
-                    <div id='blankSpace2'></div>
-
-                    <div className='m-8 p-2'>
+                    <div className='d-flex col justify-content-center align-items-center'>
                         <FormGroup className='form'>
-                            <div className=''>
-                                <div className='label p-2'>
-                                    Content
+                            <div className='flex-column justify-content-center align-items-center'>
+                                <div className='poster-form'>
+                                    <ImageIcon className='label'/>
+                                    <input type="file" accept="image/*"  onChange={this.onSelectFile} />
                                 </div>
-                                <div className='content-input'>
-                                    <Input 
-                                        type="textarea" 
-                                        name="text" 
-                                        id="contentText"
-                                        maxLength="3000"
-                                        rows='10'
-                                        value={this.state.contentValue} 
-                                        onChange={this.handleContentChange} />
+                                <div>
+                                    {this.state.src && (
+                                        <ReactCrop
+                                            src={this.state.src}
+                                            crop={this.state.crop}
+                                            ruleOfThirds
+                                            onImageLoaded={this.onImageLoaded}
+                                            onComplete={this.onCropComplete}
+                                            onChange={this.onCropChange}
+                                        />
+                                    )}
+                                </div>
+                                <div>
+                                    {this.state.croppedImageUrl && (
+                                        <img alt="Crop" style={{ maxWidth: '100%', height: '360px' }} src={this.state.croppedImageUrl} />
+                                    )}
                                 </div>
                             </div>
                         </FormGroup>
                     </div>
-                    
-                
-                    <div className=''> 
-                        <div className='col tag ArticleForm_Tag'>
-                            <div className='label p-2'>
-                                Hint: type and press enter  
+                    <div className='p-2 col info m-4 align-items-center justify-content-center'>
+                        <div className=' col p-4 justify-content-center align-items-center'>
+                            <div className=' row d-flex justify-content-center align-items-center'>
+                                <div className='col label'> 
+                                    <EventIcon/>
+                                    Start
+                                </div>
+                                <div className='col-5 p-2'>
+                                    <FormGroup> 
+                                        <Input
+                                            type="date"
+                                            name="date"
+                                            id="startDate"
+                                            value={this.state.startDateValue}
+                                            placeholder="date placeholder" 
+                                            onChange={this.handleStartDateChange} /> 
+                                    </FormGroup>
+                                </div>
+                                <div className='col-4 p-2'>
+                                    <FormGroup> 
+                                        <Input
+                                            type="time"
+                                            name="time"
+                                            id="startTime"
+                                            value={this.state.startTimeValue}
+                                            placeholder="time placeholder"
+                                            onChange={this.handleStartTimeChange} />  
+                                    </FormGroup>
+                                    
+                                </div>
                             </div>
-                            <TagsInput 
-                                value={this.state.tags} 
-                                onChange={this.handleTagChange} />
-                            
+                            <div className='row justify-content-center align-items-center'>
+                                <div  className='col label'> 
+                                    <EventIcon/>
+                                    End    
+                                </div>
+                                <div className='col-5 p-2'> 
+                                    <FormGroup> 
+                                        <Input
+                                            type="date"
+                                            name="date"
+                                            id="endDate"
+                                            value={this.state.endDateValue}
+                                            placeholder="date placeholder" 
+                                            onChange={this.handleEndDateChange} />         
+                                    </FormGroup>
+                                </div>
+                                <div className='col-4 p-2'>
+                                    <FormGroup> 
+                                        <Input
+                                            type="time"
+                                            name="time"
+                                            id="endTime"
+                                            value={this.state.endTimeValue}
+                                            placeholder="time placeholder"
+                                            onChange={this.handleEndTimeChange} />  
+                                    </FormGroup>    
+                                </div>
+                            </div>
+                            <div className='row justify-content-center align-items-center'>    
+                                <div className='col label'>
+                                    <PlaceIcon/>
+                                    Location
+                                </div> 
+                                <div className='col-5 p-2'>
+                                    <FormGroup> 
+                                        <Input 
+                                            type="text" 
+                                            name="text" 
+                                            id="location" 
+                                            value={this.state.locationValue}
+                                            onChange={this.handleLocationChange} />       
+                                    </FormGroup>
+                                </div>                                    
+                                <div className='col-4 p-2'>
+                                
+                                </div>
+                            </div>
+                            <div className='row justify-content-center align-items-center'>
+                                <div className='col label'>
+                                    <PaymentIcon/>
+                                    Ticket
+                                </div>
+                                <div className='col-5 p-2'>
+                                    <FormGroup> 
+                                      <Input 
+                                        type="text" 
+                                        name="text" 
+                                        id="ticket" 
+                                        value={this.state.ticketValue}
+                                        onChange={this.handleTicketChange} />  
+                                    </FormGroup>
+                                </div>
+                                <div className='col-4 p-2'></div>
+                            </div>
+                            <div className=" row dropdown justify-content-center align-items-center">
+                                <div className='col label'>
+                                    <GroupIcon/>
+                                    Club
+                                </div> 
+                                    <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
+                                        <DropdownToggle>
+                                            {(this.state.clubVerified)? this.state.club : 'select your club'}
+                                        </DropdownToggle>
+                                        <DropdownMenu
+                                            modifiers={{
+                                            setMaxHeight: {
+                                            enabled: true,
+                                            order: 890,
+                                            fn: (data) => {
+                                                return {
+                                                    ...data,
+                                                    styles: {
+                                                    ...data.styles,
+                                                    overflow: 'auto',
+                                                    maxHeight: '100px',
+                                                    },
+                                                };
+                                                },
+                                                },
+                                                }}
+                                            >
+                                            {clubListItems}
+                                        </DropdownMenu>
+                                    </Dropdown>
+                                    <div className='col-4 p-2'></div>
+                            </div>
+
+                            <div className='m-8 p-2 '>
+                                <FormGroup className='form'>
+                                    <div className=''>
+                                        <div className='label p-2'>
+                                            Content
+                                        </div>
+                                        <div className='content-input'>
+                                            <Input 
+                                                type="textarea" 
+                                                name="text" 
+                                                maxLength="3000"
+                                                rows='10'
+                                                value={this.state.contentValue} 
+                                                onChange={this.handleContentChange} />
+                                            </div>
+                                    </div>
+                                </FormGroup>
+                            </div>
+
+                            <div className='p-2'> 
+                                <div className='col tag ArticleForm_Tag'>
+                                    <div className='label p-2'>
+                                        Hint: type and press enter  
+                                    </div>
+                                    <TagsInput 
+                                        value={this.state.tags} 
+                                        onChange={this.handleTagChange} />
+                                    
+                                </div>
+                            </div>
                         </div>
                     </div>
-
                     <div className="buttons" className={`d-flex justify-content-around`}>
                         <div className='row d-flex'>
                             <div className='p-2'>
@@ -534,7 +521,7 @@ class ArticleForm extends React.Component {
     handleClubVerificationSubmit(e) {
         const input = e;
         if (input === '000000') {
-            this.setState({clubVerified: true, verifiedInput: true})
+            this.setState({clubVerified: true, verifiedInput: true, clubVerificationModalShow: false})
         } else {
             this.setState({clubVerified: false, verifiedInput: true})
         }
