@@ -8,11 +8,16 @@ import {
 } from 'react-router-dom'
 import './Post.css'
 
+const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
+const lasturl = '.jpeg';
+
 export default class Post extends React.Component{
     static propTypes = {
-        // intro: PropTypes.string,
-        // dates: PropTypes.bool,
-        // place: propTypes.string
+        intro: PropTypes.string,
+        dates: PropTypes.string,
+        place: PropTypes.string,
+        holder: PropTypes.string,
+        imageurl: PropTypes.string
     };
 
     constructor(props){
@@ -20,19 +25,20 @@ export default class Post extends React.Component{
 
     }
     render(){
+        console.log(this.props.imageurl);
         return(       
             <div className='AD-Post'>
                     <Row>
                     <div className='col-3 post-left'>
-                        <img src='./images/mac-d.png' className='img-fluid'/>
+                        <img src={baseUrl + this.props.imageurl + lasturl} className='img-fluid'/>
                     </div>
                     <div className='col-9 post-right'>
-                        <span className='post-title'> Badminton compitition</span><br/>
-                        <span className='post-body'> April 27</span><br/>
-                        <span className='post-body'> National Tsin Hua University</span><br/>
-                        <span className='post-body'> Hold by badminton club</span><br/>
+                        <span className='post-title'>{this.props.intro}</span><br/>
+                        <span className='post-body'>{this.props.date}</span><br/>
+                        <span className='post-body'>{this.props.place}</span><br/>
+                        <span className='post-body'>{this.props.holder}</span><br/>
                         <Link to="/article" className="">
-                            <button className=' d-none d-md-block moreInfoBtn'> More Info</button>
+                            <button className=' d-none d-md-block moreInfoBtn'>More Info</button>
                         </Link>
                         
                     </div>

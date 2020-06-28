@@ -12,13 +12,13 @@ const schemaInfo=`
         email           text NOT NULL,
         picture         text,
         clubs           text
-    )
+    );
 `;
 const schemaPost=`
     DROP TABLE IF EXISTS post;
 
     CREATE TABLE post(
-        id              serial PRIMARY KEY NOT NULL,
+        id              text,
         title           text,
         content         text,
         startdate       DATE DEFAULT CURRENT_DATE,
@@ -31,23 +31,23 @@ const schemaPost=`
         tags            text[],
         touch           integer,
         userid          text,
-        mode            boolean
+        mode            boolean,
         club            text
-    ) 
+    ); 
 `;
 const schemaClub=`
     DROP TABLE IF EXISTS club;
 
     CREATE TABLE club(
-        id              serial PRIMARY KEY NOT NULL,
-        userid          serial PRIMARY KEY NOT NULL,
-        school          text NOT NULL,
+        id              text,
+        userid          text,
+        school          text,
         clubname        text NOT NULL,
         facebook        text,
         instagram       text,
         clubpic         text,
-        clubpassword    text NOT NULL,
-    )
+        clubpassword    text NOT NULL
+    );
 `;
 db.none(schemaInfo).then(() => {
     console.log('info table created');

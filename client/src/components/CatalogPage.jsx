@@ -12,9 +12,11 @@ import Post from 'components/Post.jsx';
 import Pop_Post from 'components/Pop_Post.jsx';
 import './CatalogPage.css'
 import Footer_Content from 'components/Footer_Content.jsx';
+import {listPosts} from 'api/posts.js';
 
 export default class CatalogPage extends React.Component{
     static propTypes = {
+    
         topicName: PropTypes.string,
         description: PropTypes.string
     };
@@ -24,18 +26,35 @@ export default class CatalogPage extends React.Component{
         this.state = {
             exploreClick: false,
             orderClick: false,
-            
+            searchText: '',
+            category: '',
+            start:'',
+            mode: false,
+            club: '',
+            order: 'id',
+            userid: '',
+            posts: []
         };
         this.handleExplore = this.handleExplore.bind(this); 
         this.handleOrder = this.handleOrder.bind(this); 
-        
+        this.listPosts = this.listPosts.bind(this);
+    }
+
+    componentDidMount() {
+        this.listPosts(this.state.searchText, this.state.category, this.state.mode, this.state.club, this.state.order, this.state.userid);
     }
 
     static catagory = ['All','Food','PE','Music','Association','Art','Competition'];
     static order = ['A to Z','Popularity','Date'];
 
     render(){
-        
+
+        let children = (<div>There are no posts</div>);
+        if (this.state.posts.length) {
+            children = this.state.posts.map(p => (
+                <div key={p.id}><Post intro={p.title} dates={p.startdate} place={p.location} holder={p.club} imageurl={p.fileurl}/></div>
+            ))
+        }
 
         return(  
             <div>     
@@ -158,14 +177,11 @@ export default class CatalogPage extends React.Component{
                             <div className='posts-table-heading'> ALL</div>
                             {/* <div className='d-flex row justify-content-center'> */}
                             <div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div className='button-wrapper'><button id='showMoreBtn'> SHOW MORE</button></div>
-                                
+                                {children}
+                                {   (this.state.posts.length)?
+                                    <div className='button-wrapper'><button id='showMoreBtn'> SHOW MORE</button></div>
+                                    : ''
+                                }
                             </div>
                         </div>
 
@@ -179,6 +195,16 @@ export default class CatalogPage extends React.Component{
             </div>
         )
     }
+
+    listPosts(searchText, category, start, mode, club, order, userid) {
+        listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
+            console.log(posts);
+            this.setState({
+                posts
+            })
+        });
+    }
+
     handleExplore(){
         let display = true;
         if(this.state.exploreClick) display = false;

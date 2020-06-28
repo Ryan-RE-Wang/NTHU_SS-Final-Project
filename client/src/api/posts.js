@@ -7,14 +7,13 @@ const postBaseUrl = 'http://localhost:4000/api';
 // Production server URL
 //const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
 
-const postKey = 'posts';
 
-export function listPosts(searchText = '', category='all', start = '', mode = null, club = '', order = '', userid = '') {
+export function listPosts(searchText = '', category='', start = '', mode = null, club = '', order = '', userid = '') {
     let url = `${postBaseUrl}/posts/getPost`;
 
     console.log(`Making GET request to: ${url}`);
 
-    return axios.get(url, {searchText, category, start, mode, club, userid}).then(function(res) {
+    return axios.get(url, {searchText, category, start, mode, club, order, userid}).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
 
@@ -22,7 +21,7 @@ export function listPosts(searchText = '', category='all', start = '', mode = nu
     });
 }
 
-export default function createPost(
+export function createPost(
     id,
     title,
     content,
@@ -39,7 +38,7 @@ export default function createPost(
     userid) {
     let url = `${postBaseUrl}/posts`;
 
-    console.log(`Making POST request to: ${url}`);
+    console.log(`Making posts POST request to: ${url}`);
 
     return axios.post(url, {
         id,

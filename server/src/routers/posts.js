@@ -3,7 +3,6 @@ const bodyParser = require('body-parser');
 const accessController = require('../middleware/access-controller.js');
 
 const postModel = require('../model/posts.js');
-// const fileModel = require('../model/postFile.js')
 const touchModel = require('../model/touch.js');
 
 const router = express.Router();

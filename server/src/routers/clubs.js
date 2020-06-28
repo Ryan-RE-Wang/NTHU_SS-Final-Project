@@ -12,85 +12,48 @@ router.use(accessController); // Allows cross-origin HTTP requests
 // List
 router.get('/:school', function(req, res, next) {
     const {school} = req.params;
-    clubModel.list(school).then(posts => {
-        res.json(posts)
+    clubModel.list(school).then(club => {
+        res.json(club)
     }).catch(next);
 });
 
 
 // Create
 router.post('', function(req, res, next) {
-    const {id, clubName, facebook, instagram, clubPic, clubPassword} = req.body;
+    const {id, userid, school, clubname, facebook, instagram, clubPic, clubpassword} = req.body;
     if (!id) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;
         throw err;
     }
-    clubModel.create(id, clubName, facebook, instagram, clubPic, clubPassword).then(post => {
-        res.json(post)
+    clubModel.create(id, userid, school, clubname, facebook, instagram, clubPic, clubpassword).then(club => {
+        res.json(club)
     }).catch(next);
 });
 
-router.get('/:clubname', function(req, res, next) {
+router.get('/get/:clubname', function(req, res, next) {
     const {clubname} = req.body;
-    clubModel.getClubPassword(clubname).then(posts => {
-        res.json(posts)
+    clubModel.getClubPassword(clubname).then(pw => {
+        res.json(pw)
     }).catch(next);
 });
 
-router.get('/:clubdetail', function(req, res, next) {
+router.get('/detail/:clubdetail', function(req, res, next) {
     const {clubname} = req.body;
-    clubModel.getClubdetail(clubname).then(posts => {
-        res.json(posts)
+    clubModel.getClubdetail(clubname).then(details => {
+        res.json(details)
     }).catch(next);
 });
 
-router.post('/:newclubname', function(req, res, next) {
-    const {id, newclubname} = req.body;
-    clubModel.updateClubName(id, newclubname).then(posts => {
-        res.json(posts)
-    }).catch(next);
-});
-
-router.post('/:instagram', function(req, res, next) {
-    const {id, newinstagram} = req.body;
-    clubModel.updateinstagram(id, newinstagram).then(posts => {
-        res.json(posts)
-    }).catch(next);
-});
-
-router.post('/:facebook', function(req, res, next) {
-    const {id, newfacebook} = req.body;
-    clubModel.updatefacebook(id, newfacebook).then(posts => {
-        res.json(posts)
-    }).catch(next);
-});
-
-router.post('/:newpic', function(req, res, next) {
-    const {id, newpic} = req.body;
-    clubModel.updateclubpic(id, newpic).then(posts => {
-        res.json(posts)
-    }).catch(next);
-});
-
-router.post('/:pw', function(req, res, next) {
-    const {id, userid, oldpw, newpw} = req.body;
-    clubModel.updateclubpassword(id, userid, oldpw, newpw).then(posts => {
-        res.json(posts)
-    }).catch(next);
-});
-
-router.post('/:mode', function(req, res, next) {
-    const {id, savemode} = req.body;
-    clubModel.updatesavemode(id, savemode).then(posts => {
-        res.json(posts)
-    }).catch(next);
-});
-
-router.post('/:leader', function(req, res, next) {
-    const {id, userid, pw, newleader} = req.body;
-    clubModel.updateleader(id, userid, pw, newleader).then(posts => {
-        res.json(posts)
+router.post('/delete', function(req, res, next) {
+    const {id} = req.body;
+    if (!id) {
+        const err = new Error('Post ID are required');
+        err.status = 400;
+        throw err;
+    }
+    clubModel.deleteclub(id).then(club => {
+        res.json(club);
     }).catch(next);
 });
 

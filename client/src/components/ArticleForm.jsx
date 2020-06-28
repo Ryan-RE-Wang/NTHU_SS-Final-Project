@@ -23,7 +23,7 @@ import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
-import createPost from 'api/posts.js';
+import {createPost} from 'api/posts.js';
 import getClubPassword from 'api/posts.js';
 import ReactCrop from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';

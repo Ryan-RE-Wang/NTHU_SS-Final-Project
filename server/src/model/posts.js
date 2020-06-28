@@ -14,18 +14,19 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
     if (mode)
         where.push(`mode = $4`);
     if (club)
-        where.push(`club = $5`);
+        where.push(`club = '$5'`);
     if (userid)
-        where.push(`userid = $6`);
+        where.push(`userid = '$6'`);
 
+    const id1 = (order === '') ?  'id' : order;
     const sql = `
         SELECT *
-        FROM posts
+        FROM post
         ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
-        ORDER BY $<order> ASC
+        ORDER BY ${id1} ASC
         LIMIT 10
     `;
-    return db.any(sql, [searchText, category, start, mode, club, order, userid]);
+    return db.any(sql, [searchText, category, start, mode, club, userid]);
 }
 
 function create(
