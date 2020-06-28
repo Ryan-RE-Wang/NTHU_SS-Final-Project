@@ -61,6 +61,7 @@ import {connect} from 'react-redux';
 // action
 import {closeLoginForm, openLoginForm , logout} from 'states/login-actions.js';
 import {openUserInfo, changeToggle, clickList, clickTag, openSearchBar} from 'states/navbar-actions';
+import Userside_manager from 'components/Userside_manager.jsx';
 
 
 class Main extends React.Component {
@@ -217,9 +218,9 @@ class Main extends React.Component {
 
 
                     {/* for router */}
-                    <Route exact path="/" component={ArticleForm}/>
+                    <Route exact path="/" component={Manager_dev}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={Manager_dev}/>
+                    <Route exact path="/Manager" component={Userside_manager}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>

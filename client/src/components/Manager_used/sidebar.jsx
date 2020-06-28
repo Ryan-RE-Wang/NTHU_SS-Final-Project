@@ -20,19 +20,21 @@ export default class Sidebar extends React.Component {
     
     render() {
         
-        return (
-            <div  className={this.props.className}>
-                    
-                    <ul className="sidebar_icon_M">
-                        <div className= "sidebar_manager_used sidebar_manager_btn"><li  onClick={()=>this.props.select('1')}><Icon size={20} icon={home} />    Home</li></div>
+        return (              
+                    <div className="sidebar_icon_M">
+                        {/* <div className= "sidebar_manager_used sidebar_manager_btn" onClick={()=>this.props.select('1')}><Icon size={20} icon={home} />Home</div>
                         <div className="just_a_line"></div>
-                        <div className= "sidebar_manager_used sidebar_manager_btn"> <li  onClick={()=>this.props.select('2')}><Icon size={20} icon={newspaper} />   Articles</li></div>
+                        <div className= "sidebar_manager_used sidebar_manager_btn" onClick={()=>this.props.select('2')}><Icon size={20} icon={newspaper} />Articles</div>
                         <div className="just_a_line"></div>
-                        <div className= "sidebar_manager_used  sidebar_manager_btn"><li  onClick={()=>this.props.select('3')}><Icon size={20} icon={mail4} />   Contact</li></div>
-                         <div className="just_a_line"></div>
-                    </ul>
-
-            </div>
+                        <div className= "sidebar_manager_used  sidebar_manager_btn" onClick={()=>this.props.select('3')}><Icon size={20} icon={mail4} />Contact</div>
+                         <div className="just_a_line"></div> */}
+                         <div className='myButt three' onClick={()=>this.props.select('1')}>Home</div>
+                       
+                         <div className='myButt three' onClick={()=>this.props.select('2')}>Articles</div>
+                        
+                         <div className='myButt three' onClick={()=>this.props.select('3')}>About us</div>
+                        
+                    </div>
         )
     }
 }
