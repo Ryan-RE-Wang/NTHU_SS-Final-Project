@@ -1,0 +1,13 @@
+.userside_manager_home{
+    border: 5px solid rgb(176, 235, 88);
+    margin-top: 50px !important;
+    margin: 0 auto;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 1vw ;
+    padding-bottom: 1vw;
+    max-width: 800px;
+}
+.userside_manager_body{
+    background-color: #262626;
+}

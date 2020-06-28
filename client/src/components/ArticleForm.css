@@ -21,6 +21,9 @@
 .articleform-container .hint {
   padding-left: 3rem;
 }
+.article-form .poster-form {
+  text-align: center;
+}
 .articleform-container .content-input {
   max-width: 600px;
 }
@@ -48,9 +51,7 @@
   text-align: start;
   font-family: 'Abel', sans-serif;
 }
-.articleform-container .poster-form {
-  background-color: #d7f7f6;
-}
+
 
 
 @media (max-width: 1000px) {
@@ -59,15 +60,14 @@
   }
 
   .articleform-container textarea {
-    max-width: 400px;
-    width: 100%;
+    min-width: 100%;
+  }
+
+  .articleform-container .buttons {
+    flex-direction: flex-column;
   }
 }
-.buttons {
-    position: relative;
-    width: 7rem;
-    margin: auto;
-}
+
 
 
 .ArticleForm_TITLE{

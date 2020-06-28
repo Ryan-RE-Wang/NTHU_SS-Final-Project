@@ -13,8 +13,8 @@ router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
 router.get('/getPost', function(req, res, next) {
-    const {searchText, category, start, mode, club} = req.body;
-    postModel.list(searchText, category, start, mode, club).then(posts => {
+    const {searchText, category, start, mode, club, order, userid} = req.body;
+    postModel.list(searchText, category, start, mode, club, order, userid).then(posts => {
         return posts;
     }).then(post => {
             res.json(post)
@@ -22,41 +22,41 @@ router.get('/getPost', function(req, res, next) {
 });
 
 // Create
-router.post('/createPost', function(req, res, next) {
+router.post('', function(req, res, next) {
     const {id,
-        titleValue,
-        contentValue,
-        startDateValue,
-        startTimeValue,
-        endDateValue,
-        endTimeValue,
-        ticketValue,
-        locationValue,
-        fileName,
+        title,
+        content,
+        startdate,
+        enddate,
+        starttime,
+        endtime,
+        ticket,
+        location,
+        fileurl,
         tags,
         mode, 
         club, 
-        userId} = req.body;
-    if (!userId) {
+        userid} = req.body;
+    if (!userid) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;
         throw err;
     }
     postModel.create(
         id,
-        titleValue,
-        contentValue,
-        startDateValue,
-        startTimeValue,
-        endDateValue,
-        endTimeValue,
-        ticketValue,
-        locationValue,
-        fileName,
+        title,
+        content,
+        startdate,
+        enddate,
+        starttime,
+        endtime,
+        ticket,
+        location,
+        fileurl,
         tags,
         mode, 
         club, 
-        userId).then(post => {
+        userid).then(post => {
         res.json(post)
     }).catch(next);
 });
