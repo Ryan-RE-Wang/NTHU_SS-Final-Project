@@ -206,7 +206,7 @@ class ArticleForm extends React.Component {
                     clubVerificationModalShow: true,
                     clubVerified: (this.state.club !== clubList)? false: this.state.clubVerified,
                     verifiedInput: (this.state.club !== clubList)? false: this.state.verifiedInput})}>
-                 {clubList}
+                {clubList}
             </DropdownItem>
         )
         return (
@@ -247,79 +247,77 @@ class ArticleForm extends React.Component {
                         </Modal.Footer>
                     </Modal>
                 </div>
-                        <div className='row d-flex justify-content-center align-items-center'>
-                                <form noValidate autoComplete="off">
-                                    <TextField id="standard-basic" label="Title" onChange={this.handleTitleChange}/>
+                <div className='row d-flex justify-content-center align-items-center'>
+                    <form noValidate autoComplete="off">
+                        <TextField id="standard-basic" label="Title" onChange={this.handleTitleChange}/>
+                    </form>
+                </div>
+                <div className='p-2 col info m-4'>
+                    <div className='p-4 justify-content-center align-items-center'>
+                        <div className='row align-items-center justify-content-center'>
+                            <ImageIcon className='label'/>
+                            <input className='p-2' type="file" accept="image/*"  onChange={this.onSelectFile} />
+                        </div>
+                        <div className='p-2 row align-items-center justify-content-center'>
+                            {this.state.src && (
+                                <ReactCrop
+                                    src={this.state.src}
+                                    crop={this.state.crop}
+                                    ruleOfThirds
+                                    onImageLoaded={this.onImageLoaded}
+                                    onComplete={this.onCropComplete}
+                                    onChange={this.onCropChange}
+                                />
+                            )}
+                        </div>
+                        <div className='p-2 row align-items-center justify-content-center'>
+                            {this.state.croppedImageUrl && (
+                                <img alt="Crop" style={{ maxWidth: '100%', height: '360px' }} src={this.state.croppedImageUrl} />
+                            )}
+                        </div>
+                    </div>
+                    <div className=' col p-4'>
+                        <div className='row justify-content-center align-items-center'>
+                            <div className='p-2 label'> 
+                                <EventIcon/> 
+                            </div>
+                            <div className=' p-2'>
+                                <form  noValidate>
+                                    <TextField
+                                        id="datetime-local"
+                                        label="Start Date and Time"
+                                        type="datetime-local"
+                                        defaultValue=' '
+                                        value={this.state.startDateTimeValue}
+                                        onChange={this.handleStartDateTimeChange}
+                                        InputLabelProps={{
+                                        shrink: true,
+                                        }}
+                                    />
                                 </form>
-              
-                        </div>
-
-                    <div className='p-2 col info m-4'>
-                        <div className='p-4 justify-content-center align-items-center'>
-                                    <div className='row align-items-center justify-content-center'>
-                                        <ImageIcon className='label'/>
-                                        <input className='p-2' type="file" accept="image/*"  onChange={this.onSelectFile} />
-                                    </div>
-                                    <div className='p-2 row align-items-center justify-content-center'>
-                                        {this.state.src && (
-                                            <ReactCrop
-                                                src={this.state.src}
-                                                crop={this.state.crop}
-                                                ruleOfThirds
-                                                onImageLoaded={this.onImageLoaded}
-                                                onComplete={this.onCropComplete}
-                                                onChange={this.onCropChange}
-                                            />
-                                        )}
-                                    </div>
-                                    <div className='p-2 row align-items-center justify-content-center'>
-                                        {this.state.croppedImageUrl && (
-                                            <img alt="Crop" style={{ maxWidth: '100%', height: '360px' }} src={this.state.croppedImageUrl} />
-                                        )}
-                                    </div>
-                        </div>
-                        <div className=' col p-4'>
-                            <div className='row justify-content-center align-items-center'>
-                                <div className='p-2 label'> 
-                                    <EventIcon/> &nbsp;
-                                </div>
-                                <div className=' p-2'>
-                                    <form  noValidate>
-                                        <TextField
-                                            id="datetime-local filled-basic"
-                                            label="Start Date and Time"
-                                            type="datetime-local"
-                                            defaultValue=' '
-                                            value={this.state.startDateTimeValue}
-                                            onChange={this.handleStartDateTimeChange}
-                                            InputLabelProps={{
-                                            shrink: true,
-                                            }}
-                                        />
-                                    </form>
-                                </div>
                             </div>
-                            <div className='row justify-content-center align-items-center'>
-                                <div  className='p-2 label'> 
-                                    <EventIcon/> &nbsp;
-                                </div>
-                                <div className='p-2'> 
-                                     <form  noValidate>
-                                        <TextField
-                                            id="datetime-local"
-                                            label="End Date and Time"
-                                            type="datetime-local"
-                                            defaultValue=' '
-                                            value={this.state.endDateTimeValue}
-                                            onChange={this.handleEndDateTimeChange}
-                                            InputLabelProps={{
-                                            shrink: true,
-                                            }}
-                                        />
-                                    </form>
-                                </div>
+                        </div>
+                        <div className='row justify-content-center align-items-center'>
+                            <div  className='p-2 label'> 
+                                <EventIcon/> 
                             </div>
-                            <div className='row justify-content-center align-items-center'>    
+                            <div className='p-2'> 
+                                 <form  noValidate>
+                                    <TextField
+                                        id="datetime-local"
+                                        label="End Date and Time"
+                                        type="datetime-local"
+                                        defaultValue=' '
+                                        value={this.state.endDateTimeValue}
+                                        onChange={this.handleEndDateTimeChange}
+                                        InputLabelProps={{
+                                        shrink: true,
+                                        }}
+                                    />
+                                </form>
+                            </div>
+                        </div>
+                        <div className='row justify-content-center align-items-center'>    
                             <div className='p-2 label '>
                                 <PlaceIcon/>
                             </div> 
@@ -353,26 +351,26 @@ class ArticleForm extends React.Component {
                             <div className='p-2 label'>
                                 <GroupIcon/>
                             </div> 
-                            <Dropdown isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
-                                    <DropdownToggle>
-                                        {(this.state.clubVerified)? this.state.club : 'select your club'}
-                                    </DropdownToggle>
+                            <Dropdown className='p-2' isOpen={this.state.dropdownOpen} toggle={() => this.setState({dropdownOpen: !this.state.dropdownOpen})} >
+                                <DropdownToggle>
+                                    {(this.state.clubVerified)? this.state.club : 'select your club'}
+                                </DropdownToggle>
                                 <DropdownMenu
                                     modifiers={{
-                                    setMaxHeight: {
-                                        enabled: true,
-                                        order: 890,
-                                        fn: (data) => {
-                                        return {
-                                            ...data,
-                                            styles: {
-                                            ...data.styles,
-                                            overflow: 'auto',
-                                            maxHeight: '100px',
+                                        setMaxHeight: {
+                                            enabled: true,
+                                            order: 890,
+                                            fn: (data) => {
+                                                return {
+                                                    ...data,
+                                                    styles: {
+                                                        ...data.styles,
+                                                        overflow: 'auto',
+                                                        maxHeight: '100px',
+                                                    },
+                                                };
                                             },
-                                        };
                                         },
-                                    },
                                     }}
                                 >
                                     {clubListItems}
@@ -380,34 +378,28 @@ class ArticleForm extends React.Component {
                             </Dropdown>
                         </div>
                     </div>
-                </div>
-                        
-                    <div id='blankSpace'></div>
-
-                    <div className='m-8 p-2'>
-                            <div className=''>
-                                <div className='label p-2'>
-                                    <AssignmentIcon />
-                                </div>
-                                <div className='content-input'>
-                                    <form>
-                                        <TextField
-                                            id="filled-multiline-static"
-                                            label="Content"
-                                            multiline
-                                            rows={10}
-                                            defaultValue= ''
-                                            variant="filled"
-                                            value={this.state.contentValue}
-                                            onChange={this.handleContentChange}
-                                            />
-                                    </form>
-                                </div>
-                            </div>
-
+                </div>    
+                <div id='blankSpace'></div>
+                    <div className='m-8 p-2 flex-wrap'>
+                        <div className='label p-2'>
+                            <AssignmentIcon />
+                        </div>
+                        <div className='content-input'>
+                            <form>
+                                <TextField
+                                    id="filled-multiline-static"
+                                    label="Content"
+                                    fullWidth={true}
+                                    multiline
+                                    rows={12}
+                                    defaultValue= ''
+                                    variant="filled"
+                                    value={this.state.contentValue}
+                                    onChange={this.handleContentChange}
+                                />
+                            </form>
+                        </div>
                     </div>
-                    
-                
                     <div className=''> 
                         <div className='col tag ArticleForm_Tag'>
                             <div className='label p-2'>
@@ -416,12 +408,10 @@ class ArticleForm extends React.Component {
                             <TagsInput 
                                 value={this.state.tags} 
                                 onChange={this.handleTagChange} />
-                            
                         </div>
                     </div>
 
-                    <div className="buttons" className={`d-flex justify-content-around`}>
-                        <div className='row d-flex'>
+                    <div className="d-flex flex-wrap flex-row buttons justify-content-around">
                             <div className='p-2'>
                                 <Button
                                     variant="contained"
@@ -430,7 +420,7 @@ class ArticleForm extends React.Component {
                                     <SaveIcon /> &nbsp; Save for later
                                 </Button>
                             </div>
-                            <div className='p-2'>
+                            <div className='p-2 '>
                                 <Button
                                     variant="contained"
                                     color="primary"
@@ -444,7 +434,6 @@ class ArticleForm extends React.Component {
                                     <DeleteIcon/> &nbsp; Cancel
                                 </Button>
                             </div>
-                        </div>
                     </div>
             </div>
         );   
