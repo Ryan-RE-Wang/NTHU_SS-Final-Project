@@ -11,6 +11,7 @@ router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
 router.get('/:school', function(req, res, next) {
+    console.log("QAQ");
     const {school} = req.params;
     clubModel.list(school).then(club => {
         res.json(club)

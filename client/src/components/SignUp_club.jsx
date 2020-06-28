@@ -17,7 +17,6 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import CloudUploadIcon from '@material-ui/icons/CloudUpload';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
-import createPost from 'api/posts.js';
 import { Icon } from 'react-icons-kit';
 import {facebook2} from 'react-icons-kit/icomoon/facebook2';
 import {facebook} from 'react-icons-kit/icomoon/facebook';
@@ -69,8 +68,8 @@ class SignUp_club extends React.Component {
             src: null,
             crop: {
                 unit: '%',
-                width: 30,
-                aspect: 42 / 57,
+                width: 300,
+                aspect: 1 / 1,
             },
             croppedImageUrl: null,
             croppedImage: null,
@@ -402,7 +401,6 @@ class SignUp_club extends React.Component {
         }
     }
 
-    
 
     handleFB_URLChange(e) {
         const fb_url = e.target.value;
@@ -504,7 +502,7 @@ class SignUp_club extends React.Component {
             this.state.verification_codeValue,
             this.state.descriptionValue
             ).then(() => {
-            // this.listPosts(this.props.searchText);
+            this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
         });
@@ -544,7 +542,7 @@ class SignUp_club extends React.Component {
 
     handleCancel() {
         this.setState({
-            id: uuid(),
+            id: '',
             clubnameValue: '',
             clubnameDanger: false,
             descriptionValue: '',

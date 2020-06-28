@@ -57,6 +57,7 @@ import LoginForm from 'components/LoginForm.jsx'
 import Footer from "components/Footer_Content.jsx"
 import SignUp_club from "components/SignUp_club.jsx"
 import {connect} from 'react-redux';
+import {listClub} from 'api/club.js';
 
 // action
 import {closeLoginForm, openLoginForm , logout} from 'states/login-actions.js';
@@ -66,22 +67,23 @@ import Userside_manager from 'components/Userside_manager.jsx';
 
 class Main extends React.Component {
     static propTypes = {
-        loginPageOpen: PropTypes.bool
+        loginPageOpen: PropTypes.bool,
     };
 
     constructor(props) {
         super(props);
-        // this.state = {
-        //     nthuOpen: false,
-        //     nctuOpen: false,
-        //     categoryOpen: false,
-        //     tagClick: '',
-        //     // animateComplete: false,
-        //     startSearch: false,
-        //     loginPage: false,
-        //     sideBarOpen: false,
-        //     userInfoOpen:false
-        // }
+        this.state = {
+            // nthuOpen: false,
+            // nctuOpen: false,
+            // categoryOpen: false,
+            // tagClick: '',
+            // // animateComplete: false,
+            // startSearch: false,
+            // loginPage: false,
+            // sideBarOpen: false,
+            // userInfoOpen:false
+            clubs: [],
+        }
         
         this.handleClick = this.handleClick.bind(this);
         this.handleLinkSelect = this.handleLinkSelect.bind(this);
@@ -91,11 +93,19 @@ class Main extends React.Component {
         this.handleLogin = this.handleLogin.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
         this.handleUserInfo = this.handleUserInfo.bind(this);
+
+        this.listClubs = this.listClubs.bind(this);
+    }
+
+    componentDidMount() {
+        this.listClubs();
     }
 
     render() {
         
         let {loginPageOpen} = this.props;
+
+
         return (
             <Router>
             <div className=' ' id='main-wrapper'>
@@ -218,7 +228,7 @@ class Main extends React.Component {
 
 
                     {/* for router */}
-                    <Route exact path="/" component={ArticleForm}/>
+                    <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
                     <Route exact path="/Manager" component={Userside_manager}/>
                     <Route exact path='/search' component={SearchPage}/>
@@ -240,6 +250,15 @@ class Main extends React.Component {
             </Router>
         );
     }
+
+    listClubs() {
+        listClub().then(clubs => {
+            this.setState({
+                clubs
+            })
+        })
+    }
+
     animateComplete() {
         this.setState(() => ({
             animateComplete: true

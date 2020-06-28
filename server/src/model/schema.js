@@ -50,6 +50,80 @@ const schemaClub=`
         description     text
     );
 `;
+const dataSql = `
+    -- Populate dummy post
+    INSERT INTO post (
+        id,
+        title,
+        content,
+        startdatetime,
+        enddatetime,
+        ticket,
+        location,
+        fileurl,
+        tags,
+        touch,
+        userid,
+        mode,
+        club)
+    SELECT
+        i,
+        'word' || i || ' word' || (i+1) || ' word' || (i+2),
+        'word' || i || ' word' || (i+1) || ' word' || (i+2), 
+        '2017-05-24T10:30',
+        '2017-05-24T10:30',
+        '0',
+        'Mong Ming Wei',
+        '1681ca51-9b78-4dcd-a319-1512215c2adf',
+        '{a, b, c}',
+        0,
+        'Hello Kitty', 
+        true,
+        'A'
+
+    FROM generate_series(1, 10) AS s(i) ORDER BY RANDOM();
+    -- Populate dummy clubs
+    INSERT INTO club (
+        id,
+        userid,
+        school,
+        clubname,
+        facebook,
+        instagram,
+        clubpic,
+        clubpassword
+    )
+    SELECT
+        generate_series(1, 3),
+        'word' || i || ' word' || (i+1) || ' word' || (i+2),
+        'nthu', 
+        'word' || i,
+        'facebook' || i,
+        'instagram' || i,
+        '1681ca51-9b78-4dcd-a319-1512215c2adf',
+        '000000'
+    FROM generate_series(1, 3) AS s(i);
+    INSERT INTO club (
+        id,
+        userid,
+        school,
+        clubname,
+        facebook,
+        instagram,
+        clubpic,
+        clubpassword
+    )
+    SELECT
+        generate_series(4, 6),
+        'word' || i || ' word' || (i+1) || ' word' || (i+2),
+        'nctu', 
+        'word' || i,
+        'facebook' || i,
+        'instagram' || i,
+        '1681ca51-9b78-4dcd-a319-1512215c2adf',
+        '000000'
+    FROM generate_series(4, 6) AS s(i);
+`;
 db.none(schemaInfo).then(() => {
     console.log('info table created');
     return db.none(schemaPost).then(()=>{

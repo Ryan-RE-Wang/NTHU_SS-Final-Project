@@ -3,7 +3,7 @@ if (!global.db) {
     db = pgp(process.env.DB_URL);
 }
 
-function list(searchText = '', category = '', start = '', mode = null, club = '', order = '', userid = '') {
+function list(searchText = '', category = '', start = '', mode = null, club = '', order = '', userid = '', startofPost) {
     const where = [];
     if (searchText)
         where.push(`titleValue ILIKE '%$1:value%'`);
@@ -17,6 +17,8 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
         where.push(`club = '$5'`);
     if (userid)
         where.push(`userid = '$6'`);
+    if (startofPost)
+        where.push(`id < $7`)
 
     const id1 = (order === '') ?  'id' : order;
     const sql = `
@@ -24,7 +26,7 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
         FROM post
         ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
         ORDER BY ${id1} ASC
-        LIMIT 10
+        LIMIT 3
     `;
     return db.any(sql, [searchText, category, start, mode, club, userid]);
 }

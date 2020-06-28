@@ -9,6 +9,7 @@ const postBaseUrl = 'http://localhost:4000/api/clubs';
 
 
 export function listClub(school = '') {
+
     let url = `${postBaseUrl}`;
     let query = [];
     if (school)
@@ -18,11 +19,11 @@ export function listClub(school = '') {
 
     console.log(`Making GET request to: ${url}`);
 
-    return axios.get(url).then(function(res) {
+    return axios.get(url, {school}).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
 
-        //console.dir(res.data);
+        // console.log(res.data);
         return res.data;
     });
 }

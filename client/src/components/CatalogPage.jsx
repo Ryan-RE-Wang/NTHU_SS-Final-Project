@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,UncontrolledDropdown } from 'reactstrap';
-
+import {Alert} from 'reactstrap';
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import Carousel from 'react-bootstrap/Carousel'
 import CheckIcon from '@material-ui/icons/Check';
@@ -26,6 +26,8 @@ export default class CatalogPage extends React.Component{
         this.state = {
             exploreClick: false,
             orderClick: false,
+            masking: false,
+            postLoading: false,
             searchText: '',
             category: '',
             start:'',
@@ -33,11 +35,13 @@ export default class CatalogPage extends React.Component{
             club: '',
             order: 'id',
             userid: '',
-            posts: []
+            posts: [], 
+            hasMore: true
         };
         this.handleExplore = this.handleExplore.bind(this); 
         this.handleOrder = this.handleOrder.bind(this); 
         this.listPosts = this.listPosts.bind(this);
+        this.listMorePosts = this.listMorePosts.bind(this);
     }
 
     componentDidMount() {
@@ -48,6 +52,8 @@ export default class CatalogPage extends React.Component{
     static order = ['A to Z','Popularity','Date'];
 
     render(){
+        
+        const {masking, postLoading} = this.state;
         let children = (<div>There are no posts</div>);
         if (this.state.posts.length) {
             children = this.state.posts.map(p => (
@@ -176,9 +182,13 @@ export default class CatalogPage extends React.Component{
                             <div className='posts-table-heading'> ALL</div>
                             {/* <div className='d-flex row justify-content-center'> */}
                             <div>
+                                {
+                                    postLoading && <Alert color='warning' className='loading'>Loading...</Alert>
+                                }
+                                
                                 {children}
                                 {   (this.state.posts.length)?
-                                    <div className='button-wrapper'><button id='showMoreBtn'> SHOW MORE</button></div>
+                                    <div className='button-wrapper'><button id='showMoreBtn' onClick={this.listMorePosts}> SHOW MORE</button></div>
                                     : ''
                                 }
                             </div>
@@ -196,11 +206,52 @@ export default class CatalogPage extends React.Component{
     }
 
     listPosts(searchText, category, start, mode, club, order, userid) {
-        listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
-            this.setState({
-                posts
+        this.setState({
+            postLoading: true,
+            masking: true,
+        }, () => {
+            listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
+                this.setState({
+                    posts, 
+                    postLoading: false
+                });
+            }).catch(err => {
+                console.error('Error listing posts', err);
+                this.setState({
+                    posts: [],
+                    postLoading: false
+                })
             })
+        })
+
+        setTimeout(() => {
+            this.setState({
+                masking: false
+            });
+        }, 600);
+        
+    }
+
+    listMorePosts() {
+        if (this.state.posts.length < 1) {
+            return;
+        }
+        this.setState({
+            postLoading: true
         });
+        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.posts[this.state.posts.length - 1].id)
+        .then(posts => {
+            this.setState({
+                ...this.state,
+                posts: [...this.state.posts, ...posts], 
+                hasMore: posts.length > 0
+            });
+        }).catch(err => {
+            console.error('Error listing posts', err);
+        }).then(() => this.setState({
+            postLoading: false
+        }))
+
     }
 
     handleExplore(){

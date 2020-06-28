@@ -8,15 +8,14 @@ const postBaseUrl = 'http://localhost:4000/api';
 //const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
 
 
-export function listPosts(searchText = '', category='', start = '', mode = null, club = '', order = '', userid = '') {
+export function listPosts(searchText = '', category='', start = '', mode = null, club = '', order = '', userid = '', startofPost) {
     let url = `${postBaseUrl}/posts/getPost`;
 
     console.log(`Making GET request to: ${url}`);
 
-    return axios.get(url, {searchText, category, start, mode, club, order, userid}).then(function(res) {
+    return axios.get(url, {searchText, category, start, mode, club, order, userid, startofPost}).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
-
         return res.data;
     });
 }
