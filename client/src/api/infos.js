@@ -44,9 +44,12 @@ export function createInfoFB(username = '',email = ''){
 }
 export function login(email = '',password = '') {
     const url = `${infoBaseUrl}/login`;
-    return axios.get(url, {
-        password,
-        email
+
+    console.log(email, password)
+
+    return axios.post(url, {
+        email,
+        password
     }).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);

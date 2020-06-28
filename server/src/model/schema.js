@@ -19,7 +19,7 @@ const schemaPost=`
     CREATE EXTENSION IF NOT EXISTS pg_trgm;
 
     CREATE TABLE post(
-        id              text,
+        id              serial PRIMARY KEY NOT NULL,
         title           text,
         content         text,
         startdatetime   text,
@@ -33,7 +33,7 @@ const schemaPost=`
         mode            boolean,
         club            text
     ); 
-    CREATE INDEX post_idx_id ON post USING gin(id gin_trgm_ops);
+    CREATE INDEX post_idx_title ON post USING gin(title gin_trgm_ops);
 `;
 const schemaClub=`
     DROP TABLE IF EXISTS club;

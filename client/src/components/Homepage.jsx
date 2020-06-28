@@ -12,30 +12,61 @@ import TextField from '@material-ui/core/TextField';
 import Carousel from 'react-bootstrap/Carousel';
 import Button from '@material-ui/core/Button';
 import { Grid } from '@material-ui/core';
+import {Alert} from 'reactstrap';
 import PopularArticle from 'components/PopularArticle.jsx';
 import ColumnPost from 'components/ColumnPost.jsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import {listPosts} from 'api/posts.js';
 
 import './Homepage.css'
 
 export default class Homepage extends React.Component {
-    state= {
-        hasMore: false
-    }
 
     constructor(props) {
         super(props);
+        this.state = {
+            masking: false,
+            postLoading: false,
+            searchText: '',
+            category: '',
+            start:'',
+            mode: false,
+            club: '',
+            order: 'id',
+            userid: '',
+            startofPost: '',
+            posts: [], 
+            hasMore: true
+        }
+
+        this.listPosts = this.listPosts.bind(this);
         this.handleHasMore = this.handleHasMore.bind(this);
+    }
+
+    componentDidMount() {
+        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.startofPost);
     }
 
     render() {
 
-        const p = {
-            image: 'images/poster.jpg',
-            title: 'Final demo',
-            location: 'Delta Building',
-            date: '2020/6/30'
+        const {masking, postLoading} = this.state;
+        let children = (<div>There are no posts</div>);
+        if (this.state.posts.length) {
+            children = this.state.posts.map(p => (
+                <div className='col-6 col-md-3 col-lg-2  grid-item'>
+                    <div className='grid-item-padding'>
+                    <div key={p.id}><PopularArticle p={p}/></div>
+                    </div>
+                </div>
+            ))
         }
+
+        // const p = {
+        //     image: 'images/poster.jpg',
+        //     title: 'Final demo',
+        //     location: 'Delta Building',
+        //     date: '2020/6/30'
+        // }
 
         return (
             <div className='homepage'>
@@ -63,47 +94,8 @@ export default class Homepage extends React.Component {
                         
                         <div className='grid-container d-flex justify-content-center'>                 
                             <div className='row px-0 mx-0'>
-
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>                            
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
+                                {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
+                                {children}                                
                             </div>
                         </div>
 
@@ -131,47 +123,8 @@ export default class Homepage extends React.Component {
                         </div>
                         <div className='grid-container d-flex justify-content-center'>                 
                             <div className='row px-0 mx-0'>
-
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>                            
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
-                                <div className='col-6 col-md-3 col-lg-2  grid-item'>
-                                    <div className='grid-item-padding'>
-                                    <PopularArticle/>
-                                    </div>
-                                </div>
+                            {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
+                                {children}
                             </div>
                         </div>
                         <div>
@@ -185,10 +138,59 @@ export default class Homepage extends React.Component {
       
             </div>
         );
+    }
 
+    listPosts(searchText, category, start, mode, club, order, userid) {
+        console.log("1");
+        this.setState({
+            postLoading: true,
+            masking: true,
+        }, () => {
+            listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
+                console.log(posts);
+                this.setState({
+                    posts, 
+                    postLoading: false
+                });
+            }).catch(err => {
+                console.error('Error listing posts', err);
+                this.setState({
+                    posts: [],
+                    postLoading: false
+                })
+            })
+        })
+
+        setTimeout(() => {
+            this.setState({
+                masking: false
+            });
+        }, 600);
         
+    }
+
+    listMorePosts() {
+        if (this.state.posts.length < 1) {
+            return;
+        }
+        this.setState({
+            postLoading: true
+        });
+        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.posts[this.state.posts.length - 1].id)
+        .then(posts => {
+            this.setState({
+                ...this.state,
+                posts: [...this.state.posts, ...posts], 
+                hasMore: posts.length > 0
+            });
+        }).catch(err => {
+            console.error('Error listing posts', err);
+        }).then(() => this.setState({
+            postLoading: false
+        }))
 
     }
+
     handleHasMore() {
         this.setState((prevState) => ({
             hasMore: !prevState.hasMore

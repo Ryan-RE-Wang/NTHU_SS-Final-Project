@@ -32,7 +32,6 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
 }
 
 function create(
-    id,
     title,
     content,
     startdatetime,
@@ -47,10 +46,9 @@ function create(
     const touch = 0;
     const sql = `
         INSERT INTO post ($<this:name>)
-        VALUES ($<id>, $<title>, $<content>, $<startdatetime>, $<enddatetime>, $<ticket>, $<location>, $<fileurl>, $<tags>, $<touch>, $<userid>, $<mode>, $<club>)
+        VALUES ($<title>, $<content>, $<startdatetime>, $<enddatetime>, $<ticket>, $<location>, $<fileurl>, $<tags>, $<touch>, $<userid>, $<mode>, $<club>)
     `;
     return db.none(sql,{
-        id,
         title,
         content,
         startdatetime,

@@ -31,12 +31,13 @@ function loginFB(email){
     return db.one(sql, {email})
 }
 // login
-function login(password, email){
+function login(email, password){
+    console.log(email, password)
     const sql =`
     SELECT * FROM info
     WHERE password = $<password> AND email = $<email>
     `;
-    return db.one(sql, {password,email})
+    return db.one(sql, {email,password})
 }
 function checkInfo(email){
     const sql =`

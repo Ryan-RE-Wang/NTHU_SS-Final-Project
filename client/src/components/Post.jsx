@@ -20,12 +20,12 @@ class Post extends React.Component{
         // intro: PropTypes.string,
         // dates: PropTypes.bool,
         // place: propTypes.string,
-        masking: PropTypes.bool,
-        intro: PropTypes.string,
-        dates: PropTypes.string,
-        place: PropTypes.string,
-        holder: PropTypes.string,
-        imageurl: PropTypes.string,
+        // masking: PropTypes.bool,
+        // intro: PropTypes.string,
+        // dates: PropTypes.string,
+        // place: PropTypes.string,
+        // holder: PropTypes.string,
+        // imageurl: PropTypes.string,
         p: PropTypes.object
     };
 

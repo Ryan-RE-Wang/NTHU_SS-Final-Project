@@ -602,7 +602,7 @@ class ArticleForm extends React.Component {
             data => console.log(data))
         .catch(err => console.error(err))
 
-        createPost(this.state.id,
+        createPost(
             this.state.titleValue,
             this.state.contentValue,
             this.state.startDateTimeValue,
@@ -620,7 +620,6 @@ class ArticleForm extends React.Component {
         });
 
         this.setState({
-            id: uuid(),
             titleValue: '',
             titleDanger: false,
             contentValue: '',

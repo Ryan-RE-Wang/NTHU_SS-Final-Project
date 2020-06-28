@@ -4,11 +4,11 @@ if (!global.db) {
 }
 
 function list(school) {
+    console.log(school);
     const sql = `
         SELECT *
         FROM club
         WHERE school = $<school>
-        ORDER BY id DESC
         LIMIT 10
     `;
     return db.any(sql, {school});

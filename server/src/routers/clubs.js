@@ -10,9 +10,9 @@ router.use(bodyParser.json());
 router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
-router.get('/:school', function(req, res, next) {
+router.post('/school', function(req, res, next) {
     console.log("QAQ");
-    const {school} = req.params;
+    const {school} = req.body;
     clubModel.list(school).then(club => {
         res.json(club)
     }).catch(next);

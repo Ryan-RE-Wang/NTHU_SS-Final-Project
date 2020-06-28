@@ -184,14 +184,12 @@ class LoginForm extends React.Component{
 	}
 	
 	handleSubmit(){
-		console.log("handle submit");
 		const data = this.state;
+		console.log(data);
 		if(this.props.createAccountForm)
 			this.props.dispatch(createAccount(data.tmp_username,data.tmp_password,data.tmp_email));
 		else 
 			this.props.dispatch(login(data.tmp_email,data.tmp_password));
-		
-		
 		
 	}
 	handleInputChange(e){

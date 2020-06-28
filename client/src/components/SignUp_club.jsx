@@ -490,11 +490,10 @@ class SignUp_club extends React.Component {
             data => console.log(data))
         .catch(err => console.error(err))
         
-        console.log(this.state.fileName);
 
         createClub(this.state.id,
             this.props.account,
-            this.state.school,
+            this.state.university,
             this.state.clubnameValue,
             this.state.fb_urlValue,
             this.state.ig_urlValue,
@@ -502,7 +501,7 @@ class SignUp_club extends React.Component {
             this.state.verification_codeValue,
             this.state.descriptionValue
             ).then(() => {
-            this.listPosts(this.props.searchText);
+            // this.listPosts(this.props.searchText);
         }).catch(err => {
             console.error('Error creating posts', err);
         });

@@ -24,7 +24,6 @@ export function navBar(state=initNavBarState,action){
                 sideBarOpen: !state.sideBarOpen
             }
         case('@NAVBAR/CLICK-NTHU'):
-            console.log("nthu");
             return{
                 ...state,
                 nthuOpen: !state.nthuOpen,
@@ -35,8 +34,8 @@ export function navBar(state=initNavBarState,action){
         case('@NAVBAR/CLICK-NCTU'):
             return{
                 ...state,
-                nctuOpen: false,
-                nthuOpen: !state.nctuOpen,
+                nthuOpen: false,
+                nctuOpen: !state.nctuOpen,
                 categoryOpen: false
             }
         case('@NAVBAR/CLICK-CATAGORY'):

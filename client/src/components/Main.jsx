@@ -73,16 +73,8 @@ class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            // nthuOpen: false,
-            // nctuOpen: false,
-            // categoryOpen: false,
-            // tagClick: '',
-            // // animateComplete: false,
-            // startSearch: false,
-            // loginPage: false,
-            // sideBarOpen: false,
-            // userInfoOpen:false
-            clubs: [],
+            clubsNthu: [],
+            clubsNctu: []
         }
         
         this.handleClick = this.handleClick.bind(this);
@@ -95,16 +87,29 @@ class Main extends React.Component {
         this.handleUserInfo = this.handleUserInfo.bind(this);
 
         this.listClubs = this.listClubs.bind(this);
+
     }
 
     componentDidMount() {
-        this.listClubs();
     }
 
     render() {
         
         let {loginPageOpen} = this.props;
 
+        let childrenNthu = (<div>There are no clubs</div>);
+        if (this.state.clubsNthu.length) {
+            childrenNthu = this.state.clubsNthu.map(c => (
+                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>{c.clubname}</div>
+            ))
+        }
+
+        let childrenNctu = (<div>There are no clubs</div>);
+        if (this.state.clubsNctu.length) {
+            childrenNctu = this.state.clubsNctu.map(c => (
+                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>{c.clubname}</div>
+            ))
+        }
 
         return (
             <Router>
@@ -147,7 +152,7 @@ class Main extends React.Component {
                         </div>
                         <div style={{display: (this.props.nthuOpen) ? 'block' : 'none'}}>
                             <Link to='/category' className='link'>  
-                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                                {childrenNthu}
                             </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
@@ -159,11 +164,11 @@ class Main extends React.Component {
                         </div>
                         <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
                             <Link to='/category' className='link'>  
-                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                                {childrenNctu}
                             </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry' style={{display: (this.props.alreadyLogin) ? 'block' : 'none'}} onClick={this.handleNavbarToggle}>  
-                            <Link to='/Manager' className='link'>                       
+                            <Link to='/ArticleForm' className='link'>                       
                                 <EditIcon/>&nbsp;<span>Edit post</span> 
                             </Link>                                
                         </div>
@@ -252,9 +257,15 @@ class Main extends React.Component {
     }
 
     listClubs() {
-        listClub().then(clubs => {
+        listClub('NTHU').then(clubs => {
             this.setState({
-                clubs
+                clubsNthu: clubs
+            })
+        })
+
+        listClub('NCTU').then(clubs => {
+            this.setState({
+                clubsNctu: clubs
             })
         })
     }
@@ -270,21 +281,28 @@ class Main extends React.Component {
     handleUserInfo(){
         this.props.dispatch(openUserInfo());
     }
+
     handleNavbarToggle() {
         this.props.dispatch(changeToggle());
+        this.listClubs();
     }
+
     handleClick(type) {
         this.props.dispatch(clickList(type));
     }
+
     handleLinkSelect(tag) {
         this.props.dispatch(clickTag(tag));
     }
+
     handleSearch(){
         this.props.dispatch(openSearchBar());
     }
+
     handleLogin(){
         this.props.dispatch(openLoginForm());
     }
+
     handleLogout(){
         this.props.dispatch(logout(this.props.loginType));
     }

@@ -10,16 +10,11 @@ const postBaseUrl = 'http://localhost:4000/api/clubs';
 
 export function listClub(school = '') {
 
-    let url = `${postBaseUrl}`;
-    let query = [];
-    if (school)
-        query.push(`school=${school}`);
-    if (query.length)
-        url += '?' + query.join('&');
+    let url = `${postBaseUrl}/school`;
 
     console.log(`Making GET request to: ${url}`);
 
-    return axios.get(url, {school}).then(function(res) {
+    return axios.post(url, {school}).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
 
@@ -41,7 +36,6 @@ export function createClub(id = '',
     let url = `${postBaseUrl}`;
 
     console.log(`Making POST request to: ${url}`);
-    console.log(clubpic);
     
     return axios.post(url, {
         id,

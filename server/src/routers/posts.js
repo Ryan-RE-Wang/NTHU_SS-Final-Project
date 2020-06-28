@@ -22,7 +22,7 @@ router.get('/getPost', function(req, res, next) {
 
 // Create
 router.post('', function(req, res, next) {
-    const {id,
+    const {
         title,
         content,
         startdatetime,
@@ -40,7 +40,6 @@ router.post('', function(req, res, next) {
         throw err;
     }
     postModel.create(
-        id,
         title,
         content,
         startdatetime,

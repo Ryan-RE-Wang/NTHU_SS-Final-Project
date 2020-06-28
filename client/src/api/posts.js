@@ -8,7 +8,7 @@ const postBaseUrl = 'http://localhost:4000/api';
 //const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
 
 
-export function listPosts(searchText = '', category='', start = '', mode = null, club = '', order = '', userid = '', startofPost) {
+export function listPosts(searchText = '', category='', start = '', mode = null, club = '', order = '', userid = '', startofPost = '') {
     let url = `${postBaseUrl}/posts/getPost`;
 
     console.log(`Making GET request to: ${url}`);
@@ -21,7 +21,6 @@ export function listPosts(searchText = '', category='', start = '', mode = null,
 }
 
 export function createPost(
-    id,
     title,
     content,
     startdatetime,
@@ -38,7 +37,6 @@ export function createPost(
     console.log(`Making posts POST request to: ${url}`);
 
     return axios.post(url, {
-        id,
         title,
         content,
         startdatetime,
