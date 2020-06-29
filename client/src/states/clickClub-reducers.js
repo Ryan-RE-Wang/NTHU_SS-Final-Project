@@ -6,10 +6,12 @@ const initClubState = {
     instagram: '',   
     clubpic: '',     
     clubpassword: '',
-    description: ''   
+    description: '',
+    useremail:'' 
 }
 
 export function club(state = initClubState, action) {
+    console.log(action);
     switch(action.type){
         case '@CLUB/START':
             return{
@@ -23,7 +25,8 @@ export function club(state = initClubState, action) {
                 instagram: action.instagram,
                 clubpic: action.clubpic,
                 clubpassword: action.clubpassword,
-                description: action.description
+                description: action.description,
+                useremail: action.useremail
             }
         case '@CLUB/FAIL':
             return{

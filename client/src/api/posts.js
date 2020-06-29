@@ -7,15 +7,16 @@ const postBaseUrl = 'http://localhost:4000/api';
 // Production server URL
 //const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
 export function listPostsByCategory(category, order){
-    let url = `${postBaseUrl}/posts/getPost/byCatagory`;
+    let url = `${postBaseUrl}/posts/getPostbyCategory`;
     let query = [];
     let odr ;
     if(order === 'A to Z') odr = 'AZ';
     else odr = order;
 
     query.push(`category=${category}`);
-    query.push(`order=${order}`);
+    query.push(`order=${odr}`);
     url += '?' + query.join('&');
+
     console.log(`Making GET request to: ${url}`);
     
     return axios.get(url).then(function(res){
@@ -60,8 +61,17 @@ export function listPostsbyclub(clubname, userid) {
 
     console.log(`Making GET request to: ${url}`);
 
-    console.log(clubname, userid);
+    return axios.get(url).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+}
+export function listPostByTouch(){
+    let url = `${postBaseUrl}/posts/getPostbyTouch`;
 
+    console.log(`Making GET request to: ${url}`);
+    
     return axios.get(url).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);

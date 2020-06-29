@@ -31,16 +31,24 @@ router.get('/getPostbyclub', function(req, res, next) {
             res.json(post)
     }).catch(next);
 });
+router.get('/getPostbyCategory',function(req,res,next){
+    const {category, order} = req.query;
 
-
-
-// type: search text
-router.get('/list/:type/',function(req, res, next){
-    const {type} = req.params;
-    const {query} = req.query;
-
+    postModel.listByCategory(category, order).then(
+        (posts)=>{
+            // console.log(posts);
+            res.json(posts) ;
+        }
+    ).catch(next);
 })
 
+router.get('/getPostbyTouch',function(req,res,next){
+    postModel.listbyTouch().then(
+        (posts)=>{
+            res.json(posts) ;
+        }
+    ).catch(next);
+})
 // Create
 router.post('', function(req, res, next) {
     const {
@@ -112,13 +120,7 @@ router.post('/delete', function(req, res, next) {
         res.json(post);
     }).catch(next);
 });
-router.get('/getPost/byCatagory',function(req,res,next){
-    const {catagory, order} == req.query;
-    postModel.listByCatagory(catagory, order).then(
-        (posts)=>{
-            return posts
-        }
-    ).catch(next);
-})
+
+
 
 module.exports = router;

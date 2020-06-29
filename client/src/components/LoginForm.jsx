@@ -177,7 +177,6 @@ class LoginForm extends React.Component{
 		}
 
 		if(qualify) {
-			console.log("true");
 			this.handleSubmit();
 		}
 		else return;
@@ -185,7 +184,6 @@ class LoginForm extends React.Component{
 	
 	handleSubmit(){
 		const data = this.state;
-		console.log(data);
 		if(this.props.createAccountForm)
 			this.props.dispatch(createAccount(data.tmp_username,data.tmp_password,data.tmp_email));
 		else 

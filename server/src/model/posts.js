@@ -51,7 +51,14 @@ function listbyclub(clubname, userid) {
         `;
         return db.any(sql, [clubname, userid]);
     }
-    
+}
+function listbyTouch(){
+    const sql = `
+        SELECT FROM post
+        ORDER BY touch
+        LIMIT 12
+    `;
+    return db.any(sql);
 }
 
 function create(
@@ -104,21 +111,24 @@ function deletepost(id) {
     `
     return db.none(sql, {id});
 }
-function listByCatagory(catagory='',order=''){
+
+function listByCategory(category='',order=''){
     let odr;
-    if(oreder == 'AZ'){
+    console.log(category + 'QAQQ')
+    if(order === 'AZ'){
         odr = 'title';
-    }else if(order == 'Date'){
+    }else if(order === 'Date'){
         odr == 'startdatetime';
-    }else if(order == 'Popularity'){
+    }else if(order === 'Popularity'){
         odr == 'touch';
     }
+    // WHERE $<catagory> = ANY(tags)
     const sql=`
-    SELECT title location ticket fileurl From post 
-    WHERE $<catagory> = ANY(tag)
-    ORDER BY $<odr>
+    SELECT * FROM post 
+    
+    ORDER BY id
     `;
-    return db.any(sql,{odr});
+    return db.any(sql,{category,odr});
 }
 
 module.exports = {
@@ -127,5 +137,6 @@ module.exports = {
     create,
     getdetail,
     deletepost,
-    listByCatagory
+    listByCategory,
+    listbyTouch
 };

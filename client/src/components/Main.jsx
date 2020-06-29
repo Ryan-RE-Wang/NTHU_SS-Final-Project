@@ -41,6 +41,7 @@ import {closeLoginForm, openLoginForm , logout} from 'states/login-actions.js';
 import {getClub} from 'states/clickClub-actions.js';
 import {openUserInfo, changeToggle, clickList, clickTag, openSearchBar} from 'states/navbar-actions';
 import Userside_manager from 'components/Userside_manager.jsx';
+import {changeCategory} from 'states/category-action.js';
 
 
 class Main extends React.Component {
@@ -72,6 +73,7 @@ class Main extends React.Component {
     }
 
     componentDidMount() {
+        this.listClubs();
     }
 
     render() {
@@ -81,14 +83,14 @@ class Main extends React.Component {
         let childrenNthu = (<div className='p-2 text-center'>There are no clubs</div>);
         if (this.state.clubsNthu.length) {
             childrenNthu = this.state.clubsNthu.map(c => (
-                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
+                <div key={c.id} className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
             ))
         }
 
         let childrenNctu = (<div className='p-2 text-center'>There are no clubs</div>);
         if (this.state.clubsNctu.length) {
             childrenNctu = this.state.clubsNctu.map(c => (
-                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
+                <div key={c.id} className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
             ))
         }
 
@@ -119,7 +121,13 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.categoryOpen) ? 'block' : 'none'}}>
-                                {/* <div className='dropDown-content'> <Link to='/catagory'></Link></div> */}
+
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Food')}>Food</div></Link>
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Music')}>Music</div></Link>
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Drama')}>Drama</div></Link>
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Art')}>Art</div></Link>
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Competition')}>Competition</div></Link>
+
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nthu')}>
@@ -235,7 +243,7 @@ class Main extends React.Component {
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={Manager}/>
+                    <Route exact path="/Manager" component={ArticleForm}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>
@@ -282,12 +290,10 @@ class Main extends React.Component {
         this.props.dispatch(openUserInfo());
     }
 
-    handleNavbarToggle(clubname) {
-        console.log(clubname)
-        if (clubname !== '') {
-            this.props.dispatch(getClub(clubname));
+    handleNavbarToggle(club) {
+        if (!club.clubname) {
+            this.props.dispatch(getClub(club));
         }
-        this.listClubs();
         this.props.dispatch(changeToggle());
 
     }
@@ -326,6 +332,11 @@ class Main extends React.Component {
     }
     handleClearSearch() {
         this.props.dispatch(setSearchText())
+    }
+
+    goToCategoryPage(type){
+        this.props.dispatch(changeToggle())
+        this.props.dispatch(changeCategory(type))
     }
 }
 

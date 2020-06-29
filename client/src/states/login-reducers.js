@@ -32,7 +32,8 @@ export function login(state = initLoginFormState , action){
                 username: action.username,
                 email:action.email,
                 createAccountForm: false,
-                loginType:'normal'
+                loginType:'normal',
+                userId:action.userId
             }
         case '@INFO/FAIL_LOGIN':
             return{
@@ -61,7 +62,8 @@ export function login(state = initLoginFormState , action){
                 loading: false,
                 username: action.name,
                 createAccountForm: false,
-                loginType:'FB'
+                loginType:'FB',
+                userId:action.userid
             }
         default:
             return{

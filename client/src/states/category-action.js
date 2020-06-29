@@ -1,8 +1,8 @@
 
-export function changeCatagory(category){
+export function changeCategory(category){
     return {
         type:'@CAT_PAGE/CHAGE_CAT',
-        category: catagory
+        category: category
     }
 
     

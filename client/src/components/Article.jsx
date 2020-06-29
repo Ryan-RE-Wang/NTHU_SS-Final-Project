@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Container, Row, Col, Label } from 'reactstrap';
 import Button from '@material-ui/core/Button'
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import {
     BrowserRouter as Router,
     Route,
@@ -13,8 +13,15 @@ import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
 import EventIcon from '@material-ui/icons/Event';
 import TextField from '@material-ui/core/TextField';
+import MyLoader from 'components/MyLoader.jsx';
+import {listPostsbyclub} from 'api/posts.js';
+import {getPage,getArticleFromDB} from 'states/clickPage-action.js';
+import {getClub} from 'states/clickClub-actions.js';
+import {createTouch} from 'api/posts.js';
 import {connect} from 'react-redux';
 import './Article.css';
+
+
 
 class Article extends React.Component {
     static propTypes = {
@@ -22,14 +29,41 @@ class Article extends React.Component {
     constructor(props) {
         super(props);
 
-    }
-    componentDidMount() {
-        window.scrollTo(0, 0);
-        
+        this.state = {
+            related: [],
+            post: {}
+        }
+
+        this.handleClickImg = this.handleClickImg.bind(this);
+
     }
 
+    componentDidMount() {
+        window.scrollTo(0, 0);
+        listPostsbyclub(this.props.club, null).then((related) => {
+            this.setState({
+                related: related,
+                post: {
+                    id: this.props.id,
+                    title: this.props.title,
+                    content: this.props.content,
+                    startdatetime: this.props.startdatetime,
+                    enddatetime: this.props.enddatetime,
+                    ticket: this.props.ticket,
+                    fileurl: this.props.fileurl,
+                    location: this.props.location,
+                    tags: this.props.tags,
+                    club: this.props.club
+                }
+            })
+        }).catch(err => {
+            console.error('Error creating posts', err);
+        });
+    }
+
+
     render() {
-        // const _tags = ['nthu', 'kaohsiung', 'food'];
+
         let tagItems = '';
         if (this.props.tags !== []) {
             tagItems = this.props.tags.map(tags =>
@@ -38,6 +72,15 @@ class Article extends React.Component {
                 </Link>
             )
         } 
+
+        let children = (<div></div> );
+        if (this.state.related.length) {
+            children = this.state.related.map(p => (
+                <div key={p.id} className='p-2'>
+                        <Link to='/article' onClick={() => this.handleClickImg(p.id)}><img className='' src={'https://team11final.s3-us-west-1.amazonaws.com/'+ p.fileurl+'.jpeg'} alt="" height="200rem" margin="0 auto"/></Link>
+                    </div>
+            ))
+        }
                 
         const handleCalender = () => {
             
@@ -91,6 +134,8 @@ class Article extends React.Component {
 
         return (
             <Container className='article'>
+            <div className= {`${this.props.fetching? 'd-block':'d-none'}`}><MyLoader/></div>
+            <div className= {`${this.props.fetching? 'd-none':'d-block'}`}>
                 <div className='d-flex row content justify-content-center align-items-center'>
                     <div className='col-4 poster'>
                         <img className='img-fluid' src= {imageSrc} width="240rem" margin="0 auto"/>
@@ -171,7 +216,7 @@ class Article extends React.Component {
                             <img className='' src={imageSrcClub} alt="" height="100rem" margin="0 auto"/>
                         </div>
                         <div className='p-1'>
-                            {this.props.email}
+                            {this.props.useremail.email}
                         </div>
                     </div>
                     <div className='col-8 paragraph'> 
@@ -183,16 +228,21 @@ class Article extends React.Component {
                 </div>
                 <hr></hr>
                 <div className='related-articles d-flex row justify-content-center'>
-                    <div className='p-2'>
-                        <a href="/#/article"><img className='' src="images/烤魷魚.jpg" alt="" height="200rem" margin="0 auto"/></a>
-                    </div>
-                    <div className='p-2'>
-                        <a href="/#/article"><img className='' src="images/烤魷魚.jpg" alt="" height="200rem" margin="0 auto"/></a>
-                    </div>
+                    {children}
                 </div>
+            </div>
             </Container>
         );
     }  
+
+
+    handleClickImg(pid) {
+        this.props.dispatch(getPage(pid));
+        this.props.dispatch(getClub(this.state.post.club));
+        createTouch(this.state.post.id);
+        
+        
+    }
 }
 
 export default connect(state => ({

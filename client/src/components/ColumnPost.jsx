@@ -1,24 +1,38 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Jumbotron } from 'reactstrap';
-
-
 import './ColumnPost.css'
-export default class ColumnPost extends React.Component{
+import { connect } from 'react-redux';
+import {getArticleFromDB} from 'states/clickPage-action.js';
 
+class ColumnPost extends React.Component{
+    static propTypes = {
+        // postid:-1,
+        // postname:'',
+        // postContent:'',
+        // fileUrl:''
+    }
     constructor(props) {
         super(props);
         this.getbody = this.getbody.bind(this);
-    }
+    
+		this.state={
+
+		}
+        this.handleLearnMore = this.handleLearnMore.bind(this);
+        this.getWords = this.getWords.bind(this);
+	}
     render(){
-        let body = this.getbody();
-        
+        let body = this.getbody();       
         return(  
             <div>{body}</div>
         )
     }
-
+    componentWillMount(){
+        
+    }
     getbody(){
+        let discription = this.props.postContent;
         if(this.props.reverse === true){
             return(
             <div className='columnPost '>
@@ -27,10 +41,10 @@ export default class ColumnPost extends React.Component{
                 {/* </div> */}
                 
                 <div className='discription addleftmargin '>
-                    <h1 className="display-4 d-none d-md-block ">Hello, world!</h1>
-                    <h1 className="display-5 d-block d-md-none ">Hello, world!</h1>
-                    <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
-                    <button className='learnmore-btn'>LearnMore</button>
+                    <h1 className="display-4 d-none d-md-block ">{this.props.postname}</h1>
+                    <h1 className="display-5 d-block d-md-none ">{this.props.postname}</h1>
+                    <p className="lead">{`${discription} ...`}</p>
+                    <Link to='/article'><button className='learnmore-btn'onClick={this.handleLearnMore}>LearnMore</button></Link>
                 </div>
                 
             </div>
@@ -39,10 +53,10 @@ export default class ColumnPost extends React.Component{
             return (
             <div className='columnPost order-reverse'>
                 <div className='discription addrightmargin'>
-                    <h1 className="display-4 d-none d-md-block ">Hello, world!</h1>
-                    <h1 className="display-5 d-block d-md-none ">Hello, world!</h1>
-                    <p className="lead">This is a simple hero unit, a simple Jumbotron-style component for calling extra attention to featured content or information.</p>
-                    <button className='learnmore-btn'>LearnMore</button>
+                    <h1 className="display-4 d-none d-md-block ">{this.props.postname}</h1>
+                    <h1 className="display-5 d-block d-md-none ">{this.props.postname}</h1>
+                    <p className="lead">{`${discription} ...`}</p>
+                    <Link to='/article'><button className='learnmore-btn'onClick={this.handleLearnMore}>LearnMore</button></Link>
                 </div>
                 {/* <div className='columPost-img'> */}
                     <img src="./images/poster.jpg" className=''/>
@@ -50,6 +64,21 @@ export default class ColumnPost extends React.Component{
             </div>
             )
         }
+    }
 
+    handleLearnMore(){
+        this.props.dispatch(getArticleFromDB(this.props.postId));  
+        this.props.dispatch(getClub(this.props.club));
+        createTouch(this.props.p.id);
+    }
+    //utility function
+    getWords(str) {
+        return str.split(/\s+/).slice(0,20).join(" ");
     }
 }
+
+
+export default connect(state => ({
+	...state.login,
+	loginPageOpen: state.loginPage.loginPageOpen
+}))(LoginForm);

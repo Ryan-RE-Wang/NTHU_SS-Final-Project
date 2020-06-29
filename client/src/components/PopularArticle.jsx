@@ -46,7 +46,7 @@ class PopularArticle extends React.Component {
     }
 
     handleClick() {
-        this.props.dispatch(getPage(this.props.p));
+        this.props.dispatch(getArticleFromDB(this.props.p));
         this.props.dispatch(getClub(this.props.p.club));  
         createTouch(this.props.p.id);
     }
