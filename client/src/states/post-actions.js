@@ -11,10 +11,17 @@ export function setSearchText(searchText) {
     };
 }
 
-export function setSearchDate(searchDate) {
+export function setSearchStartDate(searchStartDate) {
     return {
-        type: '@SEARCH_DATE/SET_SEARCH_DATE',
-        searchDate
+        type: '@SEARCH_START_DATE/SET_START_SEARCH_DATE',
+        searchStartDate
+    }
+}
+
+export function setSearchEndDate(searchEndDate) {
+    return {
+        type: '@SEARCH_END_DATE/SET_END_SEARCH_DATE',
+        searchEndDate
     }
 }
 /*  Posts */
@@ -39,10 +46,10 @@ function endListPosts(posts) {
 }
 
 
-export function listPosts(searchText, date) {
+export function listPosts(searchText, startDate, endDate, startofPost) {
     return (dispatch, getState) => {
         dispatch(startLoading());
-        return listPostsFromApi(searchText, null, date).then(posts => {
+        return listPostsFromApi(searchText, null, startDate, endDate, null, null, null, startofPost).then(posts => {
             dispatch(endListPosts(posts));
         }).catch(err => {
             console.error('Error listing posts', err);

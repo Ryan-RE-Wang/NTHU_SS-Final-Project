@@ -11,6 +11,9 @@
     left: auto;
     right: auto;
 }
+#date {
+  background-color: white;
+}
 .homepage .pop {
     border: none;
     outline: none;
