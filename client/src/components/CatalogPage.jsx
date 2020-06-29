@@ -13,7 +13,7 @@ import Post from 'components/Post.jsx';
 import Pop_Post from 'components/Pop_Post.jsx';
 import './CatalogPage.css'
 import Footer_Content from 'components/Footer_Content.jsx';
-import {listPosts} from 'api/posts.js';
+// import {listPosts} from 'api/posts.js';
 import {connect} from 'react-redux';
 
 
