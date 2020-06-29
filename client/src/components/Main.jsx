@@ -1,30 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {HashRouter as Router ,Route, Link } from 'react-router-dom'
-import { browserHistory } from 'react-router'
-
-import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
-    Container,
-    Row,
-    InputGroup,
-    InputGroupAddon,
-    InputGroupButtonDropdown,
-    Input,
-    Button,
-} from 'reactstrap';
-
-
+import { HashRouter as Router ,Route, Link, Redirect } from 'react-router-dom'
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Animate } from "react-simple-animate";
 import DatePicker from 'react-date-picker';
-
 // material ui icon
 import CreateIcon from '@material-ui/icons/Create';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
@@ -40,10 +19,6 @@ import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import EditIcon from '@material-ui/icons/Edit';
 import ListIcon from '@material-ui/icons/List';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
-
-import IconButton from '@material-ui/core/IconButton';
-import { colors } from '@material-ui/core';
-
 import './Main.css';
 
 import Article from 'components/Article.jsx';
@@ -58,6 +33,8 @@ import Footer from "components/Footer_Content.jsx"
 import SignUp_club from "components/SignUp_club.jsx"
 import {connect} from 'react-redux';
 import {listClub} from 'api/club.js';
+import {setSearchText, setSearchDate} from 'states/post-actions.js';
+
 
 // action
 import {closeLoginForm, openLoginForm , logout} from 'states/login-actions.js';
@@ -83,8 +60,9 @@ class Main extends React.Component {
             // sideBarOpen: false,
             // userInfoOpen:false
             clubs: [],
+            redirect: false,
         }
-        
+
         this.handleClick = this.handleClick.bind(this);
         this.handleLinkSelect = this.handleLinkSelect.bind(this);
         this.animateComplete = this.animateComplete.bind(this);
@@ -93,6 +71,8 @@ class Main extends React.Component {
         this.handleLogin = this.handleLogin.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
         this.handleUserInfo = this.handleUserInfo.bind(this);
+        this.handleSearchKeyPress = this.handleSearchKeyPress.bind(this);
+        this.handleClearSearch = this.handleClearSearch.bind(this);
 
         this.listClubs = this.listClubs.bind(this);
     }
@@ -227,8 +207,17 @@ class Main extends React.Component {
                             </div>
 
                             {/* for search condition */}
-                            <input className={`${(!this.props.startSearch) ? 'd-none':'d-block'}`} id='searchInput' placeholder='SEARCH FOR EVENT...'/>
-                            <div className={`${(!this.props.startSearch) ? 'd-none':'d-block'}`}><div className='navbar-items'id='searchBtn'><CloseIcon onClick={this.handleSearch}/></div></div>
+                            <input className={`${(!this.props.startSearch) ? 'd-none':'d-block'}`} onKeyPress={this.handleSearchKeyPress}  id='searchInput' placeholder='SEARCH FOR EVENT...'/>
+                            { 
+                                this.state.searchText &&
+                                <i className='navbar-text fa fa-times' onClick={this.handleClearSearch}></i>
+                            }
+                            
+                            <div className={`${(!this.props.startSearch) ? 'd-none':'d-block'}`}>
+                                <div className='navbar-items'id='searchBtn'>
+                                    <CloseIcon onClick={this.handleSearch}/>
+                                </div>
+                            </div>
 
                             
                         </div>
@@ -240,7 +229,19 @@ class Main extends React.Component {
                     {/* <div className={`${loginPageOpen? '':'d-none'}`}><LoginForm/></div> */}
                     <div id='content-section' >
 
-
+                    {
+                        this.state.redirect && <Route
+                        render={() => (
+                            <Redirect
+                              to={{
+                                pathname: "/search",
+                                state: { searchText: this.state.searchText }
+                              }}
+                            />
+                          )
+                        }
+                      />
+                    }
 
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
@@ -304,6 +305,19 @@ class Main extends React.Component {
     }
     handleLogout(){
         this.props.dispatch(logout(this.props.loginType));
+    }
+
+    handleSearchKeyPress(e) {
+        var keyCode = e.keyCode || e.which;
+        if (keyCode === 13){
+            this.props.dispatch(setSearchText(e.target.value))
+            this.setState({
+                redirect: (e.target.value !== '') ? true : false
+            });
+        }
+    }
+    handleClearSearch() {
+        this.props.dispatch(setSearchText())
     }
 }
 

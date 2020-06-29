@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Jumbotron, Container,Row } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,UncontrolledDropdown } from 'reactstrap';
 import {Alert} from 'reactstrap';
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import Carousel from 'react-bootstrap/Carousel'
+import Button from '@material-ui/core/Button';
 import CheckIcon from '@material-ui/icons/Check';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -182,7 +183,9 @@ export default class CatalogPage extends React.Component{
                             <div>
                                 {children}
                                 {   (this.state.posts.length)?
-                                    <div className='button-wrapper'><button id='showMoreBtn' onClick={this.listMorePosts}> SHOW MORE</button></div>
+                                    <Button id='showMoreBtn' className='p-2' onClick={this.listMorePosts}>
+                                        Show more
+                                    </Button>
                                     : ''
                                 }
                             </div>

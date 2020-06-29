@@ -17,14 +17,6 @@ const lasturl = '.jpeg';
 
 class Post extends React.Component{
     static propTypes = {
-        // intro: PropTypes.string,
-        // dates: PropTypes.bool,
-        // place: propTypes.string,
-        intro: PropTypes.string,
-        dates: PropTypes.string,
-        place: PropTypes.string,
-        holder: PropTypes.string,
-        imageurl: PropTypes.string,
         p: PropTypes.object
     };
 
@@ -63,7 +55,6 @@ class Post extends React.Component{
                         <Link to="/article" className="">
                             <button className=' d-none d-md-block moreInfoBtn' onClick={this.handleClick}>More Info</button>
                         </Link>
-                        
                     </div>
                     </Row>
             </div>
