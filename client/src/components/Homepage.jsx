@@ -104,6 +104,8 @@ class Homepage extends React.Component {
         }
 
         return (
+            
+            const {postsRecent,postsPop} = this.props;
             <div className='homepage'>
                 <img className='image-fluid homepage-image' src="/images/02.png" alt=""/>
                 <Form className='form'>
@@ -159,13 +161,21 @@ class Homepage extends React.Component {
         
                 </div>
                 
-                
+
                 {/* column\ */}
                 <div className='homepage-column justify-content-center'>
                     <Row>
-                    <div className='col-12 col-lg-6 d-block'> <ColumnPost reverse={false}/></div>    
-                    <div className='col-6 d-none d-lg-block'> <ColumnPost reverse={false}/></div>   
-                    <div className='col-12 d-block d-lg-none'> <ColumnPost reverse={true}/></div> 
+                        <div className='col-12 col-lg-6 d-block'> 
+                            <ColumnPost reverse={false} postId = {postsRecent[0].id} postname={postsRecent[0].title} 
+                            postContent={postsRecent[0].content} fileUrl={postsRecent[0].fileurl}/>
+                        </div>    
+                        <div className='col-6 d-none d-lg-block'> 
+                            <ColumnPost reverse={false} postId = {postsPop[0].id} postname={postsPop[0].title} 
+                            postContent={postsPop[0].content} fileUrl={postsPop[0].fileurl}/></div>   
+                        <div className='col-12 d-block d-lg-none'> 
+                            <ColumnPost reverse={true} postId = {postsPop[0].id} postname={postsPop[0].title} 
+                            postContent={postsPop[0].content} fileUrl={postsPop[0].fileurl}/>
+                        </div> 
                     </Row>  
                 </div>
                 {/* pupular event */}
