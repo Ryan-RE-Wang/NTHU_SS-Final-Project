@@ -126,9 +126,6 @@ main-wrapper -> navbar-slide
 #toggleBtn{
   border-right:0.05px lightgray solid;
 }
-#searchBtn{
-
-}
 #loginBtn{
   float: inline-end;
   border: 1px solid;

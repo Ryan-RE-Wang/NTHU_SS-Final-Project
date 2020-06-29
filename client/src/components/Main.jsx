@@ -42,7 +42,6 @@ import {getClub} from 'states/clickClub-actions.js';
 import {openUserInfo, changeToggle, clickList, clickTag, openSearchBar} from 'states/navbar-actions';
 import Userside_manager from 'components/Userside_manager.jsx';
 
-import {changeCatagory, changeOrder} from 'states/category-action.js';
 
 class Main extends React.Component {
     static propTypes = {
@@ -69,7 +68,7 @@ class Main extends React.Component {
         this.handleClearSearch = this.handleClearSearch.bind(this);
 
         this.listClubs = this.listClubs.bind(this);
-        this.goToCategoryPage = this.goToCategoryPage.bind(this);
+
     }
 
     componentDidMount() {
@@ -131,7 +130,7 @@ class Main extends React.Component {
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nthu')}>
-                                <ListIcon/>&nbsp;<span>NTHU Club</span>
+                                <ListIcon/>&nbsp;<span>NTHU Club </span>
                                 <ArrowDropDownIcon className={`sidebar-icon ${(this.props.nthuOpen) ? 'd-none' : 'd-inline'}`}/>
                                 <ArrowDropUpIcon className={`sidebar-icon ${(this.props.nthuOpen) ? 'd-inline' :'d-none'}`}/>
                             </div>
@@ -154,7 +153,7 @@ class Main extends React.Component {
                             </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry' style={{display: (this.props.alreadyLogin) ? 'block' : 'none'}} onClick={this.handleNavbarToggle}>  
-                            <Link to='/Manager' className='link'>                       
+                            <Link to='/ArticleForm' className='link'>                       
                                 <EditIcon/>&nbsp;<span>Edit post</span> 
                             </Link>                                
                         </div>
@@ -255,9 +254,9 @@ class Main extends React.Component {
 
 
                     </div>
-                    {/* <div id='footer-section'style={{display: (this.props.loginPage) ? 'none' : 'block'}}>
+                    <div id='footer-section'style={{display: (this.props.loginPage) ? 'none' : 'block'}}>
                         <Footer/>
-                    </div> */}
+                    </div>
                 </div> 
                 </div>
             </Router>
@@ -344,6 +343,5 @@ export default connect(state => ({
     ...state.login,
     loginPageOpen: state.loginPage.loginPageOpen,
     ...state.navBar,
-    ...state.club,
-
+    ...state.club
 }))(Main);

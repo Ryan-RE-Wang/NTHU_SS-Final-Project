@@ -1,3 +1,9 @@
+.footer_main{
+    position: relative;
+    display: block;
+    width: 100%;
+    float: right;
+}
 .divide-bar{
     width:100%;
     height:2.5rem;
@@ -18,7 +24,7 @@
 }
 .footer-content{  
     background-color:black;
-    color:wheat
+    color:rgb(19, 13, 1)
 }
 .footer-title{
     font-size: 1.8rem;
@@ -73,8 +79,11 @@
     }
 }
 .info-element span:hover{
-    border-bottom: 1px solid wheat; 
+    text-decoration: underline wheat; 
+    cursor: pointer;
 }
-
+.info-element span{
+    color: wheat;
+}
 
     
