@@ -11,8 +11,10 @@ import {listPosts} from 'api/posts.js';
 import PopularArticle from 'components/PopularArticle.jsx';
 import ColumnPost from 'components/ColumnPost.jsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
+import TextField from '@material-ui/core/TextField';
 import {connect} from 'react-redux';
-import {setSearchText, setSearchDate} from 'states/post-actions.js';
+import {setSearchText, setSearchStartDate, setSearchEndDate} from 'states/post-actions.js';
 
 import './Homepage.css'
 
@@ -45,7 +47,8 @@ class Homepage extends React.Component {
         this.listMorePosts = this.listMorePosts.bind(this);
         this.handleSearchKeyPress = this.handleSearchKeyPress.bind(this);
         this.handleClearSearch = this.handleClearSearch.bind(this);
-        this.handleSearchDateInput = this.handleSearchDateInput.bind(this);
+        this.handleStartDateChange = this.handleStartDateChange.bind(this);
+        this.handleEndDateChange = this.handleEndDateChange.bind(this);
     }
 
     componentDidMount() {
@@ -55,7 +58,7 @@ class Homepage extends React.Component {
         
     render() {
 
-        const {masking, postLoading} = this.state;
+        const {postLoading} = this.state;
 
         let childrenRecent = (<div>There are no posts</div>);
         if (this.state.postsRecent.length) {
@@ -83,7 +86,7 @@ class Homepage extends React.Component {
             return <Route render={() => (
                     <Redirect to={{
                         pathname: '/search',
-                        props: {searchText: this.state.searchText, searchDate: this.state.searchDate}
+                        props: {searchText: this.state.searchText, searchStartDate: this.state.searchStartDate, searchEndDate: this.state.searchEndDate}
                     }} 
                 />)}  
             /> ;
@@ -92,19 +95,37 @@ class Homepage extends React.Component {
         return (
             <div className='homepage'>
                 <img className='image-fluid homepage-image' src="/images/02.png" alt=""/>
-                <form className='form'>
+                <Form className='form'>
                     <div className="form-row justify-content-center input-wrapper">
                         <div className="col-12 col-sm-12 col-lg-5">
-                        <input className='input'type="text"  placeholder="Search for event" onKeyPress={this.handleSearchKeyPress} />
+                        <FormGroup>
+                            <Input type="text" name="input" id="searchText" placeholder="looking for events..." onKeyPress={this.handleSearchKeyPress} />
+                        </FormGroup>
                         </div>
                         <div className="col-12 col-sm-12 col-lg-2">
-                        <input className='input'type="date"  placeholder="Start" onChange={this.handleSearchDateInput} />
+                            <FormGroup>
+                                <Input
+                                    type="date"
+                                    name="date"
+                                    id="startDate"
+                                    placeholder="date placeholder"
+                                    onChange={this.handleStartDateChange}
+                                />
+                            </FormGroup>
                         </div>
                         <div className="col-12 col-sm-12 col-lg-2">
-                        <input className='input'type="date"  placeholder="End"/>
+                            <FormGroup>
+                                <Input
+                                    type="date"
+                                    name="date"
+                                    id="endDate"
+                                    placeholder="date placeholder"
+                                    onChange={this.handleEndDateChange}
+                                />
+                            </FormGroup>
                         </div>
                     </div>
-                </form>
+                </Form>
                 {/* recent event */}
                 <div className='d-flex homepage-margin justify-content-center'>
                     <div className='homepage-content '>
@@ -155,6 +176,21 @@ class Homepage extends React.Component {
                 </div>
             </div>
         );
+    }
+
+    handleStartDateChange(e) {
+        const date = e.target.value;
+        console.log(date)
+        if (date) {
+            this.props.dispatch(setSearchStartDate(date));
+        }
+    }
+
+    handleEndDateChange(e) {
+        const date = e.target.value;
+        if (date) {
+            this.props.dispatch(setSearchEndDate(date));
+        }
     }
 
     listPosts(searchText, category, start, mode, club, order, userid, startofpost) {
@@ -234,19 +270,14 @@ class Homepage extends React.Component {
 
     }
 
-    handleSearchDateInput(e) {
-        var date = e.target.value;
-        if (date) {
-            this.props.dispatch(setSearchDate(date));
-        }
-    }
 
     handleSearchKeyPress(e) {
         var keyCode = e.keyCode || e.which;
         if (keyCode === 13){
             this.props.dispatch(setSearchText(e.target.value))
             this.setState({
-                redirect: (e.target.value !== '')? true : false
+                searchText: e.target.value,
+                redirect: true 
             });
         }
     }
@@ -259,7 +290,8 @@ export default connect(state => ({
     ...state.post,
     postLoading: state.post.postLoading,
     searchText: state.searchText,
-    searchDate: state.searchDate
+    searchStartDate: state.searchStartDate,
+    searchEndDate: state.searchEndDate
 }))(Homepage);
 
 

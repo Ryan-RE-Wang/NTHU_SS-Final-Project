@@ -33,7 +33,7 @@ import Footer from "components/Footer_Content.jsx"
 import SignUp_club from "components/SignUp_club.jsx"
 import {connect} from 'react-redux';
 import {listClub} from 'api/club.js';
-import {setSearchText, setSearchDate} from 'states/post-actions.js';
+import {setSearchText, setSearchStartDate, setSearchEndDate} from 'states/post-actions.js';
 
 
 // action
@@ -78,14 +78,14 @@ class Main extends React.Component {
         
         let {loginPageOpen} = this.props;
 
-        let childrenNthu = (<div>There are no clubs</div>);
+        let childrenNthu = (<div className='p-2 text-center'>There are no clubs</div>);
         if (this.state.clubsNthu.length) {
             childrenNthu = this.state.clubsNthu.map(c => (
                 <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
             ))
         }
 
-        let childrenNctu = (<div>There are no clubs</div>);
+        let childrenNctu = (<div className='p-2 text-center'>There are no clubs</div>);
         if (this.state.clubsNctu.length) {
             childrenNctu = this.state.clubsNctu.map(c => (
                 <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
@@ -120,9 +120,6 @@ class Main extends React.Component {
                         </div>
                         <div style={{display: (this.props.categoryOpen) ? 'block' : 'none'}}>
                                 {/* <div className='dropDown-content'> <Link to='/catagory'></Link></div> */}
-                            <Link to='/category' className='link'>  
-                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
-                            </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nthu')}>
@@ -146,16 +143,6 @@ class Main extends React.Component {
                         <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
                             <Link to='/category' className='link'>  
                                 {childrenNctu}
-                            </Link> 
-                        </div>
-                        <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
-                            <Link to='/category' className='link'>  
-                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
-                            </Link> 
-                        </div>
-                        <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
-                            <Link to='/category' className='link'>  
-                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
                             </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry' style={{display: (this.props.alreadyLogin) ? 'block' : 'none'}} onClick={this.handleNavbarToggle}>  
@@ -213,11 +200,7 @@ class Main extends React.Component {
                             </div>
 
                             {/* for search condition */}
-                            <input className={`${(!this.props.startSearch) ? 'd-none':'d-block'}`} onKeyPress={this.handleSearchKeyPress}  id='searchInput' placeholder='SEARCH FOR EVENT...'/>
-                            { 
-                                this.state.searchText &&
-                                <i className='navbar-text fa fa-times' onClick={this.handleClearSearch}></i>
-                            }
+                            <input className={`${(!this.props.startSearch) ? 'd-none':'d-block'}`}  onKeyPress={this.handleSearchKeyPress}  id='searchInput' placeholder='SEARCH FOR EVENT...'/>
                             
                             <div className={`${(!this.props.startSearch) ? 'd-none':'d-block'}`}>
                                 <div className='navbar-items'id='searchBtn'>
@@ -333,10 +316,13 @@ class Main extends React.Component {
         var keyCode = e.keyCode || e.which;
         if (keyCode === 13){
             this.props.dispatch(setSearchText(e.target.value))
+            this.props.dispatch(setSearchStartDate(null))
+            this.props.dispatch(setSearchEndDate(null))
             this.setState({
-                redirect: (e.target.value !== '') ? true : false
+                searchText: e.target.value,
+                redirect: true 
             });
-        }
+        } 
     }
     handleClearSearch() {
         this.props.dispatch(setSearchText())

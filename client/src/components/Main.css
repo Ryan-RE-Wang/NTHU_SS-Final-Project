@@ -73,7 +73,10 @@ main-wrapper -> navbar-slide
   font-weight: lighter;
 }
 .sidebar-icon{
-  float: right; ;
+  float: right;
+}
+.text-center {
+  text-align: center;
 }
 /* for dropdown-content */
 

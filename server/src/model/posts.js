@@ -3,22 +3,28 @@ if (!global.db) {
     db = pgp(process.env.DB_URL);
 }
 
-function list(searchText = '', category = '', start = '', mode = null, club = '', order = '', userid = '', startofPost) {
+function list(searchText = '', category = '', start = '', end = '', mode = null, club = '', order = '', userid = '', startofPost) {
     const where = [];
+    // var startDateTime = start + 'T00:00';
+    // var endDateTime = end + 'T00:00';
     if (searchText)
         where.push(`title ILIKE '%$1:value%'`);
     if (category)
         where.push(`tag ILIKE '%$2:'`);
-    if (start)
-        where.push(`startDate <= $3`);
+    if (start && end) 
+        where.push(`startdatetime >= ${start+'T00:00'} AND enddatetime <= ${end+'T00:00'}`);
+    else if (start)
+        where.push(`startdatetime >= ${start+'T00:00'}`);
+    else if (end) 
+        where.push(`enddatetime <= ${end+'T00:00'}`);
     if (mode)
-        where.push(`mode = $4`);
+        where.push(`mode = $5`);
     if (club)
-        where.push(`club = '$5'`);
+        where.push(`club = '$6'`);
     if (userid)
-        where.push(`userid = '$6'`);
+        where.push(`userid = '$7'`);
     if (startofPost) {
-        where.push(`touch < $7`)
+        where.push(`touch < $8`)
     }
         
 
@@ -31,7 +37,7 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
         ORDER BY ${id1} ${asc}
         LIMIT 8
     `;
-    return db.any(sql, [searchText, category, start, mode, club, userid, startofPost]);
+    return db.any(sql, [searchText, category, start, end, mode, club, userid, startofPost]);
 }
 
 function create(
