@@ -4,6 +4,7 @@ if (!global.db) {
 }
 
 function list(school) {
+    console.log(school)
     const sql = `
         SELECT *
         FROM club
@@ -23,11 +24,7 @@ function getClubpassword(clubname) {
 }
 
 function getClubdetail(clubname) {
-    const sql = `
-        SELECT school, clubname, facebook, instagram, clubpic
-        FROM club
-        WHERE clubname = $<clubname>
-    `;
+    const sql = `SELECT * FROM club WHERE clubname = $<clubname>`;
     return db.one(sql, {clubname});
 }
 
