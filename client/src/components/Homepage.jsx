@@ -17,6 +17,7 @@ import {connect} from 'react-redux';
 import {setSearchText, setSearchStartDate, setSearchEndDate} from 'states/post-actions.js';
 
 import './Homepage.css'
+import { listPostsbyclub } from 'api/posts.js';
 
 class Homepage extends React.Component {
 
@@ -44,7 +45,6 @@ class Homepage extends React.Component {
             redirect: false
         }
 
-        this.listPosts = this.listPosts.bind(this);
         this.listMorePosts = this.listMorePosts.bind(this);
         this.handleSearchKeyPress = this.handleSearchKeyPress.bind(this);
         this.handleClearSearch = this.handleClearSearch.bind(this);
@@ -53,8 +53,8 @@ class Homepage extends React.Component {
     }
 
     componentDidMount() {
-        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, 'startdatetime', this.state.userid, this.state.startofpost);
-        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
+        // this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, 'startdatetime', this.state.userid, this.state.startofpost);
+        // this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
     }
         
     render() {
@@ -194,40 +194,40 @@ class Homepage extends React.Component {
         }
     }
 
-    listPosts(searchText, category, start, end, mode, club, order, userid, startofpost) {
-        this.setState({
-            postLoading: true,
-            masking: true,
-        }, () => {
-            listPosts(searchText, category, start, end, mode, club, order, userid, startofpost).then(posts => {
-                if (order === 'startdatetime')
-                    this.setState({
-                        postsRecent: posts, 
-                        postLoading: false
-                    });
-                else  {
-                    this.setState({
-                        postsPop: posts, 
-                        postLoading: false
-                    });
-                }
+    // listPosts(searchText, category, start, end, mode, club, order, userid, startofpost) {
+    //     this.setState({
+    //         postLoading: true,
+    //         masking: true,
+    //     }, () => {
+    //         listPosts(searchText, category, start, end, mode, club, order, userid, startofpost).then(posts => {
+    //             if (order === 'startdatetime')
+    //                 this.setState({
+    //                     postsRecent: posts, 
+    //                     postLoading: false
+    //                 });
+    //             else  {
+    //                 this.setState({
+    //                     postsPop: posts, 
+    //                     postLoading: false
+    //                 });
+    //             }
                     
-            }).catch(err => {
-                console.error('Error listing posts', err);
-                this.setState({
-                    postsRecent: [],
-                    postLoading: false
-                })
-            })
-        })
+    //         }).catch(err => {
+    //             console.error('Error listing posts', err);
+    //             this.setState({
+    //                 postsRecent: [],
+    //                 postLoading: false
+    //             })
+    //         })
+    //     })
 
-        setTimeout(() => {
-            this.setState({
-                masking: false
-            });
-        }, 600);
+    //     setTimeout(() => {
+    //         this.setState({
+    //             masking: false
+    //         });
+    //     }, 600);
         
-    }
+    // }
 
     listMorePosts(e) {
         

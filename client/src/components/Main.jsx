@@ -119,7 +119,11 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.categoryOpen) ? 'block' : 'none'}}>
-                                {/* <div className='dropDown-content'> <Link to='/catagory'></Link></div> */}
+                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Food</div></Link>
+                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Music</div></Link>
+                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Drama</div></Link>
+                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Art</div></Link>
+                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Competition</div></Link>
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nthu')}>
