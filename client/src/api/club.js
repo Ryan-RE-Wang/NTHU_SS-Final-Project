@@ -74,11 +74,14 @@ export function getClubdetail(clubname) {
 
     let url = `${postBaseUrl}/detail`;
 
+    
+
     let query = [];
     if (clubname)
         query.push(`clubname=${clubname}`);
     if (query.length)
         url += '?' + query.join('&');
+    console.log(`Making GET request to: ${url}`);
 
     return axios.get(url).then(function(res) {
         if (res.status !== 200)

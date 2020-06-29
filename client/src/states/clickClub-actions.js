@@ -23,7 +23,7 @@ export function getClub(clubname){
     return (dispatch,getState) => {
 
         dispatch(start());
-                
+        
         return getClubdetail(clubname)  
         .then((clubdetail) => {
             console.log(clubdetail)

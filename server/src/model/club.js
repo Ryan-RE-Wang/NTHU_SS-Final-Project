@@ -18,6 +18,10 @@ function getClubdetail(clubname) {
     const sql = `SELECT * FROM club WHERE clubname = $<clubname>`;
     return db.one(sql, {clubname});
 }
+function getClubUserEmail(userId){
+    const sql = `SELECT email FROM club WHERE userId = $<userId>`;
+    return db.one(sql,{userId});
+}
 
 function create(id, userid, school, clubname, facebook, instagram, clubpic, clubpassword, description) {
     
@@ -102,8 +106,8 @@ function updateleader(id, userid, clubpassword, newuserid) {
 
 module.exports = {
     list,
-    getClubpassword,
     getClubdetail,
+    getClubUserEmail,
     create,
     updateClubName,
     updatefacebook,

@@ -171,7 +171,7 @@ class Article extends React.Component {
                             <img className='' src={imageSrcClub} alt="" height="100rem" margin="0 auto"/>
                         </div>
                         <div className='p-1'>
-                            {this.props.email}
+                            {this.props.userid}
                         </div>
                     </div>
                     <div className='col-8 paragraph'> 

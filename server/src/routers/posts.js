@@ -11,14 +11,16 @@ router.use(bodyParser.json());
 router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
-// router.get('/getPost', function(req, res, next) {
-//     const {searchText, category, start, end, mode, club, order, userid, startofPost} = req.query;
-//     postModel.list(searchText, category, start, end, mode, club, order, userid, startofPost).then(posts => {
-//         return posts;
-//     }).then(post => {
-//             res.json(post)
-//     }).catch(next);
-// });
+router.get('/getPostBySearch', function(req, res, next) {
+    const {searchText, start, end} = req.query;
+    console.log(req.query)
+    postModel.listBySearch(searchText, start, end).then(posts => {
+        return posts;
+    }).then(post => {
+            res.json(post)
+    }).catch(next);
+});
+
 
 router.get('/getPostbyclub', function(req, res, next) {
     const {clubname, userid} = req.query;
@@ -29,6 +31,16 @@ router.get('/getPostbyclub', function(req, res, next) {
             res.json(post)
     }).catch(next);
 });
+router.get('/getPost/byCategory',function(req,res,next){
+    const {category, order} = req.query;
+
+    postModel.listByCategory(category, order).then(
+        (posts)=>{
+            console.log(posts);
+            res.json(posts) ;
+        }
+    ).catch(next);
+})
 
 // Create
 router.post('', function(req, res, next) {
@@ -101,5 +113,7 @@ router.post('/delete', function(req, res, next) {
         res.json(post);
     }).catch(next);
 });
+
+
 
 module.exports = router;

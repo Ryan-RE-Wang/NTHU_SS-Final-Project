@@ -6,8 +6,47 @@ import 'babel-polyfill';
 const postBaseUrl = 'http://localhost:4000/api';
 // Production server URL
 //const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
+export function listPostsByCategory(category, order){
+    let url = `${postBaseUrl}/posts/getPost/byCategory`;
+    let query = [];
+    let odr ;
+    if(order === 'A to Z') odr = 'AZ';
+    else odr = order;
 
+    query.push(`category=${category}`);
+    query.push(`order=${odr}`);
+    url += '?' + query.join('&');
 
+    console.log(`Making GET request to: ${url}`);
+    
+    return axios.get(url).then(function(res){
+        if(res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+}
+
+export function listPostsBySearch(searchText='', start='', end='') {
+    let url = `${postBaseUrl}/posts/getPostBySearch`;
+
+    let query = [];
+    if (searchText)
+        query.push(`searchText=${searchText}`);
+    if (start)
+        query.push(`start=${start}`);
+    if (end)
+        query.push(`end=${end}`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    console.log(`Making GET request to: ${url}`);
+
+    return axios.get(url).then(function(res) {
+        if (res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+}
 export function listPostsbyclub(clubname, userid) {
     let url = `${postBaseUrl}/posts/getPostbyclub`;
 

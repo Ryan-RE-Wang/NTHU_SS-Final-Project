@@ -42,6 +42,7 @@ import {getClub} from 'states/clickClub-actions.js';
 import {openUserInfo, changeToggle, clickList, clickTag, openSearchBar} from 'states/navbar-actions';
 import Userside_manager from 'components/Userside_manager.jsx';
 
+import {changeCatagory, changeOrder} from 'states/category-action.js';
 
 class Main extends React.Component {
     static propTypes = {
@@ -68,10 +69,11 @@ class Main extends React.Component {
         this.handleClearSearch = this.handleClearSearch.bind(this);
 
         this.listClubs = this.listClubs.bind(this);
-
+        this.goToCategoryPage = this.goToCategoryPage.bind(this);
     }
 
     componentDidMount() {
+        this.listClubs();
     }
 
     render() {
@@ -81,14 +83,14 @@ class Main extends React.Component {
         let childrenNthu = (<div className='p-2 text-center'>There are no clubs</div>);
         if (this.state.clubsNthu.length) {
             childrenNthu = this.state.clubsNthu.map(c => (
-                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
+                <div key={c.id} className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
             ))
         }
 
         let childrenNctu = (<div className='p-2 text-center'>There are no clubs</div>);
         if (this.state.clubsNctu.length) {
             childrenNctu = this.state.clubsNctu.map(c => (
-                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
+                <div key={c.id} className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
             ))
         }
 
@@ -119,15 +121,17 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.categoryOpen) ? 'block' : 'none'}}>
-                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Food</div></Link>
-                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Music</div></Link>
-                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Drama</div></Link>
-                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Art</div></Link>
-                                <Link to='/catagory' className='link'><div className='sidebar-element sidebar-child'>Competition</div></Link>
+
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Food')}>Food</div></Link>
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Music')}>Music</div></Link>
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Drama')}>Drama</div></Link>
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Art')}>Art</div></Link>
+                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Competition')}>Competition</div></Link>
+
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>
                             <div className='dropdown-tag' onClick={e => this.handleClick('nthu')}>
-                                <ListIcon/>&nbsp;<span>NTHU Club </span>
+                                <ListIcon/>&nbsp;<span>NTHU Club</span>
                                 <ArrowDropDownIcon className={`sidebar-icon ${(this.props.nthuOpen) ? 'd-none' : 'd-inline'}`}/>
                                 <ArrowDropUpIcon className={`sidebar-icon ${(this.props.nthuOpen) ? 'd-inline' :'d-none'}`}/>
                             </div>
@@ -239,7 +243,7 @@ class Main extends React.Component {
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={Manager_dev}/>
+                    <Route exact path="/Manager" component={ArticleForm}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>
@@ -287,10 +291,9 @@ class Main extends React.Component {
     }
 
     handleNavbarToggle(club) {
-        if (club.clubname !== '') {
+        if (!club.clubname) {
             this.props.dispatch(getClub(club));
         }
-        this.listClubs();
         this.props.dispatch(changeToggle());
 
     }
@@ -330,11 +333,17 @@ class Main extends React.Component {
     handleClearSearch() {
         this.props.dispatch(setSearchText())
     }
+
+    goToCategoryPage(type){
+        this.props.dispatch(changeToggle())
+        this.props.dispatch(changeCatagory(type))
+    }
 }
 
 export default connect(state => ({
     ...state.login,
     loginPageOpen: state.loginPage.loginPageOpen,
     ...state.navBar,
-    ...state.club
+    ...state.club,
+
 }))(Main);

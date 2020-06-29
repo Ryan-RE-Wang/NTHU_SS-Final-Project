@@ -73,6 +73,7 @@ router.post('/login',function(req,res,next){
             console.log(info);
             res.json({
                 ...info,
+                userId:info.id,
                 loginSuccess:true,
                 msg:'login success'
             })
