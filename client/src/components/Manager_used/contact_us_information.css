@@ -1,11 +1,13 @@
 
 .CONTACT_us{
   margin-top: 70px !important;
+  max-width: 768px;
 }
 .CS_box{
   position: relative;
-  width: 70%;
+  max-width: 768px;
   padding-bottom: 50px;
+  margin:0 auto;
 }
 .background-img{
   background-image: url("https://cc.tvbs.com.tw/img/_data/i/upload/2017/12/10/20171210223528-b1d29157-me.jpg");

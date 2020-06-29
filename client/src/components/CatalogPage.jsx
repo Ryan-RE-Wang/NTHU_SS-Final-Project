@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Jumbotron, Container,Row } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,UncontrolledDropdown } from 'reactstrap';
-
+import {Alert} from 'reactstrap';
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import Carousel from 'react-bootstrap/Carousel'
+import Button from '@material-ui/core/Button';
 import CheckIcon from '@material-ui/icons/Check';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -12,8 +13,11 @@ import Post from 'components/Post.jsx';
 import Pop_Post from 'components/Pop_Post.jsx';
 import './CatalogPage.css'
 import Footer_Content from 'components/Footer_Content.jsx';
+import {listPosts} from 'api/posts.js';
+import {connect} from 'react-redux';
 
-export default class CatalogPage extends React.Component{
+
+class CatalogPage extends React.Component{
     static propTypes = {
         topicName: PropTypes.string,
         description: PropTypes.string
@@ -24,11 +28,25 @@ export default class CatalogPage extends React.Component{
         this.state = {
             exploreClick: false,
             orderClick: false,
-            
+            postLoading: false,
+            searchText: '',
+            category: '',
+            start:'',
+            mode: false,
+            club: '',
+            order: 'id',
+            userid: '',
+            posts: [], 
+            hasMore: true
         };
         this.handleExplore = this.handleExplore.bind(this); 
         this.handleOrder = this.handleOrder.bind(this); 
-        
+        this.listPosts = this.listPosts.bind(this);
+        this.listMorePosts = this.listMorePosts.bind(this);
+    }
+
+    componentDidMount() {
+        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.props.clubname, this.state.order, this.state.userid);
     }
 
     static catagory = ['All','Food','PE','Music','Association','Art','Competition'];
@@ -36,6 +54,13 @@ export default class CatalogPage extends React.Component{
 
     render(){
         
+        const {masking, postLoading} = this.state;
+        let children = (<div>There are no posts</div>);
+        if (this.state.posts.length) {
+            children = this.state.posts.map(p => (
+                <div key={p.id}><Post p={p}/></div>
+            ))
+        }
 
         return(  
             <div>     
@@ -147,7 +172,6 @@ export default class CatalogPage extends React.Component{
                                 </div>
                         </div>
                         <div className=' col-12 col-lg-9 posts-table'>
-                            <div className='posts-table-heading'> Popular Activities</div>
                             <div className=''>
                                 {/* <Carousel interval='5000' controls={true}>
                                     <Carousel.Item><Pop_Post/></Carousel.Item>
@@ -155,17 +179,17 @@ export default class CatalogPage extends React.Component{
                                 </Carousel> */}
                                 
                             </div>
-                            <div className='posts-table-heading'> ALL</div>
                             {/* <div className='d-flex row justify-content-center'> */}
+                            <div className= 'posts-table-heading'> ALL</div>
+                                {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                             <div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div ><Post/></div>
-                                <div className='button-wrapper'><button id='showMoreBtn'> SHOW MORE</button></div>
-                                
+                                {children}
+                                {   (this.state.posts.length)?
+                                    <Button id='showMoreBtn' className='p-2' onClick={this.listMorePosts}>
+                                        Show more
+                                    </Button>
+                                    : ''
+                                }
                             </div>
                         </div>
 
@@ -179,6 +203,49 @@ export default class CatalogPage extends React.Component{
             </div>
         )
     }
+
+    listPosts(searchText, category, start, mode, club, order, userid) {
+        this.setState({
+            postLoading: true,
+        }, () => {
+            listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
+                this.setState({
+                    posts, 
+                    postLoading: false
+                });
+            }).catch(err => {
+                console.error('Error listing posts', err);
+                this.setState({
+                    posts: [],
+                    postLoading: false
+                })
+            })
+        })
+        
+    }
+
+    listMorePosts() {
+        if (this.state.posts.length < 1) {
+            return;
+        }
+        this.setState({
+            postLoading: true
+        });
+        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.posts[this.state.posts.length - 1].id)
+        .then(posts => {
+            this.setState({
+                ...this.state,
+                posts: [...this.state.posts, ...posts], 
+                hasMore: posts.length > 0
+            });
+        }).catch(err => {
+            console.error('Error listing posts', err);
+        }).then(() => this.setState({
+            postLoading: false
+        }))
+
+    }
+
     handleExplore(){
         let display = true;
         if(this.state.exploreClick) display = false;
@@ -196,7 +263,11 @@ export default class CatalogPage extends React.Component{
     chooseCatagory(){
 
     }
-
 }
+
+export default connect(state => ({
+    ...state.navBar,
+    ...state.club,
+}))(CatalogPage);
 
 

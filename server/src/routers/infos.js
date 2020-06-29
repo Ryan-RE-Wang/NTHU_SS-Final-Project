@@ -64,11 +64,10 @@ router.post('/createInfoFB',function(req, res, next){
 });
 
 // login
-router.get('/login',function(req,res,next){
-    const {password,email} = req.query;
+router.post('/login',function(req,res,next){
+    const {email, password} = req.body;
 
-    console.log(password,email);
-    InfoModel.login(password, email)
+    InfoModel.login(email, password)
     .then(
         (info) => {  
             console.log(info);

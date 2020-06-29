@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Input } from 'reactstrap';
 import {
     BrowserRouter as Router,
@@ -8,33 +9,47 @@ import {
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import HTMLEllipsis from 'react-lines-ellipsis/lib/html';
+import {connect} from 'react-redux';
+import {getPage} from 'states/clickPage-action.js';
+import {createTouch} from 'api/posts.js';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import './PopularArticle.css';
 
-export default class PopularArticle extends React.Component {
+const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
+const lasturl = '.jpeg';
+
+class PopularArticle extends React.Component {
+    static propTypes = {
+        p: PropTypes.object
+    };
+
     constructor(props) {
         super(props);
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     render() {
 
-        const p = {
-            text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consectetur tellus mi, ac euismod nisi suscipit vitae. Duis vehicula nibh quis felis tempor vulputate. Nunc non fringilla nisl, et malesuada elit. Etiam vel purus justo. Suspendisse imperdiet ultricies odio, porttitor iaculis ante iaculis ut. Aenean in sapien metus. Integer et arcu sodales, rhoncus neque eget, imperdiet mauris. Duis rhoncus ex ex, vitae fringilla sem tempor ut. In sed ante varius mauris auctor congue id at orci. Sed nibh diam, bibendum non pretium a, ornare ut velit. Phasellus egestas ac elit sed dictum. Proin pulvinar, dui ut tincidunt ultricies, erat lectus feugiat tellus, at sagittis ex tortor id felis. Donec in neque vitae arcu hendrerit dignissim vel et turpis.Nunc rhoncus, ex in maximus commodo, dui quam aliquet elit, non egestas quam tortor sit amet quam. Duis scelerisque tellus vitae sollicitudin scelerisque. Morbi enim magna, fringilla vitae pellentesque quis',   
-            header: 'Roast Meal!!!!',
-            image: './images/w-clear-bg.jpg'
-        }
-
         return (
-            <Link className='pop home-article-link' to='/article' >
+            <Link className='pop home-article-link' to='/article'onClick={this.handleClick} >
                 <div className='popular-content' >
-                    <img className='component-img' src="images/poster.jpg"  alt=""/>
+                    <img className='component-img' src={baseUrl + this.props.p.fileurl + lasturl}  alt=""/>
                     {/* <div className='location'><LocationOnIcon/> Delta 105</div> */}
-                    <div className='popular-title'>Term project demo</div>
+                        <div className='popular-title'>{this.props.p.title}</div>
                     {/* <div className='datetime'> 2020/6/30 10:00</div> */}
                 </div>
             </Link>
             
         )
     }
+
+    handleClick() {
+        this.props.dispatch(getPage(this.props.p));  
+        createTouch(this.props.p.id);
+    }
 }
+
+export default connect(state => ({
+	...state.page
+}))(PopularArticle);
