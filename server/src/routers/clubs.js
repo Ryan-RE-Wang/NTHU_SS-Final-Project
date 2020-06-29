@@ -37,7 +37,7 @@ router.get('/detail', function(req, res, next) {
 
     clubModel.getClubdetail(clubname).then(details => {
 
-        return getClubUserEmail(details.userId).then((useremail)=>{
+        return clubModel.getClubUserEmail(details.userid).then((useremail)=>{
             res.json({
                 ...details,
                 useremail

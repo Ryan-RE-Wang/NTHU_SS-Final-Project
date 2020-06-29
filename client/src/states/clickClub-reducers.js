@@ -11,6 +11,7 @@ const initClubState = {
 }
 
 export function club(state = initClubState, action) {
+    console.log(action);
     switch(action.type){
         case '@CLUB/START':
             return{

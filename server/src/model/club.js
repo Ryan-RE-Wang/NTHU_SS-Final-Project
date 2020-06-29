@@ -18,8 +18,9 @@ function getClubdetail(clubname) {
     const sql = `SELECT * FROM club WHERE clubname = $<clubname>`;
     return db.one(sql, {clubname});
 }
+
 function getClubUserEmail(userId){
-    const sql = `SELECT email FROM club WHERE userId = $<userId>`;
+    const sql = `SELECT email FROM info WHERE id = $<userId>`;
     return db.one(sql,{userId});
 }
 

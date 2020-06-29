@@ -202,7 +202,6 @@ class CatalogPage extends React.Component{
         )
     }
     changeCatagory(i){
-        console.log("hahahahaha")
         let chooseCatagory = CatalogPage.catagory[i];
         this.props.dispatch(changeCatagory(chooseCatagory));
         this.listPosts()    

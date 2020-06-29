@@ -61,8 +61,6 @@ export function listPostsbyclub(clubname, userid) {
 
     console.log(`Making GET request to: ${url}`);
 
-    console.log(clubname, userid);
-
     return axios.get(url).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
