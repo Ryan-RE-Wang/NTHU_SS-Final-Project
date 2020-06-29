@@ -15,7 +15,7 @@ const initLoginFormState = {
 }
 
 export function login(state = initLoginFormState , action){
-    console.log(action);
+    //console.log(action);
     switch(action.type){
         case '@INFO/START_LOGIN':
             return{
@@ -30,7 +30,7 @@ export function login(state = initLoginFormState , action){
                 alreadyLogin: true,
                 loading: false,
                 username: action.username,
-                userId:action.userId,
+                email:action.email,
                 createAccountForm: false,
                 loginType:'normal'
             }

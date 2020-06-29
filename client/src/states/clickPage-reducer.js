@@ -9,7 +9,6 @@ const initPageState = {
     location: '',
     tags: [],
     club: '',
-
 }
 
 export function page(state = initPageState, action) {

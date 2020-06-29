@@ -31,8 +31,7 @@ function failLogin(userInfo) {
 }
 
 export function login(email, password){    // high order action genrator
-    console.log("login");
-    console.log(email, password);
+
     return (dispatch,getState) => {
         
         dispatch(startLogin());

@@ -49,7 +49,7 @@ class CatalogPage extends React.Component{
         this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.props.clubname, this.state.order, this.state.userid);
     }
 
-    static catagory = ['All','Food','PE','Music','Association','Art','Competition'];
+    static catagory = ['All','Food','Music','Association','Art','Competition'];
     static order = ['A to Z','Popularity','Date'];
 
     render(){

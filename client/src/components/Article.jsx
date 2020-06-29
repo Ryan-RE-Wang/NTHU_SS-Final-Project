@@ -25,6 +25,7 @@ class Article extends React.Component {
     }
     componentDidMount() {
         window.scrollTo(0, 0);
+        
     }
 
     render() {
@@ -37,7 +38,7 @@ class Article extends React.Component {
                 </Link>
             )
         } 
-        
+                
         const handleCalender = () => {
             
             var gapi = window.gapi;
@@ -86,6 +87,8 @@ class Article extends React.Component {
         }
         
         const imageSrc = 'https://team11final.s3-us-west-1.amazonaws.com/'+this.props.fileurl+'.jpeg';
+        const imageSrcClub = 'https://team11final.s3-us-west-1.amazonaws.com/'+this.props.clubpic+'.jpeg';
+
         return (
             <Container className='article'>
                 
@@ -166,10 +169,10 @@ class Article extends React.Component {
                             Contact 
                         </div> 
                         <div className='p-1 '>
-                            <img className='' src="images/rsz_1corgi.jpg" alt="" height="100rem" margin="0 auto"/>
+                            <img className='' src={imageSrcClub} alt="" height="100rem" margin="0 auto"/>
                         </div>
                         <div className='p-1'>
-                            corgithedog@gmail.com
+                            {this.props.email}
                         </div>
                     </div>
                     <div className='col-8 paragraph'> 
@@ -194,5 +197,6 @@ class Article extends React.Component {
 }
 
 export default connect(state => ({
-	...state.page
+    ...state.page,
+    ...state.club
 }))(Article);

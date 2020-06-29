@@ -9,6 +9,7 @@ import {
 import TextField from '@material-ui/core/TextField';
 import {connect} from 'react-redux';
 import {getPage} from 'states/clickPage-action.js';
+import {getClub} from 'states/clickClub-actions.js';
 import {createTouch} from 'api/posts.js';
 import './Post.css'
 
@@ -63,10 +64,11 @@ class Post extends React.Component{
 
     handleClick() {
         this.props.dispatch(getPage(this.props.p));  
+        this.props.dispatch(getClub(this.props.p.club));
         createTouch(this.props.p.id);
     }
 }
 
 export default connect(state => ({
-	...state.page
+    ...state.page
 }))(Post);

@@ -26,7 +26,7 @@ import 'rc-slider/assets/index.css';
 import {connect} from 'react-redux';
 import Modal from 'react-bootstrap/Modal';
 import {createPost} from 'api/posts.js';
-import getClubPassword from 'api/posts.js';
+import {listClub} from 'api/club.js';
 import ReactCrop from 'react-image-crop';
 import TextField from '@material-ui/core/TextField';
 import InputAdornment from '@material-ui/core/InputAdornment';
@@ -82,7 +82,9 @@ class ArticleForm extends React.Component {
             clubVerificationModalShow: false,
             club: 'select your club',
             clubVerified: false,
-            verifiedInput: false
+            verifiedInput: false,
+            clubs:[],
+            pw:null
         }
 
         
@@ -111,8 +113,11 @@ class ArticleForm extends React.Component {
 
     componentDidMount() {
         window.scrollTo(0, 0);
-        this.setState({
-            fileName: uuid()
+        listClub('NTHU').then(clubs => {
+            this.setState({
+                clubs: clubs,
+                fileName: uuid()
+            })
         })
     }
      
@@ -201,15 +206,16 @@ class ArticleForm extends React.Component {
 
 
     render() {
-        const clubList = ['Club A', 'Club B', 'Club C', 'Club D', 'Club E'];
-        let clubListItems = clubList.map((clubList) =>
-            <DropdownItem key={clubList} onClick={() => 
+
+        let clubListItems = this.state.clubs.map((clubList) =>
+            <DropdownItem key={clubList.id} onClick={() => 
                 this.setState({
-                    club: clubList, 
+                    pw: clubList.clubpassword,
+                    club: clubList.clubname, 
                     clubVerificationModalShow: true,
-                    clubVerified: (this.state.club !== clubList)? false: this.state.clubVerified,
+                    clubVerified: (this.state.club !== clubList.clubpassword) ? false : this.state.clubVerified,
                     verifiedInput: (this.state.club !== clubList)? false: this.state.verifiedInput})}>
-                {clubList}
+                {clubList.clubname}
             </DropdownItem>
         )
         return (
@@ -473,7 +479,7 @@ class ArticleForm extends React.Component {
     handleClubVerificationSubmit(e) {
         const input = e;
 
-        if (input === '000000') {
+        if (input === this.state.pw) {
             this.setState({clubVerified: true, verifiedInput: true, clubVerificationModalShow: false})
         } else {
             this.setState({clubVerified: false, verifiedInput: true})

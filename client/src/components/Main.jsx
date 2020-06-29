@@ -81,14 +81,14 @@ class Main extends React.Component {
         let childrenNthu = (<div>There are no clubs</div>);
         if (this.state.clubsNthu.length) {
             childrenNthu = this.state.clubsNthu.map(c => (
-                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
+                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
             ))
         }
 
         let childrenNctu = (<div>There are no clubs</div>);
         if (this.state.clubsNctu.length) {
             childrenNctu = this.state.clubsNctu.map(c => (
-                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
+                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
             ))
         }
 
@@ -159,7 +159,7 @@ class Main extends React.Component {
                             </Link> 
                         </div>
                         <div className='sidebar-element sidebar-entry' style={{display: (this.props.alreadyLogin) ? 'block' : 'none'}} onClick={this.handleNavbarToggle}>  
-                            <Link to='/ArticleForm' className='link'>                       
+                            <Link to='/Manager' className='link'>                       
                                 <EditIcon/>&nbsp;<span>Edit post</span> 
                             </Link>                                
                         </div>
@@ -252,7 +252,7 @@ class Main extends React.Component {
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={Manager}/>
+                    <Route exact path="/Manager" component={Manager_dev}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>
@@ -299,10 +299,9 @@ class Main extends React.Component {
         this.props.dispatch(openUserInfo());
     }
 
-    handleNavbarToggle(clubname) {
-        console.log(clubname)
-        if (clubname !== '') {
-            this.props.dispatch(getClub(clubname));
+    handleNavbarToggle(club) {
+        if (club.clubname !== '') {
+            this.props.dispatch(getClub(club));
         }
         this.listClubs();
         this.props.dispatch(changeToggle());

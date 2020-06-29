@@ -490,9 +490,9 @@ class SignUp_club extends React.Component {
             data => console.log(data))
         .catch(err => console.error(err))
         
-
+            console.log(this.props.login);
         createClub(this.state.id,
-            this.props.account,
+            this.props.email,
             this.state.university,
             this.state.clubnameValue,
             this.state.fb_urlValue,
