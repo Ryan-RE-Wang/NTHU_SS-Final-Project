@@ -60,7 +60,7 @@ export default class Manager_dev extends React.Component {
             <div>
                 <div className="M_club_information_title">Club information</div>
                 <div className="Manager_home"> 
-                    <div className="Manager_home_above_editbtn" onClick={()=>this.list_Selected('4')}><BorderColorIcon/><div className="M_edit" >Edit</div></div>
+                    {/* <div className="Manager_home_above_editbtn" onClick={()=>this.list_Selected('4')}><BorderColorIcon/><div className="M_edit" >Edit</div></div> */}
                     <Home/> 
                 </div>
             </div>
