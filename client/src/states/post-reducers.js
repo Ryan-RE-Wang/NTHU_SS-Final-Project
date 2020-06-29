@@ -10,10 +10,19 @@ export function searchText(state = '', action) {
     }
 }
 
-export function searchDate(state = '', action) {
+export function searchStartDate(state = '', action) {
     switch (action.type) {
-        case '@SEARCH_DATE/SET_SEARCH_DATE':
-            return action.searchDate;
+        case '@SEARCH_START_DATE/SET_START_SEARCH_DATE':
+            return action.searchStartDate;
+        default: 
+            return state;
+    }
+}
+
+export function searchEndDate(state = '', action) {
+    switch (action.type) {
+        case '@SEARCH_END_DATE/SET_END_SEARCH_DATE':
+            return action.searchEndDate;
         default: 
             return state;
     }

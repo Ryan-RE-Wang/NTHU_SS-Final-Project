@@ -58,7 +58,7 @@ class CatalogPage extends React.Component{
     render(){
         
         const {masking, postLoading} = this.state;
-        let children = (<div>There are no posts</div>);
+        let children = (<div className='text-center'>There are no posts.</div>);
         if (this.state.posts.length) {
             children = this.state.posts.map(p => (
                 <div key={p.id}><Post p={p}/></div>
@@ -176,8 +176,6 @@ class CatalogPage extends React.Component{
                                 </div>
                         </div>
                         <div className=' col-12 col-lg-9 posts-table'>
-
-                            {/* <div className='d-flex row justify-content-center'> */}
                             <div className= 'posts-table-heading'>{this.state.displayTopic}</div>
                                 {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                             <div>
