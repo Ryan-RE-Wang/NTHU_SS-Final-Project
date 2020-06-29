@@ -37,12 +37,15 @@ class CatalogPage extends React.Component{
             order: 'id',
             userid: '',
             posts: [], 
-            hasMore: true
+            hasMore: true,
+            displayTopic:'ALL'
         };
         this.handleExplore = this.handleExplore.bind(this); 
         this.handleOrder = this.handleOrder.bind(this); 
         this.listPosts = this.listPosts.bind(this);
         this.listMorePosts = this.listMorePosts.bind(this);
+
+        this.changeCatagory = this.changeCatagory.bind(this);
     }
 
     componentDidMount() {
@@ -80,11 +83,12 @@ class CatalogPage extends React.Component{
                                         <div className='classes-body'>
                                         {
                                             CatalogPage.catagory.map((e,i) =>(
-                                                <div className='checkbox-element'key={i}>
+                                                <div className='checkbox-element'key={i} onClick={this.changeCatagory(i)}>
                                                 <div className="pretty p-icon p-plain ">
-                                                    <input type="checkbox" />
+                                                    <input type="radio" name='radio1'/>
                                                     <div className="state">
-                                                        <CheckIcon className='icon checkIcon'/>
+                                                        <CheckIcon className='icon checkIcon show-checkIcon'/>
+                                                        
                                                         <label className='option'>{e}</label>
                                                     </div>
                                                 </div></div>
@@ -92,16 +96,16 @@ class CatalogPage extends React.Component{
                                         }
                                         </div>
                                     </div>
-                                    <div id='orderBy' className='classes-section 'onClick={this.handleOrder}>
+                                    <div id='orderBy' className='classes-section '>
                                         <div className='classes-topic '>
                                             <span>ORDER BY</span>
                                         </div>
                                         <div className='classes-body'>
                                         {
                                             CatalogPage.order.map((e,i) =>( 
-                                                <div className='checkbox-element'key={i}>
+                                                <div className='checkbox-element'key={i} onClick={this.handleOrder(i)}>
                                                 <div className="pretty p-icon p-plain "key={i}>
-                                                    <input type="checkbox" />
+                                                    <input type="radio" name='radio2' />
                                                     <div className="state">
                                                         <CheckIcon className='icon checkIcon'/>
                                                         <label className='option'>{e}</label>
@@ -172,14 +176,7 @@ class CatalogPage extends React.Component{
                                 </div>
                         </div>
                         <div className=' col-12 col-lg-9 posts-table'>
-                            <div className=''>
-                                {/* <Carousel interval='5000' controls={true}>
-                                    <Carousel.Item><Pop_Post/></Carousel.Item>
-                                    <Carousel.Item><Pop_Post/></Carousel.Item>
-                                </Carousel> */}
-                            </div>
-                            {/* <div className='d-flex row justify-content-center'> */}
-                            <div className= 'posts-table-heading'> ALL</div>
+                            <div className= 'posts-table-heading'>{this.state.displayTopic}</div>
                                 {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                             <div>
                                 {children}
@@ -201,6 +198,20 @@ class CatalogPage extends React.Component{
             
             </div>
         )
+    }
+    changeCatagory(i){
+        console.log(i);
+        let chooseCatagory = CatalogPage.catagory[i];
+        this.setState({
+            displayTopic:chooseCatagory
+        })
+        this.listPosts('',chooseCatagory,null,null,null,this.state.order,null);
+
+    }
+    changeOrder(i){
+        let chooseOrder = CatalogPage.order[i];
+        
+        this.listPosts('',chooseCatagory,null,null,null,this.state.order,null);
     }
 
     listPosts(searchText, category, start, mode, club, order, userid) {
