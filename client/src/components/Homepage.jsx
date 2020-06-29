@@ -32,6 +32,7 @@ class Homepage extends React.Component {
             searchText: '',
             category: '',
             start:'',
+            end:'',
             mode: false,
             club: '',
             order: 'id',
@@ -52,8 +53,8 @@ class Homepage extends React.Component {
     }
 
     componentDidMount() {
-        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'startdatetime', this.state.userid, this.state.startofpost);
-        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
+        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, 'startdatetime', this.state.userid, this.state.startofpost);
+        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
     }
         
     render() {
@@ -193,12 +194,12 @@ class Homepage extends React.Component {
         }
     }
 
-    listPosts(searchText, category, start, mode, club, order, userid, startofpost) {
+    listPosts(searchText, category, start, end, mode, club, order, userid, startofpost) {
         this.setState({
             postLoading: true,
             masking: true,
         }, () => {
-            listPosts(searchText, category, start, mode, club, order, userid, startofpost).then(posts => {
+            listPosts(searchText, category, start, end, mode, club, order, userid, startofpost).then(posts => {
                 if (order === 'startdatetime')
                     this.setState({
                         postsRecent: posts, 
@@ -245,7 +246,7 @@ class Homepage extends React.Component {
             startpoint = posts[posts.length - 1].touch;
         }
 
-        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, order, this.state.userid, startpoint)
+        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, order, this.state.userid, startpoint)
         .then(posts => {
             if (order === 'startdatetime')
                 this.setState({
