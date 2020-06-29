@@ -162,6 +162,16 @@ class Main extends React.Component {
                                 <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
                             </Link> 
                         </div>
+                        <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
+                            <Link to='/category' className='link'>  
+                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                            </Link> 
+                        </div>
+                        <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
+                            <Link to='/category' className='link'>  
+                                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>c</div>
+                            </Link> 
+                        </div>
                         <div className='sidebar-element sidebar-entry' style={{display: (this.props.alreadyLogin) ? 'block' : 'none'}} onClick={this.handleNavbarToggle}>  
                             <Link to='/Manager' className='link'>                       
                                 <EditIcon/>&nbsp;<span>Edit post</span> 
@@ -236,7 +246,8 @@ class Main extends React.Component {
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
                     <Route exact path="/Manager" component={Manager_dev}/>
-                    <Route exact path="/userside_manager" component={Userside_manager}/>
+                    {/* <Route exact path="/userside_manager" component={Userside_manager}/> */}
+                    <Route exact path="/userside_manager" component={Manager_dev}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>

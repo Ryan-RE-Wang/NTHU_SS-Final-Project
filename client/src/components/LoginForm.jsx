@@ -99,7 +99,7 @@ class LoginForm extends React.Component{
 					
 					<h5>Sign in with</h5>
 					<div className='d-flex justify-content-between other-loginbtns'>
-						<button id='facebook-btn' onClick={this.fblogin}><FacebookIcon/>&nbsp; Facebook </button>
+						<button id='facebook-btn' onClick={this.fblogin}><FacebookIcon/>&nbsp;Facebook</button>
 						<button id='google-btn'> <img src="https://img.icons8.com/color/25/000000/google-logo.png"/>&nbsp; Google</button>
 					</div>
 				{/* </form> */}
