@@ -17,18 +17,21 @@ function list(searchText = '', category = '', start = '', mode = null, club = ''
         where.push(`club = '$5'`);
     if (userid)
         where.push(`userid = '$6'`);
-    if (startofPost)
-        where.push(`id < $7`)
+    if (startofPost) {
+        where.push(`touch < $7`)
+    }
+        
 
     const id1 = (order === '') ?  'id' : order;
+    const asc = (order === 'touch') ? 'DESC' : 'ASC';
     const sql = `
         SELECT *
         FROM post
         ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
-        ORDER BY ${id1} ASC
-        LIMIT 3
+        ORDER BY ${id1} ${asc}
+        LIMIT 8
     `;
-    return db.any(sql, [searchText, category, start, mode, club, userid]);
+    return db.any(sql, [searchText, category, start, mode, club, userid, startofPost]);
 }
 
 function create(
@@ -64,15 +67,6 @@ function create(
     });
 }
 
-function createTouch(id) {
-    const sql = `
-    UPDATE post
-    SET touch = touch + 1
-    WHERE id = $<id>
-    `
-    return db.none(sql, {id});
-}
-
 function getdetail(id) {
     const sql = `
     SELECT title, content, startdatetime, enddatetime, ticket, location, fileurl, tags, club
@@ -95,7 +89,6 @@ function deletepost(id) {
 module.exports = {
     list,
     create,
-    createTouch,
     getdetail,
     deletepost
 };

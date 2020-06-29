@@ -10,6 +10,8 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import {connect} from 'react-redux';
+import {getPage} from 'states/clickPage-action.js';
+import {createTouch} from 'api/posts.js';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
 import './PopularArticle.css';
 
@@ -23,12 +25,14 @@ class PopularArticle extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.handleClick = this.handleClick.bind(this);
     }
 
     render() {
 
         return (
-            <Link className='pop home-article-link' to='/article' >
+            <Link className='pop home-article-link' to='/article'onClick={this.handleClick} >
                 <div className='popular-content' >
                     <img className='component-img' src={baseUrl + this.props.p.fileurl + lasturl}  alt=""/>
                     {/* <div className='location'><LocationOnIcon/> Delta 105</div> */}
@@ -38,6 +42,11 @@ class PopularArticle extends React.Component {
             </Link>
             
         )
+    }
+
+    handleClick() {
+        this.props.dispatch(getPage(this.props.p));  
+        createTouch(this.props.p.id);
     }
 }
 

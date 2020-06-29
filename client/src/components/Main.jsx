@@ -61,6 +61,7 @@ import {listClub} from 'api/club.js';
 
 // action
 import {closeLoginForm, openLoginForm , logout} from 'states/login-actions.js';
+import {getClub} from 'states/clickClub-actions.js';
 import {openUserInfo, changeToggle, clickList, clickTag, openSearchBar} from 'states/navbar-actions';
 import Userside_manager from 'components/Userside_manager.jsx';
 
@@ -100,14 +101,14 @@ class Main extends React.Component {
         let childrenNthu = (<div>There are no clubs</div>);
         if (this.state.clubsNthu.length) {
             childrenNthu = this.state.clubsNthu.map(c => (
-                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>{c.clubname}</div>
+                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
             ))
         }
 
         let childrenNctu = (<div>There are no clubs</div>);
         if (this.state.clubsNctu.length) {
             childrenNctu = this.state.clubsNctu.map(c => (
-                <div className='sidebar-element sidebar-child'onClick={this.handleNavbarToggle}>{c.clubname}</div>
+                <div className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
             ))
         }
 
@@ -235,7 +236,7 @@ class Main extends React.Component {
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={Userside_manager}/>
+                    <Route exact path="/Manager" component={Manager}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>
@@ -282,9 +283,14 @@ class Main extends React.Component {
         this.props.dispatch(openUserInfo());
     }
 
-    handleNavbarToggle() {
-        this.props.dispatch(changeToggle());
+    handleNavbarToggle(clubname) {
+        console.log(clubname)
+        if (clubname !== '') {
+            this.props.dispatch(getClub(clubname));
+        }
         this.listClubs();
+        this.props.dispatch(changeToggle());
+
     }
 
     handleClick(type) {
@@ -311,5 +317,6 @@ class Main extends React.Component {
 export default connect(state => ({
     ...state.login,
     loginPageOpen: state.loginPage.loginPageOpen,
-    ...state.navBar
+    ...state.navBar,
+    ...state.club
 }))(Main);

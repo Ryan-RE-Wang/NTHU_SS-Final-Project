@@ -20,12 +20,13 @@ import {Provider} from 'react-redux';
 import {login , loginPage} from 'states/login-reducers.js';
 import {navBar} from 'states/navbar-reducers.js';
 import {page} from 'states/clickPage-reducer.js';
+import {club} from 'states/clickClub-reducers.js';
 import { HashRouter as Router ,Route , Link } from 'react-router-dom'
 
 window.onload = function() {
     const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
     const store = createStore(combineReducers({
-        login , loginPage ,navBar, page
+        login , loginPage ,navBar, page, club
     }), composeEnhancers(applyMiddleware(thunkMiddleware/*, loggerMiddleware*/)));
     
     ReactDOM.render(

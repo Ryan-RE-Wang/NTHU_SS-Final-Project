@@ -4,7 +4,6 @@ if (!global.db) {
 }
 
 function list(school) {
-    console.log(school);
     const sql = `
         SELECT *
         FROM club

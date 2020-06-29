@@ -5,10 +5,12 @@ import Contact_Us_information from './Manager_used/contact_us_information.jsx';
 import Article_Cover from './Manager_used/article_cover.jsx';
 import Header from './Manager_used/header.jsx';
 import Home from './Manager_used/M_home.jsx';
+import {connect} from 'react-redux';
+
 
 import './Manager.css'
 
-export default class Manager extends React.Component {
+class Manager extends React.Component {
   
 
     constructor(props) {
@@ -48,7 +50,7 @@ export default class Manager extends React.Component {
     render_Selected(page) {
         if(page == '1'){
             return (
-                <Home/>
+                <Home c={this.props.club}/>
 
             )
         }else if(page == '2'){
@@ -65,3 +67,7 @@ export default class Manager extends React.Component {
     }
     }
 }
+
+export default connect(state => ({
+    ...state.club
+}))(Manager);

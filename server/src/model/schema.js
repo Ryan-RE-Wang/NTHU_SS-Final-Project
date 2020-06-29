@@ -96,7 +96,7 @@ const dataSql = `
     SELECT
         generate_series(1, 3),
         'word' || i || ' word' || (i+1) || ' word' || (i+2),
-        'nthu', 
+        'NTHU', 
         'word' || i,
         'facebook' || i,
         'instagram' || i,

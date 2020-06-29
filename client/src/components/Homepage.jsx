@@ -34,25 +34,28 @@ export default class Homepage extends React.Component {
             club: '',
             order: 'id',
             userid: '',
-            startofPost: '',
-            posts: [], 
+            startofpost: null,
+            postsRecent: [],
+            postsPop:[], 
             hasMore: true
         }
 
         this.listPosts = this.listPosts.bind(this);
-        this.handleHasMore = this.handleHasMore.bind(this);
+        this.listMorePosts = this.listMorePosts.bind(this);
     }
 
     componentDidMount() {
-        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.startofPost);
+        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'startdatetime', this.state.userid, this.state.startofpost);
+        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
     }
 
     render() {
 
         const {masking, postLoading} = this.state;
-        let children = (<div>There are no posts</div>);
-        if (this.state.posts.length) {
-            children = this.state.posts.map(p => (
+
+        let childrenRecent = (<div>There are no posts</div>);
+        if (this.state.postsRecent.length) {
+            childrenRecent = this.state.postsRecent.map(p => (
                 <div className='col-6 col-md-3 col-lg-2  grid-item'>
                     <div className='grid-item-padding'>
                     <div key={p.id}><PopularArticle p={p}/></div>
@@ -61,12 +64,16 @@ export default class Homepage extends React.Component {
             ))
         }
 
-        // const p = {
-        //     image: 'images/poster.jpg',
-        //     title: 'Final demo',
-        //     location: 'Delta Building',
-        //     date: '2020/6/30'
-        // }
+        let childrenPop = (<div>There are no posts</div>);
+        if (this.state.postsPop.length) {
+            childrenPop = this.state.postsPop.map(p => (
+                <div className='col-6 col-md-3 col-lg-2  grid-item'>
+                    <div className='grid-item-padding'>
+                    <div key={p.id}><PopularArticle p={p}/></div>
+                    </div>
+                </div>
+            ))
+        }
 
         return (
             <div className='homepage'>
@@ -95,12 +102,12 @@ export default class Homepage extends React.Component {
                         <div className='grid-container d-flex justify-content-center'>                 
                             <div className='row px-0 mx-0'>
                                 {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
-                                {children}                                
+                                {childrenRecent}                                
                             </div>
                         </div>
 
                         <div>
-                            <button id='seeMore-btn' onClick={this.handleHasMore}>See more<ExpandMoreIcon/></button>
+                            <button id='seeMore-btn' value='startdatetime' onClick={this.listMorePosts}>See more<ExpandMoreIcon/></button>
                         </div>
                     </div>
         
@@ -124,38 +131,40 @@ export default class Homepage extends React.Component {
                         <div className='grid-container d-flex justify-content-center'>                 
                             <div className='row px-0 mx-0'>
                             {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
-                                {children}
+                                {childrenPop}
                             </div>
                         </div>
                         <div>
-                            <button id='seeMore-btn' onClick={this.handleHasMore}>See more<ExpandMoreIcon/></button>
+                            <button id='seeMore-btn' value='touch' onClick={this.listMorePosts}>See more<ExpandMoreIcon/></button>
                         </div>
                     </div>
-
-
                 </div>
-
-      
             </div>
         );
     }
 
-    listPosts(searchText, category, start, mode, club, order, userid) {
-        console.log("1");
+    listPosts(searchText, category, start, mode, club, order, userid, startofpost) {
         this.setState({
             postLoading: true,
             masking: true,
         }, () => {
-            listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
-                console.log(posts);
-                this.setState({
-                    posts, 
-                    postLoading: false
-                });
+            listPosts(searchText, category, start, mode, club, order, userid, startofpost).then(posts => {
+                if (order === 'startdatetime')
+                    this.setState({
+                        postsRecent: posts, 
+                        postLoading: false
+                    });
+                else  {
+                    this.setState({
+                        postsPop: posts, 
+                        postLoading: false
+                    });
+                }
+                    
             }).catch(err => {
                 console.error('Error listing posts', err);
                 this.setState({
-                    posts: [],
+                    postsRecent: [],
                     postLoading: false
                 })
             })
@@ -169,20 +178,40 @@ export default class Homepage extends React.Component {
         
     }
 
-    listMorePosts() {
-        if (this.state.posts.length < 1) {
+    listMorePosts(e) {
+        
+        const order = e.target.value;
+        const posts = (order === 'startdatetime') ? this.state.postsRecent : this.state.postsPop;
+
+        if (posts.length < 1) {
             return;
         }
         this.setState({
             postLoading: true
         });
-        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.posts[this.state.posts.length - 1].id)
+
+        let startpoint;
+        if (order === 'touch') {
+            startpoint = posts[posts.length - 1].touch;
+        }
+
+        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, order, this.state.userid, startpoint)
         .then(posts => {
-            this.setState({
-                ...this.state,
-                posts: [...this.state.posts, ...posts], 
-                hasMore: posts.length > 0
-            });
+            if (order === 'startdatetime')
+                this.setState({
+                    ...this.state,
+                    postsRecent: [...this.state.postsRecent, ...posts], 
+                    hasMore: posts.length > 0
+                });
+            else {
+                console.log("pop");
+
+                this.setState({
+                    ...this.state,
+                    postsPop: [...this.state.postsPop, ...posts], 
+                    hasMore: posts.length > 0
+                });
+            }
         }).catch(err => {
             console.error('Error listing posts', err);
         }).then(() => this.setState({
@@ -191,11 +220,6 @@ export default class Homepage extends React.Component {
 
     }
 
-    handleHasMore() {
-        this.setState((prevState) => ({
-            hasMore: !prevState.hasMore
-        }));
-    }
 }
 
 

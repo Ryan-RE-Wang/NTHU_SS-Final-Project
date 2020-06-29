@@ -9,7 +9,7 @@ import {
 import TextField from '@material-ui/core/TextField';
 import {connect} from 'react-redux';
 import {getPage} from 'states/clickPage-action.js';
-import {getpostdetail} from 'api/posts.js';
+import {createTouch} from 'api/posts.js';
 import './Post.css'
 
 const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
@@ -17,15 +17,6 @@ const lasturl = '.jpeg';
 
 class Post extends React.Component{
     static propTypes = {
-        // intro: PropTypes.string,
-        // dates: PropTypes.bool,
-        // place: propTypes.string,
-        // masking: PropTypes.bool,
-        // intro: PropTypes.string,
-        // dates: PropTypes.string,
-        // place: PropTypes.string,
-        // holder: PropTypes.string,
-        // imageurl: PropTypes.string,
         p: PropTypes.object
     };
 
@@ -60,6 +51,7 @@ class Post extends React.Component{
 
     handleClick() {
         this.props.dispatch(getPage(this.props.p));  
+        createTouch(this.props.p.id);
     }
 }
 

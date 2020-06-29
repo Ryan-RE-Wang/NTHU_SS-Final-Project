@@ -13,8 +13,10 @@ import Pop_Post from 'components/Pop_Post.jsx';
 import './CatalogPage.css'
 import Footer_Content from 'components/Footer_Content.jsx';
 import {listPosts} from 'api/posts.js';
+import {connect} from 'react-redux';
 
-export default class CatalogPage extends React.Component{
+
+class CatalogPage extends React.Component{
     static propTypes = {
     
         topicName: PropTypes.string,
@@ -45,7 +47,7 @@ export default class CatalogPage extends React.Component{
     }
 
     componentDidMount() {
-        this.listPosts(this.state.searchText, this.state.category, this.state.mode, this.state.club, this.state.order, this.state.userid);
+        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.props.clubname, this.state.order, this.state.userid);
     }
 
     static catagory = ['All','Food','PE','Music','Association','Art','Competition'];
@@ -171,7 +173,6 @@ export default class CatalogPage extends React.Component{
                                 </div>
                         </div>
                         <div className=' col-12 col-lg-9 posts-table'>
-                            <div className='posts-table-heading'> Popular Activities</div>
                             <div className=''>
                                 {/* <Carousel interval='5000' controls={true}>
                                     <Carousel.Item><Pop_Post/></Carousel.Item>
@@ -179,7 +180,7 @@ export default class CatalogPage extends React.Component{
                                 </Carousel> */}
                                 
                             </div>
-                            <div className='posts-table-heading'> ALL</div>
+                            <div className='posts-table-heading'>ALL</div>
                             {/* <div className='d-flex row justify-content-center'> */}
                             <div>
                                 {
@@ -271,7 +272,11 @@ export default class CatalogPage extends React.Component{
     chooseCatagory(){
 
     }
-
 }
+
+export default connect(state => ({
+    ...state.navBar,
+    ...state.club,
+}))(CatalogPage);
 
 
