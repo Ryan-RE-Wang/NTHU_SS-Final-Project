@@ -20,6 +20,15 @@ router.get('/getPost', function(req, res, next) {
     }).catch(next);
 });
 
+
+
+// type: search text
+router.get('/list/:type/',function(req, res, next){
+    const {type} = req.params;
+    const {query} = req.query;
+
+})
+
 // Create
 router.post('', function(req, res, next) {
     const {
@@ -91,5 +100,13 @@ router.post('/delete', function(req, res, next) {
         res.json(post);
     }).catch(next);
 });
+router.get('/getPost/byCatagory',function(req,res,next){
+    const {catagory, order} == req.query;
+    postModel.listByCatagory(catagory, order).then(
+        (posts)=>{
+            return posts
+        }
+    ).catch(next);
+})
 
 module.exports = router;

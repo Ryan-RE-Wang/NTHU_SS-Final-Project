@@ -90,11 +90,27 @@ function deletepost(id) {
     `
     return db.none(sql, {id});
 }
-
+function listByCatagory(catagory='',order=''){
+    let odr;
+    if(oreder == 'AZ'){
+        odr = 'title';
+    }else if(order == 'Date'){
+        odr == 'startdatetime';
+    }else if(order == 'Popularity'){
+        odr == 'touch';
+    }
+    const sql=`
+    SELECT title location ticket fileurl From post 
+    WHERE $<catagory> = ANY(tag)
+    ORDER BY $<odr>
+    `;
+    return db.any(sql,{odr});
+}
 
 module.exports = {
     list,
     create,
     getdetail,
-    deletepost
+    deletepost,
+    listByCatagory
 };
