@@ -6,7 +6,24 @@ import 'babel-polyfill';
 const postBaseUrl = 'http://localhost:4000/api';
 // Production server URL
 //const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
+export function listPostsByCategory(category, order){
+    let url = `${postBaseUrl}/posts/getPost/byCatagory`;
+    let query = [];
+    let odr ;
+    if(order === 'A to Z') odr = 'AZ';
+    else odr = order;
 
+    query.push(`category=${category}`);
+    query.push(`order=${order}`);
+    url += '?' + query.join('&');
+    console.log(`Making GET request to: ${url}`);
+    
+    return axios.get(url).then(function(res){
+        if(res.status !== 200)
+            throw new Error(`Unexpected response code: ${res.status}`);
+        return res.data;
+    });
+}
 
 export function listPosts(searchText = '', category='', start = '', end='', mode = null, club = '', order = 'touch', userid = '', startofPost = '') {
     let url = `${postBaseUrl}/posts/getPost`;

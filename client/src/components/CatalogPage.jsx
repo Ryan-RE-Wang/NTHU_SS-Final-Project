@@ -13,8 +13,10 @@ import Post from 'components/Post.jsx';
 import Pop_Post from 'components/Pop_Post.jsx';
 import './CatalogPage.css'
 import Footer_Content from 'components/Footer_Content.jsx';
-import {listPosts} from 'api/posts.js';
+import {listPostsByCategory} from 'api/posts.js';
 import {connect} from 'react-redux';
+import {changeCatagory, changeOrder} from 'states/category-action.js';
+
 
 
 class CatalogPage extends React.Component{
@@ -30,15 +32,15 @@ class CatalogPage extends React.Component{
             orderClick: false,
             postLoading: false,
             searchText: '',
-            category: '',
+            // category: '',
             start:'',
             mode: false,
             club: '',
-            order: 'id',
+            // order: 'id',
             userid: '',
             posts: [], 
             hasMore: true,
-            displayTopic:'ALL'
+            // displayTopic:'ALL'
         };
         this.handleExplore = this.handleExplore.bind(this); 
         this.handleOrder = this.handleOrder.bind(this); 
@@ -52,7 +54,7 @@ class CatalogPage extends React.Component{
         this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.props.clubname, this.state.order, this.state.userid);
     }
 
-    static catagory = ['All','Food','Music','Association','Art','Competition'];
+    static catagory = ['All','Food','Music','Drama','Art','Competition'];
     static order = ['A to Z','Popularity','Date'];
 
     render(){
@@ -200,25 +202,29 @@ class CatalogPage extends React.Component{
         )
     }
     changeCatagory(i){
-        console.log(i);
+        
         let chooseCatagory = CatalogPage.catagory[i];
-        this.setState({
-            displayTopic:chooseCatagory
-        })
-        this.listPosts('',chooseCatagory,null,null,null,this.state.order,null);
+        this.props.dispatch(changeCatagory(chooseCatagory));
+        // this.setState({
+        //     displayTopic:chooseCatagory
+        // })
+        this.listPosts()
+        // this.listPosts('',chooseCatagory,null,null,null,this.state.order,null);
 
     }
     changeOrder(i){
         let chooseOrder = CatalogPage.order[i];
-        
-        this.listPosts('',chooseCatagory,null,null,null,this.state.order,null);
+        this.props.dispatch(changeCatagory(chooseOrder));
+        // this.listPosts('',chooseCatagory,null,null,null,this.state.order,null);
+        this.listPosts()
     }
 
-    listPosts(searchText, category, start, mode, club, order, userid) {
+    listPosts(/*searchText, category, start, mode, club, order, userid*/) {
+
         this.setState({
             postLoading: true,
         }, () => {
-            listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
+            listPostsByCategory(this.props.category,this.props.order).then(posts => {
                 this.setState({
                     posts, 
                     postLoading: false
@@ -234,27 +240,27 @@ class CatalogPage extends React.Component{
         
     }
 
-    listMorePosts() {
-        if (this.state.posts.length < 1) {
-            return;
-        }
-        this.setState({
-            postLoading: true
-        });
-        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.posts[this.state.posts.length - 1].id)
-        .then(posts => {
-            this.setState({
-                ...this.state,
-                posts: [...this.state.posts, ...posts], 
-                hasMore: posts.length > 0
-            });
-        }).catch(err => {
-            console.error('Error listing posts', err);
-        }).then(() => this.setState({
-            postLoading: false
-        }))
+    // listMorePosts() {
+    //     if (this.state.posts.length < 1) {
+    //         return;
+    //     }
+    //     this.setState({
+    //         postLoading: true
+    //     });
+    //     listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, this.state.order, this.state.userid, this.state.posts[this.state.posts.length - 1].id)
+    //     .then(posts => {
+    //         this.setState({
+    //             ...this.state,
+    //             posts: [...this.state.posts, ...posts], 
+    //             hasMore: posts.length > 0
+    //         });
+    //     }).catch(err => {
+    //         console.error('Error listing posts', err);
+    //     }).then(() => this.setState({
+    //         postLoading: false
+    //     }))
 
-    }
+    // }
 
     handleExplore(){
         let display = true;
@@ -278,6 +284,7 @@ class CatalogPage extends React.Component{
 export default connect(state => ({
     ...state.navBar,
     ...state.club,
+    ...state.category
 }))(CatalogPage);
 
 

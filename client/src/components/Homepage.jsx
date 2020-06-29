@@ -291,7 +291,8 @@ export default connect(state => ({
     postLoading: state.post.postLoading,
     searchText: state.searchText,
     searchStartDate: state.searchStartDate,
-    searchEndDate: state.searchEndDate
+    searchEndDate: state.searchEndDate,
+    ...state.category
 }))(Homepage);
 
 
