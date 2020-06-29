@@ -17,7 +17,8 @@ import {connect} from 'react-redux';
 import {setSearchText, setSearchStartDate, setSearchEndDate} from 'states/post-actions.js';
 
 import './Homepage.css'
-import { listPostsbyclub } from 'api/posts.js';
+import {listPostsbyclub} from 'api/posts.js';
+import {listPostsByTouch} from 'api.posts.js';
 
 class Homepage extends React.Component {
 
@@ -51,6 +52,7 @@ class Homepage extends React.Component {
         this.handleClearSearch = this.handleClearSearch.bind(this);
         this.handleStartDateChange = this.handleStartDateChange.bind(this);
         this.handleEndDateChange = this.handleEndDateChange.bind(this);
+        this.listPostsByTouch = this.listPostsByTouch(this);
     }
 
    
@@ -61,6 +63,7 @@ class Homepage extends React.Component {
                 date: date
         })
         this.listPostsByDate(null, this.state.date, null);
+        this.listPostsByTouch();
         // this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
     }
         
@@ -239,10 +242,35 @@ class Homepage extends React.Component {
             this.setState({
                 masking: false
             });
-        }, 600);
-        
+        }, 600);   
     }
+    listPostsByTouch() {
+        this.setState({
+            postLoading: true,
+            masking: true,
+        }, () => {
+            listPostsByTouch().then(posts => {
+                
+                    this.setState({
+                        postsPop: posts, 
+                        postLoading: false
+                    });
+                
+            }).catch(err => {
+                console.error('Error listing posts', err);
+                this.setState({
+                    postsPop: [],
+                    postLoading: false
+                })
+            })
+        })
 
+        setTimeout(() => {
+            this.setState({
+                masking: false
+            });
+        }, 600);   
+    }
     listMorePosts(e) {
         
         const order = e.target.value;
