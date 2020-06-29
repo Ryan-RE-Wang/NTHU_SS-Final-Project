@@ -219,9 +219,10 @@ class ArticleForm extends React.Component {
             </DropdownItem>
         )
         return (
+            <div className='article-form'>
             <div className='articleform-container flex-column d-flex container justify-content-center align-items-center'>
-                <div id='blankSpace'></div>
-                <div id='blankSpace'></div>
+            {/* <div className='articleform-container flex-column d-flex container justify-content-center align-items-center'> */}
+
                 <div>
                     <Modal show={this.state.modalShow} onHide={this.handleModalClose}>
                         <Modal.Header closeButton>
@@ -450,6 +451,7 @@ class ArticleForm extends React.Component {
                                 </Link>
                             </div>
                     </div>
+            </div>
             </div>
         );   
     }

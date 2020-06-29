@@ -3,6 +3,7 @@
   position: relative;
   margin: 0 auto;
   max-width: 800px;
+  background-color: rgb(250, 250, 250);
 }
 #blankSpace2{
   width: 100%;
@@ -16,7 +17,7 @@
   color: red;
 }
 .title {
-    text-align: center;
+  text-align: center;
 }
 .articleform-container .hint {
   padding-left: 3rem;
@@ -72,4 +73,8 @@
 
 .ArticleForm_TITLE{
   margin-right: 10px;
+}
+
+.article-form{
+  background-color: rgb(250, 250, 250);
 }
