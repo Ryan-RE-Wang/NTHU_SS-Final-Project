@@ -51,7 +51,14 @@ function listbyclub(clubname, userid) {
         `;
         return db.any(sql, [clubname, userid]);
     }
-    
+}
+function listbyTouch(){
+    const sql = `
+        SELECT FROM post
+        ORDER BY touch
+        LIMIT 12
+    `;
+    return db.any(sql);
 }
 
 function create(
@@ -130,5 +137,6 @@ module.exports = {
     create,
     getdetail,
     deletepost,
-    listByCategory
+    listByCategory,
+    listbyTouch
 };

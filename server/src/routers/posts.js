@@ -31,17 +31,24 @@ router.get('/getPostbyclub', function(req, res, next) {
             res.json(post)
     }).catch(next);
 });
-router.get('/getPost/byCategory',function(req,res,next){
+router.get('/getPostbyCategory',function(req,res,next){
     const {category, order} = req.query;
 
     postModel.listByCategory(category, order).then(
         (posts)=>{
-            console.log(posts);
+            // console.log(posts);
             res.json(posts) ;
         }
     ).catch(next);
 })
 
+router.get('/getPostbyTouch',function(req,res,next){
+    postModel.listbyTouch().then(
+        (posts)=>{
+            res.json(posts) ;
+        }
+    ).catch(next);
+})
 // Create
 router.post('', function(req, res, next) {
     const {
