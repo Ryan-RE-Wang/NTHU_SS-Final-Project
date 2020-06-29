@@ -167,8 +167,13 @@ class Main extends React.Component {
                                 <EditIcon/>&nbsp;<span>Edit post</span> 
                             </Link>                                
                         </div>
+                        <div className='sidebar-element sidebar-entry' style={{display: (this.props.alreadyLogin) ? 'block' : 'none'}} onClick={this.handleNavbarToggle}>  
+                            <Link to='/signup_Club' className='link'>                       
+                                <EditIcon/>&nbsp;<span>Create club</span> 
+                            </Link>                                
+                        </div>
                         <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
-                            <Link to='/Manager' className='link'>                       
+                            <Link to='/userside_manager' className='link'>                       
                                 <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
                         </div>
@@ -230,7 +235,8 @@ class Main extends React.Component {
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={Userside_manager}/>
+                    <Route exact path="/Manager" component={Manager_dev}/>
+                    <Route exact path="/userside_manager" component={Userside_manager}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>
