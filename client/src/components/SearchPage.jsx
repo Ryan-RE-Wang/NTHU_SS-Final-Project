@@ -24,16 +24,17 @@ class SearchPage extends React.Component {
 
     constructor(props) {
         super(props);
-        
     }
     componentDidUpdate(prevProps) {
         if (this.props.searchStartDate !== prevProps.searchStartDate || this.props.searchEndDate !== prevProps.searchEndDate || this.props.searchText !== prevProps.searchText) {
+            console.log("QAQ", this.props.searchText)
             this.props.dispatch(listPosts(this.props.searchText, this.props.searchStartDate, this.props.searchEndDate));
         }
     }
 
     componentDidMount() {
-        this.props.dispatch(listPosts(this.props.searchText, category, this.props.searchStartDate, this.props.searchEndDate));
+        console.log(this.props.searchText, this.props.searchStartDate, this.props.searchEndDate)
+        this.props.dispatch(listPosts(this.props.searchText, this.props.searchStartDate, this.props.searchEndDate));
     }
 
     render() {

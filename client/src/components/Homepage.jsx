@@ -17,6 +17,7 @@ import {connect} from 'react-redux';
 import {setSearchText, setSearchStartDate, setSearchEndDate} from 'states/post-actions.js';
 
 import './Homepage.css'
+import { listPostsbyclub } from 'api/posts.js';
 
 class Homepage extends React.Component {
 
@@ -220,7 +221,6 @@ class Homepage extends React.Component {
                         postLoading: false
                     });
                 }
-                    
             }).catch(err => {
                 console.error('Error listing posts', err);
                 this.setState({
@@ -255,7 +255,7 @@ class Homepage extends React.Component {
             startpoint = posts[posts.length - 1].touch;
         }
 
-        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, order, this.state.userid, startpoint)
+        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, order, this.state.userid, startpoint)
         .then(posts => {
             if (order === 'startdatetime')
                 this.setState({

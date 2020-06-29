@@ -4,7 +4,9 @@ if (!global.db) {
 }
 
 function listBySearch(searchText = '', start = '', end = '') {
-    const where = [];
+
+    console.log(searchText, start, end)
+    let where = [];
     // var startDateTime = start + 'T00:00';
     // var endDateTime = end + 'T00:00';
     if (searchText)
@@ -15,7 +17,8 @@ function listBySearch(searchText = '', start = '', end = '') {
         where.push(`startdatetime <= ${start+'T00:00'}`);
     else if (end) 
         where.push(`enddatetime >= ${end+'T00:00'}`);
-        
+    
+    console.log(where, 'QAQ')
     const sql = `
         SELECT *
         FROM post
@@ -24,6 +27,31 @@ function listBySearch(searchText = '', start = '', end = '') {
         LIMIT 10
     `;
     return db.any(sql, [searchText, start, end]);
+}
+function listbyclub(clubname, userid) {
+
+    if (!userid) {
+        const sql = `
+            SELECT *
+            FROM post
+            WHERE club = $1
+            ORDER BY startdatetime
+            LIMIT 12
+        `;
+        return db.any(sql, [clubname, userid]);
+    }
+
+    else {
+        const sql = `
+            SELECT *
+            FROM post
+            WHERE club = $1 AND userid = $2
+            ORDER BY startdatetime
+            LIMIT 12
+        `;
+        return db.any(sql, [clubname, userid]);
+    }
+    
 }
 
 function create(
@@ -80,6 +108,7 @@ function deletepost(id) {
 
 module.exports = {
     listBySearch,
+    listbyclub,
     create,
     getdetail,
     deletepost

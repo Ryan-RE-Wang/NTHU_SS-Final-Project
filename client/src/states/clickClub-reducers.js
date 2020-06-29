@@ -1,15 +1,35 @@
 const initClubState = {      
-    clubname: '',    
+    userid: '',      
+    school: '',     
+    clubname: '',   
+    facebook: '',    
+    instagram: '',   
+    clubpic: '',     
+    clubpassword: '',
+    description: ''   
 }
 
 export function club(state = initClubState, action) {
-    console.log(action)
     switch(action.type){
-        case '@CLUB/GETCLUB':
+        case '@CLUB/START':
             return{
-
-                clubname: action.clubname,
+                ...state
             }
+        case '@CLUB/SUCCESS':
+            return{
+                userid: action.userid,
+                clubname: action.clubname,
+                facebook: action.facebook,
+                instagram: action.instagram,
+                clubpic: action.clubpic,
+                clubpassword: action.clubpassword,
+                description: action.description
+            }
+        case '@CLUB/FAIL':
+            return{
+                ...state
+            }
+        
         default:
             return{
                 ...state
