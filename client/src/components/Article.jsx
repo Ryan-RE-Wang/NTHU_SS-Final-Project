@@ -91,14 +91,13 @@ class Article extends React.Component {
 
         return (
             <Container className='article'>
-                
                 <div className='d-flex row content justify-content-center align-items-center'>
                     <div className='col-4 poster'>
                         <img className='img-fluid' src= {imageSrc} width="240rem" margin="0 auto"/>
                     </div>
                     <div className='col-6 info align-items-center justify-content-center'>
-                        <div className='p-2 title' fontWeight='bold'>
-                                {this.props.title}
+                        <div className='p-2 article-title' fontWeight='bold'>
+                            {this.props.title}
                         </div>
                         <div className='p-2 row location align-items-center justify-content-center' >
                            <div className='p-2' >
