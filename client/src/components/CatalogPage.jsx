@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
+import { InputGroup, InputGroupAddon, Jumbotron, Container,Row } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem,UncontrolledDropdown } from 'reactstrap';
 import {Alert} from 'reactstrap';
 import 'pretty-checkbox/src/pretty-checkbox.scss';
 import Carousel from 'react-bootstrap/Carousel'
+import Button from '@material-ui/core/Button';
 import CheckIcon from '@material-ui/icons/Check';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -18,7 +19,6 @@ import {connect} from 'react-redux';
 
 class CatalogPage extends React.Component{
     static propTypes = {
-    
         topicName: PropTypes.string,
         description: PropTypes.string
     };
@@ -28,7 +28,6 @@ class CatalogPage extends React.Component{
         this.state = {
             exploreClick: false,
             orderClick: false,
-            masking: false,
             postLoading: false,
             searchText: '',
             category: '',
@@ -180,16 +179,15 @@ class CatalogPage extends React.Component{
                                 </Carousel> */}
                                 
                             </div>
-                            <div className='posts-table-heading'>ALL</div>
                             {/* <div className='d-flex row justify-content-center'> */}
+                            <div className= 'posts-table-heading'> ALL</div>
+                                {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                             <div>
-                                {
-                                    postLoading && <Alert color='warning' className='loading'>Loading...</Alert>
-                                }
-                                
                                 {children}
                                 {   (this.state.posts.length)?
-                                    <div className='button-wrapper'><button id='showMoreBtn' onClick={this.listMorePosts}> SHOW MORE</button></div>
+                                    <Button id='showMoreBtn' className='p-2' onClick={this.listMorePosts}>
+                                        Show more
+                                    </Button>
                                     : ''
                                 }
                             </div>
@@ -209,7 +207,6 @@ class CatalogPage extends React.Component{
     listPosts(searchText, category, start, mode, club, order, userid) {
         this.setState({
             postLoading: true,
-            masking: true,
         }, () => {
             listPosts(searchText, category, start, mode, club, order, userid).then(posts => {
                 this.setState({
@@ -224,12 +221,6 @@ class CatalogPage extends React.Component{
                 })
             })
         })
-
-        setTimeout(() => {
-            this.setState({
-                masking: false
-            });
-        }, 600);
         
     }
 

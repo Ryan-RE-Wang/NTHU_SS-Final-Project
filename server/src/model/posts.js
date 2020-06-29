@@ -6,7 +6,7 @@ if (!global.db) {
 function list(searchText = '', category = '', start = '', mode = null, club = '', order = '', userid = '', startofPost) {
     const where = [];
     if (searchText)
-        where.push(`titleValue ILIKE '%$1:value%'`);
+        where.push(`title ILIKE '%$1:value%'`);
     if (category)
         where.push(`tag ILIKE '%$2:'`);
     if (start)
