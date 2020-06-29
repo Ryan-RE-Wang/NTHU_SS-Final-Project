@@ -1,12 +1,13 @@
 .login_form{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  margin: 0 auto;
   width: 380px;
+  position: relative;
 }
 .createAccount-form{
   width:420px;
+}
+.facebook_font_size{
+  font-size: 10px;
 }
 .login_box {
   padding: 1rem 2rem 2.7rem 2rem;
@@ -183,6 +184,7 @@
   border-top: 0.5px lightgrey solid ;
 }
 #facebook-btn{
+  white-space:nowrap;
   width:9.5rem;
   height:2.5rem;
   color: white;

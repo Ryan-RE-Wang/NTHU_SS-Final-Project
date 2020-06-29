@@ -29,7 +29,13 @@ main-wrapper -> navbar-slide
   background: #042331;
   transition-duration: .5s;
   transition-property: left;
+  overflow:scroll;
 }
+#newsSharing-sidebar::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; /* make scrollbar transparent */
+}
+
 .sidebar-active{
   left:0rem !important;
   z-index: 1111;
