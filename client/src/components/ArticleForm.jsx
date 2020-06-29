@@ -522,6 +522,7 @@ class ArticleForm extends React.Component {
 
     handleTicketChange(e) {
         const ticket = e.target.value;
+        console.log(ticket)
         this.setState({ticketValue: ticket});
         if (ticket) {
             this.setState({ticketDanger: false});
