@@ -8,28 +8,16 @@ const postBaseUrl = 'http://localhost:4000/api';
 //const postBaseUrl = 'http://server-db.us-east-1.elasticbeanstalk.com/api';
 
 
-export function listPosts(searchText = '', category='', start = '', end='', mode = null, club = '', order = 'touch', userid = '', startofPost = '') {
-    let url = `${postBaseUrl}/posts/getPost`;
+export function listPostsBySearch(searchText='', start='', end='') {
+    let url = `${postBaseUrl}/posts/getPostBySearch`;
 
     let query = [];
     if (searchText)
         query.push(`searchText=${searchText}`);
-    if (category)
-        query.push(`category=${category}`);
     if (start)
         query.push(`start=${start}`);
     if (end)
-        query.push(`end=${end}`)
-    if (mode) 
-        query.push(`mode=${mode}`);
-    if (club)
-        query.push(`club=${club}`);
-    if (order)
-        query.push(`order=${order}`);
-    if (userid)
-        query.push(`userid=${userid}`);
-    if (startofPost)
-        query.push(`startofpost=${startofPost}`);
+        query.push(`end=${end}`);
     if (query.length)
         url += '?' + query.join('&');
 

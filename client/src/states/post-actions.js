@@ -1,5 +1,5 @@
 import {
-    listPosts as listPostsFromApi,
+    listPostsBySearch as listPostsFromApi,
 } from 'api/posts.js';
 
 /*  Search text */
@@ -46,10 +46,10 @@ function endListPosts(posts) {
 }
 
 
-export function listPosts(searchText, startDate, endDate, startofPost) {
+export function listPosts(searchText, startDate, endDate) {
     return (dispatch, getState) => {
         dispatch(startLoading());
-        return listPostsFromApi(searchText, null, startDate, endDate, null, null, null, startofPost).then(posts => {
+        return listPostsFromApi(searchText, startDate, endDate).then(posts => {
             dispatch(endListPosts(posts));
         }).catch(err => {
             console.error('Error listing posts', err);

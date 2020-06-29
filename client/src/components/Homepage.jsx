@@ -7,7 +7,7 @@ import {
     Redirect
 } from 'react-router-dom';
 import {Alert} from 'reactstrap';
-import {listPosts} from 'api/posts.js';
+import { listPostsBySearch as listPostsByDate} from 'api/posts.js';
 import PopularArticle from 'components/PopularArticle.jsx';
 import ColumnPost from 'components/ColumnPost.jsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -44,7 +44,7 @@ class Homepage extends React.Component {
             redirect: false
         }
 
-        this.listPosts = this.listPosts.bind(this);
+        this.listPostsByDate = this.listPostsByDate.bind(this);
         this.listMorePosts = this.listMorePosts.bind(this);
         this.handleSearchKeyPress = this.handleSearchKeyPress.bind(this);
         this.handleClearSearch = this.handleClearSearch.bind(this);
@@ -52,9 +52,15 @@ class Homepage extends React.Component {
         this.handleEndDateChange = this.handleEndDateChange.bind(this);
     }
 
+   
     componentDidMount() {
-        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'startdatetime', this.state.userid, this.state.startofpost);
-        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
+        var today = new Date();
+        var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        this.setState({
+                date: date
+        })
+        this.listPostsByDate(null, this.state.date, null);
+        // this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
     }
         
     render() {
@@ -87,7 +93,10 @@ class Homepage extends React.Component {
             return <Route render={() => (
                     <Redirect to={{
                         pathname: '/search',
-                        props: {searchText: this.state.searchText, searchStartDate: this.state.searchStartDate, searchEndDate: this.state.searchEndDate}
+                        props: {
+                            searchText: this.state.searchText, 
+                            searchStartDate: this.state.searchStartDate, 
+                            searchEndDate: this.state.searchEndDate}
                     }} 
                 />)}  
             /> ;
@@ -194,12 +203,12 @@ class Homepage extends React.Component {
         }
     }
 
-    listPosts(searchText, category, start, mode, club, order, userid, startofpost) {
+    listPostsByDate(searchText, start, end) {
         this.setState({
             postLoading: true,
             masking: true,
         }, () => {
-            listPosts(searchText, category, start, mode, club, order, userid, startofpost).then(posts => {
+            listPostsByDate(searchText, start, end).then(posts => {
                 if (order === 'startdatetime')
                     this.setState({
                         postsRecent: posts, 
