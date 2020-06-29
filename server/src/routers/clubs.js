@@ -20,7 +20,6 @@ router.post('/school', function(req, res, next) {
 
 // Create
 router.post('', function(req, res, next) {
-    console.log(req.body);
     const {id, userid, school, clubname, facebook, instagram, clubpic, clubpassword, description} = req.body;
     if (!id) {
         const err = new Error('There must be some form you are not complete!');
@@ -33,18 +32,22 @@ router.post('', function(req, res, next) {
     }).catch(next);
 });
 
-router.get('/get/:clubname', function(req, res, next) {
-    const {clubname} = req.body;
+router.get('/get/', function(req, res, next) {
+    const {clubname} = req.query;
     clubModel.getClubPassword(clubname).then(pw => {
         res.json(pw)
     }).catch(next);
 });
 
-router.get('/detail/:clubdetail', function(req, res, next) {
-    const {clubname} = req.body;
+router.get('/detail', function(req, res, next) {
+    console.log(req.query);
+    const {clubname} = req.query;
+
     clubModel.getClubdetail(clubname).then(details => {
         res.json(details)
-    }).catch(next);
+    }).catch(detail => {
+        console.log(detail);
+    });
 });
 
 router.post('/delete', function(req, res, next) {

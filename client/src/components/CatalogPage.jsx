@@ -51,7 +51,6 @@ class CatalogPage extends React.Component{
     }
 
     componentDidMount() {
-        this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.props.clubname, this.state.order, this.state.userid);
     }
 
     static catagory = ['All','Food','Music','Drama','Art','Competition'];
@@ -202,20 +201,13 @@ class CatalogPage extends React.Component{
         )
     }
     changeCatagory(i){
-        
         let chooseCatagory = CatalogPage.catagory[i];
         this.props.dispatch(changeCatagory(chooseCatagory));
-        // this.setState({
-        //     displayTopic:chooseCatagory
-        // })
-        this.listPosts()
-        // this.listPosts('',chooseCatagory,null,null,null,this.state.order,null);
-
+        this.listPosts()    
     }
     changeOrder(i){
         let chooseOrder = CatalogPage.order[i];
         this.props.dispatch(changeCatagory(chooseOrder));
-        // this.listPosts('',chooseCatagory,null,null,null,this.state.order,null);
         this.listPosts()
     }
 

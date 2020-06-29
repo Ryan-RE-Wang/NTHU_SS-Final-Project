@@ -59,26 +59,21 @@ export function getClubPassword(clubname = '') {
 
     let query = [];
     if (clubname)
-        query.push(`clubname`);
+        query.push(`clubname=${clubname}`);
     if (query.length)
         url += '?' + query.join('&');
 
-    return axios.get(url, {clubname}).then(function(res) {
+    return axios.get(url).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
         return res.data;
     });
 }
 
-export function getClubdetail(clubname = '') {
+export function getClubdetail(clubname) {
+
     let url = `${postBaseUrl}/detail`;
-
-    let query = [];
-    if (clubname)
-        query.push(`clubdetail`);
-    if (query.length)
-        url += '?' + query.join('&');
-
+    console.log(clubname);
     return axios.get(url, {clubname}).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
