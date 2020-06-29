@@ -96,6 +96,7 @@ main-wrapper -> navbar-slide
   margin-left: 0rem;
   margin-right:0rem;
   transition:.5s ease;
+
  
 }
 .main-shift{
@@ -113,7 +114,7 @@ main-wrapper -> navbar-slide
   background-color: white;
   position: fixed;
   width:100%;
-  z-index: 1;
+  z-index: 100;
 }
 .navbar-items{
   padding-top:1.2rem;
@@ -190,7 +191,7 @@ main-wrapper -> navbar-slide
 
 #blankSpace{
   width: 100%;
-  height: 2.3rem;
+  height: 4.4rem;
 }
 
 /* content section */
@@ -231,254 +232,12 @@ main-wrapper -> navbar-slide
     
   }
 } */
-/* toggle element */
-
-/* outside toggle */
-/* .outside-toggle-linkBtn {
-  border-radius: 4px;
-  background-color: inherit;
-  border: none;
-  color: black;
-  text-align: center;
-  font-size: 15px;
-  transition: all 0.5s;
-  cursor: pointer;
-  text-align: center;
-}
-.outside-toggle-linkBtn span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.outside-toggle-linkBtn span::after {
-  font-weight: 900; 
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.outside-toggle-linkBtn:hover span {
-  padding-right: 25px;
-} 
-
-.outside-toggle-linkBtn:hover span::after{
-  opacity: 1;
-  right: 0;
-} */
-/* inside toggle element */
-/* .inside-toggle-element{
-  text-align: center;
-}
-.inside-toggle-linkBtn{
-  padding-top:0.3rem;
-  padding-bottom:0.3rem;
-}
 
 
 
 
 
-
-
-.outside-picked-item{
-  background-color:rosybrown;
-} */
-
-
-
-
-/* 
-.insideColNthu span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.insideColNthu span::after {
-  /* font-family: 'Font Awesome 5 Free';  */
-  /* font-weight: 900; 
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.insideColNthu:hover span {
-  padding-right: 25px;
-} 
-
-.insideColNthu:hover span::after{
-  opacity: 1;
-  right: 0;
-}
-
-.insideColCategory span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.insideColCategory span::after {
-  font-weight: 900; 
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.insideColCategory:hover span {
-  padding-right: 25px;
-} 
-
-.insideColCategory:hover span::after{
-  opacity: 1;
-  right: 0;
-}
-
-.insideColNctu span {
-  cursor: pointer;
-  display: inline-block;
-  position: relative;
-  transition: 0.5s;
-}
-
-.insideColNctu span::after {
-  font-weight: 900; 
-  content: "\00bb";
-  position: absolute;
-  opacity: 0;
-  top: 0;
-  right: -20px;
-  transition: 0.5s;
-}
-
-.insideColNctu:hover span {
-  padding-right: 25px;
-} 
-
-.insideColNctu:hover span::after{
-  opacity: 1;
-  right: 0;
-} */
-
-
-
-
-
-/* html */
-/* html {
-    scroll-behavior: smooth;
-  } 
-
-  #id {
-    outline: none;
-  }
-
-  .button {
-    color: black;
-    padding: 0;
-    margin: 0;
-    border: 0;
-    background-color: transparent;
-    position: absolute;
-    display: block;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  } */
-
-  /* .s-circle {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-    width: 20px;
-    height: 20px;
-    margin-top: 0;
-    border-width: 2px;
-    border: 4px solid black;
-    background-color: transparent;
-    border-radius: 50%;
-    transition: 0.5s ease all;
-  }
-
-  .span {
-    position: absolute;
-    top: 27px;
-    left: 27px;
-    display: block;
-    width: 10px;
-    height: 10px;
-    background-color: transparent;
-    border-radius: 5px;
-    transform: rotateZ(47deg) scale(0.4);
-    transition: 0.5s ease all;
-  }
-
-  .span::before, .span::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 45px;
-    height: 15px;
-    background-color: black;
-    border-radius: 10px;
-    transform: rotateZ();
-    transition: 0.5s ease all;
-  }
-
-  .button:hover .s-circle
-{
-    top: 47%;
-    width: 35px;
-    height: 15px;
-    left: -5px;
-    border-width: 0;
-    background-color: black;
-    border-radius: 20px;
-    transform: scale(0.6);
-}
-
-.button:hover .span
-{
-    top: 32px;
-    left: 10px;
-    width: 25px;
-    margin-top: -15px;
-    transform: rotateZ(0) scale(0.5);
-}
-
-.button:hover .span:before
-{
-    bottom: 11px;
-    transform: rotateZ(52deg);
-}
-
-.button:hover .span:after
-{
-    bottom: -11px;
-    transform: rotateZ(-52deg);
-}
-
-.button:hover .span:before, .button:hover .span:after
-{
-    right: -6px;
-    width: 40px;
-    background-color: black;
-}  */
-
- @import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css"; 
+@import "//netdna.bootstrapcdn.com/font-awesome/3.0/css/font-awesome.css"; 
 
 .mainLoginInput{
 	/* height: 40px; */

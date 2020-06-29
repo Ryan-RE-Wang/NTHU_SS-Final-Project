@@ -15,7 +15,7 @@ import './CatalogPage.css'
 import Footer_Content from 'components/Footer_Content.jsx';
 import {listPostsByCategory} from 'api/posts.js';
 import {connect} from 'react-redux';
-import {changeCatagory, changeOrder} from 'states/category-action.js';
+import {changeCategory, changeOrder} from 'states/category-action.js';
 
 
 
@@ -47,7 +47,8 @@ class CatalogPage extends React.Component{
         this.listPosts = this.listPosts.bind(this);
         // this.listMorePosts = this.listMorePosts.bind(this);
 
-        this.changeCatagory = this.changeCatagory.bind(this);
+        this.changeCategory = this.changeCategory.bind(this);
+        this.changeOrder = this.changeOrder.bind(this);
     }
 
     componentDidMount() {
@@ -85,7 +86,7 @@ class CatalogPage extends React.Component{
                                         <div className='classes-body'>
                                         {
                                             CatalogPage.catagory.map((e,i) =>(
-                                                <div className='checkbox-element'key={i} onClick={() => this.changeCatagory(i)}>
+                                                <div className='checkbox-element'key={i} onClick={() => this.changeCategory(i)}>
                                                 <div className="pretty p-icon p-plain ">
                                                     <input type="radio" name='radio1'/>
                                                     <div className="state">
@@ -105,7 +106,7 @@ class CatalogPage extends React.Component{
                                         <div className='classes-body'>
                                         {
                                             CatalogPage.order.map((e,i) =>( 
-                                                <div className='checkbox-element'key={i} onClick={() => {this.handleOrder(i)}}>
+                                                <div className='checkbox-element'key={i} onClick={() => this.changeOrder(i)}>
                                                 <div className="pretty p-icon p-plain "key={i}>
                                                     <input type="radio" name='radio2' />
                                                     <div className="state">
@@ -134,9 +135,9 @@ class CatalogPage extends React.Component{
                                             <div className={`classes-body ${this.state.exploreClick ? 'd-block' : 'd-none'}`}>
                                             {
                                                 CatalogPage.catagory.map((e,i) =>(
-                                                    <div className='checkbox-element'key={i}>
+                                                    <div className='checkbox-element'key={i} onClick={() => this.changeCategory(i)}>
                                                         <div className="pretty p-icon p-plain  ">
-                                                            <input type="checkbox" />
+                                                            <input type="radio" name='radio3' />
                                                             <div className="state">
                                                                 <CheckIcon className='icon checkIcon'/>
                                                                 <label className='option'>{e}</label>
@@ -160,9 +161,9 @@ class CatalogPage extends React.Component{
                                         <div className={`classes-body ${this.state.orderClick ? 'd-block' : 'd-none'}`}>
                                         {
                                             CatalogPage.order.map((e,i) =>( 
-                                                <div className='checkbox-element'key={i}>
+                                                <div className='checkbox-element'key={i} onClick={() => {this.changeOrder(i)}}>
                                                 <div className="pretty p-icon p-plain ">
-                                                    <input type="checkbox" />
+                                                    <input type="radio" name='radio4' />
                                                     <div className="state">
                                                         <CheckIcon className='icon checkIcon'/>
                                                         <label className='option'>{e}</label>
@@ -190,10 +191,7 @@ class CatalogPage extends React.Component{
                                 }
                             </div>
                         </div>
-
-
-                    </Row>
-                    
+                    </Row>   
                 </Container>
                 
             </div>
@@ -201,15 +199,14 @@ class CatalogPage extends React.Component{
             </div>
         )
     }
-    changeCatagory(i){
-        console.log("hahahahaha")
+    changeCategory(i){
         let chooseCatagory = CatalogPage.catagory[i];
-        this.props.dispatch(changeCatagory(chooseCatagory));
+        this.props.dispatch(changeCategory(chooseCatagory));
         this.listPosts()    
     }
     changeOrder(i){
         let chooseOrder = CatalogPage.order[i];
-        this.props.dispatch(changeCatagory(chooseOrder));
+        this.props.dispatch(changeOrder(chooseOrder));
         this.listPosts()
     }
 

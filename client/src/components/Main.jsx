@@ -41,6 +41,7 @@ import {closeLoginForm, openLoginForm , logout} from 'states/login-actions.js';
 import {getClub} from 'states/clickClub-actions.js';
 import {openUserInfo, changeToggle, clickList, clickTag, openSearchBar} from 'states/navbar-actions';
 import Userside_manager from 'components/Userside_manager.jsx';
+import {changeCategory} from 'states/category-action.js';
 
 
 class Main extends React.Component {
@@ -335,7 +336,7 @@ class Main extends React.Component {
 
     goToCategoryPage(type){
         this.props.dispatch(changeToggle())
-        this.props.dispatch(changeCatagory(type))
+        this.props.dispatch(changeCategory(type))
     }
 }
 
