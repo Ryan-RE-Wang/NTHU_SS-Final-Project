@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { InputGroup, InputGroupAddon, Button, Jumbotron, Container,Row } from 'reactstrap';
 import { FontAwesomeIcon } from '../../node_modules/@fortawesome/react-fontawesome'
 import { faAngleDown, faAngleUp} from '../../node_modules/@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 import './Footer_Content.css'
 
@@ -19,7 +20,7 @@ export default class Footer_Content extends React.Component{
     render(){
         return(       
 
-        <div>
+        <div className="footer_main">
             <div className='divide-bar'>
                 <button id='backToTopBtn' onClick={this.backToTop}>
                     <FontAwesomeIcon icon={faAngleUp} size='lg'/>
@@ -41,7 +42,9 @@ export default class Footer_Content extends React.Component{
                                 {
                                     Footer_Content.About.map((e,i) =>(
                                         <div className='d-flex col-6 info-element' key={i}>
-                                            <span>{e}</span>
+                                            <Link to='/category'> 
+                                                <span>{e}</span>
+                                            </Link> 
                                         </div>
                                     ))
                                 }
@@ -54,7 +57,9 @@ export default class Footer_Content extends React.Component{
                                 {
                                     Footer_Content.catagory.map((e,i) =>(
                                         <div className='d-flex col-6 col-md-3 col-xs-6 info-element' key={i}>
-                                            <span>{e}</span>
+                                            <Link to='/category'>
+                                                <span>{e}</span>
+                                            </Link>
                                         </div>
                                     ))
                                 }
