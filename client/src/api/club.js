@@ -73,8 +73,14 @@ export function getClubPassword(clubname = '') {
 export function getClubdetail(clubname) {
 
     let url = `${postBaseUrl}/detail`;
-    console.log(clubname);
-    return axios.get(url, {clubname}).then(function(res) {
+
+    let query = [];
+    if (clubname)
+        query.push(`clubname=${clubname}`);
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.get(url).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
 

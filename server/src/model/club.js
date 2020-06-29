@@ -14,15 +14,6 @@ function list(school) {
     return db.any(sql, {school});
 }
 
-function getClubpassword(clubname) {
-    const sql = `
-        SELECT clubpassword
-        FROM club
-        WHERE clubname = $<clubname>
-    `;
-    return db.one(sql, {clubname});
-}
-
 function getClubdetail(clubname) {
     const sql = `SELECT * FROM club WHERE clubname = $<clubname>`;
     return db.one(sql, {clubname});

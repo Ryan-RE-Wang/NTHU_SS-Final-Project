@@ -32,15 +32,7 @@ router.post('', function(req, res, next) {
     }).catch(next);
 });
 
-router.get('/get/', function(req, res, next) {
-    const {clubname} = req.query;
-    clubModel.getClubPassword(clubname).then(pw => {
-        res.json(pw)
-    }).catch(next);
-});
-
 router.get('/detail', function(req, res, next) {
-    console.log(req.query);
     const {clubname} = req.query;
 
     clubModel.getClubdetail(clubname).then(details => {
