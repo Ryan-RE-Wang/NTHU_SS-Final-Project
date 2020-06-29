@@ -34,31 +34,18 @@ class Article extends React.Component {
             post: {}
         }
 
-        this.handleClickImg = this.handleClickImg.bind(this);
+        this.handleClick = this.handleClick.bind(this);
 
     }
 
     componentDidMount() {
+        console.log(this.props.club)
         window.scrollTo(0, 0);
-        listPostsbyclub(this.props.club, null).then((related) => {
+        listPostsbyclub(this.props.club, null).then(related => {
             this.setState({
-                related: related,
-                post: {
-                    id: this.props.id,
-                    title: this.props.title,
-                    content: this.props.content,
-                    startdatetime: this.props.startdatetime,
-                    enddatetime: this.props.enddatetime,
-                    ticket: this.props.ticket,
-                    fileurl: this.props.fileurl,
-                    location: this.props.location,
-                    tags: this.props.tags,
-                    club: this.props.club
-                }
+                related: related
             })
-        }).catch(err => {
-            console.error('Error creating posts', err);
-        });
+        })
     }
 
 
@@ -77,7 +64,7 @@ class Article extends React.Component {
         if (this.state.related.length) {
             children = this.state.related.map(p => (
                 <div key={p.id} className='p-2'>
-                        <Link to='/article' onClick={() => this.handleClickImg(p.id)}><img className='' src={'https://team11final.s3-us-west-1.amazonaws.com/'+ p.fileurl+'.jpeg'} alt="" height="200rem" margin="0 auto"/></Link>
+                        <Link to='/article' replace onClick={() => this.handleClick(p.id)}><img className='' src={'https://team11final.s3-us-west-1.amazonaws.com/'+ p.fileurl+'.jpeg'} alt="" height="200rem" margin="0 auto"/></Link>
                     </div>
             ))
         }
@@ -236,12 +223,10 @@ class Article extends React.Component {
     }  
 
 
-    handleClickImg(pid) {
-        this.props.dispatch(getPage(pid));
-        this.props.dispatch(getClub(this.state.post.club));
-        createTouch(this.state.post.id);
-        
-        
+    handleClick() {
+        this.props.dispatch(getArticleFromDB(this.props.id));
+        this.props.dispatch(getClub(this.props.club));  
+        createTouch(this.props.id);
     }
 }
 

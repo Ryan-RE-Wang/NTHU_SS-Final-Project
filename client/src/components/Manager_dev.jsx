@@ -14,6 +14,8 @@ import SignUp_club from './SignUp_club.jsx';
 import Userside_manager from './Userside_manager.jsx';
 import {listPostsbyclub} from 'api/posts.js';
 import {connect} from 'react-redux';
+import MyLoader from 'components/MyLoader.jsx';
+
 
 import './Manager_dev.css'
 
@@ -56,6 +58,7 @@ class Manager_dev extends React.Component {
         return (
 
             <div className="body_M row">
+                <div className={`${this.state.postLoading ? 'd-block ' :'d-none'}`}><MyLoader/></div>
                 <Navbar className="navbar_M col-12" select={this.list_Selected}/>
                 <Sidebar  select={this.list_Selected}/>
                 <div className="content_M">

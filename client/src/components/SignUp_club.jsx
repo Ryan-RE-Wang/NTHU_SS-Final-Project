@@ -492,7 +492,7 @@ class SignUp_club extends React.Component {
         
             console.log(this.props.login);
         createClub(this.state.id,
-            this.props.email,
+            this.props.userId,
             this.state.university,
             this.state.clubnameValue,
             this.state.fb_urlValue,

@@ -29,7 +29,8 @@ export function page(state = initPageState, action) {
             }
         case '@POST/START-FETCHING':
             return{
-                startFetching:true
+                startFetching:true,
+                ...state
             }
         case '@POST/END-FETCHING':
             return{

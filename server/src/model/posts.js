@@ -5,7 +5,6 @@ if (!global.db) {
 
 function listBySearch(searchText = '', start = '', end = '') {
 
-    console.log(searchText, start, end)
     let where = [];
     // var startDateTime = start + 'T00:00';
     // var endDateTime = end + 'T00:00';
@@ -18,7 +17,6 @@ function listBySearch(searchText = '', start = '', end = '') {
     else if (end) 
         where.push(`enddatetime >= ${end+'T00:00'}`);
     
-    console.log(where, 'QAQ')
     const sql = `
         SELECT *
         FROM post
@@ -89,10 +87,9 @@ function create(
 
 function getdetail(id) {
     const sql = `
-    SELECT title, content, startdatetime, enddatetime, ticket, location, fileurl, tags, club
+    SELECT *
     FROM post
     WHERE id = $<id>
-    RETURN
     `
     return db.one(sql, {id});
 }
@@ -107,7 +104,6 @@ function deletepost(id) {
 
 function listByCategory(category='',order=''){
     let odr;
-    console.log(category + 'QAQQ')
     if(order === 'AZ'){
         odr = 'title';
     }else if(order === 'Date'){

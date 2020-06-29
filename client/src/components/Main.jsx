@@ -122,11 +122,11 @@ class Main extends React.Component {
                         </div>
                         <div style={{display: (this.props.categoryOpen) ? 'block' : 'none'}}>
 
-                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Food')}>Food</div></Link>
-                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Music')}>Music</div></Link>
-                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Drama')}>Drama</div></Link>
-                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Art')}>Art</div></Link>
-                                <Link to='/category' className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Competition')}>Competition</div></Link>
+                                <Link to='/category' replace className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Food')}>Food</div></Link>
+                                <Link to='/category' replace className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Music')}>Music</div></Link>
+                                <Link to='/category' replace className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Drama')}>Drama</div></Link>
+                                <Link to='/category' replace className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Art')}>Art</div></Link>
+                                <Link to='/category' replace className='link'><div className='sidebar-element sidebar-child' onClick={() => this.goToCategoryPage('Competition')}>Competition</div></Link>
 
                         </div>
                         <div className='sidebar-element sidebar-entry dropDown'>

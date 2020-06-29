@@ -14,6 +14,7 @@ import {getPage} from 'states/clickPage-action.js';
 import {getClub} from 'states/clickClub-actions.js';
 import {createTouch} from 'api/posts.js';
 import LocationOnIcon from '@material-ui/icons/LocationOn';
+import {getArticleFromDB} from 'states/clickPage-action.js';
 import './PopularArticle.css';
 
 const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
@@ -46,7 +47,7 @@ class PopularArticle extends React.Component {
     }
 
     handleClick() {
-        this.props.dispatch(getArticleFromDB(this.props.p));
+        this.props.dispatch(getArticleFromDB(this.props.p.id));
         this.props.dispatch(getClub(this.props.p.club));  
         createTouch(this.props.p.id);
     }

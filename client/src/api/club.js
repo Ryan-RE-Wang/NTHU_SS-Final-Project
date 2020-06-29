@@ -74,6 +74,7 @@ export function getClubdetail(clubname) {
 
     let url = `${postBaseUrl}/detail`;
 
+    console.log(clubname + "in api")
 
     let query = [];
     if (clubname)

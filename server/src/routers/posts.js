@@ -90,8 +90,8 @@ router.post('/:id', function(req, res, next) {
     }).catch(next);
 });
 
-router.get('/get', function(req, res, next) {
-    const id = req.query;
+router.get('/getdetail', function(req, res, next) {
+    const {id} = req.query;
     if (!id) {
         const err = new Error('Post ID are required');
         err.status = 400;

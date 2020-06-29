@@ -9,14 +9,14 @@ import ReactCodeInput from 'react-verification-code-input';
 import './article_cover.css'
 import { Link } from 'react-router-dom'
 import Modal from 'react-bootstrap/Modal';
+import {listPostsbyclub} from 'api/posts.js';
+
 
 class Article_Cover extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            article:[{id:uuid(),link:"#",image:"images/海報1.jpg",title:"JOKER"},
-                     {id:uuid(),link:"#",image:"images/海報2.jpg",title:"doctor strange"},
-                     {id:uuid(),link:"#",image:"images/海報3.jpg",title:"阿凡達"}],
+            article:[],
             clubVerificationModalShow: false,
             delete_id:'',
             modalShow: false,
@@ -31,7 +31,21 @@ class Article_Cover extends React.Component {
         this.handleClubModalClose = this.handleClubModalClose.bind(this);
     }
 
+    componentDidMount() {
+        console.log(this.props.clubname)
+        listPostsbyclub(this.props.clubname, null).then(posts => {
+            this.setState = {
+                article: posts
+            }
+        })
+    }
+
+    
+
     render() {
+
+        const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
+        const lasturl = '.jpeg';
         return (
             <div className="Article">
                 <Container >
@@ -63,22 +77,22 @@ class Article_Cover extends React.Component {
                     <Row className='d-flex justify-content-center'><h3>latest articles</h3></Row>
                     <Row >
                         {this.state.article.map(p=>
-                            <Col xs={12} md={6} lg={3} key={p.title}>
+                            <Col xs={12} md={6} lg={3} key={p.id}>
                             <div className="card1">
                                 <div className="card1_PandD">
-                                    <div className="picture_i"><img src={p.image} alt={p.title} /></div>
+                                    <div className="picture_i"><img src={baseUrl+p.fileurl+lasturl} alt={p.title} /></div>
                                     <div className = "article_describe">
                                         <div className = "bbtn_div">
                                             <svg className="bi bbtn bi-three-dots-vertical"  viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
                                                 <path fillRule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                                             </svg>
                                             <div className="dropdown-content">
-                                                    <div className="dropdownbtn" onClick={()=>this.props.select('5')}>Read</div>
+                                                    <Link><div className="dropdownbtn" onClick={()=>this.props.select('5')}>Read</div></Link>
                                                     <div className="dropdownbtn" onClick={() =>this.handleDelete(p.id)}>Delete</div>
                                             </div>
                                         </div>
                                         <p className="picture_d1">{p.title}</p>
-                                        <p className="picture_d2">April 26, 2016</p>
+                                        <p className="picture_d2">{p.startdatetime}</p>
                                     </div>
                                 </div>
                             </div>
@@ -151,5 +165,6 @@ class Article_Cover extends React.Component {
 }
 
 export default connect(state => ({
-    ...state.login
+    ...state.login,
+    ...state.club
 }))(Article_Cover);
