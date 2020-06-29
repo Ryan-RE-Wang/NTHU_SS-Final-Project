@@ -83,14 +83,14 @@ class Main extends React.Component {
         let childrenNthu = (<div className='p-2 text-center'>There are no clubs</div>);
         if (this.state.clubsNthu.length) {
             childrenNthu = this.state.clubsNthu.map(c => (
-                <div key={c.id} className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
+                <div key={c.id} className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
             ))
         }
 
         let childrenNctu = (<div className='p-2 text-center'>There are no clubs</div>);
         if (this.state.clubsNctu.length) {
             childrenNctu = this.state.clubsNctu.map(c => (
-                <div key={c.id} className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c)}>{c.clubname}</div>
+                <div key={c.id} className='sidebar-element sidebar-child' onClick={() => this.handleNavbarToggle(c.clubname)}>{c.clubname}</div>
             ))
         }
 
@@ -137,7 +137,7 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.nthuOpen) ? 'block' : 'none'}}>
-                            <Link to='/category' className='link'>  
+                            <Link to='/Manager' className='link'>  
                                 {childrenNthu}
                             </Link> 
                         </div>
@@ -149,7 +149,7 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
-                            <Link to='/category' className='link'>  
+                            <Link to='/Manager' className='link'>  
                                 {childrenNctu}
                             </Link> 
                         </div>
@@ -243,7 +243,7 @@ class Main extends React.Component {
                     {/* for router */}
                     <Route exact path="/" component={Homepage}/>
                     <Route exact path='/article' component={Article}/>
-                    <Route exact path="/Manager" component={ArticleForm}/>
+                    <Route exact path="/Manager" component={Manager_dev}/>
                     <Route exact path='/search' component={SearchPage}/>
                     <Route exact path="/login" component={LoginForm}/>  
                     <Route exact path="/signup_Club" component={SignUp_club}/>
@@ -290,10 +290,9 @@ class Main extends React.Component {
         this.props.dispatch(openUserInfo());
     }
 
-    handleNavbarToggle(club) {
-        if (!club.clubname) {
-            this.props.dispatch(getClub(club));
-        }
+    handleNavbarToggle(clubname) {
+        console.log(clubname)
+        this.props.dispatch(getClub(clubname));
         this.props.dispatch(changeToggle());
 
     }
