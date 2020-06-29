@@ -43,7 +43,7 @@ class SearchPost extends React.Component {
                     </div>
                     <div className='col'>
                         <div className='content d-flex row justify-content-start align-items-center'>
-                        <div className='p-2 title'>
+                        <div className='p-2 searchpost-title'>
                             {this.props.p.title}
                         </div>
                         <div className='p-2'>

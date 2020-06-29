@@ -55,7 +55,7 @@ class CatalogPage extends React.Component{
     render(){
         
         const {masking, postLoading} = this.state;
-        let children = (<div>There are no posts</div>);
+        let children = (<div className='text-center'>There are no posts.</div>);
         if (this.state.posts.length) {
             children = this.state.posts.map(p => (
                 <div key={p.id}><Post p={p}/></div>
@@ -177,7 +177,6 @@ class CatalogPage extends React.Component{
                                     <Carousel.Item><Pop_Post/></Carousel.Item>
                                     <Carousel.Item><Pop_Post/></Carousel.Item>
                                 </Carousel> */}
-                                
                             </div>
                             {/* <div className='d-flex row justify-content-center'> */}
                             <div className= 'posts-table-heading'> ALL</div>

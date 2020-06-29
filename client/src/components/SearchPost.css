@@ -23,10 +23,12 @@
 .search-post .content {
     margin: 0rem auto;
 }
-.search-post .title {
+.search-post .searchpost-title {
+    font-family: 'ABeeZee', sans-serif;
     font-size: 2rem;
     font-weight: 700;
 }
+
 .search-post .date{
     padding: 0 5px;
     font-weight: 500;
