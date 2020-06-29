@@ -13,12 +13,14 @@ import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
 import EventIcon from '@material-ui/icons/Event';
 import TextField from '@material-ui/core/TextField';
+import MyLoader from 'components/MyLoader.jsx';
 import {listPostsbyclub} from 'api/posts.js';
-import {getPage} from 'states/clickPage-action.js';
+import {getPage,getArticleFromDB} from 'states/clickPage-action.js';
 import {getClub} from 'states/clickClub-actions.js';
 import {createTouch} from 'api/posts.js';
 import {connect} from 'react-redux';
 import './Article.css';
+
 
 
 class Article extends React.Component {
@@ -32,7 +34,7 @@ class Article extends React.Component {
             post: {}
         }
 
-        this.handleClick = this.handleClick.bind(this);
+        this.handleClickImg = this.handleClickImg.bind(this);
 
     }
 
@@ -75,7 +77,7 @@ class Article extends React.Component {
         if (this.state.related.length) {
             children = this.state.related.map(p => (
                 <div key={p.id} className='p-2'>
-                        <Link to='/article' onClick={() => this.handleClick(p.id)}><img className='' src={'https://team11final.s3-us-west-1.amazonaws.com/'+ p.fileurl+'.jpeg'} alt="" height="200rem" margin="0 auto"/></Link>
+                        <Link to='/article' onClick={() => this.handleClickImg(p.id)}><img className='' src={'https://team11final.s3-us-west-1.amazonaws.com/'+ p.fileurl+'.jpeg'} alt="" height="200rem" margin="0 auto"/></Link>
                     </div>
             ))
         }
@@ -132,6 +134,8 @@ class Article extends React.Component {
 
         return (
             <Container className='article'>
+            <div className= {`${this.props.fetching? 'd-block':'d-none'}`}><MyLoader/></div>
+            <div className= {`${this.props.fetching? 'd-none':'d-block'}`}>
                 <div className='d-flex row content justify-content-center align-items-center'>
                     <div className='col-4 poster'>
                         <img className='img-fluid' src= {imageSrc} width="240rem" margin="0 auto"/>
@@ -226,34 +230,19 @@ class Article extends React.Component {
                 <div className='related-articles d-flex row justify-content-center'>
                     {children}
                 </div>
+            </div>
             </Container>
         );
     }  
 
 
-    handleClick(id) {
-        this.props.dispatch(getPage(this.state.post))
-        console.log(id + " " + this.props.id)
-        this.setState({
-            post: {
-                id: id,
-                title: this.props.title,
-                content: this.props.content,
-                startdatetime: this.props.startdatetime,
-                enddatetime: this.props.enddatetime,
-                ticket: this.props.ticket,
-                fileurl: this.props.fileurl,
-                location: this.props.location,
-                tags: this.props.tags,
-                club: this.props.club
-            }
-        }, () => {
-            
-            this.props.dispatch(getClub(this.state.post.club))
-            createTouch(this.state.post.id)
-        }
+    handleClickImg(pid) {
+        this.props.dispatch(getPage(pid));
+        this.props.dispatch(getClub(this.state.post.club));
+        createTouch(this.state.post.id);
         
-    )}
+        
+    }
 }
 
 export default connect(state => ({
