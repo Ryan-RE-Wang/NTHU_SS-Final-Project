@@ -32,6 +32,7 @@ class Homepage extends React.Component {
             searchText: '',
             category: '',
             start:'',
+            end:'',
             mode: false,
             club: '',
             order: 'id',
