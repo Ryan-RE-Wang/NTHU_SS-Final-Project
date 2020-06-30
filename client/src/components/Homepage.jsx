@@ -18,7 +18,7 @@ import {setSearchText, setSearchStartDate, setSearchEndDate} from 'states/post-a
 
 import './Homepage.css'
 import {listPostsbyclub} from 'api/posts.js';
-import {listPostsByTouch} from 'api.posts.js';
+import {listPostsByTouch} from 'api/posts.js';
 
 class Homepage extends React.Component {
 
@@ -52,7 +52,7 @@ class Homepage extends React.Component {
         this.handleClearSearch = this.handleClearSearch.bind(this);
         this.handleStartDateChange = this.handleStartDateChange.bind(this);
         this.handleEndDateChange = this.handleEndDateChange.bind(this);
-        this.listPostsByTouch = this.listPostsByTouch(this);
+        this.listPostsByTouch = this.listPostsByTouch.bind(this);
     }
 
    
@@ -92,6 +92,24 @@ class Homepage extends React.Component {
                 </div>
             ))
         }
+        let mostRecent = {
+            id:'-1',
+            title:'na',
+            content:'',
+            fileurl:''
+        }
+        if (this.state.postsRecent.length) {
+            mostRecent = this.state.postsRecent[0]
+        }
+        let mostPop = {
+            id:'-1',
+            title:'na',
+            content:'',
+            fileurl:''
+        }
+        if (this.state.postsPop.length) {
+            mostPop = this.state.postsPop[0]
+        }
 
         if (this.state.redirect) {
             return <Route render={() => (
@@ -105,10 +123,9 @@ class Homepage extends React.Component {
                 />)}  
             /> ;
         }
-
+        const {postsRecent,postsPop} = this.state;
         return (
             
-            const {postsRecent,postsPop} = this.props;
             <div className='homepage'>
                 <img className='image-fluid homepage-image' src="/images/02.png" alt=""/>
                 <Form className='form'>
@@ -169,15 +186,15 @@ class Homepage extends React.Component {
                 <div className='homepage-column justify-content-center'>
                     <Row>
                         <div className='col-12 col-lg-6 d-block'> 
-                            <ColumnPost reverse={false} postId = {postsRecent[0].id} postname={postsRecent[0].title} 
-                            postContent={postsRecent[0].content} fileUrl={postsRecent[0].fileurl}/>
+                            <ColumnPost reverse={false} postId = {mostRecent.id} postname={mostRecent.title} 
+                            postContent={mostRecent.content} fileUrl={mostRecent.fileurl}/>
                         </div>    
                         <div className='col-6 d-none d-lg-block'> 
-                            <ColumnPost reverse={false} postId = {postsPop[0].id} postname={postsPop[0].title} 
-                            postContent={postsPop[0].content} fileUrl={postsPop[0].fileurl}/></div>   
+                            <ColumnPost reverse={false} postId = {mostPop.id} postname={mostPop.title} 
+                            postContent={mostPop.content} fileUrl={mostPop.fileurl}/></div>   
                         <div className='col-12 d-block d-lg-none'> 
-                            <ColumnPost reverse={true} postId = {postsPop[0].id} postname={postsPop[0].title} 
-                            postContent={postsPop[0].content} fileUrl={postsPop[0].fileurl}/>
+                            <ColumnPost reverse={true} postId = {mostPop.id} postname={mostPop.title} 
+                            postContent={mostPop.content} fileUrl={mostPop.fileurl}/>
                         </div> 
                     </Row>  
                 </div>

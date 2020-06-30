@@ -67,7 +67,7 @@ export function listPostsbyclub(clubname, userid) {
         return res.data;
     });
 }
-export function listPostByTouch(){
+export function listPostsByTouch(){
     let url = `${postBaseUrl}/posts/getPostbyTouch`;
 
     console.log(`Making GET request to: ${url}`);
