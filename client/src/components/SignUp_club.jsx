@@ -9,6 +9,8 @@ import Col from 'react-bootstrap/Col';
 import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
 import AvatarEditor from 'react-avatar-editor';
+import { HashRouter as Router ,Route, Link, Redirect } from 'react-router-dom'
+
 import './SignUp_club.css';
 import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
@@ -350,7 +352,9 @@ class SignUp_club extends React.Component {
                   
                         <div className='row justify-content-center btngroup_signup'>
                             <div className='col'>
-                                <Button className='btn-post' color="success" onClick={this.handleCreateClub}>Post</Button>{' '}
+                                <Link to='/'>
+                                    <Button className='btn-post' color="success" onClick={this.handleCreateClub}>Post</Button>{' '}
+                                </Link>
                             </div>
                             <div className='col signupdelete_btn'>
                                 <Button
@@ -437,60 +441,59 @@ class SignUp_club extends React.Component {
 
 
     handleCreateClub() {
-        // if (!this.state.clubnameValue || this.state.clubnameValue == '') {
-        //     this.setState({
-        //         clubnameDanger: true,
-        //         modalShow: true,
-        //         unFill:'clubname is required'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.croppedImageUrl || this.state.croppedImageUrl== '') {
-        //     this.setState({
-        //         fileDanger: true,
-        //         modalShow: true,
-        //         unFill:'photo is required'
-        //     })
-        //     return;
-        // }
-        // if (this.state.university=="University" || this.state.university=='') {
-        //     this.setState({
-        //         universityDanger: true,
-        //         modalShow: true,
-        //         unFill:'should select one university'
-        //     })
-        //     return;
-        // }
-        // if (!this.state.verification_codeValue || this.state.verification_codeValue == '') {
-        //     this.setState({
-        //         verification_codeDanger: true,
-        //         modalShow: true,
-        //         unFill:'verification_code is required'
-        //     })
-        //     return;
-        // }
-        // if (this.state.verification_codeValue.length!=6) { 
-        //     　　this.setState({
-        //         verification_codeDanger: true,
-        //         modalShow: true,
-        //         unFill:'verification_code should have 6 numbers'
-        //     })
-        //     return; 
-        // } 
-        // if (!this.state.descriptionValue || this.state.descriptionValue == '') {
-        //     this.setState({
-        //         descriptionDanger: true,
-        //         modalShow: true,
-        //         unFill:'description is required'
-        //     })
-        //     return;
-        // }
+        if (!this.state.clubnameValue || this.state.clubnameValue == '') {
+            this.setState({
+                clubnameDanger: true,
+                modalShow: true,
+                unFill:'clubname is required'
+            })
+            return;
+        }
+        if (!this.state.croppedImageUrl || this.state.croppedImageUrl== '') {
+            this.setState({
+                fileDanger: true,
+                modalShow: true,
+                unFill:'photo is required'
+            })
+            return;
+        }
+        if (this.state.university=="University" || this.state.university=='') {
+            this.setState({
+                universityDanger: true,
+                modalShow: true,
+                unFill:'should select one university'
+            })
+            return;
+        }
+        if (!this.state.verification_codeValue || this.state.verification_codeValue == '') {
+            this.setState({
+                verification_codeDanger: true,
+                modalShow: true,
+                unFill:'verification_code is required'
+            })
+            return;
+        }
+        if (this.state.verification_codeValue.length!=6) { 
+            　　this.setState({
+                verification_codeDanger: true,
+                modalShow: true,
+                unFill:'verification_code should have 6 numbers'
+            })
+            return; 
+        } 
+        if (!this.state.descriptionValue || this.state.descriptionValue == '') {
+            this.setState({
+                descriptionDanger: true,
+                modalShow: true,
+                unFill:'description is required'
+            })
+            return;
+        }
    
         ReactS3Client.uploadFile(this.state.croppedImage, this.state.fileName).then(
             data => console.log(data))
         .catch(err => console.error(err))
         
-            console.log(this.props.login);
         createClub(this.state.id,
             this.props.userId,
             this.state.university,

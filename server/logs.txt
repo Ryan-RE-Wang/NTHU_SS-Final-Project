@@ -42047,3 +42047,640 @@
     at Socket.Readable.push (_stream_readable.js:209:10)
 >>>>>>> 024cd136cc18285c00b8640d6352932101781ff2
     at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593479132 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479135 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479136 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479137 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479138 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479138 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479139 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479140 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479140 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479140 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479141 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479224 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+1593479226 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479227 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479228 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479229 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479230 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479230 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479231 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479232 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479232 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479246 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479249 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479250 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479251 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479253 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479254 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479321 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+    at processTicksAndRejections (internal/process/task_queues.js:97:5)
+1593479885 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479886 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593479888 ERROR  Error: Property 'catagory' doesn't exist.
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:135:19
+    at String.replace (<anonymous>)
+    at Object.object (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:119:22)
+    at Object.$formatQuery [as formatQuery] (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\formatting.js:252:29)
+    at Database.$query (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:115:41)
+    at Database.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\query.js:231:23)
+    at C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg-promise\lib\database.js:242:42
+1593480043 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480045 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480089 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480090 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480091 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480092 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480093 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480093 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480094 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480094 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480095 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480095 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480095 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480096 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480097 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480097 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480098 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480155 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480157 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480158 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480159 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480160 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480161 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480162 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480626 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480629 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480630 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480631 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480632 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480633 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480638 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480639 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480640 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480647 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480703 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480704 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480705 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480706 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480707 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480708 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593480708 ERROR  error: non-integer constant in ORDER BY
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593481014 ERROR  error: syntax error at or near "AND"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+1593481027 ERROR  error: syntax error at or near "AND"
+    at Connection.parseE (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:539:11)
+    at Connection.parseMessage (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:366:17)
+    at Socket.<anonymous> (C:\Users\user\Desktop\ss\ss-final-project\server\node_modules\pg\lib\connection.js:105:22)
+    at Socket.emit (events.js:311:20)
+    at addChunk (_stream_readable.js:294:12)
+    at readableAddChunk (_stream_readable.js:275:11)
+    at Socket.Readable.push (_stream_readable.js:209:10)
+    at TCP.onStreamRead (internal/stream_base_commons.js:186:23)

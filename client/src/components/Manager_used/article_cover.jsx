@@ -32,8 +32,8 @@ class Article_Cover extends React.Component {
     }
 
     componentDidMount() {
-        
-        listPostsbyclub(this.props.clubname, null).then(posts => {
+        const id = (this.props.userId) ? this.props.userId : null;
+        listPostsbyclub(this.props.clubname, id).then(posts => {
             console.log(posts)
             this.setState ({
                 article: posts

@@ -6,12 +6,12 @@ import { connect } from 'react-redux';
 import {getArticleFromDB} from 'states/clickPage-action.js';
 import {Link} from 'react-router-dom'
 
-export default class ColumnPost extends React.Component{
+class ColumnPost extends React.Component{
     static propTypes = {
         // postid:-1,
         // postname:'',
         // postContent:'',
-        // fileUrl:''
+        fileUrl:''
     }
     constructor(props) {
         super(props);
@@ -33,12 +33,15 @@ export default class ColumnPost extends React.Component{
         
     }
     getbody(){
+        const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
+        const lasturl = '.jpeg';
+        const pictureurl = baseUrl+this.props.fileUrl+lasturl;
         let discription = this.props.postContent;
         if(this.props.reverse === true){
             return(
             <div className='columnPost '>
                 {/* <div className='columPost-img'> */}
-                    <img src="./images/poster.jpg" className=''/>
+                    <img src={pictureurl} className=''/>
                 {/* </div> */}
                 
                 <div className='discription addleftmargin '>
@@ -60,7 +63,7 @@ export default class ColumnPost extends React.Component{
                     <Link to='/article'><button className='learnmore-btn'onClick={this.handleLearnMore}>LearnMore</button></Link>
                 </div>
                 {/* <div className='columPost-img'> */}
-                    <img src="./images/poster.jpg" className=''/>
+                    <img src={pictureurl} className=''/>
                 {/* </div> */}
             </div>
             )
@@ -77,6 +80,9 @@ export default class ColumnPost extends React.Component{
         return str.split(/\s+/).slice(0,20).join(" ");
     }
 }
+
+export default connect(state => ({
+}))(ColumnPost);
 
 
 

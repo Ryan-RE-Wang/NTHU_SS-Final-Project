@@ -27,7 +27,6 @@ function listBySearch(searchText = '', start = '', end = '') {
     return db.any(sql, [searchText, start, end]);
 }
 function listbyclub(clubname, userid) {
-    console.log(clubname + 'model')
     if (!userid) {
         const sql = `
             SELECT *
@@ -115,17 +114,27 @@ function listByCategory(category='',order=''){
     if(order === 'AZ'){
         odr = 'title';
     }else if(order === 'Date'){
-        odr == 'startdatetime';
+        odr = 'startdatetime';
     }else if(order === 'Popularity'){
-        odr == 'touch';
+        odr = 'touch';
     }
-    // WHERE $<catagory> = ANY(tags)
-    const sql=`
-    SELECT * FROM post 
-    
-    ORDER BY id
-    `;
-    return db.any(sql,{category,odr});
+    console.log(odr);
+
+    if(category==='ALL'){
+        const sql=`
+        SELECT * FROM post 
+        ORDER BY ${odr}
+        `;
+        return db.any(sql);
+    }else {
+        const sql=`
+        SELECT * FROM post 
+        WHERE $<category> = ANY(tags)
+        ORDER BY ${odr}
+        `;
+        return db.any(sql,{odr,category});
+    }
+
 }
 
 module.exports = {
