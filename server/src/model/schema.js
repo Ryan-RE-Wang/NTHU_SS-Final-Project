@@ -81,7 +81,7 @@ const dataSql = `
         true,
         'A'
 
-    FROM generate_series(1, 10) AS s(i) ORDER BY RANDOM();
+    FROM generate_series(1, 20) AS s(i) ORDER BY RANDOM();
     -- Populate dummy clubs
     INSERT INTO club (
         id,

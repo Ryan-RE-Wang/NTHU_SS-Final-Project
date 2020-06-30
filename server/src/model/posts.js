@@ -3,11 +3,9 @@ if (!global.db) {
     db = pgp(process.env.DB_URL);
 }
 
-function listBySearch(searchText = '', start = '', end = '') {
+function listBySearch(searchText = '', start = '', end = '', startofPost) {
 
-    let where = [];
-    // var startDateTime = start + 'T00:00';
-    // var endDateTime = end + 'T00:00';
+    const where = [];
     if (searchText)
         where.push(`title ILIKE '%$1:value%'`);
     if (start && end) 
@@ -16,15 +14,17 @@ function listBySearch(searchText = '', start = '', end = '') {
         where.push(`startdatetime <= ${start+'T00:00'}`);
     else if (end) 
         where.push(`enddatetime >= ${end+'T00:00'}`);
+    if (startofPost)
+        where.push(`id > ${startofPost}`)
     
     const sql = `
         SELECT *
         FROM post
         ${where.length ? 'WHERE ' + where.join(' AND ') : ''}
         ORDER BY id ASC
-        LIMIT 10
+        LIMIT 12
     `;
-    return db.any(sql, [searchText, start, end]);
+    return db.any(sql, [searchText, start, end, startofPost]);
 }
 function listbyclub(clubname, userid) {
     console.log(clubname + 'model')

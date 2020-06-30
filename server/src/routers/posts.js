@@ -12,9 +12,8 @@ router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
 router.get('/getPostBySearch', function(req, res, next) {
-    const {searchText, start, end} = req.query;
-    console.log(req.query)
-    postModel.listBySearch(searchText, start, end).then(posts => {
+    const {searchText, start, end, startofPost} = req.query;
+    postModel.listBySearch(searchText, start, end, startofPost).then(posts => {
         return posts;
     }).then(post => {
             res.json(post)

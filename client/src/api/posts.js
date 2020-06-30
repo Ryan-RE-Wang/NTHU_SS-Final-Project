@@ -26,7 +26,7 @@ export function listPostsByCategory(category, order){
     });
 }
 
-export function listPostsBySearch(searchText='', start='', end='') {
+export function listPostsBySearch(searchText='', start='', end='', startofPost) {
     let url = `${postBaseUrl}/posts/getPostBySearch`;
 
     let query = [];
@@ -36,6 +36,8 @@ export function listPostsBySearch(searchText='', start='', end='') {
         query.push(`start=${start}`);
     if (end)
         query.push(`end=${end}`);
+    if (startofPost)
+        query.push(`startofPost=${startofPost}`)
     if (query.length)
         url += '?' + query.join('&');
 
