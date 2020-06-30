@@ -1,0 +1,50 @@
+.AD-Post{
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    /* margin-left: 0.5rem;
+    margin-right: 0.5rem; */
+    padding:1.5rem;
+    /* padding-right: 0.5rem; */
+    background-color:white;
+    box-shadow: 1px 1px 4px  gray;
+}
+
+.AD-Post img {    
+    /* width: 8.5rem; */
+    height: 13rem;
+    width: auto;
+    margin-top: 0.5rem;
+    box-shadow: 1px 1px 4px  gray;
+}
+
+.moreInfoBtn{
+    height:3rem;
+    width: 8rem;
+    color:white;
+    border-radius: 5%;
+    border: 1px solid;
+    border-color: lightskyblue;
+    background-color: lightskyblue;
+    margin-top:1rem;
+    font-size: 1.2rem;
+}
+.AD-Post .post-title{
+    font-size: 2rem;
+    font-family: 'ABeeZee', sans-serif;
+}
+.AD-Post .post-body{
+    font-size: 1.2rem;
+}
+@media(max-width:768px){
+    .AD-Post img {    
+        width: 5rem ;
+        height: auto;
+        /* box-shadow: 1px 1px 4px  gray; */
+    }
+    .AD-Post .post-title{
+        font-size: 1.6rem;
+    }
+    .AD-Post .post-body{
+        font-size: 0.8rem;
+    }
+}

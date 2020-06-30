@@ -1,0 +1,22 @@
+.search-page {
+    margin: 0rem auto;
+    background-color: rgb(250, 250, 250);
+}
+.search-page .post-item {
+    margin: 0rem auto;
+    display: block;
+}
+.search-page .loading {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    text-align: center;
+    z-index: 999;
+}
+.calendar{
+    color: black;
+    position: relative;
+    padding-top: 1em;
+}

@@ -1,0 +1,44 @@
+.popular-content .component-img {
+    width: 100%;
+    height: auto;
+    border: 0.5px solid lightgray;
+    box-shadow: 0px 1px 0.5px 0 rgb(248, 247, 247, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.popular-content .popular-title {
+    font-size: 1.3rem;
+    font-weight: 900;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+.popular-content{
+    position: relative;
+
+}
+/* .popular-content .location {
+    font-size: 12px;
+    padding:2px 1px;
+    padding-right: 5px!important;
+    color:white;
+    background-color:rgba(15, 15, 15, 0.4);
+    position: absolute;
+    top: 14.8rem;
+    left: 6.7rem;
+
+    text-align: right;
+} */
+.popular-content .datetime {
+    text-align: center;
+}
+.content-r {
+    width: 9rem;
+    height: 12rem;
+}
+.home-article-link{
+    color:black;
+  }
+.home-article-link:hover{
+    color:black;
+    text-decoration: none;
+}

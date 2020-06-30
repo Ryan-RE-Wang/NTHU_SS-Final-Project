@@ -1,0 +1,80 @@
+.articleform-container {
+  padding: 1rem;
+  position: relative;
+  margin: 0 auto;
+  max-width: 800px;
+  background-color: rgb(250, 250, 250);
+}
+#blankSpace2{
+  width: 100%;
+  height: 15rem;
+}
+
+.check-icon {
+  color: rgb(32,178,170);
+}
+.block-icon {
+  color: red;
+}
+.title {
+  text-align: center;
+}
+.articleform-container .hint {
+  padding-left: 3rem;
+}
+.article-form .poster-form {
+  text-align: center;
+}
+.articleform-container .content-input {
+  max-width: 600px;
+}
+.articleform-container .tag {
+  margin: 0 4rem;
+}
+.ArticleForm_Tag{ 
+  margin:0 auto !important;
+  max-width: 500px !important;
+}
+.article-form {
+    font-weight: bold;
+}
+.articleform-container .form {
+    width: 100%;
+    max-width: 60rem;
+    margin: 0rem auto;
+}
+.articleform-container textarea {
+  width: 100%;
+  min-width: 500px;
+}
+.articleform-container .label {
+  color: rgb(32,178,170);
+  text-align: start;
+  font-family: 'Abel', sans-serif;
+}
+
+
+
+@media (max-width: 1000px) {
+  .articleform-container .info {
+    flex-direction: column;
+  }
+
+  .articleform-container textarea {
+    min-width: 100%;
+  }
+
+  .articleform-container .buttons {
+    flex-direction: flex-column;
+  }
+}
+
+
+
+.ArticleForm_TITLE{
+  margin-right: 10px;
+}
+
+.article-form{
+  background-color: rgb(250, 250, 250);
+}

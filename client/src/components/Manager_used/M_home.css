@@ -1,0 +1,61 @@
+.HOME_body_M {
+  max-width: 768px;
+  margin:0 auto;
+}
+.home_M {
+    background-image: url('/images/M_home_background2.png');
+    background-size: cover;
+    width: 100%;
+ 
+    padding-bottom: 30px;
+  }
+ 
+  
+  .image_M{
+    position: relative;
+    top:50px;
+    left:50px;
+    height: 80%;
+    width: 80%;
+  }
+  .image_M1{
+    position: relative;
+    height: 5%;
+    width: 5%;
+    border-radius: 5px;
+  }
+  .image_M2{
+    position: relative;
+    top: 70%!important;
+    left: 0% !important;
+    height: 5%;
+    width: 5%;
+    border-radius: 5px;
+  }
+  
+ 
+  .home_M2 h1{
+    font-size: 2.5vw;
+    line-height: 3vw;
+    font-weight: 700;
+    margin: 18px 0 10px;
+    text-align: center;
+  }
+  .home_M2 p {
+    margin: 2vw 15px 2vw;
+    font-size: 1.15vw;
+    line-height: 150%;
+
+  }
+.home_M2text{
+    color:  #07a30f;
+}
+
+.font{
+  font-size: 1vw;
+  display:inline;
+  padding-left: 5px;
+}
+.tag_M{
+  padding-left:20px;
+}

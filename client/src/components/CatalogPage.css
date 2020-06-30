@@ -1,0 +1,157 @@
+/* wrapper */
+.catalogPage-wrapper{    
+    position: relative;
+}
+
+.left-wrapper{
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    left:0;
+    background-color: white;
+}
+.right-wrapper{
+    display: block;
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    right:0;
+}
+.posts-table .loading {
+    position: fixed;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    text-align: center;
+    z-index: 999;
+}
+
+#catalogPage .classes-table #left-menu{
+    background-color: white;
+    padding: 3rem 2rem !important;
+}
+#catalogPage .classes-table #drop-menu{
+    /* background-color: white; */
+    padding: 3rem 2rem ;
+
+}
+#catalogPage .posts-table{
+    border-left: 1px silver solid;
+    background-color: rgb(245, 245, 245);
+    padding: 3rem 2rem !important;
+}
+#catalogPage .posts-table #showMoreBtn{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left:auto;
+    margin-right:auto;
+    padding: 0.5rem 2rem;
+    border: 1px solid;
+    color:black;
+    border-color:black;
+    border-radius: 2rem;
+    background-color: rgb(245, 245, 245);
+    display:block
+}
+#catalogPage .posts-table .posts-table-heading{
+    font-size: 2rem;
+    font-weight: bolder;
+    margin-bottom: 1rem;
+    padding-bottom: 0rem;
+}
+
+#left-menu .classes-topic{
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    border-bottom: lightgrey 0.5px solid;
+}
+#leftmenu .checkbox-element{
+
+}
+/* .checkbox{
+    color:white;
+    border-color:white;
+} */
+
+#drop-menu #exploreBy-wrapper {
+    padding-right:0.5rem!important;
+    padding-left: 1rem !important;
+}
+#drop-menu #orderBy-wrapper {
+    padding-left: 0.5rem !important;
+    padding-right: 1rem !important;
+
+}
+#drop-menu #exploreBy{
+    padding: 0.5rem 1rem;
+    border:none;
+    background-color: white;
+    box-shadow: 1px 1px 5px lightgray;
+}
+#drop-menu #orderBy{
+    padding: 0.5rem 1rem;
+    background-color: white;
+    box-shadow: 1px 1px 5px lightgray;
+}
+#drop-menu .dropDownBtn{
+    padding-top:0.5rem;
+    padding-bottom:0.5rem;
+    border-bottom: lightgrey 0.5px solid;
+    border:none;
+}
+
+.checkbox-element{
+    padding-bottom: 0.4rem;
+    padding-top: 0.4rem ;
+}
+.topic-symbol{
+    /*padding-left: auto;*/
+    float: right;
+    color:grey !important;
+}
+
+
+
+@media(max-width:992px){
+    #catalogPage .classes-table #drop-menu{
+        padding: 1rem 1rem !important;    
+        background-color: rgb(245, 245, 245);
+    }
+    #catalogPage .posts-table{
+        border-left: 1px silver solid;
+        background-color: rgb(245, 245, 245);
+        border:none;
+        padding: 1rem 1rem !important;
+    }
+    .left-wrapper{
+        display: none;
+    }
+    .right-wrapper{
+        display: none;
+    }
+}
+@media(max-width:576px){
+    #drop-menu #exploreBy-wrapper {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+    #drop-menu #orderBy-wrapper {
+        padding-right: 1rem !important;
+        padding-left: 1rem !important;
+    }
+}
+
+.show-checkIcon{
+    color:black;
+    font-size: 1px;
+}
+.checkbox-input{
+    color:white;
+}
+
+
+
+
+    

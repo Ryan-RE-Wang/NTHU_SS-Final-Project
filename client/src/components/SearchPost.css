@@ -1,0 +1,88 @@
+.container {
+    margin: 0rem auto;
+}
+.search-post {
+    margin: 1rem auto;
+    padding: 1rem;
+    max-width: 50rem;
+    border: gray;
+    background-color: white;
+    box-shadow: 1px 1px 4px  gray;
+    justify-content: center;
+}
+.search-post img {
+    display: block;
+    width: 16rem;
+    height: 20rem;
+    margin: 0rem auto;
+    box-shadow: 1px 1px 4px gray;
+}
+.search-post .info {
+    margin-left: 0rem;
+}
+.search-post .content {
+    margin: 0rem auto;
+}
+.search-post .searchpost-title {
+    font-family: 'ABeeZee', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.search-post .date{
+    padding: 0 5px;
+    font-weight: 500;
+}
+
+.search-post .time {
+    padding: 0 5px;
+    font-weight: 500;
+}
+.search-post .location {
+    padding: 0 5px;
+    font-weight: 500;
+}
+.search-post .introduction {
+    padding: 5px;
+}
+.search-post .link {
+    
+}
+
+@media (max-width: 768px) {
+    .search-post img {
+        width: 100% ;
+        height: auto;
+        margin: 0rem auto;
+    }
+    .search-post {
+        flex-direction: column;
+        align-items: center;
+    }
+    .search-post .poster {
+
+    }
+    .search-post .content {
+
+
+    }
+    .search-post .title {
+        font-size: 2rem;
+    }
+    .search-post .date{
+        font-size: 1rem;
+    }
+    
+    .search-post .time {
+        font-size: 1rem;
+    }
+    .search-post .location {
+        font-size: 1rem;
+    }
+    .search-post .introduction {
+        font-size: 1rem;
+    }
+    .search-post .icon {
+        font-size: 1rem;
+    }
+}

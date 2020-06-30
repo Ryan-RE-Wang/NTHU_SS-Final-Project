@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+        <script src="https://apis.google.com/js/api.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Boogaloo&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=MuseoModerno&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=ABeeZee&display=swap" rel="stylesheet">
+        <title>NewsSharing</title>
+    </head>
+
+    <body>
+        <script>
+            window.fbAsyncInit = () => {
+                //SDK loaded, initialize it
+                FB.init({
+                    appId      : '628706518032595',
+                    xfbml      : true,
+                    version    : 'v2.2'
+                });
+
+                //check user session and refresh it
+                FB.getLoginStatus((response) => {
+                    if (response.status === 'connected') {
+                        //user is authorized
+                        //document.getElementById('loginBtn').style.display = 'none';
+                        console.log("facebook login")
+                        getUserData();
+                    } else {
+                        console.log("not authenticated")
+                        //user is not authorized
+                    }
+                });
+            };
+
+            (function(d, s, id) {                      // Load the SDK asynchronously
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <div id="root"></div>
+        <a href="https://icons8.com/icon/hFJUPuQ-CF0p/google">Google icon by Icons8</a>
+        <script src="vendor.bundle.js"></script>
+        <script src="/index.bundle.js"></script>
+    </body>
+
+</html>
