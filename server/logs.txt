@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 1593436845 ERROR  error: syntax error at or near "Food"
     at Connection.parseE (/Users/liching/Desktop/Software Studio/ss-final-project/server/node_modules/pg/lib/connection.js:539:11)
     at Connection.parseMessage (/Users/liching/Desktop/Software Studio/ss-final-project/server/node_modules/pg/lib/connection.js:366:17)
@@ -42684,3 +42685,5 @@
     at readableAddChunk (_stream_readable.js:275:11)
     at Socket.Readable.push (_stream_readable.js:209:10)
     at TCP.onStreamRead (internal/stream_base_commons.js:186:23)
+=======
+>>>>>>> 2a75bf542b3c2da83bb445e3ff888bff6967f32c

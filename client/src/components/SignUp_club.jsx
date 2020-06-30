@@ -10,7 +10,6 @@ import PlaceIcon from '@material-ui/icons/Place';
 import PaymentIcon from '@material-ui/icons/Payment';
 import AvatarEditor from 'react-avatar-editor';
 import { HashRouter as Router ,Route, Link, Redirect } from 'react-router-dom'
-
 import './SignUp_club.css';
 import 'react-tagsinput/react-tagsinput.css';
 import 'rc-slider/assets/index.css';
