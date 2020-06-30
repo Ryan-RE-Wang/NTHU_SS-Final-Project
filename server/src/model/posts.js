@@ -54,10 +54,11 @@ function listbyclub(clubname, userid) {
 }
 function listbyTouch(){
     const sql = `
-        SELECT FROM post
+        SELECT * FROM post
         ORDER BY touch
         LIMIT 12
     `;
+    
     return db.any(sql);
 }
 
