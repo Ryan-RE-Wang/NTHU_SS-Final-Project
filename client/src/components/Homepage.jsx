@@ -17,7 +17,8 @@ import {connect} from 'react-redux';
 import {setSearchText, setSearchStartDate, setSearchEndDate} from 'states/post-actions.js';
 
 import './Homepage.css'
-import { listPostsbyclub } from 'api/posts.js';
+import {listPostsbyclub} from 'api/posts.js';
+import {listPostsByTouch} from 'api/posts.js';
 
 class Homepage extends React.Component {
 
@@ -51,6 +52,7 @@ class Homepage extends React.Component {
         this.handleClearSearch = this.handleClearSearch.bind(this);
         this.handleStartDateChange = this.handleStartDateChange.bind(this);
         this.handleEndDateChange = this.handleEndDateChange.bind(this);
+        this.listPostsByTouch = this.listPostsByTouch.bind(this);
     }
 
    
@@ -61,6 +63,7 @@ class Homepage extends React.Component {
                 date: date
         })
         this.listPostsByDate(null, this.state.date, null);
+        this.listPostsByTouch();
         // this.listPosts(this.state.searchText, this.state.category, this.state.start, this.state.mode, this.state.club, 'touch', this.state.userid, this.state.startofpost);
     }
         
@@ -102,8 +105,11 @@ class Homepage extends React.Component {
                 />)}  
             /> ;
         }
+        const {postsRecent,postsPop} = this.state;
 
         return (
+            
+            
             <div className='homepage'>
                 <img className='image-fluid homepage-image' src="/images/02.png" alt=""/>
                 <Form className='form'>
@@ -159,15 +165,24 @@ class Homepage extends React.Component {
         
                 </div>
                 
-                
+
                 {/* column\ */}
-                <div className='homepage-column justify-content-center'>
+                {/* <div className={`homepage-column justify-content-center${postsRecent.length<=0 && postsPop.length<=0 ?"d-none":"d-none"}`}>
                     <Row>
-                    <div className='col-12 col-lg-6 d-block'> <ColumnPost reverse={false}/></div>    
-                    <div className='col-6 d-none d-lg-block'> <ColumnPost reverse={false}/></div>   
-                    <div className='col-12 d-block d-lg-none'> <ColumnPost reverse={true}/></div> 
+    
+                        <div className='col-12 col-lg-6 d-block'> 
+                            <ColumnPost reverse={false} postId = {postsRecent[0].id} postname={postsRecent[0].title} 
+                            postContent={postsRecent[0].content} fileUrl={postsRecent[0].fileurl}/>
+                        </div>    
+                        <div className='col-6 d-none d-lg-block'> 
+                            <ColumnPost reverse={false} postId = {postsPop[0].id} postname={postsPop[0].title} 
+                            postContent={postsPop[0].content} fileUrl={postsPop[0].fileurl}/></div>   
+                        <div className='col-12 d-block d-lg-none'> 
+                            <ColumnPost reverse={true} postId = {postsPop[0].id} postname={postsPop[0].title} 
+                            postContent={postsPop[0].content} fileUrl={postsPop[0].fileurl}/>
+                        </div> 
                     </Row>  
-                </div>
+                </div> */}
                 {/* pupular event */}
                 <div className='d-flex homepage-margin justify-content-center'>
                     <div className='homepage-content '>
@@ -210,7 +225,6 @@ class Homepage extends React.Component {
             masking: true,
         }, () => {
             listPostsByDate(searchText, start, end).then(posts => {
-                
                     this.setState({
                         postsRecent: posts, 
                         postLoading: false
@@ -229,10 +243,34 @@ class Homepage extends React.Component {
             this.setState({
                 masking: false
             });
-        }, 600);
-        
+        }, 600);   
     }
+    listPostsByTouch() {
+        this.setState({
+            postLoading: true,
+            masking: true,
+        }, () => {
+            listPostsByTouch().then(posts => {
+                    this.setState({
+                        postsPop: posts, 
+                        postLoading: false
+                    });
+                
+            }).catch(err => {
+                console.error('Error listing posts', err);
+                this.setState({
+                    postsPop: [],
+                    postLoading: false
+                })
+            })
+        })
 
+        setTimeout(() => {
+            this.setState({
+                masking: false
+            });
+        }, 600);   
+    }
     listMorePosts(e) {
         
         const order = e.target.value;

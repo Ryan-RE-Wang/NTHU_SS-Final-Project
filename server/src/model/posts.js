@@ -27,29 +27,36 @@ function listBySearch(searchText = '', start = '', end = '') {
     return db.any(sql, [searchText, start, end]);
 }
 function listbyclub(clubname, userid) {
-
+    console.log(clubname + 'model')
     if (!userid) {
         const sql = `
             SELECT *
             FROM post
-            WHERE club = $1
+            WHERE club = $<clubname>
             ORDER BY startdatetime
             LIMIT 12
         `;
-        return db.any(sql, [clubname, userid]);
+        return db.any(sql, {clubname});
     }
 
     else {
         const sql = `
             SELECT *
             FROM post
-            WHERE club = $1 AND userid = $2
+            WHERE club = $<clubname> AND userid = $<userid>
             ORDER BY startdatetime
             LIMIT 12
         `;
-        return db.any(sql, [clubname, userid]);
+        return db.any(sql, {clubname, userid});
     }
-    
+}
+function listbyTouch(){
+    const sql = `
+        SELECT * FROM post
+        ORDER BY touch DESC
+        LIMIT 12
+    `;
+    return db.any(sql);
 }
 
 function create(
@@ -126,5 +133,6 @@ module.exports = {
     create,
     getdetail,
     deletepost,
-    listByCategory
+    listByCategory,
+    listbyTouch
 };

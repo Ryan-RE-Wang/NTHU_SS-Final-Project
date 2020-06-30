@@ -32,8 +32,9 @@ class Article_Cover extends React.Component {
     }
 
     componentDidMount() {
-        console.log(this.props.clubname)
+        
         listPostsbyclub(this.props.clubname, null).then(posts => {
+            
             this.setState = {
                 article: posts
             }
@@ -43,6 +44,32 @@ class Article_Cover extends React.Component {
     
 
     render() {
+
+        let children = (<div></div>)
+        if (this.state.article.length) {
+            console.log(this.state.article)
+            children = this.state.article.map((p)=> (
+                <Col xs={12} md={6} lg={3} key={p.id}>
+                <div className="card1">
+                    <div className="card1_PandD">
+                        <div className="picture_i"><img src={baseUrl+p.fileurl+lasturl} alt={p.title} /></div>
+                        <div className = "article_describe">
+                            <div className = "bbtn_div">
+                                <svg className="bi bbtn bi-three-dots-vertical"  viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path fillRule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
+                                </svg>
+                                <div className="dropdown-content">
+                                        <Link><div className="dropdownbtn" onClick={()=>this.props.select('5')}>Read</div></Link>
+                                        <div className="dropdownbtn" onClick={() =>this.handleDelete(p.id)}>Delete</div>
+                                </div>
+                            </div>
+                            <p className="picture_d1">{p.title}</p>
+                            <p className="picture_d2">{p.startdatetime}</p>
+                        </div>
+                    </div>
+                </div>
+                </Col>))
+        }
 
         const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
         const lasturl = '.jpeg';
@@ -76,28 +103,7 @@ class Article_Cover extends React.Component {
                 </div>
                     <Row className='d-flex justify-content-center'><h3>latest articles</h3></Row>
                     <Row >
-                        {this.state.article.map(p=>
-                            <Col xs={12} md={6} lg={3} key={p.id}>
-                            <div className="card1">
-                                <div className="card1_PandD">
-                                    <div className="picture_i"><img src={baseUrl+p.fileurl+lasturl} alt={p.title} /></div>
-                                    <div className = "article_describe">
-                                        <div className = "bbtn_div">
-                                            <svg className="bi bbtn bi-three-dots-vertical"  viewBox="0 0 16 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                                                <path fillRule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
-                                            </svg>
-                                            <div className="dropdown-content">
-                                                    <Link><div className="dropdownbtn" onClick={()=>this.props.select('5')}>Read</div></Link>
-                                                    <div className="dropdownbtn" onClick={() =>this.handleDelete(p.id)}>Delete</div>
-                                            </div>
-                                        </div>
-                                        <p className="picture_d1">{p.title}</p>
-                                        <p className="picture_d2">{p.startdatetime}</p>
-                                    </div>
-                                </div>
-                            </div>
-                            </Col>)
-                        }
+                        {children}
                             <Col xs={12} md={6} lg={3} key="add_button">
                             <div className="card2">
                             <       div className="picture_i"><img src="images/add1_background.jpg" alt="add_article" /></div>

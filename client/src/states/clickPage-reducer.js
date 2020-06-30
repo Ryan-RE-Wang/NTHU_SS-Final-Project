@@ -1,3 +1,5 @@
+import { StatisticLabel } from "semantic-ui-react"
+
 const initPageState = {
     id: '',
     title: '',
@@ -29,8 +31,8 @@ export function page(state = initPageState, action) {
             }
         case '@POST/START-FETCHING':
             return{
-                startFetching:true,
-                ...state
+                ...state,
+                startFetching:true
             }
         case '@POST/END-FETCHING':
             return{

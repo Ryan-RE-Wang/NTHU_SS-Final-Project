@@ -30,8 +30,7 @@ class Article extends React.Component {
         super(props);
 
         this.state = {
-            related: [],
-            post: {}
+            related: []
         }
 
         this.handleClick = this.handleClick.bind(this);
@@ -42,8 +41,12 @@ class Article extends React.Component {
         console.log(this.props.club)
         window.scrollTo(0, 0);
         listPostsbyclub(this.props.club, null).then(related => {
+            let relatepost = [];
+            relatepost = related.filter((rl) => {
+                return rl.id !== this.props.id
+            })
             this.setState({
-                related: related
+                related: relatepost
             })
         })
     }
@@ -64,7 +67,7 @@ class Article extends React.Component {
         if (this.state.related.length) {
             children = this.state.related.map(p => (
                 <div key={p.id} className='p-2'>
-                        <Link to='/article' replace onClick={() => this.handleClick(p.id)}><img className='' src={'https://team11final.s3-us-west-1.amazonaws.com/'+ p.fileurl+'.jpeg'} alt="" height="200rem" margin="0 auto"/></Link>
+                        <Link to='/article' replace onClick={() => this.handleClick(p.id, p.club)}><img className='' src={'https://team11final.s3-us-west-1.amazonaws.com/'+ p.fileurl+'.jpeg'} alt="" height="200rem" margin="0 auto"/></Link>
                     </div>
             ))
         }
@@ -223,10 +226,19 @@ class Article extends React.Component {
     }  
 
 
-    handleClick() {
-        this.props.dispatch(getArticleFromDB(this.props.id));
-        this.props.dispatch(getClub(this.props.club));  
-        createTouch(this.props.id);
+    handleClick(id, club) {
+        this.props.dispatch(getArticleFromDB(id));
+        this.props.dispatch(getClub(club));  
+        createTouch(id);
+        listPostsbyclub(club, null).then(related => {
+            let relatepost = [];
+            relatepost = related.filter((rl) => {
+                return rl.id !== this.props.id
+            })
+            this.setState({
+                related: relatepost
+            })
+        })
     }
 }
 
