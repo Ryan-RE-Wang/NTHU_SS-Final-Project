@@ -56,6 +56,7 @@ function listbyTouch(){
         ORDER BY touch DESC
         LIMIT 12
     `;
+    
     return db.any(sql);
 }
 

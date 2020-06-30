@@ -44,6 +44,7 @@ router.get('/getPostbyCategory',function(req,res,next){
 router.get('/getPostbyTouch',function(req,res,next){
     postModel.listbyTouch().then(
         (posts)=>{
+            
             res.json(posts) ;
         }
     ).catch(next);
