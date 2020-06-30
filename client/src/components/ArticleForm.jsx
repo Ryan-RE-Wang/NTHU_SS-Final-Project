@@ -621,7 +621,7 @@ class ArticleForm extends React.Component {
             this.state.locationValue,
             this.state.fileName,
             this.state.tags,
-            mode, 
+            true, 
             this.state.club, 
             this.props.userId).then(() => {
             // this.listPosts(this.props.searchText);

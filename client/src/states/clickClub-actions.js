@@ -22,9 +22,11 @@ function fail(clubdetail) {
 export function getClub(clubname){
     return (dispatch,getState) => {
 
+        console.log(clubname)
+
         dispatch(start());
         
-        return getClubdetail(clubname)  
+        return getClubdetail(clubname.clubname)  
         .then((clubdetail) => {
             console.log(clubdetail)
             dispatch(success(clubdetail));

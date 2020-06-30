@@ -75,8 +75,8 @@ class Article extends React.Component {
         const handleCalender = () => {
             
             var gapi = window.gapi;
-            var CLIENT_ID = '413577164940-kdvthgkkl95a3873sdbmm42rri7f0db1.apps.googleusercontent.com';
-            var API_KEY = 'AIzaSyBk04ooViicGs8OwE-jB-4_Z7FhkRN7-LA'
+            var CLIENT_ID = '731245023598-shdnf625gde65agti83g4l40m4k7mneb.apps.googleusercontent.com';
+            var API_KEY = 'AIzaSyCb8gFteZezCOfpUHYokXG-EN_xBsrIyts'
             var DISCOVERY_DOCS = ['https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'];
             var SCOPES = 'https://www.googleapis.com/auth/calendar.events';
             gapi.load('client:auth2', () => {
@@ -95,14 +95,15 @@ class Article extends React.Component {
                         'summary': this.props.title,
                         'location': this.props.location,
                         'start': {
-                        'dateTime': this.props.startdatetime + '-07:00',
-                        'timeZone': 'Taipei/Taiwan'
+                        'dateTime': this.props.startdatetime + ':00-07:00',
+                        'timeZone': 'Asia/Taipei'
                         },
                         'end': {
-                        'dateTime': this.props.enddatetime + '-07:00',
-                        'timeZone': 'Taipei/Taiwan'
+                        'dateTime': this.props.enddatetime + ':00-07:00',
+                        'timeZone': 'Asia/Taipei'
                         }
                     };
+                    console.log(event)
                         
                     var request = gapi.client.calendar.events.insert({
                         'calendarId': 'primary',

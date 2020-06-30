@@ -42,7 +42,7 @@ function listbyclub(clubname, userid) {
         const sql = `
             SELECT *
             FROM post
-            WHERE club = $<clubname> AND userid = $<userid>
+            WHERE club = $<clubname>
             ORDER BY startdatetime
             LIMIT 12
         `;
@@ -118,9 +118,10 @@ function listByCategory(category='',order=''){
     }else if(order === 'Popularity'){
         odr = 'touch';
     }
-    console.log(odr);
+    console.log(odr, category);
 
-    if(category==='ALL'){
+    if(category=='All'){
+        
         const sql=`
         SELECT * FROM post 
         ORDER BY ${odr}
@@ -132,7 +133,7 @@ function listByCategory(category='',order=''){
         WHERE $<category> = ANY(tags)
         ORDER BY ${odr}
         `;
-        return db.any(sql,{odr,category});
+        return db.any(sql,{category});
     }
 
 }
