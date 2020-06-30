@@ -24,13 +24,13 @@ router.get('/getPostBySearch', function(req, res, next) {
 
 router.get('/getPostbyclub', function(req, res, next) {
     const {clubname, userid} = req.query;
+    console.log(clubname +'router')
     
     postModel.listbyclub(clubname, userid).then(posts => {
-        return posts;
-    }).then(post => {
-            res.json(post)
+            res.json(posts)
     }).catch(next);
 });
+
 router.get('/getPostbyCategory',function(req,res,next){
     const {category, order} = req.query;
 
@@ -45,6 +45,7 @@ router.get('/getPostbyCategory',function(req,res,next){
 router.get('/getPostbyTouch',function(req,res,next){
     postModel.listbyTouch().then(
         (posts)=>{
+            
             res.json(posts) ;
         }
     ).catch(next);
@@ -97,8 +98,8 @@ router.post('/:id', function(req, res, next) {
     }).catch(next);
 });
 
-router.get('/get', function(req, res, next) {
-    const id = req.query;
+router.get('/getdetail', function(req, res, next) {
+    const {id} = req.query;
     if (!id) {
         const err = new Error('Post ID are required');
         err.status = 400;

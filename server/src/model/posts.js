@@ -5,7 +5,6 @@ if (!global.db) {
 
 function listBySearch(searchText = '', start = '', end = '') {
 
-    console.log(searchText, start, end)
     let where = [];
     // var startDateTime = start + 'T00:00';
     // var endDateTime = end + 'T00:00';
@@ -18,7 +17,6 @@ function listBySearch(searchText = '', start = '', end = '') {
     else if (end) 
         where.push(`enddatetime >= ${end+'T00:00'}`);
     
-    console.log(where, 'QAQ')
     const sql = `
         SELECT *
         FROM post
@@ -29,35 +27,36 @@ function listBySearch(searchText = '', start = '', end = '') {
     return db.any(sql, [searchText, start, end]);
 }
 function listbyclub(clubname, userid) {
-
+    console.log(clubname + 'model')
     if (!userid) {
         const sql = `
             SELECT *
             FROM post
-            WHERE club = $1
+            WHERE club = $<clubname>
             ORDER BY startdatetime
             LIMIT 12
         `;
-        return db.any(sql, [clubname, userid]);
+        return db.any(sql, {clubname});
     }
 
     else {
         const sql = `
             SELECT *
             FROM post
-            WHERE club = $1 AND userid = $2
+            WHERE club = $<clubname> AND userid = $<userid>
             ORDER BY startdatetime
             LIMIT 12
         `;
-        return db.any(sql, [clubname, userid]);
+        return db.any(sql, {clubname, userid});
     }
 }
 function listbyTouch(){
     const sql = `
-        SELECT FROM post
-        ORDER BY touch
+        SELECT * FROM post
+        ORDER BY touch DESC
         LIMIT 12
     `;
+    
     return db.any(sql);
 }
 
@@ -96,10 +95,9 @@ function create(
 
 function getdetail(id) {
     const sql = `
-    SELECT title, content, startdatetime, enddatetime, ticket, location, fileurl, tags, club
+    SELECT *
     FROM post
     WHERE id = $<id>
-    RETURN
     `
     return db.one(sql, {id});
 }
@@ -114,7 +112,6 @@ function deletepost(id) {
 
 function listByCategory(category='',order=''){
     let odr;
-    console.log(category + 'QAQQ')
     if(order === 'AZ'){
         odr = 'title';
     }else if(order === 'Date'){

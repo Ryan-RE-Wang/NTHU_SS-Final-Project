@@ -11,7 +11,9 @@ import PlaceIcon from '@material-ui/icons/Place';
 import TextField from '@material-ui/core/TextField';
 import EventIcon from '@material-ui/icons/Event';
 import HTMLEllipsis from 'react-lines-ellipsis/lib/html'
-import {getPage} from 'states/clickPage-action.js';
+import {getPage,getArticleFromDB} from 'states/clickPage-action.js';
+import {getClub} from 'states/clickClub-actions.js';
+import {createTouch} from 'api/posts.js';
 import {connect} from 'react-redux';
 
 import './SearchPost.css'
@@ -98,9 +100,12 @@ class SearchPost extends React.Component {
     }
 
     handleClick() {
-        this.props.dispatch(getPage(this.props.p));  
+            this.props.dispatch(getArticleFromDB(this.props.p.id));
+            this.props.dispatch(getClub(this.props.p.club));  
+            createTouch(this.props.p.id);
+        }
     }
-}
+
 export default connect(state => ({
 	...state.page
 }))(SearchPost);

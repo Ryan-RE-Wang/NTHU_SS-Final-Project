@@ -16,6 +16,7 @@ import Footer_Content from 'components/Footer_Content.jsx';
 import {listPostsByCategory} from 'api/posts.js';
 import {connect} from 'react-redux';
 import {changeCategory, changeOrder} from 'states/category-action.js';
+import MyLoader from 'components/MyLoader.jsx';
 
 
 
@@ -180,8 +181,9 @@ class CatalogPage extends React.Component{
                         </div>
                         <div className=' col-12 col-lg-9 posts-table'>
                             <div className= 'posts-table-heading'>{this.props.category}</div>
-                                {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
-                            <div>
+                                <div className={`${this.state.postLoading ? 'd-block ' :'d-none'}`}><MyLoader/></div>
+
+                            <div className={`${!this.state.postLoading ? 'd-block ' :'d-none'}`}>
                                 {children}
                                 {   (this.state.posts.length)?
                                     <Button id='showMoreBtn' className='p-2' onClick={this.listMorePosts}>

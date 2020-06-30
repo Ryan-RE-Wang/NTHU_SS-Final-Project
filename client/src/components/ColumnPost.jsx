@@ -4,8 +4,9 @@ import { Jumbotron } from 'reactstrap';
 import './ColumnPost.css'
 import { connect } from 'react-redux';
 import {getArticleFromDB} from 'states/clickPage-action.js';
+import {Link} from 'react-router-dom'
 
-class ColumnPost extends React.Component{
+export default class ColumnPost extends React.Component{
     static propTypes = {
         // postid:-1,
         // postname:'',
@@ -78,7 +79,4 @@ class ColumnPost extends React.Component{
 }
 
 
-export default connect(state => ({
-	...state.login,
-	loginPageOpen: state.loginPage.loginPageOpen
-}))(LoginForm);
+

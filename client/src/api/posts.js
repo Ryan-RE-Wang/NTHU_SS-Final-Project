@@ -67,7 +67,7 @@ export function listPostsbyclub(clubname, userid) {
         return res.data;
     });
 }
-export function listPostByTouch(){
+export function listPostsByTouch(){
     let url = `${postBaseUrl}/posts/getPostbyTouch`;
 
     console.log(`Making GET request to: ${url}`);
@@ -128,11 +128,17 @@ export function createTouch(id) {
 }
 
 export function getpostdetail(id) {
-    let url = `${postBaseUrl}/posts/get`;
+    let url = `${postBaseUrl}/posts/getdetail`;
 
     console.log(`Making getdetail request to: ${url}`);
 
-    return axios.get(url, {id}).then(function(res) {
+    let query = [];
+    if (id)
+        query.push(`id=${id}`)
+    if (query.length)
+        url += '?' + query.join('&');
+
+    return axios.get(url).then(function(res) {
         if (res.status !== 200)
             throw new Error(`Unexpected response code: ${res.status}`);
 
