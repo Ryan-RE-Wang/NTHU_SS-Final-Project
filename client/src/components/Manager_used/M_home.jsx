@@ -10,8 +10,13 @@ import {connect} from 'react-redux';
 const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
 const lasturl = '.jpeg';
 
-class Home extends React.Component {
+export default class Home extends React.Component {
     static propTypes = {
+        clubpic: PropTypes.string,
+        clubname: PropTypes.string,
+        description: PropTypes.string,
+        facebook: PropTypes.string,
+        instagram: PropTypes.string
     };
 
     constructor(props) {
@@ -40,7 +45,3 @@ class Home extends React.Component {
         )
     }
 }
-
-export default connect(state => ({
-    ...state.club
-}))(Home);

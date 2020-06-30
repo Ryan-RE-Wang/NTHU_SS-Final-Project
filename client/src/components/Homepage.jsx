@@ -183,8 +183,9 @@ class Homepage extends React.Component {
                 
 
                 {/* column\ */}
-                <div className='homepage-column justify-content-center'>
+                <div className={`homepage-column justify-content-center${postsRecent.length<=0 && postsPop.length<=0 ?"d-none":"d-none"}`}>
                     <Row>
+    
                         <div className='col-12 col-lg-6 d-block'> 
                             <ColumnPost reverse={false} postId = {mostRecent.id} postname={mostRecent.title} 
                             postContent={mostRecent.content} fileUrl={mostRecent.fileurl}/>
@@ -240,7 +241,6 @@ class Homepage extends React.Component {
             masking: true,
         }, () => {
             listPostsByDate(searchText, start, end).then(posts => {
-                
                     this.setState({
                         postsRecent: posts, 
                         postLoading: false
@@ -267,7 +267,6 @@ class Homepage extends React.Component {
             masking: true,
         }, () => {
             listPostsByTouch().then(posts => {
-                
                     this.setState({
                         postsPop: posts, 
                         postLoading: false
