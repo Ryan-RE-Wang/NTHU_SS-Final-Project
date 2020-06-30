@@ -1,5 +1,5 @@
 # Define from what image we want to build our own image from.
-FROM node:6.10
+FROM node:latest
 
 # Create the working directory that holds the application code inside our image.
 RUN mkdir /app
