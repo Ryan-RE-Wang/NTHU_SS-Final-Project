@@ -4,6 +4,7 @@ import { Jumbotron } from 'reactstrap';
 import './ColumnPost.css'
 import { connect } from 'react-redux';
 import {getArticleFromDB} from 'states/clickPage-action.js';
+import {Link} from 'react-router-dom'
 
 export default class ColumnPost extends React.Component{
     static propTypes = {
@@ -76,3 +77,6 @@ export default class ColumnPost extends React.Component{
         return str.split(/\s+/).slice(0,20).join(" ");
     }
 }
+
+
+
