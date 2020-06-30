@@ -61,7 +61,7 @@ class Article_Cover extends React.Component {
                                     <path fillRule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                                 </svg>
                                 <div className="dropdown-content">
-                                        <Link><div className="dropdownbtn" onClick={()=>this.props.select('5')}>Read</div></Link>
+                                        <Link to='/article'><div className="dropdownbtn" onClick={()=>this.props.select('5')}>Read</div></Link>
                                         <div className="dropdownbtn" onClick={() =>this.handleDelete(p.id)}>Delete</div>
                                 </div>
                             </div>

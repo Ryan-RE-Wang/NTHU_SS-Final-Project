@@ -549,6 +549,7 @@ class ArticleForm extends React.Component {
     }
 
     handleCreatePost(mode) {        
+        console.log('Hello')
         // if (!this.state.titleValue || this.state.titleValue == '') {
         //     this.setState({
         //         titleDanger: true,

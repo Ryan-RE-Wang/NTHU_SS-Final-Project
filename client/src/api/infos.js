@@ -9,16 +9,16 @@ const infoKey = 'infos';
 const infoBaseUrl = 'http://localhost:4000/api/infos';
 
 
-export function getInfo(userId = -1) {
-    const url = `${infoBaseUrl}`;
-    return axios.get(url, {
-        userId
-    }).then(function(res) {
-        if (res.status !== 200)
-            throw new Error(`Unexpected response code: ${res.status}`);
-        return res.data;
-    });
-}
+// export function getInfo(userId = -1) {
+//     const url = `${infoBaseUrl}`;
+//     return axios.get(url, {
+//         userId
+//     }).then(function(res) {
+//         if (res.status !== 200)
+//             throw new Error(`Unexpected response code: ${res.status}`);
+//         return res.data;
+//     });
+// }
 export function createInfo(username = '',password = '', email = '') {
     const url = `${infoBaseUrl}/createInfo`;
     return axios.post(url, {
@@ -59,7 +59,7 @@ export function login(email = '',password = '') {
 export function loginFB(email){
     const url = `${infoBaseUrl}/loginFB`;
     console.log("login fb");
-    return axios.get(url, {
+    return axios.post(url, {
         email
     }).then(function(res) {
         if (res.status !== 200)

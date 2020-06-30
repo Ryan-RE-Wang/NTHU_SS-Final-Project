@@ -36,7 +36,7 @@ class ColumnPost extends React.Component{
         const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
         const lasturl = '.jpeg';
         const pictureurl = baseUrl+this.props.fileUrl+lasturl;
-        let discription = this.props.postContent;
+        let discription = this.getWords(this.props.postContent);
         if(this.props.reverse === true){
             return(
             <div className='columnPost '>

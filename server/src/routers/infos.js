@@ -26,19 +26,23 @@ router.post('/createInfo',function(req, res, next){
             InfoModel.create(username, password, email)
             .then(
                 (info) => {
+                    console.log(info)
                     res.json({
                         ...info,
+                        userId:info.id,
                         loginSuccess: true,
                         msg: 'create new account successfully'
                     })
                 }
-            )
+            ).catch(err => {
+                console.log(" QAQ" + err)
+            })
     }).catch(next)
 });
 // create info FB
 router.post('/createInfoFB',function(req, res, next){
     const {username, email} = req.body;
-    console.log("create user info", username, email)
+    console.log("create user info fb", username, email)
 
     InfoModel.checkInfo(email)
     .then(
@@ -53,8 +57,10 @@ router.post('/createInfoFB',function(req, res, next){
             InfoModel.createFB(username, email)
             .then(
                 (info) => {
+                    console.log(info)
                     res.json({
                         ...info,
+                        userId:info.id,
                         loginSuccess: true,
                         msg: 'create new account successfully'
                     })
@@ -85,14 +91,16 @@ router.post('/login',function(req,res,next){
     }).catch(next);
 });
 // login fb
-router.get('/loginFB',function(req,res,next){
-    const {email} = req.query;
+router.post('/loginFB',function(req,res,next){
+    const {email} = req.body;
     console.log(email, "use facebook to login");
     InfoModel.loginFB(email)
     .then(
         (info) => {  
+            console.log(info)
             res.json({
                 ...info,
+                userId:info.id,
                 loginSuccess:true,
                 msg:'login fb success'
             })

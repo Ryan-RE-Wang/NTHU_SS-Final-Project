@@ -39,6 +39,7 @@ export function login(email, password){    // high order action genrator
         return loginFromAPI(email,password)  
         .then((userInfo) => {
             if(userInfo.loginSuccess){
+
                 dispatch(successLogin(userInfo))
             }else{
                 dispatch(failLogin(userInfo))
@@ -85,7 +86,10 @@ export function loginWithFB(){
 
                 return loginFBFromAPI(response.email).then((userInfo) => {
                     //dispatch(getUserId(userId))
-                    dispatch(LoginSuccessFB(response))
+                    console.log(userInfo)
+                    if(userInfo.loginSuccess)
+                        dispatch(LoginSuccessFB(userInfo))
+                    else dispatch(failLogin(userInfo))
                 })
         }).catch(err => {
             console.error("fb login fail", err);
@@ -96,10 +100,16 @@ export function createAccountWithFB(){
     return (dispatch,getstate) =>{
         dispatch(startLogin());
         return facebookLoginFromAPI()
-        .then(
+        .then( // add a function'  
+            (response) => {                   
+            if(response) return getFBUserDataFromAPI().then((userdata)=>{
+                return userdata
+            })
+        }).then(
             (response) => {
                 if(response){
-                    return createInfoFBFromAPI(response.username,response.email).then((userInfo) => {
+                    
+                    return createInfoFBFromAPI(response.name,response.email).then((userInfo) => {
                         return userInfo
                     })
                 }

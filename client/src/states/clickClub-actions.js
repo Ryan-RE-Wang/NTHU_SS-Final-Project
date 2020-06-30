@@ -22,7 +22,7 @@ function fail(clubdetail) {
 export function getClub(clubname){
     return (dispatch,getState) => {
 
-        console.log(clubname)
+        console.log(clubname.clubname)
 
         dispatch(start());
         
