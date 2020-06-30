@@ -209,10 +209,10 @@ class Homepage extends React.Component {
                         </div>
                         <div className='grid-container d-flex justify-content-center'>                 
                             <div className='row px-0 mx-0'>
-                            {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                                 {childrenPop}
                             </div>
                         </div>
+                        {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                     </div>
                 </div>
             </div>
