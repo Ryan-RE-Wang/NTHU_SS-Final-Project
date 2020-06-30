@@ -16,7 +16,7 @@ function listBySearch(searchText = '', start = '', end = '', startofPost) {
         where.push(`enddatetime >= ${end+'T00:00'}`);
     if (startofPost)
         where.push(`id > ${startofPost}`)
-    
+    console.log(where)
     const sql = `
         SELECT *
         FROM post

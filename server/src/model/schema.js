@@ -69,17 +69,17 @@ const dataSql = `
     SELECT
         i,
         'word' || i || ' word' || (i+1) || ' word' || (i+2),
-        'word' || i || ' word' || (i+1) || ' word' || (i+2), 
+        'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 
         '2017-05-24T10:30',
         '2017-05-24T10:30',
         '0',
         'Mong Ming Wei',
-        '1681ca51-9b78-4dcd-a319-1512215c2adf',
-        '{a, b, c}',
+        '52f23066-a8b8-4ad5-941f-b06ac59dc085',
+        '{Drama, Food, Competition}',
         0,
-        'Hello Kitty', 
+        -1,
         true,
-        'A'
+        'Pop Dance Club'
 
     FROM generate_series(1, 20) AS s(i) ORDER BY RANDOM();
     -- Populate dummy clubs
