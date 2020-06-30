@@ -34,17 +34,19 @@ class Article_Cover extends React.Component {
     componentDidMount() {
         
         listPostsbyclub(this.props.clubname, null).then(posts => {
-            
-            this.setState = {
+            console.log(posts)
+            this.setState ({
                 article: posts
-            }
+            })
         })
     }
 
     
 
     render() {
-
+        const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
+        const lasturl = '.jpeg';
+        
         let children = (<div></div>)
         if (this.state.article.length) {
             console.log(this.state.article)
@@ -71,8 +73,6 @@ class Article_Cover extends React.Component {
                 </Col>))
         }
 
-        const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
-        const lasturl = '.jpeg';
         return (
             <div className="Article">
                 <Container >
