@@ -5,7 +5,7 @@ import './ColumnPost.css'
 import { connect } from 'react-redux';
 import {getArticleFromDB} from 'states/clickPage-action.js';
 
-class ColumnPost extends React.Component{
+export default class ColumnPost extends React.Component{
     static propTypes = {
         // postid:-1,
         // postname:'',
@@ -76,9 +76,3 @@ class ColumnPost extends React.Component{
         return str.split(/\s+/).slice(0,20).join(" ");
     }
 }
-
-
-export default connect(state => ({
-	...state.login,
-	loginPageOpen: state.loginPage.loginPageOpen
-}))(LoginForm);

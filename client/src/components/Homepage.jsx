@@ -42,16 +42,19 @@ class Homepage extends React.Component {
             postsRecent: [],
             postsPop:[], 
             hasMore: true,
-            redirect: false
+            redirect: false,
+            hasMoreRecent: false,
+            hasMorePop: false
         }
 
         this.listPostsByDate = this.listPostsByDate.bind(this);
-        this.listMorePosts = this.listMorePosts.bind(this);
+        this.listMoreDatePosts = this.listMoreDatePosts.bind(this);
+        this.listMorePopPosts = this.listMorePopPosts.bind(this)
         this.handleSearchKeyPress = this.handleSearchKeyPress.bind(this);
         this.handleClearSearch = this.handleClearSearch.bind(this);
         this.handleStartDateChange = this.handleStartDateChange.bind(this);
         this.handleEndDateChange = this.handleEndDateChange.bind(this);
-        this.listPostsByTouch = this.listPostsByTouch(this);
+        this.listPostsByTouch = this.listPostsByTouch.bind(this);
     }
 
    
@@ -104,8 +107,11 @@ class Homepage extends React.Component {
                 />)}  
             /> ;
         }
-        const {postsRecent,postsPop} = this.props;
+        const {postsRecent,postsPop} = this.state;
+
         return (
+            
+            
             <div className='homepage'>
                 <img className='image-fluid homepage-image' src="/images/02.png" alt=""/>
                 <Form className='form'>
@@ -146,16 +152,17 @@ class Homepage extends React.Component {
                         <div className='recent-event'> Recent Events
                             <img id='most-popular-img' src='./images/bd5.png'/>
                         </div>
-                        
                         <div className='grid-container d-flex justify-content-center'>                 
                             <div className='row px-0 mx-0'>
-                                {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                                 {childrenRecent}                                
                             </div>
                         </div>
-
+                        {postLoading && <Alert color='warning' className='loading'>Loading...</Alert>}
                         <div>
-                            <button id='seeMore-btn' value='startdatetime' onClick={this.listMorePosts}>See more<ExpandMoreIcon/></button>
+                            {
+                                this.state.hasMoreRecent &&
+                                <button  id='seeMore-btn' value='startdatetime' onClick={this.listMoreDatePosts}>See more<ExpandMoreIcon/></button>
+                            }
                         </div>
                     </div>
         
@@ -163,8 +170,9 @@ class Homepage extends React.Component {
                 
 
                 {/* column\ */}
-                <div className='homepage-column justify-content-center'>
+                {/* <div className={`homepage-column justify-content-center${postsRecent.length<=0 && postsPop.length<=0 ?"d-none":"d-none"}`}>
                     <Row>
+    
                         <div className='col-12 col-lg-6 d-block'> 
                             <ColumnPost reverse={false} postId = {postsRecent[0].id} postname={postsRecent[0].title} 
                             postContent={postsRecent[0].content} fileUrl={postsRecent[0].fileurl}/>
@@ -177,7 +185,7 @@ class Homepage extends React.Component {
                             postContent={postsPop[0].content} fileUrl={postsPop[0].fileurl}/>
                         </div> 
                     </Row>  
-                </div>
+                </div> */}
                 {/* pupular event */}
                 <div className='d-flex homepage-margin justify-content-center'>
                     <div className='homepage-content '>
@@ -191,7 +199,7 @@ class Homepage extends React.Component {
                             </div>
                         </div>
                         <div>
-                            <button id='seeMore-btn' value='touch' onClick={this.listMorePosts}>See more<ExpandMoreIcon/></button>
+                            {/* <button id='seeMore-btn' value='touch' onClick={this.listMorePopPosts}>See more<ExpandMoreIcon/></button> */}
                         </div>
                     </div>
                 </div>
@@ -220,12 +228,11 @@ class Homepage extends React.Component {
             masking: true,
         }, () => {
             listPostsByDate(searchText, start, end).then(posts => {
-                
-                    this.setState({
-                        postsRecent: posts, 
-                        postLoading: false
-                    });
-                
+                this.setState({
+                    postsRecent: posts, 
+                    postLoading: false,
+                    hasMoreRecent: posts.length > 0
+                });
             }).catch(err => {
                 console.error('Error listing posts', err);
                 this.setState({
@@ -234,10 +241,9 @@ class Homepage extends React.Component {
                 })
             })
         })
-
         setTimeout(() => {
             this.setState({
-                masking: false
+                masking: false,
             });
         }, 600);   
     }
@@ -247,7 +253,6 @@ class Homepage extends React.Component {
             masking: true,
         }, () => {
             listPostsByTouch().then(posts => {
-                
                     this.setState({
                         postsPop: posts, 
                         postLoading: false
@@ -264,50 +269,38 @@ class Homepage extends React.Component {
 
         setTimeout(() => {
             this.setState({
-                masking: false
+                masking: false,
             });
         }, 600);   
     }
-    listMorePosts(e) {
+    listMoreDatePosts() {
         
-        const order = e.target.value;
-        const posts = (order === 'startdatetime') ? this.state.postsRecent : this.state.postsPop;
-
-        if (posts.length < 1) {
+        if (this.state.postsRecent.length < 1) {
             return;
         }
         this.setState({
             postLoading: true
         });
-
-        let startpoint;
-        if (order === 'touch') {
-            startpoint = posts[posts.length - 1].touch;
-        }
-
-        listPosts(this.state.searchText, this.state.category, this.state.start, this.state.end, this.state.mode, this.state.club, order, this.state.userid, startpoint)
+        let startpoint = this.state.postsRecent[this.state.postsRecent.length - 1].id;
+        console.log(startpoint);
+        listPostsByDate(null, this.state.start, null, this.state.postsRecent[this.state.postsRecent.length - 1].id)
         .then(posts => {
-            if (order === 'startdatetime')
-                this.setState({
-                    ...this.state,
-                    postsRecent: [...this.state.postsRecent, ...posts], 
-                    hasMore: posts.length > 0
-                });
-            else {
-                console.log("pop");
-
-                this.setState({
-                    ...this.state,
-                    postsPop: [...this.state.postsPop, ...posts], 
-                    hasMore: posts.length > 0
-                });
-            }
+            this.setState({
+                ...this.state,
+                postsRecent: [...this.state.postsRecent, ...posts], 
+                hasMoreRecent: posts.length > 0
+            });
+            console.log(this.state.hasMore)
         }).catch(err => {
             console.error('Error listing posts', err);
         }).then(() => this.setState({
             postLoading: false
         }))
 
+    }
+
+    listMorePopPosts() {
+        let startpoint = this.state.postsPop[this.state.postsPop.length - 1].touch;
     }
 
 

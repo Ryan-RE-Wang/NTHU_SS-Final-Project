@@ -46,10 +46,10 @@ function endListPosts(posts) {
 }
 
 
-export function listPosts(searchText, startDate, endDate) {
+export function listPosts(searchText, startDate, endDate, startofPost) {
     return (dispatch, getState) => {
         dispatch(startLoading());
-        return listPostsFromApi(searchText, startDate, endDate).then(posts => {
+        return listPostsFromApi(searchText, startDate, endDate, startofPost).then(posts => {
             dispatch(endListPosts(posts));
         }).catch(err => {
             console.error('Error listing posts', err);

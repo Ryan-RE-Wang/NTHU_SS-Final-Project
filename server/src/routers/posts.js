@@ -12,9 +12,8 @@ router.use(accessController); // Allows cross-origin HTTP requests
 
 // List
 router.get('/getPostBySearch', function(req, res, next) {
-    const {searchText, start, end} = req.query;
-    console.log(req.query)
-    postModel.listBySearch(searchText, start, end).then(posts => {
+    const {searchText, start, end, startofPost} = req.query;
+    postModel.listBySearch(searchText, start, end, startofPost).then(posts => {
         return posts;
     }).then(post => {
             res.json(post)
@@ -24,13 +23,13 @@ router.get('/getPostBySearch', function(req, res, next) {
 
 router.get('/getPostbyclub', function(req, res, next) {
     const {clubname, userid} = req.query;
+    console.log(clubname +'router')
     
     postModel.listbyclub(clubname, userid).then(posts => {
-        return posts;
-    }).then(post => {
-            res.json(post)
+            res.json(posts)
     }).catch(next);
 });
+
 router.get('/getPostbyCategory',function(req,res,next){
     const {category, order} = req.query;
 
@@ -97,8 +96,8 @@ router.post('/:id', function(req, res, next) {
     }).catch(next);
 });
 
-router.get('/get', function(req, res, next) {
-    const id = req.query;
+router.get('/getdetail', function(req, res, next) {
+    const {id} = req.query;
     if (!id) {
         const err = new Error('Post ID are required');
         err.status = 400;
