@@ -12,13 +12,12 @@ import PopularArticle from 'components/PopularArticle.jsx';
 import ColumnPost from 'components/ColumnPost.jsx';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-import TextField from '@material-ui/core/TextField';
 import {connect} from 'react-redux';
 import {setSearchText, setSearchStartDate, setSearchEndDate} from 'states/post-actions.js';
 
 import './Homepage.css'
 import {listPostsbyclub} from 'api/posts.js';
-import {listPostsByTouch} from 'api.posts.js';
+import {listPostsByTouch} from 'api/posts.js';
 
 class Homepage extends React.Component {
 
@@ -105,10 +104,8 @@ class Homepage extends React.Component {
                 />)}  
             /> ;
         }
-
+        const {postsRecent,postsPop} = this.props;
         return (
-            
-            const {postsRecent,postsPop} = this.props;
             <div className='homepage'>
                 <img className='image-fluid homepage-image' src="/images/02.png" alt=""/>
                 <Form className='form'>
