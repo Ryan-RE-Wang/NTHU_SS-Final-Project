@@ -16,7 +16,7 @@ function listBySearch(searchText = '', start = '', end = '', startofPost) {
         where.push(`enddatetime >= ${end+'T00:00'}`);
     if (startofPost)
         where.push(`id > ${startofPost}`)
-    
+    console.log(where)
     const sql = `
         SELECT *
         FROM post
@@ -27,7 +27,6 @@ function listBySearch(searchText = '', start = '', end = '', startofPost) {
     return db.any(sql, [searchText, start, end, startofPost]);
 }
 function listbyclub(clubname, userid) {
-    console.log(clubname + 'model')
     if (!userid) {
         const sql = `
             SELECT *
@@ -43,7 +42,7 @@ function listbyclub(clubname, userid) {
         const sql = `
             SELECT *
             FROM post
-            WHERE club = $<clubname> AND userid = $<userid>
+            WHERE club = $<clubname>
             ORDER BY startdatetime
             LIMIT 12
         `;
@@ -115,17 +114,28 @@ function listByCategory(category='',order=''){
     if(order === 'AZ'){
         odr = 'title';
     }else if(order === 'Date'){
-        odr == 'startdatetime';
+        odr = 'startdatetime';
     }else if(order === 'Popularity'){
-        odr == 'touch';
+        odr = 'touch';
     }
-    // WHERE $<catagory> = ANY(tags)
-    const sql=`
-    SELECT * FROM post 
-    
-    ORDER BY id
-    `;
-    return db.any(sql,{category,odr});
+    console.log(odr, category);
+
+    if(category=='All'){
+        
+        const sql=`
+        SELECT * FROM post 
+        ORDER BY ${odr}
+        `;
+        return db.any(sql);
+    }else {
+        const sql=`
+        SELECT * FROM post 
+        WHERE $<category> = ANY(tags)
+        ORDER BY ${odr}
+        `;
+        return db.any(sql,{category});
+    }
+
 }
 
 module.exports = {

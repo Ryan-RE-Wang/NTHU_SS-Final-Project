@@ -37,7 +37,6 @@ class Manager_dev extends React.Component {
     }
     
     componentDidMount() {
-        console.log(this.props.clubname);
         listPostsbyclub(this.props.clubname, null).then(posts => {
             this.setState({
                 posts: posts,

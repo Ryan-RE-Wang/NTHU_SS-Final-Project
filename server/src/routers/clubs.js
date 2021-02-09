@@ -21,6 +21,7 @@ router.post('/school', function(req, res, next) {
 // Create
 router.post('', function(req, res, next) {
     const {id, userid, school, clubname, facebook, instagram, clubpic, clubpassword, description} = req.body;
+    console.log(req.body)
     if (!id) {
         const err = new Error('There must be some form you are not complete!');
         err.status = 400;

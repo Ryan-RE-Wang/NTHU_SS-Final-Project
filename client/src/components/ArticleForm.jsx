@@ -423,21 +423,22 @@ class ArticleForm extends React.Component {
 
                     <div className="d-flex flex-wrap flex-row buttons justify-content-around">
                             <div className='p-2'>
-                                <Link to='/Manager'  style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                                <Link to='/'  style={{ color: 'inherit', textDecoration: 'inherit'}}>
                                     <Button
                                         variant="contained"
                                         color="default" 
+                                        onClick={() => this.handleCreatePost(false)}
                                     >
                                         <SaveIcon /> &nbsp; Save for later
                                     </Button>
                                 </Link>
                             </div>
                             <div className='p-2 '>
-                                <Link to='/Manager'  style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                                <Link to='/'  style={{ color: 'inherit', textDecoration: 'inherit'}}>
                                     <Button
                                         variant="contained"
                                         color="primary"
-                                        onClick={this.handleCreatePost}
+                                        onClick={() => this.handleCreatePost(true)}
                                     >
                                             <CloudUploadIcon /> &nbsp; Post
                                     </Button>
@@ -547,7 +548,8 @@ class ArticleForm extends React.Component {
         this.setState({tags})
     }
 
-    handleCreatePost() {        
+    handleCreatePost(mode) {        
+        console.log('Hello')
         // if (!this.state.titleValue || this.state.titleValue == '') {
         //     this.setState({
         //         titleDanger: true,

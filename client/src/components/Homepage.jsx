@@ -293,8 +293,7 @@ class Homepage extends React.Component {
         this.setState({
             postLoading: true
         });
-        let startpoint = this.state.postsRecent[this.state.postsRecent.length - 1].id;
-        console.log(startpoint);
+        
         listPostsByDate(null, this.state.start, null, this.state.postsRecent[this.state.postsRecent.length - 1].id)
         .then(posts => {
             this.setState({

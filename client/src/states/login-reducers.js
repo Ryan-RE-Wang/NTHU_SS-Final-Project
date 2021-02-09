@@ -60,10 +60,10 @@ export function login(state = initLoginFormState , action){
                 ...state,
                 alreadyLogin: true,
                 loading: false,
-                username: action.name,
+                username: action.username,
                 createAccountForm: false,
                 loginType:'FB',
-                userId:action.userid
+                userId:action.id
             }
         default:
             return{
