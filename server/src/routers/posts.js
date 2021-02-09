@@ -35,7 +35,7 @@ router.get('/getPostbyCategory',function(req,res,next){
 
     postModel.listByCategory(category, order).then(
         (posts)=>{
-            // console.log(posts);
+            console.log(posts);
             res.json(posts) ;
         }
     ).catch(next);

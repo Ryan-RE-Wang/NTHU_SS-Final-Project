@@ -32,19 +32,21 @@ class Article_Cover extends React.Component {
     }
 
     componentDidMount() {
-        
-        listPostsbyclub(this.props.clubname, null).then(posts => {
-            
-            this.setState = {
+        const id = (this.props.userId) ? this.props.userId : null;
+        listPostsbyclub(this.props.clubname, id).then(posts => {
+            console.log(posts)
+            this.setState ({
                 article: posts
-            }
+            })
         })
     }
 
     
 
     render() {
-
+        const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
+        const lasturl = '.jpeg';
+        
         let children = (<div></div>)
         if (this.state.article.length) {
             console.log(this.state.article)
@@ -59,7 +61,7 @@ class Article_Cover extends React.Component {
                                     <path fillRule="evenodd" d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0zm0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0z"/>
                                 </svg>
                                 <div className="dropdown-content">
-                                        <Link><div className="dropdownbtn" onClick={()=>this.props.select('5')}>Read</div></Link>
+                                        <Link to='/article'><div className="dropdownbtn" onClick={()=>this.props.select('5')}>Read</div></Link>
                                         <div className="dropdownbtn" onClick={() =>this.handleDelete(p.id)}>Delete</div>
                                 </div>
                             </div>
@@ -71,8 +73,6 @@ class Article_Cover extends React.Component {
                 </Col>))
         }
 
-        const baseUrl = 'https://team11final.s3-us-west-1.amazonaws.com/';
-        const lasturl = '.jpeg';
         return (
             <div className="Article">
                 <Container >

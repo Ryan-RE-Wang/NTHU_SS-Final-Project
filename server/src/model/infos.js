@@ -8,8 +8,9 @@ function create(username, password, email) {
     const sql = `
     INSERT INTO info ($<this:name>)
     VALUES ($<username>, $<password>, $<email>)
+    RETURNING*
     `;
-    return db.none(sql, {username, password, email});
+    return db.one(sql, {username, password, email});
 ;
 }
 function createFB(username, email){
@@ -26,7 +27,7 @@ function createFB(username, email){
 function loginFB(email){
     const sql =`
     SELECT * FROM info
-    WHERE password = email = $<email>
+    WHERE email = $<email>
     `;
     return db.one(sql, {email})
 }

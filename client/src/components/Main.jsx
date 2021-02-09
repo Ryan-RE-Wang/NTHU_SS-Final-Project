@@ -137,7 +137,7 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.nthuOpen) ? 'block' : 'none'}}>
-                            <Link to='/category' className='link'>  
+                            <Link to='/Manager' className='link'>  
                                 {childrenNthu}
                             </Link> 
                         </div>
@@ -149,7 +149,7 @@ class Main extends React.Component {
                             </div>
                         </div>
                         <div style={{display: (this.props.nctuOpen) ? 'block' : 'none'}}>
-                            <Link to='/category' className='link'>  
+                            <Link to='/Manager' className='link'>  
                                 {childrenNctu}
                             </Link> 
                         </div>
@@ -163,7 +163,7 @@ class Main extends React.Component {
                                 <EditIcon/>&nbsp;<span>Create club</span> 
                             </Link>                                
                         </div>
-                        <div className='sidebar-element sidebar-entry' onClick={this.handleNavbarToggle}>  
+                        <div className='sidebar-element sidebar-entry' onClick={() => this.handleNavbarToggle(this.props.clubname)}>  
                             <Link to='/userside_manager' className='link'>                       
                                 <InfoIcon/>&nbsp;<span>ABOUT US</span> 
                             </Link>                                
@@ -291,9 +291,7 @@ class Main extends React.Component {
     }
 
     handleNavbarToggle(club) {
-        if (!club.clubname) {
-            this.props.dispatch(getClub(club));
-        }
+        this.props.dispatch(getClub(club));
         this.props.dispatch(changeToggle());
 
     }
